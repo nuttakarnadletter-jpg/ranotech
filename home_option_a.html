@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rano Tech ผู้เชี่ยวชาญด้านท่อ PPR, HDPE, Smart Clamp, Plate Heat Exchanger และระบบทำความร้อน-ทำความเย็นสำหรับโรงงานและอาคาร" />
+  <title>Rano Tech | Industrial Pipe &amp; Heat Exchange Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #101a3f;
+      --muted: #66708f;
+      --line: #dfe4f2;
+      --paper: #ffffff;
+      --mist: #f5f7ff;
+      --navy: #07124d;
+      --blue: #1d2a9a;
+      --teal: #00a6c8;
+      --teal-soft: #e8f8fc;
+      --amber: #f2b441;
+      --steel: #eef2fb;
+      --shadow: 0 20px 60px rgba(29, 42, 154, .13);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans Thai", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--mist);
+      line-height: 1.65;
+      padding-bottom: 72px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, select, textarea { font: inherit; }
+    .container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, .94);
+      border-bottom: 1px solid rgba(217, 227, 234, .9);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: max-content;
+      color: var(--navy);
+      font-weight: 800;
+      letter-spacing: 0;
+      font-size: 24px;
+    }
+
+    .brand-logo {
+      width: 172px;
+      height: auto;
+      max-height: 54px;
+      object-fit: contain;
+    }
+
+    .nav-menu {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #263064;
+      font-size: 13.5px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nav-menu a { transition: color .2s ease; }
+    .nav-menu a:hover { color: var(--blue); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--navy);
+      transition: .2s ease;
+    }
+
+    .icon-btn:hover, .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(29, 42, 154, .16);
+    }
+
+    .lang {
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--navy);
+      padding: 0 12px;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      border-radius: var(--radius);
+      padding: 0 20px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s ease;
+      white-space: nowrap;
+    }
+
+    .btn svg, .icon-btn svg { width: 19px; height: 19px; stroke-width: 2.2; }
+    .btn-primary { color: #fff; background: linear-gradient(135deg, var(--blue), #3458ff); box-shadow: 0 14px 30px rgba(29, 42, 154, .26); }
+    .btn-dark { color: #fff; background: linear-gradient(135deg, #2232b8, var(--navy)); }
+    .btn-amber { color: #101a3f; background: linear-gradient(135deg, #ffe08f, var(--amber)); }
+    .btn-outline { color: var(--navy); background: #fff; border: 1px solid var(--line); }
+
+    .hero {
+      position: relative;
+      min-height: 470px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(2, 10, 39, .72) 0%, rgba(2, 10, 39, .4) 42%, rgba(2, 10, 39, .04) 72%),
+        url("assets/hero-banner1.jpg") center/cover;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      padding: 56px 0 66px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255, 255, 255, .24);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .1);
+      color: rgba(255, 255, 255, .88);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      margin: 0;
+      max-width: 620px;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+
+    .hero p {
+      max-width: 560px;
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, .82);
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      margin-top: 26px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    section { padding: 76px 0; }
+    .section-head { max-width: 780px; margin: 0 auto 36px; text-align: center; }
+    .section-head.align-left { margin-left: 0; text-align: left; }
+    .section-kicker { margin: 0; color: var(--blue); font-weight: 800; letter-spacing: .03em; text-transform: uppercase; font-size: 13px; line-height: 1.3; }
+    .section-head h2 { margin: 0; color: var(--navy); font-size: clamp(30px, 3.3vw, 46px); line-height: 1.18; letter-spacing: 0; }
+    .section-head p:not(.section-kicker) { margin: 14px 0 0; color: var(--muted); font-size: 18px; }
+
+    .trust-band {
+      margin-top: 0;
+      margin-bottom: -46px;
+      position: relative;
+      z-index: 3;
+      padding: 50px 0 58px;
+      background: linear-gradient(180deg, #fff 0%, #fff 68%, rgba(255, 255, 255, .9) 82%, rgba(255, 255, 255, 0) 100%);
+    }
+
+    .trust-band .section-kicker {
+      margin: 0 0 8px;
+      color: #aeb6cc;
+      text-align: center;
+    }
+
+    .trust-grid {
+      position: relative;
+      overflow: hidden;
+      margin-top: 0;
+      padding: 18px 0 16px;
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .trust-track {
+      display: flex;
+      width: max-content;
+      gap: 14px;
+      animation: logoMarquee 28s linear infinite;
+    }
+
+    .trust-grid:hover .trust-track {
+      animation-play-state: paused;
+    }
+
+    .trust-logo {
+      width: 180px;
+      min-height: 92px;
+      padding: 18px 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      box-shadow: 0 10px 28px rgba(29, 42, 154, .06);
+    }
+
+    .trust-logo img {
+      max-width: 100%;
+      max-height: 58px;
+      object-fit: contain;
+    }
+
+    @keyframes logoMarquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(-50% - 7px)); }
+    }
+
+    .cert-section {
+      position: relative;
+      background:
+        linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, .94) 12%, rgba(255, 255, 255, .68) 28%, rgba(255, 255, 255, .22) 48%, rgba(255, 255, 255, 0) 68%),
+        linear-gradient(90deg, rgba(255, 255, 255, .98) 0%, rgba(255, 255, 255, .92) 34%, rgba(255, 255, 255, .28) 48%, rgba(255, 255, 255, 0) 60%),
+        url("assets/about/about-section-bg.png") 82% 38% / 118% auto no-repeat;
+      padding-top: 76px;
+      padding-bottom: 76px;
+      overflow: hidden;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+      min-height: 330px;
+    }
+
+    .about-summary, .cert-card {
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      backdrop-filter: none;
+    }
+
+    .about-summary {
+      padding: 0;
+      max-width: 560px;
+    }
+
+    .about-visual {
+      min-height: 330px;
+    }
+
+    .about-summary h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(28px, 2.8vw, 38px);
+      line-height: 1.18;
+    }
+
+    .section-kicker + h2 { margin-top: 28px; }
+
+    .about-summary p:not(.section-kicker) {
+      margin: 10px 0 0;
+      color: #4d5880;
+      font-size: 15.5px;
+    }
+
+    .about-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      color: #313d72;
+      font-weight: 700;
+    }
+
+    .about-points li {
+      padding-left: 12px;
+      border-left: 3px solid var(--teal);
+    }
+
+    .about-actions {
+      margin-top: 22px;
+    }
+
+    .cert-card {
+      margin-top: 26px;
+      padding: 0;
+    }
+
+    .cert-card h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .cert-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 92px);
+      justify-content: start;
+      gap: 10px;
+    }
+
+    .cert-logo {
+      min-height: 70px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+      padding: 4px;
+    }
+
+    .cert-logo img {
+      width: 100%;
+      max-height: 60px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .about {
+      background: #fff;
+      padding-top: 46px;
+    }
+
+    .about.is-hidden {
+      display: none;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .about-media {
+      min-height: 520px;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(10, 45, 75, .03), rgba(10, 45, 75, .12)),
+        url("https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1300&q=82") center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .check-list {
+      display: grid;
+      gap: 12px;
+      margin: 26px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+      color: #313d72;
+      font-weight: 600;
+    }
+
+    .check-list svg { color: var(--teal); margin-top: 4px; }
+
+    .solution-section {
+      background: linear-gradient(180deg, #f5f7ff, #fff);
+    }
+
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .solution-card, .product-card, .article-card, .faq-list details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 12px 34px rgba(10, 45, 75, .07);
+    }
+
+    .solution-card {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      min-height: 150px;
+      overflow: hidden;
+      transition: .2s ease;
+    }
+
+    .solution-card:hover, .product-card:hover, .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .solution-thumb {
+      width: 100%;
+      height: 100%;
+      min-height: 150px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .solution-thumb.ppr {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .02), rgba(29, 42, 154, .1)), url("assets/categories/p-1.jpg");
+    }
+
+    .solution-thumb.clamp {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .02), rgba(29, 42, 154, .1)), url("assets/categories/p-2.jpg");
+    }
+
+    .solution-thumb.hdpe {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .02), rgba(29, 42, 154, .1)), url("assets/categories/p-3.jpg");
+    }
+
+    .solution-thumb.grooved {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .02), rgba(29, 42, 154, .1)), url("assets/categories/p-4.jpg");
+    }
+
+    .solution-thumb.heat {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .02), rgba(29, 42, 154, .1)), url("assets/categories/p-5.jpg");
+    }
+
+    .solution-thumb.training {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .02), rgba(29, 42, 154, .1)), url("assets/categories/p-6.jpg");
+    }
+
+    .solution-body {
+      padding: 18px 18px 16px;
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .solution-link {
+      display: inline-flex;
+      margin-top: 10px;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .solution-card h3, .product-card h3, .article-card h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    .solution-card p, .product-card p, .article-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .solution-card h3 {
+      margin-bottom: 4px;
+      font-size: 19px;
+    }
+
+    .solution-card p {
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .products {
+      background: #fff;
+    }
+
+    .product-grid {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding: 18px 0 34px;
+    }
+
+    .product-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .product-carousel {
+      position: relative;
+      overflow: hidden;
+      padding-inline: 24px;
+      margin-inline: -24px;
+    }
+
+    .product-nav {
+      position: absolute;
+      top: 50%;
+      z-index: 3;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .96);
+      color: var(--navy);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 14px 34px rgba(7, 18, 77, .16);
+      transform: translateY(-50%);
+      transition: .2s ease;
+    }
+
+    .product-nav:hover {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .product-nav svg {
+      width: 21px;
+      height: 21px;
+      stroke-width: 2.4;
+    }
+
+    .product-nav.prev {
+      left: 4px;
+    }
+
+    .product-nav.next {
+      right: 4px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      transition: .2s ease;
+      display: block;
+      flex: 0 0 calc((100% - 40px) / 3);
+      min-width: 0;
+      scroll-snap-align: start;
+    }
+
+    .product-more {
+      display: flex;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .product-img {
+      position: relative;
+      min-height: 220px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .product-img.pipe {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .03), rgba(29, 42, 154, .12)), url("assets/products/ppr-pipe.png");
+    }
+
+    .product-img.clamp {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .03), rgba(29, 42, 154, .12)), url("assets/products/smart-clamp.png");
+    }
+
+    .product-img.hdpe-machine {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .03), rgba(29, 42, 154, .12)), url("assets/products/hdpe-welding-machine.png");
+    }
+
+    .product-img.grooved-product {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .03), rgba(29, 42, 154, .12)), url("assets/products/grooved-coupling.png");
+    }
+
+    .product-img.heat {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .03), rgba(29, 42, 154, .12)), url("assets/products/plate-heat-exchanger.png");
+    }
+
+    .product-img.shell-tube {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .03), rgba(29, 42, 154, .12)), url("assets/products/shell-tube-heat-exchanger.png");
+    }
+
+    .product-body { padding: 24px; }
+    .product-price {
+      display: block;
+      margin-top: 18px;
+      color: var(--blue);
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .product-labels {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      max-width: calc(100% - 28px);
+    }
+    .tag {
+      padding: 6px 9px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .92);
+      color: #2c3678;
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(7, 18, 77, .12);
+      backdrop-filter: blur(10px);
+    }
+
+    .tag-bestseller {
+      background: #9a5f00;
+      color: #fff8dc;
+    }
+
+    .tag-recommended {
+      background: #1d2a9a;
+      color: #eef4ff;
+    }
+
+    .tag-new {
+      background: #007763;
+      color: #e8fff9;
+    }
+
+    .process {
+      background:
+        radial-gradient(circle at 12% 16%, rgba(0, 166, 200, .28), transparent 31%),
+        linear-gradient(135deg, rgba(5, 12, 57, .97), rgba(29, 42, 154, .92)),
+        url("https://images.unsplash.com/photo-1581093458791-9d42cc0305af?auto=format&fit=crop&w=1800&q=82") center/cover;
+      color: #fff;
+    }
+
+    .process .section-head h2, .process .section-kicker { color: #fff; }
+    .process .section-head p:not(.section-kicker) { color: rgba(255, 255, 255, .78); }
+
+    .article-section {
+      background: #fff;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .article-card {
+      overflow: hidden;
+      transition: .2s ease;
+    }
+
+    .article-image {
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .article-image.ppr {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .03), rgba(29, 42, 154, .18)), url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=82");
+    }
+
+    .article-image.repair {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .03), rgba(29, 42, 154, .18)), url("assets/articles/emergency-pipe-leak-clamp.png");
+    }
+
+    .article-image.energy {
+      background-image: linear-gradient(180deg, rgba(29, 42, 154, .03), rgba(29, 42, 154, .18)), url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1000&q=82");
+    }
+
+    .article-body {
+      padding: 24px;
+    }
+
+    .article-date { color: var(--teal); font-weight: 800; font-size: 13px; }
+    .article-card h3 { margin-top: 10px; }
+    .article-link { display: inline-flex; margin-top: 18px; color: var(--blue); font-weight: 800; }
+
+    .video-section {
+      background: var(--mist);
+      padding-bottom: 48px;
+    }
+
+    .video-section .container {
+      width: calc(100% - 80px);
+      max-width: none;
+    }
+
+    .video-cover {
+      min-height: 430px;
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(90deg, rgba(5, 12, 57, .88), rgba(29, 42, 154, .46)),
+        url("assets/videos/video-demo-cover.png") center/cover;
+    }
+
+    .video-cover:hover .play-button {
+      transform: scale(1.06);
+    }
+
+    .video-content {
+      position: relative;
+      z-index: 1;
+      width: min(720px, calc(100% - 48px));
+      text-align: center;
+    }
+
+    .play-button {
+      width: 78px;
+      height: 78px;
+      border-radius: 50%;
+      margin: 0 auto 22px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: var(--blue);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, .24);
+      transition: .2s ease;
+    }
+
+    .play-button svg {
+      width: 30px;
+      height: 30px;
+      margin-left: 4px;
+      fill: currentColor;
+    }
+
+    .video-content h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.18;
+    }
+
+    .video-content p {
+      margin: 14px 0 0;
+      color: rgba(255, 255, 255, .82);
+      font-size: 18px;
+    }
+
+    .faq-section {
+      background: var(--mist);
+      padding-top: 44px;
+    }
+
+    .faq-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      padding: 0 22px;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 0;
+      color: var(--navy);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--blue); font-size: 25px; line-height: 1; }
+    details[open] summary::after { content: "-"; }
+    details p { margin: 0 0 20px; color: var(--muted); }
+
+    .contact {
+      background:
+        radial-gradient(circle at 14% 12%, rgba(0, 166, 200, .28), transparent 32%),
+        linear-gradient(110deg, rgba(5, 12, 57, .97) 0%, rgba(29, 42, 154, .78) 46%, rgba(5, 12, 57, .28) 100%),
+        url("https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1600&q=82") center/cover;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .form-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .contact-panel {
+      color: #fff;
+      padding: 30px;
+    }
+
+    .contact-panel h2 { margin: 0; font-size: clamp(30px, 3vw, 44px); line-height: 1.18; }
+    .contact-panel p { color: rgba(255, 255, 255, .78); margin: 16px 0 24px; }
+    .contact-lines { display: grid; gap: 14px; margin-top: 24px; }
+    .contact-lines a, .contact-lines div {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 12px;
+      color: rgba(255, 255, 255, .92);
+      font-weight: 700;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .form-panel .section-head {
+      margin-bottom: 22px;
+    }
+
+    .form-panel .section-head h2 {
+      font-size: clamp(28px, 2.6vw, 38px);
+    }
+
+    .field {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbfdfe;
+      color: var(--ink);
+      padding: 0 13px;
+      font-size: 15px;
+      outline: none;
+      transition: .2s ease;
+    }
+
+    textarea.field {
+      grid-column: 1 / -1;
+      min-height: 104px;
+      resize: vertical;
+      padding-top: 12px;
+    }
+
+    .field:focus {
+      border-color: rgba(23, 103, 157, .45);
+      box-shadow: 0 0 0 4px rgba(23, 103, 157, .09);
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    footer {
+      border-top: 0;
+      background:
+        linear-gradient(180deg, rgba(5, 12, 57, .98), rgba(5, 12, 57, 1)),
+        radial-gradient(circle at 18% 0%, rgba(0, 166, 200, .2), transparent 28%),
+        #050c39;
+      color: rgba(255, 255, 255, .72);
+      padding: 54px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .8fr .9fr 1fr;
+      gap: 32px;
+    }
+
+    .footer-grid strong { color: #fff; }
+
+    .footer-brand p, .footer-col p {
+      margin: 10px 0 0;
+    }
+
+    .footer-col h3 {
+      margin: 0 0 14px;
+      color: #fff;
+      font-size: 17px;
+    }
+
+    .footer-links, .footer-contact {
+      display: grid;
+      gap: 9px;
+    }
+
+    .footer-links a, .footer-contact a, .footer-contact span {
+      color: rgba(255, 255, 255, .72);
+      transition: color .2s ease;
+    }
+
+    .footer-links a:hover, .footer-contact a:hover {
+      color: #fff;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .social-row a {
+      min-width: 42px;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+      font-weight: 800;
+      transition: .2s ease;
+    }
+
+    .social-row a:hover {
+      background: var(--blue);
+      border-color: transparent;
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .sticky-mobile {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 80;
+      display: none;
+      gap: 10px;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+      border-top: 1px solid var(--line);
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 -16px 34px rgba(10, 45, 75, .12);
+    }
+
+    .sticky-mobile a { flex: 1; }
+
+    @media (max-width: 1080px) {
+      .nav-menu { gap: 12px; font-size: 13px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .cert-grid { grid-template-columns: 1fr; }
+      .about-visual { display: none; }
+      .cert-logo-grid { grid-template-columns: repeat(4, 92px); }
+      .solution-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-logo { width: 154px; min-height: 84px; padding: 16px 18px; }
+    }
+
+    @media (max-width: 860px) {
+      body { padding-bottom: 78px; }
+      .nav { min-height: 68px; }
+      .nav-menu { display: none; }
+      .nav-actions .btn-dark { display: none; }
+      .hero { min-height: 430px; }
+      .hero-grid { padding: 48px 0 58px; }
+      .product-card { flex-basis: calc((100% - 20px) / 2); }
+      .contact {
+        background:
+          linear-gradient(180deg, rgba(5, 12, 57, .96) 0%, rgba(29, 42, 154, .76) 48%, rgba(5, 12, 57, .32) 100%),
+          url("https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=1200&q=82") center/cover;
+      }
+      .video-cover { min-height: 340px; }
+      .video-section .container { width: calc(100% - 48px); }
+      .article-grid { grid-template-columns: 1fr; }
+      .sticky-mobile { display: flex; }
+    }
+
+    @media (max-width: 580px) {
+      .container { width: min(100% - 24px, 1180px); }
+      .brand-logo { width: 132px; max-height: 42px; }
+      .lang { display: none; }
+      .icon-btn { width: 40px; height: 40px; }
+      .hero h1 { font-size: 30px; }
+      .hero p, .section-head p:not(.section-kicker) { font-size: 16px; }
+      .hero-actions .btn, .form-actions .btn { width: 100%; }
+      .hero { min-height: 390px; }
+      section { padding: 58px 0; }
+      .video-section { padding-bottom: 36px; }
+      .faq-section { padding-top: 32px; }
+      .video-section .container { width: calc(100% - 32px); }
+      .video-cover { border-radius: 18px; }
+      .solution-grid, .form-grid { grid-template-columns: 1fr; }
+      .about-points { grid-template-columns: 1fr; }
+      .cert-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .solution-card { grid-template-columns: 124px 1fr; min-height: 136px; }
+      .solution-thumb { min-height: 136px; }
+      .product-carousel { margin-inline: -12px; padding-inline: 12px; }
+      .product-card { flex-basis: 100%; }
+      .product-nav { width: 42px; height: 42px; }
+      .product-nav.prev { left: 2px; }
+      .product-nav.next { right: 2px; }
+      .about-media { min-height: 340px; }
+      .contact-panel, .form-panel { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="Rano Tech home">
+        <img class="brand-logo" src="assets/logo.png" alt="Rano Tech">
+      </a>
+
+      <nav class="nav-menu" aria-label="เมนูหลัก">
+        <a href="#">หน้าแรก</a>
+        <a href="#certificates">เกี่ยวกับเรา</a>
+        <a href="#solutions">สินค้า</a>
+        <a href="#contact">สินค้า OEM</a>
+        <a href="#news">ข่าวสารและกิจกรรม</a>
+        <a href="#faq">คำถามที่พบบ่อย</a>
+        <a href="#contact">ติดต่อเรา</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="icon-btn" href="#products" aria-label="ดูสินค้า">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </a>
+        <select class="lang" aria-label="เลือกภาษา">
+          <option selected>TH</option>
+          <option>EN</option>
+        </select>
+        <a class="btn btn-dark" href="#" aria-label="เข้าสู่ระบบ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21a8 8 0 0 0-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+          เข้าสู่ระบบ
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="m17 19-5 3-5-3"/><path d="M2 12h20"/><path d="m5 7-3 5 3 5"/><path d="m19 7 3 5-3 5"/></svg>
+            Industrial Pipe &amp; Heat Exchange Solutions
+          </div>
+          <h1>จบปัญหาน้ำรั่วซึม! ด้วยท่อ PPR และ Smart Clamp คุณภาพสูง</h1>
+          <p>สต๊อกพร้อม ส่งด่วนทั่วประเทศ พร้อมทีมวิศวกรผู้เชี่ยวชาญให้คำปรึกษาและออกแบบระบบท่อ ประสบการณ์กว่า 30 ปี</p>
+          <div class="hero-actions">
+            <a class="btn btn-amber" href="#products">ดูสินค้าแนะนำ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-band" aria-label="องค์กรที่ไว้วางใจ Rano Tech">
+      <div class="container">
+        <p class="section-kicker">Trusted By</p>
+        <div class="trust-grid">
+          <div class="trust-track" aria-label="โลโก้องค์กรที่ไว้วางใจ Rano Tech">
+            <div class="trust-logo"><img src="assets/client-logos/i-004.webp" alt="โลโก้ลูกค้า"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-005-1.webp" alt="Chaokoh"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-006-1-05-63.webp" alt="PTT"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-007.webp" alt="Four Points by Sheraton"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-009.webp" alt="เสริมสุข"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-011.webp" alt="Bangkok Cable"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-012.webp" alt="Brenntag"></div>
+            <div class="trust-logo" aria-hidden="true"><img src="assets/client-logos/i-004.webp" alt=""></div>
+            <div class="trust-logo" aria-hidden="true"><img src="assets/client-logos/i-005-1.webp" alt=""></div>
+            <div class="trust-logo" aria-hidden="true"><img src="assets/client-logos/i-006-1-05-63.webp" alt=""></div>
+            <div class="trust-logo" aria-hidden="true"><img src="assets/client-logos/i-007.webp" alt=""></div>
+            <div class="trust-logo" aria-hidden="true"><img src="assets/client-logos/i-009.webp" alt=""></div>
+            <div class="trust-logo" aria-hidden="true"><img src="assets/client-logos/i-011.webp" alt=""></div>
+            <div class="trust-logo" aria-hidden="true"><img src="assets/client-logos/i-012.webp" alt=""></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cert-section" id="certificates">
+      <div class="container">
+        <div class="cert-grid">
+          <div class="about-summary">
+            <p class="section-kicker">About Us</p>
+            <h2>ร้านขายท่อ PPR แคล้มรัดท่อ เครื่องเชื่อมท่อ PPR, HDPE</h2>
+            <p>Rano Tech ดูแลงานระบบท่อและอุปกรณ์อุตสาหกรรม ตั้งแต่ PPR/HDPE, Smart Clamp ไปจนถึง Heat Exchanger พร้อมทีมเทคนิคช่วยประเมินตัวเลือกที่เหมาะสม</p>
+            <ul class="about-points">
+              <li>คำแนะนำจากหน้างานจริง</li>
+              <li>พร้อมดูแลงานติดตั้งและซ่อมบำรุง</li>
+            </ul>
+            <div class="about-actions">
+              <a class="btn btn-primary" href="https://www.ranotech.com/about-us/" target="_blank" rel="noopener">อ่านเพิ่มเติม</a>
+            </div>
+          </div>
+          <div class="about-visual" aria-hidden="true"></div>
+        </div>
+        <div class="cert-card">
+          <h3>มาตรฐานและใบรับรองที่เกี่ยวข้อง</h3>
+          <div class="cert-logo-grid" aria-label="โลโก้มาตรฐานและใบรับรอง">
+            <div class="cert-logo"><img src="assets/certificates/abs.png" alt="ABS Design Assessed"></div>
+            <div class="cert-logo"><img src="assets/certificates/bv.png" alt="Bureau Veritas"></div>
+            <div class="cert-logo"><img src="assets/certificates/dnv.png" alt="DNV"></div>
+            <div class="cert-logo"><img src="assets/certificates/lr.png" alt="Lloyd's Register"></div>
+            <div class="cert-logo"><img src="assets/certificates/rina.png" alt="RINA"></div>
+            <div class="cert-logo"><img src="assets/certificates/iso-ukas.png" alt="SOCOTEC ISO 9001 และ UKAS Management Systems"></div>
+            <div class="cert-logo"><img src="assets/certificates/classnk.png" alt="ClassNK"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about is-hidden" id="about" aria-hidden="true">
+      <div class="container about-grid">
+        <div class="about-media" role="img" aria-label="งานระบบท่อและเครื่องจักรอุตสาหกรรม"></div>
+        <div>
+          <div class="section-head align-left">
+            <p class="section-kicker">About Rano Tech</p>
+            <h2>บริษัทไทยที่เข้าใจงานระบบอุตสาหกรรมตั้งแต่สเปกจนถึงหน้างาน</h2>
+            <p>Rano Tech ทำงานในกลุ่มวิศวกรรมเคมี ระบบแลกเปลี่ยนความร้อน ระบบท่อ และอุปกรณ์สำหรับโรงงาน โดยเน้นการเลือกโซลูชันที่ช่วยลด Downtime ลดการรั่วซึม และเพิ่มความมั่นใจให้ทีมซ่อมบำรุง</p>
+          </div>
+          <ul class="check-list">
+            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m20 6-11 11-5-5"/></svg><span>จำหน่ายท่อ PPR, HDPE, อุปกรณ์เชื่อม และอุปกรณ์ซ่อมท่อรั่ว</span></li>
+            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m20 6-11 11-5-5"/></svg><span>ให้บริการ Plate Heat Exchanger, Shell &amp; Tube และระบบทำความร้อน-ทำความเย็น</span></li>
+            <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m20 6-11 11-5-5"/></svg><span>แนะนำสินค้าตามแรงดัน อุณหภูมิ สารในระบบ และพื้นที่ติดตั้งจริง</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="solution-section" id="solutions">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Solutions</p>
+          <h2>หมวดหมู่สินค้าและบริการ</h2>
+          <p>เลือกหมวดที่ต้องการ เพื่อดูรายละเอียดสินค้า ขอคำแนะนำ หรือประเมินสเปกให้เหมาะกับหน้างาน</p>
+        </div>
+        <div class="solution-grid">
+          <a class="solution-card" href="#contact">
+            <div class="solution-thumb ppr" role="img" aria-label="ท่อพีพีอาร์"></div>
+            <div class="solution-body">
+              <h3>ท่อพีพีอาร์</h3>
+              <p>ท่อและข้อต่อสำหรับระบบน้ำร้อน อาคาร และงานอุตสาหกรรม</p>
+              <span class="solution-link">รายละเอียด</span>
+            </div>
+          </a>
+          <a class="solution-card" href="#contact">
+            <div class="solution-thumb clamp" role="img" aria-label="Smart Clamp"></div>
+            <div class="solution-body">
+              <h3>Smart Clamp</h3>
+              <p>อุปกรณ์ซ่อมท่อรั่ว ลดเวลาหยุดระบบสำหรับงานซ่อมบำรุง</p>
+              <span class="solution-link">รายละเอียด</span>
+            </div>
+          </a>
+          <a class="solution-card" href="#contact">
+            <div class="solution-thumb hdpe" role="img" aria-label="เครื่องเชื่อม HDPE"></div>
+            <div class="solution-body">
+              <h3>เครื่องเชื่อม HDPE</h3>
+              <p>เครื่องเชื่อมและอุปกรณ์สำหรับงานท่อ HDPE/PPR</p>
+              <span class="solution-link">รายละเอียด</span>
+            </div>
+          </a>
+          <a class="solution-card" href="#contact">
+            <div class="solution-thumb grooved" role="img" aria-label="Grooved"></div>
+            <div class="solution-body">
+              <h3>GROOVED</h3>
+              <p>อุปกรณ์งานท่อแบบ grooved สำหรับระบบอุตสาหกรรม</p>
+              <span class="solution-link">รายละเอียด</span>
+            </div>
+          </a>
+          <a class="solution-card" href="#contact">
+            <div class="solution-thumb heat" role="img" aria-label="Heat Exchanger"></div>
+            <div class="solution-body">
+              <h3>HEAT EXCHANGER</h3>
+              <p>Plate Heat Exchanger, Shell &amp; Tube และระบบแลกเปลี่ยนความร้อน</p>
+              <span class="solution-link">รายละเอียด</span>
+            </div>
+          </a>
+          <a class="solution-card" href="#contact">
+            <div class="solution-thumb training" role="img" aria-label="Training"></div>
+            <div class="solution-body">
+              <h3>TRAINING</h3>
+              <p>อบรมการใช้งานเครื่องเชื่อมและคำแนะนำสำหรับทีมหน้างาน</p>
+              <span class="solution-link">รายละเอียด</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="products process product-highlight" id="products">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">Products</p>
+          <h2>สินค้าเด่นสำหรับงานระบบและซ่อมบำรุง</h2>
+        </div>
+        <div class="product-carousel">
+          <button class="product-nav prev" type="button" aria-label="เลื่อนสินค้ากลับ" data-product-prev>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="product-grid" data-product-track>
+            <a class="product-card" href="#contact" aria-label="ดูรายละเอียดท่อ PPR และข้อต่อ">
+              <div class="product-img pipe" role="img" aria-label="ท่อและอุปกรณ์งานระบบ">
+                <div class="product-labels"><span class="tag tag-bestseller">Bestseller</span></div>
+              </div>
+              <div class="product-body">
+                <h3>DISMY PPR Pipe &amp; Fittings</h3>
+                <p>ท่อและข้อต่อพีพีอาร์สำหรับระบบน้ำร้อน น้ำเย็น และงานอาคาร</p>
+                <span class="product-price">เริ่มต้น ฿120</span>
+              </div>
+            </a>
+            <a class="product-card" href="#contact" aria-label="ดูรายละเอียด RNT Smart Clamp">
+              <div class="product-img clamp" role="img" aria-label="อุปกรณ์ซ่อมท่ออุตสาหกรรม">
+                <div class="product-labels"><span class="tag tag-recommended">Recommended</span></div>
+              </div>
+              <div class="product-body">
+                <h3>RNT Smart Clamp</h3>
+                <p>แคลมป์ซ่อมท่อรั่วสำหรับงานเร่งด่วน ลดเวลาหยุดระบบ</p>
+                <span class="product-price">เริ่มต้น ฿4,850</span>
+              </div>
+            </a>
+            <a class="product-card" href="#contact" aria-label="ดูรายละเอียดเครื่องเชื่อม HDPE">
+              <div class="product-img hdpe-machine" role="img" aria-label="เครื่องเชื่อม HDPE">
+                <div class="product-labels"><span class="tag tag-new">New</span></div>
+              </div>
+              <div class="product-body">
+                <h3>HDPE Butt Fusion Machine</h3>
+                <p>เครื่องเชื่อมท่อ HDPE สำหรับงานติดตั้งท่อภาคสนามและโรงงาน</p>
+                <span class="product-price">เริ่มต้น ฿28,900</span>
+              </div>
+            </a>
+            <a class="product-card" href="#contact" aria-label="ดูรายละเอียด Grooved Coupling">
+              <div class="product-img grooved-product" role="img" aria-label="Grooved Coupling">
+                <div class="product-labels"><span class="tag tag-bestseller">Bestseller</span></div>
+              </div>
+              <div class="product-body">
+                <h3>Grooved Coupling</h3>
+                <p>ข้อต่อ grooved สำหรับระบบท่อที่ต้องการติดตั้งและซ่อมบำรุงง่าย</p>
+                <span class="product-price">เริ่มต้น ฿650</span>
+              </div>
+            </a>
+            <a class="product-card" href="#contact" aria-label="ดูรายละเอียด Heat Exchanger">
+              <div class="product-img heat" role="img" aria-label="ระบบแลกเปลี่ยนความร้อนในโรงงาน">
+                <div class="product-labels"><span class="tag tag-recommended">Recommended</span></div>
+              </div>
+              <div class="product-body">
+                <h3>Plate Heat Exchanger</h3>
+                <p>เครื่องแลกเปลี่ยนความร้อนแบบแผ่น พร้อมอะไหล่ gasket และบริการแนะนำสเปก</p>
+                <span class="product-price">เริ่มต้น ฿48,000</span>
+              </div>
+            </a>
+            <a class="product-card" href="#contact" aria-label="ดูรายละเอียด Shell and Tube Heat Exchanger">
+              <div class="product-img shell-tube" role="img" aria-label="Shell and Tube Heat Exchanger">
+              </div>
+              <div class="product-body">
+                <h3>Shell &amp; Tube Heat Exchanger</h3>
+                <p>ระบบแลกเปลี่ยนความร้อนสำหรับงานอุตสาหกรรมและกระบวนการผลิต</p>
+                <span class="product-price">เริ่มต้น ฿95,000</span>
+              </div>
+            </a>
+          </div>
+          <button class="product-nav next" type="button" aria-label="เลื่อนสินค้าไปข้างหน้า" data-product-next>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+        <div class="product-more">
+          <a class="btn btn-outline" href="https://www.ranotech.com/products/" target="_blank" rel="noopener">ดูสินค้าทั้งหมด</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="article-section" id="news">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">News &amp; Articles</p>
+          <h2>ข่าวสารและกิจกรรม</h2>
+          <p>อัปเดตความรู้เรื่องระบบท่อ งานซ่อมบำรุง ข่าวสาร และกิจกรรมจาก Rano Tech</p>
+        </div>
+        <div class="article-grid">
+          <article class="article-card">
+            <div class="article-image ppr" role="img" aria-label="งานระบบท่อ PPR"></div>
+            <div class="article-body">
+              <span class="article-date">20 พฤษภาคม 2569</span>
+              <h3>เลือกท่อ PPR อย่างไรให้เหมาะกับน้ำร้อนและแรงดันในระบบ</h3>
+              <p>สรุปข้อมูลที่ควรเตรียม เช่น อุณหภูมิใช้งาน แรงดัน และมาตรฐานที่ต้องการในโครงการ</p>
+              <a class="article-link" href="#contact">อ่านเพิ่มเติม</a>
+            </div>
+          </article>
+          <article class="article-card">
+            <div class="article-image repair" role="img" aria-label="อุปกรณ์ซ่อมท่อรั่ว"></div>
+            <div class="article-body">
+              <span class="article-date">18 พฤษภาคม 2569</span>
+              <h3>ท่อรั่วฉุกเฉินควรประเมินอะไรบ้างก่อนเลือก Clamp</h3>
+              <p>ดูตำแหน่งรั่ว วัสดุท่อ สารในระบบ และพื้นที่รอบท่อ เพื่อเลือกอุปกรณ์ซ่อมที่เหมาะสม</p>
+              <a class="article-link" href="#contact">อ่านเพิ่มเติม</a>
+            </div>
+          </article>
+          <article class="article-card">
+            <div class="article-image energy" role="img" aria-label="ระบบแลกเปลี่ยนความร้อน"></div>
+            <div class="article-body">
+              <span class="article-date">15 พฤษภาคม 2569</span>
+              <h3>Heat Exchanger ช่วยลดต้นทุนพลังงานในโรงงานได้อย่างไร</h3>
+              <p>ทำความเข้าใจแนวทางกู้ความร้อนและการเลือกอุปกรณ์แลกเปลี่ยนความร้อนสำหรับระบบผลิต</p>
+              <a class="article-link" href="#contact">อ่านเพิ่มเติม</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section" id="videos">
+      <div class="container">
+        <a class="video-cover" href="https://www.youtube.com/results?search_query=Ranotech+RNT+Smart+Clamp" target="_blank" rel="noopener" aria-label="ดูวิดีโอ Rano Tech บน YouTube">
+          <div class="video-content">
+            <span class="play-button" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7Z"/></svg>
+            </span>
+            <h2>วิดีโอสาธิตสินค้าและการใช้งาน</h2>
+            <p>ดูตัวอย่างการติดตั้ง การซ่อมท่อ และแนวทางเลือกอุปกรณ์สำหรับงานหน้างานจริง</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-kicker">FAQ</p>
+          <h2>คำถามที่พบบ่อย</h2>
+          <p>คำตอบสั้น กระชับ และเหมาะกับการนำไปต่อยอดเป็น FAQ Schema ในขั้นถัดไป</p>
+        </div>
+        <div class="faq-list">
+          <details open>
+            <summary>Rano Tech มีสินค้าอะไรบ้าง?</summary>
+            <p>มีท่อ PPR, อุปกรณ์ข้อต่อ, RNT Smart Clamp, เครื่องเชื่อม HDPE/PPR, Plate Heat Exchanger, Shell &amp; Tube, Gasket และสินค้าเกี่ยวกับระบบทำความร้อน-ทำความเย็น</p>
+          </details>
+          <details>
+            <summary>Smart Clamp ใช้กับระบบใดได้บ้าง?</summary>
+            <p>สามารถประยุกต์ใช้กับงานซ่อมท่อหลายระบบ เช่น Steam, Compressed Air, Oil, Cooling Water, RO Water, Chemical และระบบอื่น ๆ โดยควรให้ทีมเทคนิคตรวจสอบขนาดท่อ วัสดุ และแรงดันก่อนเลือกใช้งาน</p>
+          </details>
+          <details>
+            <summary>ต้องเตรียมข้อมูลอะไรเพื่อขอใบเสนอราคา?</summary>
+            <p>ควรเตรียมขนาดท่อ วัสดุท่อ แรงดัน อุณหภูมิ สารในระบบ จำนวนที่ต้องการ สถานที่จัดส่ง และรูปหน้างาน เพื่อให้ประเมินรุ่นและราคาได้เร็วขึ้น</p>
+          </details>
+          <details>
+            <summary>มีบริการให้คำปรึกษาโดยวิศวกรหรือไม่?</summary>
+            <p>มี ทีมงานสามารถช่วยประเมินปัญหาเบื้องต้น เลือกสเปกสินค้า และแนะนำแนวทางติดตั้งตามเงื่อนไขหน้างาน</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-panel">
+          <h2>ปรึกษาทีมวิศวกร<br>สำหรับงานระบบท่อของคุณ</h2>
+          <p>แจ้งสินค้าที่สนใจหรือปัญหาที่พบ พร้อมเบอร์โทรและรูปหน้างาน<br>ทีมงานจะช่วยประเมินตัวเลือกที่เหมาะสม</p>
+          <a class="btn btn-amber" href="https://page.line.me/gbc9543u" target="_blank" rel="noopener">แอด LINE @ranotech</a>
+          <div class="contact-lines">
+            <a href="tel:0859410072"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.78.58 2.63a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.24-1.24a2 2 0 0 1 2.11-.45c.85.26 1.73.46 2.63.58A2 2 0 0 1 22 16.92Z"/></svg><span>085 941 0072</span></a>
+            <a href="mailto:ranotech@gmail.com"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m22 7-8.97 5.7a2 2 0 0 1-2.06 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg><span>ranotech@gmail.com</span></a>
+            <div><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>647/3-6 ถนนรามคำแหง แขวงหัวหมาก เขตบางกะปิ กรุงเทพฯ 10240</span></div>
+          </div>
+        </div>
+
+        <form class="form-panel">
+          <div class="section-head align-left">
+            <p class="section-kicker">Request Quote</p>
+            <h2>ขอใบเสนอราคา</h2>
+          </div>
+          <div class="form-grid">
+            <input class="field" type="text" placeholder="ชื่อ-นามสกุล" aria-label="ชื่อ-นามสกุล">
+            <input class="field" type="tel" placeholder="เบอร์โทรศัพท์" aria-label="เบอร์โทรศัพท์">
+            <input class="field" type="email" placeholder="อีเมล" aria-label="อีเมล">
+            <select class="field" aria-label="สินค้าที่สนใจ">
+              <option>เลือกสินค้าที่สนใจ</option>
+              <option>ท่อ PPR / ข้อต่อ</option>
+              <option>RNT Smart Clamp</option>
+              <option>เช่าเครื่องเชื่อม HDPE/PPR</option>
+              <option>Plate Heat Exchanger / Shell &amp; Tube</option>
+              <option>ให้ทีมวิศวกรช่วยแนะนำ</option>
+            </select>
+            <textarea class="field" placeholder="รายละเอียดหน้างาน เช่น ขนาดท่อ แรงดัน อุณหภูมิ สารในระบบ หรือวันต้องการใช้งาน" aria-label="รายละเอียดหน้างาน"></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="button">ส่งข้อมูลให้เจ้าหน้าที่ติดต่อกลับ</button>
+            <a class="btn btn-outline" href="tel:0859410072">โทรหาเรา</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <strong>Rano Tech Co., Ltd.</strong>
+          <p>ผู้เชี่ยวชาญด้านระบบท่อ อุปกรณ์ซ่อมท่อ และระบบแลกเปลี่ยนความร้อนสำหรับงานอุตสาหกรรม</p>
+          <div class="social-row" aria-label="Social media">
+            <a href="https://page.line.me/gbc9543u" target="_blank" rel="noopener" aria-label="LINE">LINE</a>
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="YouTube">YT</a>
+            <a href="#" aria-label="TikTok">TT</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>เมนูหลัก</h3>
+          <div class="footer-links">
+            <a href="#">หน้าแรก</a>
+            <a href="#certificates">เกี่ยวกับเรา</a>
+            <a href="#solutions">สินค้า</a>
+            <a href="#contact">สินค้า OEM</a>
+            <a href="#news">ข่าวสารและกิจกรรม</a>
+            <a href="#faq">คำถามที่พบบ่อย</a>
+            <a href="#contact">ติดต่อเรา</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>สินค้าและบริการ</h3>
+          <div class="footer-links">
+            <a href="#products">ท่อ PPR</a>
+            <a href="#products">RNT Smart Clamp</a>
+            <a href="#products">เครื่องเชื่อม HDPE</a>
+            <a href="#products">Heat Exchanger</a>
+            <a href="#products">Grooved Coupling</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>ติดต่อเรา</h3>
+          <div class="footer-contact">
+            <a href="tel:0859410072">085 941 0072</a>
+            <a href="mailto:ranotech@gmail.com">ranotech@gmail.com</a>
+            <span>647/3-6 ถนนรามคำแหง แขวงหัวหมาก เขตบางกะปิ กรุงเทพฯ 10240</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Rano Tech Co., Ltd. All rights reserved.</span>
+        <span>Better Technology For Better Life</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sticky-mobile" aria-label="ติดต่อด่วนบนมือถือ">
+    <a class="btn btn-primary" href="https://page.line.me/gbc9543u" target="_blank" rel="noopener">LINE</a>
+    <a class="btn btn-dark" href="tel:0859410072">โทร</a>
+  </div>
+  <script>
+    const productTrack = document.querySelector('[data-product-track]');
+    const productPrev = document.querySelector('[data-product-prev]');
+    const productNext = document.querySelector('[data-product-next]');
+
+    function scrollProducts(direction) {
+      if (!productTrack) return;
+      const card = productTrack.querySelector('.product-card');
+      const gap = 20;
+      const distance = card ? card.getBoundingClientRect().width + gap : productTrack.clientWidth;
+      productTrack.scrollBy({ left: direction * distance, behavior: 'smooth' });
+    }
+
+    productPrev?.addEventListener('click', () => scrollProducts(-1));
+    productNext?.addEventListener('click', () => scrollProducts(1));
+  </script>
+</body>
+</html>
