@@ -56,14 +56,14 @@
       gap: 22px;
     }
 
-    .brand-logo { width: 168px; max-height: 52px; object-fit: contain; }
+    .brand-logo { width: 152px; max-height: 48px; object-fit: contain; }
     .nav-menu {
       margin-left: auto;
       display: flex;
       gap: 16px;
       color: #263064;
-      font-size: 13.5px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 600;
       white-space: nowrap;
     }
 
@@ -72,12 +72,13 @@
       display: flex;
       gap: 18px;
       align-items: center;
-      color: #5a341f;
+      color: #263064;
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 600;
       white-space: nowrap;
     }
 
+    .cart-link,
     .account-link,
     .member-link,
     .lang-switch {
@@ -87,22 +88,28 @@
       gap: 10px;
     }
 
+    .account-link span,
+    .member-link {
+      font-size: 14px;
+    }
+
+    .cart-link svg,
     .account-link svg {
-      width: 28px;
-      height: 28px;
+      width: 22px;
+      height: 22px;
       stroke-width: 2;
     }
 
     .nav-divider {
       width: 1px;
       height: 34px;
-      background: #8d5c3e;
-      opacity: .72;
+      background: #d6dced;
+      opacity: 1;
     }
 
     .thai-flag {
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
       display: inline-block;
       border-radius: 50%;
       box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
@@ -163,7 +170,8 @@
       overflow: hidden;
       color: #fff;
       background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 54%, rgba(0, 0, 0, .42) 78%, rgba(0, 0, 0, .66) 100%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 46%, rgba(0, 0, 0, .5) 76%, rgba(0, 0, 0, .78) 100%),
+        linear-gradient(90deg, rgba(0, 0, 0, .48) 0%, rgba(0, 0, 0, .28) 34%, rgba(0, 0, 0, 0) 62%),
         var(--hero-image, url("assets/hero/option-b-hero-ppr-1.jpg")) right center / cover no-repeat;
       transition: background-image .55s ease;
     }
@@ -180,10 +188,10 @@
     .hero-copy { max-width: 720px; }
     .kicker {
       margin: 0 0 12px;
-      color: var(--cyan);
-      font-weight: 800;
-      font-size: 13px;
-      letter-spacing: .04em;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: .02em;
       text-transform: uppercase;
     }
 
@@ -244,6 +252,14 @@
       font-size: 18px;
     }
 
+    .section-head .kicker {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
     .category-section { background: #fff; }
 
     .category-section .section-head {
@@ -271,7 +287,13 @@
       transition: .2s ease;
     }
 
-    .category-card:hover { transform: translateY(-4px); box-shadow: 0 18px 44px rgba(7, 18, 77, .08); }
+    .category-card:hover {
+      transform: translateY(-4px);
+      background: var(--blue);
+      box-shadow: 0 18px 44px rgba(7, 18, 77, .12);
+    }
+
+    .category-card:hover .category-body h3 { color: #fff; }
     .category-card.all-products {
       background: var(--blue);
       color: #fff;
@@ -316,8 +338,8 @@
     .category-thumb.ppr { background-image: url("assets/products/generated/category-ppr-main.png"); }
     .category-thumb.clamp { background-image: url("assets/products/generated/category-smart-clamp.png"); }
     .category-thumb.hdpe { background-image: url("assets/products/generated/category-hdpe-welding.png"); }
-    .category-thumb.grooved { background-image: url("assets/products/generated/category-grooved.png"); }
-    .category-thumb.heat { background-image: url("assets/products/generated/category-heat-exchanger.png"); }
+    .category-thumb.grooved { background-image: url("assets/products/generated/category-grooved-new.png"); }
+    .category-thumb.heat { background-image: url("assets/products/generated/category-heat-exchanger-new.png"); }
     .category-thumb.parts { background-image: url("assets/products/generated/category-parts.png"); }
     .category-thumb.oem { background-image: url("assets/products/generated/category-smart-clamp.png"); }
     .category-body {
@@ -340,8 +362,12 @@
       margin: 0 1px 2px 0;
       color: transparent;
       font-size: 0;
-      background: url("assets/icons/up-right-arrow-blue.svg") center / contain no-repeat;
-      opacity: .9;
+      background: url("assets/icons/up-right-arrow-gray.svg") center / contain no-repeat;
+      transition: background-image .2s ease;
+    }
+
+    .category-card:hover .category-body span {
+      background-image: url("assets/icons/up-right-arrow-white.svg");
     }
 
     .about-section {
@@ -390,7 +416,7 @@
       margin-top: 10px;
       background:
         linear-gradient(180deg, rgba(7, 18, 77, .02), rgba(7, 18, 77, .08)),
-        url("assets/about/about-consulting.png") center / cover no-repeat;
+        url("assets/about/about-engineer-consulting.png") center / cover no-repeat;
     }
 
     .about-stats {
@@ -428,67 +454,15 @@
       font-weight: 500;
     }
 
-    .product-section {
-      color: #fff;
-      background:
-        radial-gradient(circle at 12% 16%, rgba(0, 166, 200, .28), transparent 31%),
-        linear-gradient(135deg, rgba(5, 12, 57, .97), rgba(29, 42, 154, .92)),
-        url("assets/videos/video-demo-cover.png") center/cover;
-    }
-
-    .product-section .section-head h2,
-    .product-section .kicker { color: #fff; }
-    .product-section .section-head p { color: rgba(255,255,255,.76); }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .product-card {
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: var(--radius);
-      background: #fff;
-      color: var(--ink);
-      transition: .2s ease;
-    }
-
-    .product-card:hover { transform: translateY(-5px); box-shadow: 0 24px 60px rgba(0,0,0,.24); }
-    .product-image { height: 220px; position: relative; background-size: cover; background-position: center; }
-    .product-image.pipe { background-image: url("assets/products/ppr-pipe.png"); }
-    .product-image.clamp { background-image: url("assets/products/smart-clamp.png"); }
-    .product-image.machine { background-image: url("assets/products/hdpe-welding-machine.png"); }
-    .tag {
-      position: absolute;
-      left: 14px;
-      top: 14px;
-      padding: 6px 9px;
-      border-radius: var(--radius);
-      color: #fff;
-      background: #1d2a9a;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .tag.green { background: #007763; }
-    .tag.gold { background: #9a5f00; }
-    .product-body { padding: 22px; }
-    .product-body h3 { margin: 0 0 8px; color: var(--navy); font-size: 22px; line-height: 1.25; }
-    .product-body p { margin: 0; color: var(--muted); }
-    .price { display: block; margin-top: 16px; color: var(--blue); font-weight: 800; font-size: 20px; }
-
     .advantage-section {
       position: relative;
-      min-height: 560px;
-      padding: 76px 0;
-      overflow: hidden;
-      color: #fff;
-      background:
-        linear-gradient(90deg, rgba(5, 10, 28, .72), rgba(5, 10, 28, .3) 58%, rgba(5, 10, 28, .42)),
-        var(--solution-bg, url("assets/solutions/solution-bg.png")) center / cover no-repeat;
-      transition: background-image .45s ease;
+      min-height: 100vh;
+      padding: 0;
+      overflow: visible;
+      color: var(--ink);
+      background: #fff;
+      --solution-box-width: min(380px, 44vw);
+      --solution-gap: 20px;
     }
 
     .advantage-section::before {
@@ -496,13 +470,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background:
-        radial-gradient(circle at 28% 66%, rgba(255,255,255,.9) 0 3px, rgba(77,174,197,.78) 4px 5px, transparent 6px),
-        radial-gradient(circle at 58% 42%, rgba(255,255,255,.9) 0 3px, rgba(77,174,197,.78) 4px 5px, transparent 6px),
-        radial-gradient(circle at 78% 58%, rgba(255,255,255,.9) 0 3px, rgba(77,174,197,.78) 4px 5px, transparent 6px),
-        linear-gradient(115deg, transparent 23%, rgba(255,255,255,.22) 23.1%, transparent 23.35%),
-        linear-gradient(22deg, transparent 54%, rgba(255,255,255,.18) 54.1%, transparent 54.35%);
-      opacity: .65;
+      display: none;
     }
 
     .advantage-section .container {
@@ -510,163 +478,319 @@
       z-index: 1;
     }
 
-    .advantage-showcase {
-      min-height: 420px;
+    .solution-sticky {
+      position: sticky;
+      top: 76px;
+      min-height: calc(100vh - 76px);
+      height: auto;
+      box-sizing: border-box;
+      overflow: visible;
+      padding: 56px 0 32px;
+      background: transparent;
+    }
+
+    .solution-stage {
+      position: relative;
       display: grid;
-      grid-template-columns: minmax(0, 590px) 1fr;
-      align-items: end;
-      gap: 48px;
+      grid-template-columns: var(--solution-box-width) 1fr;
+      grid-template-rows: auto auto;
     }
 
-    .solution-panel {
-      max-width: 590px;
-      padding: 30px;
-      border: 0;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.04)),
-        rgba(12, 18, 30, .34);
-      backdrop-filter: blur(18px) saturate(1.16);
-      box-shadow: 0 24px 64px rgba(0,0,0,.26);
+    .solution-intro {
+      position: relative;
+      z-index: 1;
+      grid-column: 1;
+      grid-row: 1;
+      width: var(--solution-box-width);
+      min-height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: center;
+      padding: 0 24px 0 0;
+      box-sizing: border-box;
+      pointer-events: none;
+      opacity: var(--solution-intro-opacity, 1);
     }
 
-    .solution-panel .kicker { color: rgba(255,255,255,.72); }
-    .solution-count {
-      display: block;
-      margin: 18px 0 12px;
-      color: rgba(255,255,255,.76);
+    .advantage-section.is-solution-scrolling .solution-intro {
+      visibility: hidden;
+    }
+
+    .solution-intro .btn {
+      pointer-events: auto;
+      align-self: flex-start;
+      margin-top: 26px;
+    }
+
+    .solution-intro .kicker {
+      margin: 0 0 12px;
+      color: var(--blue);
       font-size: 14px;
       font-weight: 700;
-      letter-spacing: .08em;
+      letter-spacing: .02em;
+      text-transform: uppercase;
     }
 
-    .solution-panel h2 {
+    .solution-intro h2 {
       margin: 0;
-      color: #fff;
-      font-size: clamp(26px, 2.6vw, 38px);
-      line-height: 1.22;
-      font-weight: 600;
-    }
-
-    .solution-panel p {
-      max-width: 500px;
-      margin: 18px 0 0;
-      color: rgba(255,255,255,.76);
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    .solution-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-
-    .solution-link {
-      min-height: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 18px;
-      background: #fff;
       color: var(--navy);
+      font-size: clamp(30px, 3.4vw, 48px);
+      line-height: 1.18;
       font-weight: 800;
     }
 
-    .solution-nav {
-      align-self: end;
-      justify-self: end;
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .solution-intro p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
     }
 
-    .solution-arrow {
-      width: 48px;
-      height: 48px;
-      display: grid;
-      place-items: center;
+    .solution-cards-viewport {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .solution-track {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: var(--solution-gap);
+      align-items: stretch;
+      width: max-content;
+      padding-left: calc(var(--solution-box-width) + var(--solution-gap));
+      transform: translate3d(var(--solution-shift, 0px), 0, 0);
+      transition: transform .08s linear;
+      will-change: transform;
+    }
+
+    .solution-card {
+      position: relative;
+      width: var(--solution-box-width);
+      min-height: 480px;
+      flex: 0 0 auto;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
       border: 0;
-      border-radius: 50%;
-      background: #fff;
-      color: var(--navy);
-      cursor: pointer;
-      transition: .2s ease;
-      box-shadow: 0 18px 42px rgba(0,0,0,.18);
+      border-radius: 4px;
+      background: var(--solution-image) center / cover no-repeat;
+      color: #fff;
+      box-shadow: none;
+      transition: transform .25s ease;
     }
 
-    .solution-arrow:hover {
-      background: rgba(255,255,255,.9);
-      transform: translateY(-2px);
+    .solution-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, .52) 68%, rgba(0, 0, 0, .84) 100%);
+      transition: background .25s ease;
     }
 
-    .solution-dots {
-      display: flex;
-      gap: 8px;
-      padding: 0;
+    .solution-card:hover {
+      transform: translateY(-4px);
     }
 
-    .solution-dot {
-      width: 28px;
-      height: 3px;
-      border: 0;
-      padding: 0;
-      background: rgba(255,255,255,.34);
-      cursor: pointer;
+    .solution-card:hover::before {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, .08) 18%,
+        rgba(0, 0, 0, .56) 58%,
+        rgba(29, 42, 154, .72) 84%,
+        rgba(36, 52, 159, .88) 100%
+      );
     }
 
-    .solution-dot.is-active { background: #fff; }
+    .solution-card-body {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding: 24px;
+    }
 
-    .solution-mini {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: rgba(255,255,255,.78);
+    .solution-label {
+      display: block;
+      margin: 0 0 10px;
+      color: rgba(255, 255, 255, .72);
       font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    .solution-card h3 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(22px, 2vw, 28px);
+      line-height: 1.15;
       font-weight: 700;
     }
 
-    .solution-mini::before {
+    .solution-card-desc {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, .78);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .solution-card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      margin-top: 18px;
+      padding: 0 18px;
+      border-radius: 4px;
+      background: #fff;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 14px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .25s ease, transform .25s ease;
+    }
+
+    .solution-card:hover .solution-card-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (hover: none) {
+      .solution-card-btn {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .solution-progress {
+      position: relative;
+      z-index: 3;
+      grid-column: 1 / -1;
+      grid-row: 2;
+      width: 100%;
+      height: 3px;
+      margin-top: 26px;
+      background: var(--line);
+    }
+
+    .solution-progress span {
+      display: block;
+      width: var(--solution-progress, 0%);
+      height: 100%;
+      background: var(--blue);
+    }
+
+    .trust-section {
+      position: relative;
+      background: #fff;
+      padding: 64px 0 72px;
+      overflow: hidden;
+    }
+
+    .trust-section::before {
       content: "";
-      width: 54px;
-      height: 2px;
-      background: linear-gradient(90deg, #fff, rgba(77,174,197,.78));
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(221, 229, 242, .18) 1px, transparent 1px);
+      background-size: calc(100% / 12) 100%;
+      pointer-events: none;
     }
 
-    .solution-panel.is-changing {
-      animation: solutionFade .34s ease;
+    .trust-headline {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto 36px;
+      text-align: center;
+      font-size: clamp(18px, 1.9vw, 24px);
+      line-height: 1.5;
+      font-weight: 800;
+      color: var(--navy);
     }
 
-    @keyframes solutionFade {
-      from { opacity: .45; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
+    .trust-headline span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-weight: 600;
     }
 
-    .trust-section { background: #fff; padding: 58px 0; }
-    .trust-section.is-hidden { display: none; }
-    .trust-title { margin: 0 0 20px; color: #aeb6cc; text-align: center; font-weight: 800; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+    .trust-marquee {
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    }
+
     .trust-track {
       display: flex;
-      gap: 14px;
-      overflow: hidden;
-      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      align-items: center;
+      flex-wrap: nowrap;
+      width: max-content;
+      animation: trust-marquee 48s linear infinite;
+      will-change: transform;
+    }
+
+    .trust-track:hover { animation-play-state: paused; }
+
+    .trust-group {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      gap: clamp(48px, 6vw, 80px);
+      padding-right: clamp(48px, 6vw, 80px);
+    }
+
+    @keyframes trust-marquee {
+      from { transform: translate3d(0, 0, 0); }
+      to { transform: translate3d(-50%, 0, 0); }
     }
 
     .trust-logo {
-      flex: 0 0 180px;
-      min-height: 92px;
-      display: grid;
-      place-items: center;
-      padding: 18px 22px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      box-shadow: 0 10px 28px rgba(29, 42, 154, .06);
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
     }
 
-    .trust-logo img { max-height: 58px; object-fit: contain; }
+    .trust-logo img {
+      max-height: 52px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(1);
+      opacity: .78;
+      transition: filter .2s ease, opacity .2s ease;
+    }
+
+    .trust-logo:hover img {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .trust-marquee {
+        overflow: visible;
+        mask-image: none;
+        -webkit-mask-image: none;
+      }
+
+      .trust-group[aria-hidden="true"] { display: none; }
+
+      .trust-track {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        animation: none;
+        transform: none;
+      }
+    }
 
     .news-section { background: linear-gradient(180deg, #fff, var(--soft)); }
     .news-grid {
@@ -677,17 +801,17 @@
 
     .news-card {
       overflow: hidden;
-      border: 1px solid var(--line);
+      border: 0;
       border-radius: var(--radius);
-      background: #fff;
+      background: transparent;
       transition: .2s ease;
     }
 
-    .news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .news-card:hover { transform: translateY(-4px); }
     .news-image { height: 190px; background-size: cover; background-position: center; }
-    .news-image.one { background-image: url("assets/categories/p-1.jpg"); }
-    .news-image.two { background-image: url("assets/articles/emergency-pipe-leak-clamp.png"); }
-    .news-image.three { background-image: url("assets/categories/p-5.jpg"); }
+    .news-image.one { background-image: url("assets/articles/news-article-1.png"); }
+    .news-image.two { background-image: url("assets/articles/news-article-2.png"); }
+    .news-image.three { background-image: url("assets/articles/news-article-3.png"); }
     .news-body { padding: 22px; }
     .date { color: var(--cyan); font-weight: 800; font-size: 13px; }
     .news-body h3 { margin: 10px 0 8px; color: var(--navy); font-size: 21px; line-height: 1.3; }
@@ -722,44 +846,101 @@
       color: var(--muted);
     }
 
-    .video-section { background: var(--soft); padding-bottom: 48px; }
-    .video-wrap { width: calc(100% - 80px); max-width: none; margin: 0 auto; }
-    .video-cover {
-      min-height: 430px;
-      border-radius: 28px;
+    .video-section {
       position: relative;
+      padding: 0;
+      background: #111;
       overflow: hidden;
+    }
+
+    .video-bg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -100vh;
+      width: 100%;
+      height: calc(100% + 200vh);
+      z-index: 0;
+      background: url("assets/videos/video-section-bg.png") center / cover no-repeat;
+      will-change: transform;
+      pointer-events: none;
+    }
+
+    .video-cover {
+      position: relative;
+      z-index: 1;
       display: grid;
       place-items: center;
+      min-height: clamp(380px, 44vw, 520px);
       color: #fff;
+      background: transparent;
+    }
+
+    .video-cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
       background:
-        linear-gradient(90deg, rgba(5,12,57,.86), rgba(29,42,154,.42)),
-        url("assets/videos/video-demo-cover.png") center / cover no-repeat;
-      box-shadow: var(--shadow);
+        linear-gradient(180deg, rgba(0, 0, 0, .28) 0%, rgba(0, 0, 0, .42) 48%, rgba(0, 0, 0, .72) 100%);
+    }
+
+    .video-content {
+      position: relative;
+      z-index: 1;
+      width: min(720px, calc(100% - 48px));
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .video-content h2 {
+      margin: 0;
+      font-size: clamp(22px, 2.8vw, 38px);
+      line-height: 1.4;
+      font-weight: 800;
+      letter-spacing: -.01em;
     }
 
     .play {
-      width: 78px;
-      height: 78px;
+      width: 60px;
+      height: 60px;
       display: grid;
       place-items: center;
-      margin: 0 auto 22px;
+      margin: 22px auto 0;
+      border: 0;
       border-radius: 50%;
       background: #fff;
       color: var(--blue);
-      box-shadow: 0 18px 46px rgba(0,0,0,.24);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, .24);
+      transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    .play svg { width: 32px; height: 32px; fill: currentColor; margin-left: 4px; }
-    .video-content { width: min(720px, calc(100% - 48px)); text-align: center; }
-    .video-content h2 { margin: 0; font-size: clamp(30px, 4vw, 48px); line-height: 1.18; }
-    .video-content p { margin: 14px 0 0; color: rgba(255,255,255,.82); font-size: 18px; }
+    .video-cover:hover .play {
+      transform: scale(1.06);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, .3);
+    }
+
+    .play svg { width: 22px; height: 22px; fill: currentColor; margin-left: 3px; }
+
+    .video-caption {
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, .72);
+      font-size: 15px;
+      line-height: 1.55;
+    }
 
     .contact-section {
-      color: #fff;
-      background:
-        linear-gradient(105deg, rgba(5,12,57,.96), rgba(29,42,154,.82)),
-        url("assets/about/about-section-bg.png") center/cover;
+      color: var(--ink);
+      padding: 78px 0 110px;
+      background: var(--soft);
+    }
+
+    .contact-copy .kicker {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
     }
 
     .contact-grid {
@@ -769,15 +950,30 @@
       align-items: stretch;
     }
 
-    .contact-copy h2 { margin: 0; font-size: clamp(30px, 3.8vw, 52px); line-height: 1.16; }
-    .contact-copy p { margin: 16px 0 0; color: rgba(255,255,255,.78); font-size: 18px; }
-    .contact-lines { display: grid; gap: 14px; margin-top: 24px; font-weight: 800; }
+    .contact-copy h2 { margin: 0; color: var(--navy); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.2; }
+    .contact-copy p { margin: 16px 0 0; color: var(--muted); font-size: 18px; }
+    .contact-lines {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .contact-lines a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-lines a:hover { color: var(--blue); }
+
     .quote-form {
       padding: 26px;
       border-radius: var(--radius);
       background: #fff;
       color: var(--ink);
-      box-shadow: 0 22px 60px rgba(0,0,0,.22);
+      border: 1px solid var(--line);
+      box-shadow: 0 18px 42px rgba(29, 42, 154, .08);
     }
 
     .form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -809,6 +1005,27 @@
     .footer h3 { margin: 0 0 12px; color: #fff; }
     .footer a { display: block; margin-top: 8px; }
 
+    .footer-brand .footer-logo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 10px 14px;
+      margin: 0 0 18px;
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .footer-brand .footer-logo {
+      width: 140px;
+      max-height: 44px;
+      margin: 0;
+      object-fit: contain;
+      display: block;
+    }
+
+    .footer-brand p { margin: 0; line-height: 1.65; }
+
     .sticky-mobile {
       position: fixed;
       left: 0;
@@ -832,9 +1049,46 @@
       .about-stats { grid-template-columns: repeat(2, 1fr); }
       .about-stat:nth-child(2) { border-right: 0; }
       .about-stat:nth-child(-n+2) { border-bottom: 1px solid #c8ccd7; }
-      .category-grid, .product-grid, .news-grid { grid-template-columns: repeat(2, 1fr); }
-      .advantage-showcase { grid-template-columns: 1fr; gap: 28px; }
-      .solution-nav { justify-self: start; }
+      .category-grid, .news-grid { grid-template-columns: repeat(2, 1fr); }
+      .advantage-section { min-height: auto !important; }
+      .solution-sticky { position: relative; top: auto; height: auto; min-height: auto; }
+      .solution-stage {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 20px;
+      }
+      .solution-intro {
+        grid-column: 1;
+        grid-row: 1;
+        width: min(380px, 72vw);
+        min-height: auto;
+        pointer-events: auto;
+      }
+      .solution-intro .btn { margin-top: 28px; }
+      .solution-cards-viewport {
+        grid-column: 1;
+        grid-row: 2;
+        position: relative;
+        inset: auto;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .advantage-section.is-solution-scrolling .solution-intro {
+        opacity: 1;
+        visibility: visible;
+      }
+      .solution-track {
+        min-height: auto;
+        padding-left: 0;
+        padding-bottom: 12px;
+        transform: none !important;
+        scroll-snap-type: x mandatory;
+      }
+      .solution-card { scroll-snap-align: start; box-shadow: none; }
+      .solution-progress { grid-column: 1; grid-row: 3; }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
       .about-section { background-position: center; }
     }
@@ -845,26 +1099,31 @@
       .member-link, .nav-divider { display: none; }
       .nav-actions { gap: 12px; font-size: 14px; }
       .account-link span { display: none; }
-      .thai-flag { width: 28px; height: 28px; }
+      .thai-flag { width: 22px; height: 22px; }
       .hero { min-height: 560px; }
       .hero { background-position: left top, right center; }
       .hero h1 { font-size: 34px; }
       .hero-inner { padding: 56px 0 24px; }
       .hero-dots { display: none; }
       section { padding: 58px 0; }
-      .category-grid, .product-grid, .news-grid, .form-grid { grid-template-columns: 1fr; }
+      .category-grid, .news-grid, .form-grid { grid-template-columns: 1fr; }
       .category-card { min-height: 230px; }
-      .advantage-section { padding: 58px 0; }
+      .advantage-section { padding: 0; }
+      .solution-sticky { padding: 72px 0 58px; }
       .advantage-section::before { opacity: .32; }
-      .advantage-showcase { min-height: auto; }
-      .solution-panel { padding: 24px; }
-      .solution-panel h2 { font-size: 28px; }
-      .solution-arrow { width: 44px; height: 44px; }
+      .solution-intro h2 { font-size: 32px; }
+      .solution-card-body { padding: 20px; }
+      .solution-intro,
+      .solution-card { width: min(84vw, 360px); min-height: 420px; }
       .about-stats { grid-template-columns: 1fr; margin-top: 42px; }
       .about-stat { border-right: 0; border-bottom: 1px solid #c8ccd7; }
       .about-stat:last-child { border-bottom: 0; }
-      .video-wrap { width: calc(100% - 32px); }
-      .video-cover { min-height: 340px; border-radius: 18px; }
+      .video-cover { min-height: 320px; }
+      .video-bg { top: 0; height: 100%; }
+      .video-content h2 { font-size: clamp(20px, 5.5vw, 28px); }
+      .play { width: 52px; height: 52px; margin-top: 18px; }
+      .play svg { width: 18px; height: 18px; }
+      .video-caption { font-size: 14px; margin-top: 14px; }
       .footer-grid { grid-template-columns: 1fr; }
       .sticky-mobile { display: flex; }
       .hero-actions .btn, .form-actions .btn { width: 100%; }
@@ -876,15 +1135,17 @@
     <div class="container nav">
       <a href="#" aria-label="Rano Tech home"><img class="brand-logo" src="assets/logo.png" alt="Rano Tech"></a>
       <nav class="nav-menu" aria-label="เมนูหลัก">
-        <a href="#">หน้าแรก</a>
-        <a href="#about">เกี่ยวกับเรา</a>
         <a href="#products">สินค้า</a>
         <a href="#solutions">solution</a>
+        <a href="#about">เกี่ยวกับเรา</a>
         <a href="#news">บทความ</a>
         <a href="#news">ข่าวและกิจกรรม</a>
         <a href="#contact">ติดต่อเรา</a>
       </nav>
       <div class="nav-actions">
+        <a class="cart-link" href="#" aria-label="รถเข็นสินค้า">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg>
+        </a>
         <a class="account-link" href="#" aria-label="เข้าสู่ระบบ">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
           <span>เข้าสู่ระบบ</span>
@@ -907,24 +1168,10 @@
           <h1>ร้านขายท่อ PPR แคล้มรัดท่อ<br>และเครื่องเชื่อมท่อ PPR, HDPE</h1>
           <p>สต๊อกพร้อมส่ง พร้อมทีมเทคนิคช่วยแนะนำสเปกให้เหมาะกับหน้างาน</p>
           <div class="hero-actions">
-            <a class="btn btn-light" href="#products">ค้นหาสินค้า</a>
+            <a class="btn btn-primary" href="#products">ดูสินค้าทั้งหมด</a>
           </div>
         </div>
         <div class="hero-dots" id="heroDots" aria-label="เลือกภาพ Hero"></div>
-      </div>
-    </section>
-
-    <section class="trust-section is-hidden" aria-label="องค์กรที่ไว้วางใจ" hidden>
-      <div class="container">
-        <p class="trust-title">Trusted By</p>
-        <div class="trust-track">
-          <div class="trust-logo"><img src="assets/client-logos/i-005-1.webp" alt="Chaokoh"></div>
-          <div class="trust-logo"><img src="assets/client-logos/i-006-1-05-63.webp" alt="PTT"></div>
-          <div class="trust-logo"><img src="assets/client-logos/i-007.webp" alt="Four Points by Sheraton"></div>
-          <div class="trust-logo"><img src="assets/client-logos/i-009.webp" alt="เสริมสุข"></div>
-          <div class="trust-logo"><img src="assets/client-logos/i-011.webp" alt="Bangkok Cable"></div>
-          <div class="trust-logo"><img src="assets/client-logos/i-012.webp" alt="Brenntag"></div>
-        </div>
       </div>
     </section>
 
@@ -944,8 +1191,8 @@
         </div>
         <div class="about-stats" aria-label="ข้อมูลภาพรวม Rano Tech">
           <div class="about-stat"><b>30+</b><span>ปีประสบการณ์ในงานระบบท่อและงานอุตสาหกรรม</span></div>
-          <div class="about-stat"><b>ครบ</b><span>สินค้า งานซ่อมบำรุง และคำแนะนำด้านเทคนิค</span></div>
-          <div class="about-stat"><b>พร้อม</b><span>สต๊อกสินค้าและบริการจัดส่งทั่วประเทศ</span></div>
+          <div class="about-stat"><b>ครบวงจร</b><span>สินค้า งานซ่อมบำรุง และคำแนะนำด้านเทคนิค</span></div>
+          <div class="about-stat"><b>พร้อมส่ง</b><span>สต๊อกสินค้า จัดส่งได้ทั่วประเทศ</span></div>
           <div class="about-stat"><b>7</b><span>กลุ่มมาตรฐานและใบรับรองที่เกี่ยวข้องกับสินค้า</span></div>
         </div>
       </div>
@@ -971,39 +1218,82 @@
       </div>
     </section>
 
-    <section class="advantage-section" id="solutions" aria-label="โซลูชันจาก Rano Tech">
+    <section class="trust-section" aria-label="องค์กรที่ไว้วางใจ">
       <div class="container">
-        <div class="advantage-showcase">
-          <div class="solution-panel" id="solutionPanel">
-            <p class="kicker">Solutions</p>
-            <span class="solution-count" id="solutionCount">01 / 04</span>
-            <h2 id="solutionTitle">บริการออกแบบและติดตั้ง SHELL AND TUBE & EVAPORATIVE CONDENSERS</h2>
-            <p id="solutionText">ออกแบบ จัดหา และติดตั้งระบบแลกเปลี่ยนความร้อนสำหรับโรงงาน อาคาร และโครงการอุตสาหกรรม พร้อมทีมเทคนิคช่วยประเมินหน้างาน</p>
-            <div class="solution-actions">
-              <a class="solution-link" id="solutionLink" href="#contact">อ่านเพิ่มเติม</a>
-              <span class="solution-mini" id="solutionLabel">Cooling Solution</span>
-            </div>
+        <p class="trust-headline">ได้รับความไว้วางใจจากองค์กรชั้นนำทั่วประเทศ <span>พร้อมส่งมอบงานระบบท่ออย่างมั่นใจ</span></p>
+      </div>
+      <div class="trust-marquee">
+        <div class="trust-track">
+          <div class="trust-group">
+            <div class="trust-logo"><img src="assets/client-logos/i-004.webp" alt="ลูกค้าองค์กร"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-005-1.webp" alt="Chaokoh"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-006-1-05-63.webp" alt="PTT"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-007.webp" alt="Four Points by Sheraton"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-009.webp" alt="เสริมสุข"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-011.webp" alt="Bangkok Cable"></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-012.webp" alt="Brenntag"></div>
           </div>
-          <div class="solution-nav" aria-label="เลือกโซลูชัน">
-            <button class="solution-arrow" type="button" id="solutionPrev" aria-label="โซลูชันก่อนหน้า">←</button>
-            <div class="solution-dots" id="solutionDots" aria-label="รายการโซลูชัน"></div>
-            <button class="solution-arrow" type="button" id="solutionNext" aria-label="โซลูชันถัดไป">→</button>
+          <div class="trust-group" aria-hidden="true">
+            <div class="trust-logo"><img src="assets/client-logos/i-004.webp" alt=""></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-005-1.webp" alt=""></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-006-1-05-63.webp" alt=""></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-007.webp" alt=""></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-009.webp" alt=""></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-011.webp" alt=""></div>
+            <div class="trust-logo"><img src="assets/client-logos/i-012.webp" alt=""></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="product-section">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Recommended Products</p>
-          <h2>สินค้าเด่นสำหรับงานระบบและซ่อมบำรุง</h2>
-          <p>ตัวอย่างสินค้าที่ลูกค้าเลือกใช้บ่อย พร้อมราคาจำลองสำหรับจัดวางหน้า catalog</p>
-        </div>
-        <div class="product-grid">
-          <a class="product-card" href="#contact"><div class="product-image pipe"><span class="tag gold">Bestseller</span></div><div class="product-body"><h3>DISMY PPR Pipe &amp; Fittings</h3><p>ท่อและข้อต่อพีพีอาร์สำหรับงานอาคารและระบบน้ำ</p><span class="price">เริ่มต้น ฿120</span></div></a>
-          <a class="product-card" href="#contact"><div class="product-image clamp"><span class="tag">Recommended</span></div><div class="product-body"><h3>RNT Smart Clamp</h3><p>แคลมป์ซ่อมท่อรั่วสำหรับงานเร่งด่วน ลด downtime</p><span class="price">เริ่มต้น ฿4,850</span></div></a>
-          <a class="product-card" href="#contact"><div class="product-image machine"><span class="tag green">New</span></div><div class="product-body"><h3>HDPE Butt Fusion Machine</h3><p>เครื่องเชื่อมท่อ HDPE สำหรับงานติดตั้งหน้างาน</p><span class="price">เริ่มต้น ฿28,900</span></div></a>
+    <section class="advantage-section" id="solutions" aria-label="โซลูชันจาก Rano Tech">
+      <div class="solution-sticky">
+        <div class="container">
+          <div class="solution-stage">
+            <div class="solution-intro">
+              <p class="kicker">Solutions</p>
+              <h2>โซลูชันสำหรับระบบอุตสาหกรรม</h2>
+              <p>ครอบคลุมงานออกแบบ ติดตั้ง ระบบกู้คืนสาร และยูนิตกระบวนการผลิตเฉพาะทาง พร้อมทีมเทคนิคช่วยประเมินให้เหมาะกับหน้างานจริง</p>
+              <a class="btn btn-primary" href="#contact">ดูโซลูชันทั้งหมด</a>
+            </div>
+            <div class="solution-cards-viewport">
+              <div class="solution-track" id="solutionTrack">
+                <a class="solution-card" href="#contact" style="--solution-image: url('assets/solutions/solution-cooling-system.png')">
+                  <div class="solution-card-body">
+                    <span class="solution-label">Cooling Solution</span>
+                    <h3>Shell and Tube<br>&amp; Evaporative Condensers</h3>
+                    <p class="solution-card-desc">ออกแบบ จัดหา และติดตั้งระบบแลกเปลี่ยนความร้อนสำหรับโรงงานและอาคาร</p>
+                    <span class="solution-card-btn">อ่านเพิ่มเติม</span>
+                  </div>
+                </a>
+                <a class="solution-card" href="https://www.ranotech.com/organic-solvent-recovery-system/" style="--solution-image: url('assets/solutions/solution-solvent-recovery.png')">
+                  <div class="solution-card-body">
+                    <span class="solution-label">Solvent Recovery</span>
+                    <h3>Organic Solvent<br>Recovery System</h3>
+                    <p class="solution-card-desc">ระบบกู้คืนตัวทำละลาย ช่วยลดการสูญเสียวัตถุดิบและของเสียในโรงงาน</p>
+                    <span class="solution-card-btn">อ่านเพิ่มเติม</span>
+                  </div>
+                </a>
+                <a class="solution-card" href="https://www.ranotech.com/smart-reactor-com/" style="--solution-image: url('assets/solutions/solution-smart-reactor.png')">
+                  <div class="solution-card-body">
+                    <span class="solution-label">Process Solution</span>
+                    <h3>Smart Reactor</h3>
+                    <p class="solution-card-desc">ยูนิตผสมและปฏิกิริยาเคมีแบบโมดูลาร์สำหรับกระบวนการผลิตอุตสาหกรรม</p>
+                    <span class="solution-card-btn">อ่านเพิ่มเติม</span>
+                  </div>
+                </a>
+                <a class="solution-card" href="#contact" style="--solution-image: url('assets/solutions/solution-heat-exchanger-card.png')">
+                  <div class="solution-card-body">
+                    <span class="solution-label">Project Solution</span>
+                    <h3>Heat Exchanger<br>&amp; OEM</h3>
+                    <p class="solution-card-desc">ระบบแลกเปลี่ยนความร้อนและงานผลิตตามสเปกโครงการเฉพาะทาง</p>
+                    <span class="solution-card-btn">อ่านเพิ่มเติม</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="solution-progress" aria-hidden="true"><span id="solutionProgress"></span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -1013,7 +1303,6 @@
         <div class="section-head">
           <p class="kicker">News &amp; Activities</p>
           <h2>ข่าวสารและกิจกรรม</h2>
-          <p>อัปเดตความรู้เรื่องระบบท่อ งานซ่อมบำรุง ข่าวสาร และกิจกรรมจาก Rano Tech</p>
         </div>
         <div class="news-grid">
           <article class="news-card"><div class="news-image one"></div><div class="news-body"><span class="date">20 พฤษภาคม 2569</span><h3>เลือกท่อ PPR อย่างไรให้เหมาะกับระบบน้ำร้อน</h3><p>สรุปข้อมูลที่ควรเตรียมก่อนเลือกสเปกท่อและข้อต่อ</p><a href="#contact">อ่านเพิ่มเติม</a></div></article>
@@ -1024,15 +1313,14 @@
     </section>
 
     <section class="video-section">
-      <div class="video-wrap">
-        <a class="video-cover" href="https://www.youtube.com/results?search_query=Ranotech+RNT+Smart+Clamp" target="_blank" rel="noopener" aria-label="ดูวิดีโอ Rano Tech บน YouTube">
-          <div class="video-content">
-            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7Z"/></svg></span>
-            <h2>วิดีโอสาธิตสินค้าและการใช้งาน</h2>
-            <p>ดูตัวอย่างการติดตั้ง การซ่อมท่อ และแนวทางเลือกอุปกรณ์สำหรับงานหน้างานจริง</p>
-          </div>
-        </a>
-      </div>
+      <div class="video-bg" aria-hidden="true"></div>
+      <a class="video-cover" href="https://www.youtube.com/results?search_query=Ranotech+RNT+Smart+Clamp" target="_blank" rel="noopener" aria-label="ดูวิดีโอ Rano Tech บน YouTube">
+        <div class="video-content">
+          <h2>ทีมเทคนิคช่วยแนะนำ<br>ให้เหมาะกับหน้างานจริง</h2>
+          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7Z"/></svg></span>
+          <p class="video-caption">ดูตัวอย่างการติดตั้งและงานซ่อมบำรุง</p>
+        </div>
+      </a>
     </section>
 
     <section class="faq-section" id="faq">
@@ -1090,7 +1378,8 @@
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div>
+      <div class="footer-brand">
+        <a class="footer-logo-link" href="#" aria-label="Rano Tech home"><img class="footer-logo" src="assets/logo.png" alt="Rano Tech"></a>
         <h3>Rano Tech Co., Ltd.</h3>
         <p>ผู้เชี่ยวชาญด้านระบบท่อ อุปกรณ์ซ่อมท่อ และระบบแลกเปลี่ยนความร้อนสำหรับงานอุตสาหกรรม</p>
       </div>
@@ -1107,7 +1396,7 @@
   <script>
     const heroImages = [
       "assets/hero/option-b-hero-ppr-1.jpg",
-      "assets/hero/option-b-hero-ppr-2.png"
+      "assets/hero/option-b-hero-welding-2.jpg"
     ];
     const heroSection = document.querySelector(".hero");
     const heroDots = document.getElementById("heroDots");
@@ -1147,93 +1436,89 @@
       startHeroSlider();
     }
 
-    const solutionItems = [
-      {
-        count: "01 / 04",
-        title: "บริการออกแบบและติดตั้ง SHELL AND TUBE & EVAPORATIVE CONDENSERS",
-        text: "ออกแบบ จัดหา และติดตั้งระบบแลกเปลี่ยนความร้อนสำหรับโรงงาน อาคาร และโครงการอุตสาหกรรม พร้อมทีมเทคนิคช่วยประเมินหน้างาน",
-        label: "Cooling Solution",
-        href: "#contact",
-        image: "assets/solutions/solution-pipe-system.png"
-      },
-      {
-        count: "02 / 04",
-        title: "ซ่อมท่อรั่วด้วย Smart Clamp",
-        text: "โซลูชันซ่อมท่อรั่วที่ช่วยลดเวลาหยุดระบบ เหมาะกับงานซ่อมบำรุง งานเร่งด่วน และระบบที่ต้องกลับมาใช้งานเร็ว",
-        label: "Repair Solution",
-        href: "#products",
-        image: "assets/solutions/solution-smart-clamp.png"
-      },
-      {
-        count: "03 / 04",
-        title: "เครื่องเชื่อมและงานติดตั้ง",
-        text: "เครื่องเชื่อมท่อ PPR / HDPE พร้อมคำแนะนำการใช้งาน การเตรียมหน้างาน และการเลือกอุปกรณ์ให้เหมาะกับทีมติดตั้ง",
-        label: "Installation",
-        href: "#products",
-        image: "assets/products/generated/category-hdpe-welding.png"
-      },
-      {
-        count: "04 / 04",
-        title: "Heat Exchanger & OEM",
-        text: "ระบบแลกเปลี่ยนความร้อน Cooling Skid และงานผลิตตามสเปกโครงการ สำหรับโรงงานและระบบอุตสาหกรรมเฉพาะทาง",
-        label: "Project Solution",
-        href: "#contact",
-        image: "assets/products/generated/category-heat-exchanger.png"
-      }
-    ];
-
     const solutionSection = document.querySelector(".advantage-section");
-    const solutionPanel = document.getElementById("solutionPanel");
-    const solutionCount = document.getElementById("solutionCount");
-    const solutionTitle = document.getElementById("solutionTitle");
-    const solutionText = document.getElementById("solutionText");
-    const solutionLabel = document.getElementById("solutionLabel");
-    const solutionLink = document.getElementById("solutionLink");
-    const solutionDots = document.getElementById("solutionDots");
-    let solutionIndex = 0;
+    const solutionTrack = document.getElementById("solutionTrack");
+    const solutionProgress = document.getElementById("solutionProgress");
+    const solutionCardsViewport = solutionTrack?.parentElement;
+    const solutionSticky = document.querySelector(".solution-sticky");
+    const solutionMobileQuery = window.matchMedia("(max-width: 1080px)");
 
-    function renderSolution(index) {
-      const item = solutionItems[index];
-      solutionSection.style.setProperty("--solution-bg", `url("${item.image}")`);
-      solutionCount.textContent = item.count;
-      solutionTitle.textContent = item.title;
-      solutionText.textContent = item.text;
-      solutionLabel.textContent = item.label;
-      solutionLink.href = item.href;
-      solutionDots.querySelectorAll(".solution-dot").forEach((dot, dotIndex) => {
-        dot.classList.toggle("is-active", dotIndex === index);
-        dot.setAttribute("aria-current", dotIndex === index ? "true" : "false");
-      });
-      solutionPanel.classList.remove("is-changing");
-      void solutionPanel.offsetWidth;
-      solutionPanel.classList.add("is-changing");
+    function clamp(value, min, max) {
+      return Math.min(Math.max(value, min), max);
     }
 
-    if (solutionSection && solutionDots) {
-      solutionItems.forEach((item, index) => {
-        const dot = document.createElement("button");
-        dot.type = "button";
-        dot.className = "solution-dot";
-        dot.setAttribute("aria-label", item.title);
-        dot.addEventListener("click", () => {
-          solutionIndex = index;
-          renderSolution(solutionIndex);
-        });
-        solutionDots.appendChild(dot);
-      });
+    function getSolutionIntroOpacity(progress) {
+      const fadeStart = 0.1;
+      const fadeEnd = 0.38;
 
-      document.getElementById("solutionPrev").addEventListener("click", () => {
-        solutionIndex = (solutionIndex - 1 + solutionItems.length) % solutionItems.length;
-        renderSolution(solutionIndex);
-      });
-
-      document.getElementById("solutionNext").addEventListener("click", () => {
-        solutionIndex = (solutionIndex + 1) % solutionItems.length;
-        renderSolution(solutionIndex);
-      });
-
-      renderSolution(solutionIndex);
+      if (progress <= fadeStart) return 1;
+      if (progress >= fadeEnd) return 0;
+      return 1 - (progress - fadeStart) / (fadeEnd - fadeStart);
     }
+
+    function updateSolutionScroll() {
+      if (!solutionSection || !solutionTrack || !solutionCardsViewport) return;
+
+      if (solutionMobileQuery.matches) {
+        solutionSection.style.minHeight = "";
+        solutionSection.classList.remove("is-solution-scrolling");
+        solutionSection.style.setProperty("--solution-intro-opacity", "1");
+        solutionTrack.style.setProperty("--solution-shift", "0px");
+        if (solutionProgress) {
+          solutionProgress.style.setProperty("--solution-progress", "0%");
+        }
+        return;
+      }
+
+      const viewportWidth = solutionCardsViewport.clientWidth;
+      const maxShift = Math.max(0, solutionTrack.scrollWidth - viewportWidth);
+      const stickyOffset = document.querySelector(".topbar")?.offsetHeight || 76;
+      const stickyHeight = solutionSticky?.offsetHeight || Math.max(420, window.innerHeight - stickyOffset);
+      const scrollDistance = Math.max(1, maxShift);
+      solutionSection.style.minHeight = `${stickyHeight + scrollDistance}px`;
+
+      const rect = solutionSection.getBoundingClientRect();
+      const progress = clamp((stickyOffset - rect.top) / scrollDistance, 0, 1);
+      const introOpacity = getSolutionIntroOpacity(progress);
+      solutionSection.style.setProperty("--solution-intro-opacity", String(introOpacity));
+      solutionSection.classList.toggle("is-solution-scrolling", introOpacity <= 0);
+      solutionTrack.style.setProperty("--solution-shift", `${-maxShift * progress}px`);
+      if (solutionProgress) {
+        solutionProgress.style.setProperty("--solution-progress", `${progress * 100}%`);
+      }
+    }
+
+    window.addEventListener("scroll", updateSolutionScroll, { passive: true });
+    window.addEventListener("resize", updateSolutionScroll);
+    solutionMobileQuery.addEventListener("change", updateSolutionScroll);
+    updateSolutionScroll();
+
+    const videoSection = document.querySelector(".video-section");
+    const videoBg = document.querySelector(".video-bg");
+    const videoParallaxQuery = window.matchMedia("(min-width: 1081px)");
+
+    function updateVideoParallax() {
+      if (!videoSection || !videoBg) return;
+
+      if (!videoParallaxQuery.matches) {
+        videoBg.style.transform = "";
+        videoBg.style.top = "";
+        videoBg.style.height = "";
+        return;
+      }
+
+      videoBg.style.top = "-100vh";
+      videoBg.style.height = "calc(100% + 200vh)";
+
+      const rect = videoSection.getBoundingClientRect();
+      const offset = -rect.top;
+      videoBg.style.transform = `translate3d(0, ${offset}px, 0)`;
+    }
+
+    window.addEventListener("scroll", updateVideoParallax, { passive: true });
+    window.addEventListener("resize", updateVideoParallax);
+    videoParallaxQuery.addEventListener("change", updateVideoParallax);
+    updateVideoParallax();
   </script>
 </body>
 </html>
