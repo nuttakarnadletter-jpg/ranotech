@@ -142,6 +142,7 @@
     .btn-primary { color: #fff; background: linear-gradient(135deg, var(--blue), #3458ff); box-shadow: 0 14px 30px rgba(29, 42, 154, .26); }
     .btn-dark { color: #fff; background: linear-gradient(135deg, #2232b8, var(--navy)); }
     .btn-amber { color: #101a3f; background: linear-gradient(135deg, #ffe08f, var(--amber)); }
+    .btn-white { color: var(--navy); background: #fff; box-shadow: 0 14px 30px rgba(6, 18, 77, .16); }
     .btn-outline { color: var(--navy); background: #fff; border: 1px solid var(--line); }
 
     .hero {
@@ -151,14 +152,44 @@
       align-items: center;
       color: #fff;
       overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(2, 10, 39, .72) 0%, rgba(2, 10, 39, .4) 42%, rgba(2, 10, 39, .04) 72%),
-        url("assets/hero-banner1.jpg") center/cover;
+      background: #07124d;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(2, 10, 39, .72) 0%, rgba(2, 10, 39, .42) 42%, rgba(2, 10, 39, .06) 72%);
+      pointer-events: none;
+    }
+
+    .hero-slides,
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slides {
+      z-index: 0;
+    }
+
+    .hero-slide {
+      opacity: 0;
+      background-position: center;
+      background-size: cover;
+      transform: scale(1.02);
+      transition: opacity .9s ease, transform 5.8s ease;
+    }
+
+    .hero-slide.is-active {
+      opacity: 1;
+      transform: scale(1);
     }
 
     .hero-grid {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       display: flex;
       align-items: center;
       padding: 56px 0 66px;
@@ -198,6 +229,32 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+    }
+
+    .hero-dots {
+      position: absolute;
+      z-index: 3;
+      left: 50%;
+      bottom: 22px;
+      display: flex;
+      gap: 8px;
+      transform: translateX(-50%);
+    }
+
+    .hero-dot {
+      width: 8px;
+      height: 8px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255,255,255,.45);
+      cursor: pointer;
+      transition: width .2s ease, background .2s ease;
+    }
+
+    .hero-dot.is-active {
+      width: 28px;
+      background: #fff;
     }
 
     section { padding: 76px 0; }
@@ -1099,6 +1156,10 @@
 
   <main>
     <section class="hero">
+      <div class="hero-slides" aria-hidden="true">
+        <div class="hero-slide is-active" style="background-image: url('assets/hero/option-a-hero-city-ppr.png')"></div>
+        <div class="hero-slide" style="background-image: url('assets/hero-banner1.jpg')"></div>
+      </div>
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">
@@ -1108,10 +1169,11 @@
           <h1>จบปัญหาน้ำรั่วซึม! ด้วยท่อ PPR และ Smart Clamp คุณภาพสูง</h1>
           <p>สต๊อกพร้อม ส่งด่วนทั่วประเทศ พร้อมทีมวิศวกรผู้เชี่ยวชาญให้คำปรึกษาและออกแบบระบบท่อ ประสบการณ์กว่า 30 ปี</p>
           <div class="hero-actions">
-            <a class="btn btn-amber" href="#products">ดูสินค้าแนะนำ</a>
+            <a class="btn btn-white" href="#products">ดูสินค้าแนะนำ</a>
           </div>
         </div>
       </div>
+      <div class="hero-dots" data-hero-dots aria-label="เลือกภาพแบนเนอร์"></div>
     </section>
 
     <section class="trust-band" aria-label="องค์กรที่ไว้วางใจ Rano Tech">
@@ -1511,6 +1573,46 @@
     <a class="btn btn-dark" href="tel:0859410072">โทร</a>
   </div>
   <script>
+    const heroSlides = [...document.querySelectorAll('.hero-slide')];
+    const heroDots = document.querySelector('[data-hero-dots]');
+    let heroIndex = 0;
+    let heroTimer;
+
+    function renderHeroSlide(index) {
+      if (!heroSlides.length) return;
+      heroSlides.forEach((slide, slideIndex) => {
+        slide.classList.toggle('is-active', slideIndex === index);
+      });
+      heroDots?.querySelectorAll('.hero-dot').forEach((dot, dotIndex) => {
+        dot.classList.toggle('is-active', dotIndex === index);
+      });
+    }
+
+    function startHeroSlider() {
+      window.clearInterval(heroTimer);
+      heroTimer = window.setInterval(() => {
+        heroIndex = (heroIndex + 1) % heroSlides.length;
+        renderHeroSlide(heroIndex);
+      }, 5200);
+    }
+
+    if (heroSlides.length && heroDots) {
+      heroSlides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'hero-dot';
+        dot.setAttribute('aria-label', `Hero banner ${index + 1}`);
+        dot.addEventListener('click', () => {
+          heroIndex = index;
+          renderHeroSlide(heroIndex);
+          startHeroSlider();
+        });
+        heroDots.appendChild(dot);
+      });
+      renderHeroSlide(heroIndex);
+      startHeroSlider();
+    }
+
     const productTrack = document.querySelector('[data-product-track]');
     const productPrev = document.querySelector('[data-product-prev]');
     const productNext = document.querySelector('[data-product-next]');
