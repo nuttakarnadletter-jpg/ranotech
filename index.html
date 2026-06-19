@@ -17,6 +17,7 @@
       --surface: #ffffff;
       --soft: #f5f7fb;
       --green: #1aa36f;
+      --amber: #c88712;
     }
 
     * {
@@ -110,7 +111,7 @@
 
     .options {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
@@ -150,6 +151,11 @@
 
     .preview-b {
       background-image: url("assets/hero/option-b-hero-ppr-1.jpg");
+      background-position: center right;
+    }
+
+    .preview-c {
+      background-image: url("assets/hero/option-c-hero-city-ppr.png");
       background-position: center right;
     }
 
@@ -219,11 +225,115 @@
       background: var(--green);
     }
 
+    .option-card:nth-child(3) .cta {
+      background: var(--amber);
+    }
+
     .note {
       margin-top: 22px;
       color: #7a8498;
       font-size: 14px;
       line-height: 1.7;
+    }
+
+    .access-gate {
+      min-height: 100vh;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .access-card {
+      width: min(460px, 100%);
+      padding: 36px 32px 32px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 60px rgba(18, 24, 38, 0.08);
+    }
+
+    .access-brand {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+
+    .access-brand img {
+      width: 148px;
+      height: auto;
+      display: block;
+    }
+
+    .access-card h1 {
+      font-size: clamp(28px, 4vw, 36px);
+      text-align: center;
+    }
+
+    .access-card .lead {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .access-form {
+      margin-top: 28px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .access-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #344054;
+    }
+
+    .access-input {
+      width: 100%;
+      min-height: 48px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+
+    .access-input:focus {
+      outline: 2px solid rgba(27, 47, 160, 0.18);
+      border-color: rgba(27, 47, 160, 0.45);
+    }
+
+    .access-submit {
+      min-height: 48px;
+      border: 0;
+      background: var(--brand);
+      color: #fff;
+      font: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .access-error {
+      margin: 0;
+      min-height: 20px;
+      color: #d41414;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .app-content[hidden] {
+      display: none !important;
+    }
+
+    .access-gate[hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 1100px) {
+      .options {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 860px) {
@@ -253,7 +363,24 @@
   </style>
 </head>
 <body>
-  <main class="page">
+  <main class="access-gate" id="accessGate">
+    <div class="access-card">
+      <div class="access-brand">
+        <img src="assets/logo.png" alt="Rano Tech">
+      </div>
+      <p class="eyebrow" style="text-align:center;">Preview Access</p>
+      <h1>ใส่รหัสเพื่อเข้าดูตัวอย่าง</h1>
+      <p class="lead">กรอกรหัสเข้าดูก่อนเลือกดีไซน์หน้าแรก</p>
+      <form class="access-form" id="accessForm">
+        <label class="access-label" for="accessCode">รหัสเข้าดู</label>
+        <input class="access-input" id="accessCode" name="accessCode" type="password" autocomplete="current-password" placeholder="กรอกรหัสเข้าดู" required>
+        <p class="access-error" id="accessError" role="alert" aria-live="polite"></p>
+        <button class="access-submit" type="submit">เข้าดูตัวอย่าง</button>
+      </form>
+    </div>
+  </main>
+
+  <main class="page app-content" id="appContent" hidden>
     <div class="shell">
       <header class="topbar" aria-label="Rano Tech">
         <a class="brand" href="index.html" aria-label="Rano Tech">
@@ -304,10 +431,71 @@
             <span class="cta">เปิดดูดีไซน์แบบที่ 2</span>
           </div>
         </a>
+
+        <a class="option-card" href="home_option_c.html">
+          <div class="preview preview-c">
+            <span class="badge">Design 03</span>
+          </div>
+          <div class="content">
+            <div>
+              <h2>ดีไซน์แบบที่ 3</h2>
+              <p>พัฒนาต่อจากแบบที่ 2 เน้นโซลูชันเต็มจอ สินค้าแนะนำและซีนลดราคา พร้อมการ์ดสินค้าและ Footer ที่รองรับการขยายเป็น E-commerce</p>
+              <div class="meta" aria-hidden="true">
+                <span class="tag">โซลูชันเต็มจอ</span>
+                <span class="tag">สินค้าลดราคา</span>
+                <span class="tag">พร้อมขยายต่อ</span>
+              </div>
+            </div>
+            <span class="cta">เปิดดูดีไซน์แบบที่ 3</span>
+          </div>
+        </a>
       </section>
 
-      <p class="note">ทั้งสองแบบเป็นไฟล์ HTML แยกกัน สามารถเปิดดูและปรับแก้ต่อได้โดยไม่กระทบกัน</p>
+      <p class="note">ทั้งสามแบบเป็นไฟล์ HTML แยกกัน สามารถเปิดดูและปรับแก้ต่อได้โดยไม่กระทบกัน</p>
     </div>
   </main>
+
+  <script src="preview-auth.js"></script>
+  <script>
+    (function () {
+      const accessGate = document.getElementById("accessGate");
+      const appContent = document.getElementById("appContent");
+      const accessForm = document.getElementById("accessForm");
+      const accessCode = document.getElementById("accessCode");
+      const accessError = document.getElementById("accessError");
+
+      function showApp() {
+        accessGate.hidden = true;
+        appContent.hidden = false;
+      }
+
+      function showGate() {
+        accessGate.hidden = false;
+        appContent.hidden = true;
+      }
+
+      if (RanotechPreviewAuth.isAuthenticated()) {
+        if (RanotechPreviewAuth.redirectAfterLogin()) return;
+        showApp();
+      } else {
+        showGate();
+        accessCode.focus();
+      }
+
+      accessForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (RanotechPreviewAuth.verify(accessCode.value)) {
+          RanotechPreviewAuth.grant();
+          accessError.textContent = "";
+          if (RanotechPreviewAuth.redirectAfterLogin()) return;
+          showApp();
+          return;
+        }
+        accessError.textContent = "รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง";
+        accessCode.focus();
+        accessCode.select();
+      });
+    })();
+  </script>
 </body>
 </html>
