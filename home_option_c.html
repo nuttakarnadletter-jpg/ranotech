@@ -1430,19 +1430,6 @@
       background: var(--clearance-section-bg);
       overflow: visible;
       padding-bottom: 48px;
-      max-height: 1200px;
-      opacity: 1;
-      transition: max-height .45s ease, opacity .35s ease, padding .35s ease, margin .35s ease;
-    }
-
-    .clearance-section.is-hidden {
-      max-height: 0;
-      opacity: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-      margin: 0;
-      overflow: hidden;
-      pointer-events: none;
     }
 
     .clearance-section .section-head h2 {
@@ -1498,44 +1485,6 @@
     .clearance-section .featured-products-head .btn {
       flex: 0 0 auto;
       white-space: nowrap;
-    }
-
-    .sale-section-toggle {
-      position: fixed;
-      right: 22px;
-      bottom: 92px;
-      z-index: 95;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 16px 0 12px;
-      border: 1px solid rgba(255, 255, 255, .22);
-      border-radius: 999px;
-      background: linear-gradient(135deg, #ff6a2b, #e82424);
-      color: #fff;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 14px 34px rgba(212, 20, 20, .28);
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .sale-section-toggle:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(212, 20, 20, .34);
-    }
-
-    .sale-section-toggle svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-    }
-
-    .sale-section-toggle.is-active {
-      background: linear-gradient(135deg, #24349f, #1b2fa0);
-      box-shadow: 0 14px 34px rgba(7, 18, 77, .24);
     }
 
     .featured-product-body {
@@ -2171,13 +2120,6 @@
       .news-section { padding: 44px 0 40px; }
       .featured-products-section { padding-bottom: 36px; }
       .clearance-section { padding-bottom: 36px; }
-      .sale-section-toggle {
-        right: 14px;
-        bottom: calc(78px + env(safe-area-inset-bottom));
-        min-height: 44px;
-        padding: 0 14px 0 10px;
-        font-size: 13px;
-      }
       .news-body { padding: 14px 16px 16px; }
       .news-body h3 { font-size: 17px; }
       .category-grid, .form-grid { grid-template-columns: 1fr; }
@@ -2509,6 +2451,94 @@
         </div>
       </section>
 
+    <!-- ลำดับ: สินค้าลดราคา ก่อน สินค้าแนะนำ -->
+    <section class="clearance-section" id="clearance-products" aria-label="สินค้าลดราคา">
+      <div class="container">
+        <div class="featured-products-head">
+          <div class="section-head align-left">
+            <p class="kicker">Clearance</p>
+            <h2>
+              <span class="clearance-title-icon" aria-hidden="true">
+                <img src="assets/icons/discount.svg" alt="" width="34" height="34" decoding="async">
+              </span>
+              สินค้าลดราคา
+            </h2>
+          </div>
+          <a class="btn btn-primary" href="https://www.ranotech.com/products/" target="_blank" rel="noopener">ดูสินค้าลดราคาทั้งหมด</a>
+        </div>
+        <div class="featured-product-carousel">
+          <button class="featured-product-arrow prev" type="button" aria-label="สินค้าลดราคาก่อนหน้า" data-clearance-product-prev>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="featured-product-grid" id="clearanceProductTrack">
+            <article class="featured-product-card">
+              <div class="featured-product-img product-photo ppr-elbow-45" role="img" aria-label="PPR EF 45 ELBOW">
+                <div class="featured-product-labels"><span class="product-tag product-tag-sale">ลดราคา</span></div>
+              </div>
+              <div class="featured-product-body">
+                <h3>PPR EF 45 ELBOW</h3>
+                <div class="featured-product-footer">
+                  <div class="featured-product-prices">
+                    <span class="featured-product-price-old">฿120</span>
+                    <span class="featured-product-price-sale">฿89</span>
+                  </div>
+                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                </div>
+              </div>
+            </article>
+            <article class="featured-product-card">
+              <div class="featured-product-img product-photo ppr-stop-valve" role="img" aria-label="Stop Valve">
+                <div class="featured-product-labels"><span class="product-tag product-tag-sale">ลด 15%</span></div>
+              </div>
+              <div class="featured-product-body">
+                <h3>Stop Valve</h3>
+                <div class="featured-product-footer">
+                  <div class="featured-product-prices">
+                    <span class="featured-product-price-old">฿320</span>
+                    <span class="featured-product-price-sale">฿272</span>
+                  </div>
+                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                </div>
+              </div>
+            </article>
+            <article class="featured-product-card">
+              <div class="featured-product-img product-photo ppr-reducer" role="img" aria-label="PPR EF Reducer">
+                <div class="featured-product-labels"><span class="product-tag product-tag-sale">Clearance</span></div>
+              </div>
+              <div class="featured-product-body">
+                <h3>PPR EF Reducer</h3>
+                <div class="featured-product-footer">
+                  <div class="featured-product-prices">
+                    <span class="featured-product-price-old">฿680</span>
+                    <span class="featured-product-price-sale">฿549</span>
+                  </div>
+                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                </div>
+              </div>
+            </article>
+            <article class="featured-product-card">
+              <div class="featured-product-img product-photo ball-valve-dn25" role="img" aria-label="Single Union &amp; Female Threaded Ball Cock">
+                <div class="featured-product-labels"><span class="product-tag product-tag-sale">ลดราคา</span></div>
+              </div>
+              <div class="featured-product-body">
+                <h3>Single Union &amp; Female Threaded Ball Cock</h3>
+                <div class="featured-product-footer">
+                  <div class="featured-product-prices">
+                    <span class="featured-product-price-old">฿450</span>
+                    <span class="featured-product-price-sale">฿379</span>
+                  </div>
+                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <button class="featured-product-arrow next" type="button" aria-label="สินค้าลดราคาถัดไป" data-clearance-product-next>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <section class="featured-products-section" id="featured-products" aria-label="สินค้าแนะนำ">
       <div class="container">
         <div class="featured-products-head">
@@ -2600,92 +2630,6 @@
       </div>
     </section>
 
-    <section class="clearance-section is-hidden" id="clearance-products" aria-label="สินค้าลดราคา">
-      <div class="container">
-        <div class="featured-products-head">
-          <div class="section-head align-left">
-            <p class="kicker">Clearance</p>
-            <h2>
-              <span class="clearance-title-icon" aria-hidden="true">
-                <img src="assets/icons/discount.svg" alt="" width="34" height="34" decoding="async">
-              </span>
-              สินค้าลดราคา
-            </h2>
-          </div>
-          <a class="btn btn-primary" href="https://www.ranotech.com/products/" target="_blank" rel="noopener">ดูสินค้าลดราคาทั้งหมด</a>
-        </div>
-        <div class="featured-product-carousel">
-          <button class="featured-product-arrow prev" type="button" aria-label="สินค้าลดราคาก่อนหน้า" data-clearance-product-prev>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 18-6-6 6-6"/></svg>
-          </button>
-          <div class="featured-product-grid" id="clearanceProductTrack">
-            <article class="featured-product-card">
-              <div class="featured-product-img product-photo ppr-elbow-45" role="img" aria-label="PPR EF 45 ELBOW">
-                <div class="featured-product-labels"><span class="product-tag product-tag-sale">ลดราคา</span></div>
-              </div>
-              <div class="featured-product-body">
-                <h3>PPR EF 45 ELBOW</h3>
-                <div class="featured-product-footer">
-                  <div class="featured-product-prices">
-                    <span class="featured-product-price-old">฿120</span>
-                    <span class="featured-product-price-sale">฿89</span>
-                  </div>
-                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
-                </div>
-              </div>
-            </article>
-            <article class="featured-product-card">
-              <div class="featured-product-img product-photo ppr-stop-valve" role="img" aria-label="Stop Valve">
-                <div class="featured-product-labels"><span class="product-tag product-tag-sale">ลด 15%</span></div>
-              </div>
-              <div class="featured-product-body">
-                <h3>Stop Valve</h3>
-                <div class="featured-product-footer">
-                  <div class="featured-product-prices">
-                    <span class="featured-product-price-old">฿320</span>
-                    <span class="featured-product-price-sale">฿272</span>
-                  </div>
-                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
-                </div>
-              </div>
-            </article>
-            <article class="featured-product-card">
-              <div class="featured-product-img product-photo ppr-reducer" role="img" aria-label="PPR EF Reducer">
-                <div class="featured-product-labels"><span class="product-tag product-tag-sale">Clearance</span></div>
-              </div>
-              <div class="featured-product-body">
-                <h3>PPR EF Reducer</h3>
-                <div class="featured-product-footer">
-                  <div class="featured-product-prices">
-                    <span class="featured-product-price-old">฿680</span>
-                    <span class="featured-product-price-sale">฿549</span>
-                  </div>
-                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
-                </div>
-              </div>
-            </article>
-            <article class="featured-product-card">
-              <div class="featured-product-img product-photo ball-valve-dn25" role="img" aria-label="Single Union &amp; Female Threaded Ball Cock">
-                <div class="featured-product-labels"><span class="product-tag product-tag-sale">ลดราคา</span></div>
-              </div>
-              <div class="featured-product-body">
-                <h3>Single Union &amp; Female Threaded Ball Cock</h3>
-                <div class="featured-product-footer">
-                  <div class="featured-product-prices">
-                    <span class="featured-product-price-old">฿450</span>
-                    <span class="featured-product-price-sale">฿379</span>
-                  </div>
-                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
-                </div>
-              </div>
-            </article>
-          </div>
-          <button class="featured-product-arrow next" type="button" aria-label="สินค้าลดราคาถัดไป" data-clearance-product-next>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"/></svg>
-          </button>
-        </div>
-      </div>
-    </section>
 
     <section class="news-section" id="news">
       <div class="container">
@@ -2870,11 +2814,6 @@
     </div>
   </footer>
 
-  <button class="sale-section-toggle" type="button" id="saleSectionToggle" aria-pressed="false" aria-controls="clearance-products" aria-label="เปิดซีนสินค้าลดราคา">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><path d="M7 7h.01"/></svg>
-    <span id="saleSectionToggleLabel">เปิดซีนลดราคา</span>
-  </button>
-
   <div class="sticky-mobile">
     <a class="btn btn-primary" href="tel:0859410072">โทร</a>
     <a class="btn btn-amber" href="https://page.line.me/gbc9543u" target="_blank" rel="noopener">LINE</a>
@@ -3024,32 +2963,9 @@
       featuredProductsSection.parentNode.insertBefore(clearanceSection, featuredProductsSection);
     }
 
-    const saleSectionToggle = document.getElementById("saleSectionToggle");
-    const saleSectionToggleLabel = document.getElementById("saleSectionToggleLabel");
     const clearanceProductTrack = document.getElementById("clearanceProductTrack");
     const clearanceProductPrev = document.querySelector("[data-clearance-product-prev]");
     const clearanceProductNext = document.querySelector("[data-clearance-product-next]");
-
-    function setClearanceSectionVisible(visible) {
-      if (!clearanceSection || !saleSectionToggle) return;
-      clearanceSection.classList.toggle("is-hidden", !visible);
-      saleSectionToggle.classList.toggle("is-active", visible);
-      saleSectionToggle.setAttribute("aria-pressed", visible ? "true" : "false");
-      if (saleSectionToggleLabel) {
-        saleSectionToggleLabel.textContent = visible ? "ปิดซีนลดราคา" : "เปิดซีนลดราคา";
-      }
-      if (visible) {
-        window.requestAnimationFrame(() => {
-          updateClearanceProductArrows();
-          clearanceSection.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        });
-      }
-    }
-
-    saleSectionToggle?.addEventListener("click", () => {
-      const willShow = clearanceSection?.classList.contains("is-hidden");
-      setClearanceSectionVisible(Boolean(willShow));
-    });
 
     function getClearanceProductStep() {
       if (!clearanceProductTrack) return 0;
