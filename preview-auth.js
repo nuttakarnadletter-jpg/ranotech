@@ -1,6 +1,6 @@
 (function () {
   const AUTH_KEY = "ranotechPreviewAuth";
-  const ACCESS_CODE = "rp-renotech";
+  const ACCESS_CODE = "rp-ranotech";
   const LOGIN_PAGE = "index.html";
   const ALLOWED_PAGES = /^home_option_[abc]\.html$/i;
 
