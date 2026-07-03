@@ -424,20 +424,24 @@
     .hero-dots {
       margin-left: auto;
       display: flex;
-      gap: 8px;
+      gap: 7px;
       padding-bottom: 18px;
     }
 
     .hero-dot {
-      width: 30px;
-      height: 3px;
+      width: 7px;
+      height: 7px;
       border: 0;
+      border-radius: 999px;
       padding: 0;
       background: rgba(255,255,255,.36);
       cursor: pointer;
     }
 
-    .hero-dot.is-active { background: #fff; }
+    .hero-dot.is-active {
+      background: #fff;
+      transform: scale(1.2);
+    }
 
     .hero-arrow {
       position: absolute;
@@ -577,7 +581,7 @@
       background-repeat: no-repeat;
     }
 
-    .category-thumb.ppr { background-image: url("assets/products/manual/category-ppr-product-01.jpg"); }
+    .category-thumb.ppr { background-image: url("assets/products/manual/product-cate01-2.jpg"); }
     .category-thumb.clamp {
       background-image: url("assets/products/manual/category-smart-clamp.jpg");
     }
@@ -2819,21 +2823,49 @@
   <script>
     const heroSlides = [
       {
-        image: "assets/hero/option-c-hero-city-ppr.png",
-        position: "right calc(100% + 56px)",
-        size: "112% auto",
+        image: "assets/hero/bg-herobanner-01-rev.jpg",
+        position: "right center",
+        size: "105% auto",
         title: "Better Technology<br>For Better Life",
         subtitle: "เทคโนโลยีระบบท่อและอุปกรณ์อุตสาหกรรมที่ช่วยให้งานติดตั้งใช้งานได้มั่นใจขึ้น"
       },
       {
-        image: "assets/hero/option-b-hero-ppr-1.jpg",
+        image: "assets/hero/option-c-hero-factory.jpg",
+        position: "center 68%",
+        size: "105% auto",
+        title: "ร้านขายท่อ PPR แคล้มรัดท่อ<br>และเครื่องเชื่อมท่อ PPR, HDPE",
+        subtitle: "สต๊อกพร้อมส่ง พร้อมทีมเทคนิคช่วยแนะนำสเปกให้เหมาะกับหน้างาน"
+      },
+      {
+        image: "assets/hero/option-b-hero-welding-2.jpg",
         position: "right center",
         size: "cover",
         title: "ร้านขายท่อ PPR แคล้มรัดท่อ<br>และเครื่องเชื่อมท่อ PPR, HDPE",
         subtitle: "สต๊อกพร้อมส่ง พร้อมทีมเทคนิคช่วยแนะนำสเปกให้เหมาะกับหน้างาน"
       },
       {
-        image: "assets/hero/option-b-hero-welding-2.jpg",
+        image: "assets/hero/herobanner-04.jpg",
+        position: "right center",
+        size: "cover",
+        title: "ร้านขายท่อ PPR แคล้มรัดท่อ<br>และเครื่องเชื่อมท่อ PPR, HDPE",
+        subtitle: "สต๊อกพร้อมส่ง พร้อมทีมเทคนิคช่วยแนะนำสเปกให้เหมาะกับหน้างาน"
+      },
+      {
+        image: "assets/hero/herobanner-05-4.jpg",
+        position: "right center",
+        size: "cover",
+        title: "ร้านขายท่อ PPR แคล้มรัดท่อ<br>และเครื่องเชื่อมท่อ PPR, HDPE",
+        subtitle: "สต๊อกพร้อมส่ง พร้อมทีมเทคนิคช่วยแนะนำสเปกให้เหมาะกับหน้างาน"
+      },
+      {
+        image: "assets/hero/bg-herobanner-06-Rev2.jpg",
+        position: "right center",
+        size: "cover",
+        title: "ร้านขายท่อ PPR แคล้มรัดท่อ<br>และเครื่องเชื่อมท่อ PPR, HDPE",
+        subtitle: "สต๊อกพร้อมส่ง พร้อมทีมเทคนิคช่วยแนะนำสเปกให้เหมาะกับหน้างาน"
+      },
+      {
+        image: "assets/hero/bg-herobanner-07-1.jpg",
         position: "right center",
         size: "cover",
         title: "ร้านขายท่อ PPR แคล้มรัดท่อ<br>และเครื่องเชื่อมท่อ PPR, HDPE",
