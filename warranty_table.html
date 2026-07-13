@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ตารางเงื่อนไขการรับประกัน</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans Thai", Arial, sans-serif;
+      color: #090909;
+      background: #ffffff;
+      line-height: 1.55;
+    }
+
+    .warranty-section {
+      width: 100%;
+      padding: 8px 2px 0;
+      background: #ffffff;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .warranty-table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+      table-layout: fixed;
+      border-bottom: 2px solid #5d5d5d;
+    }
+
+    .warranty-table col:nth-child(1) {
+      width: 21.2%;
+    }
+
+    .warranty-table col:nth-child(2) {
+      width: 39.3%;
+    }
+
+    .warranty-table col:nth-child(3) {
+      width: 39.5%;
+    }
+
+    .warranty-table th {
+      padding: 16px 30px;
+      background: #ffcc00;
+      border-right: 2px solid #ffffff;
+      color: #000000;
+      font-size: 17px;
+      font-weight: 700;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .warranty-table th:last-child,
+    .warranty-table td:last-child {
+      border-right: 0;
+    }
+
+    .warranty-table td {
+      padding: 16px 30px;
+      border-right: 1px solid #ffffff;
+      color: #111111;
+      font-size: 20px;
+      font-weight: 600;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .warranty-table tbody tr:nth-child(odd) {
+      background: #ffffff;
+    }
+
+    .warranty-table tbody tr:nth-child(even) {
+      background: #eeeeee;
+    }
+
+    .warranty-table .service {
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .warranty-table .large-row td {
+      padding-top: 17px;
+      padding-bottom: 9px;
+    }
+
+    .warranty-table .large-row td:nth-child(2),
+    .warranty-table .large-row td:nth-child(3) {
+      line-height: 1.55;
+    }
+
+    .note {
+      margin: 18px 0 0;
+      padding: 0 0 12px;
+      color: #5f6670;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .note strong {
+      color: #5c626c;
+      font-weight: 700;
+    }
+
+    @media (max-width: 767px) {
+      .warranty-section {
+        padding-top: 0;
+      }
+
+      .warranty-table {
+        min-width: 900px;
+      }
+
+      .warranty-table th,
+      .warranty-table td {
+        padding: 14px 20px;
+      }
+
+      .warranty-table td {
+        font-size: 18px;
+      }
+
+      .note {
+        padding: 0 14px 12px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="warranty-section" aria-label="ตารางเงื่อนไขการรับประกัน">
+    <div class="table-wrap">
+      <table class="warranty-table">
+        <colgroup>
+          <col>
+          <col>
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>สินค้า/บริการ</th>
+            <th>ระยะรับประกัน</th>
+            <th>เงื่อนไขการรับประกัน</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="large-row">
+            <td class="service">เปลี่ยนยาง 4 เส้น</td>
+            <td>
+              1 ปี หรือ 25,000 กม. รับประกัน บาด บวม แตก เคลมยางใหม่ฟรี!
+              <br><br>
+              2 ปี หรือ 50,000 กม. รับประกันความบกพร่องที่เกิดจากการผลิต
+            </td>
+            <td>
+              ตามเงื่อนไขที่บริษัทฯ กำหนด
+              <br><br>
+              ครอบคลุมเฉพาะการชำรุดที่ตรวจสอบได้ว่าเกิดจากการผลิต โดยจะชดเชยเงินตามเปอร์เซ็นต์ที่เหลือของการใช้งาน ตามเงื่อนไขที่บริษัทฯ กำหนด
+            </td>
+          </tr>
+          <tr>
+            <td class="service">เปลี่ยนยาง 1-3 เส้น</td>
+            <td>1 ปี (ไม่จำกัดระยะทาง) รับประกันความบกพร่องที่เกิดจากการผลิต</td>
+            <td>รับประกันความบกพร่องที่เกิดจากการผลิตเท่านั้น</td>
+          </tr>
+          <tr>
+            <td class="service">ถ่วงล้อ</td>
+            <td>30 วัน (ไม่จำกัดระยะทาง)</td>
+            <td>กรณียางสั่น จะถ่วงล้อให้ใหม่ในระยะรับประกัน</td>
+          </tr>
+          <tr>
+            <td class="service">ตั้งศูนย์ล้อ</td>
+            <td>30 วัน (ไม่จำกัดระยะทาง)</td>
+            <td>กรณีพวงมาลัยกินไปข้างใดข้างหนึ่งจะตั้งศูนย์ใหม่ให้ในระยะรับประกัน *การรับประกันไม่ครอบคลุมถึงความเสียหายที่เกิดขึ้นกับยาง เช่น ยางสึกไม่เสมอกัน ฯลฯ</td>
+          </tr>
+          <tr>
+            <td class="service">เติมลมยางไนโตรเจน</td>
+            <td>6 เดือน (ไม่จำกัดระยะทาง)</td>
+            <td>รับประกันความบกพร่องที่เกิดจากการผลิตเท่านั้น</td>
+          </tr>
+          <tr>
+            <td class="service">ปะยาง</td>
+            <td>7 วัน (ไม่จำกัดระยะทาง)</td>
+            <td>ในกรณีที่ยังมีการรั่วซึม จะทำการปะให้ใหม่ในระยะรับประกัน</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note">
+      <strong>หมายเหตุ :</strong> รับประกันความบกพร่องที่เกิดจากการผลิตเท่านั้น ไม่ครอบคลุมกรณีใช้รถในเชิงพาณิชย์ สงวนสิทธิ์ในการใช้เวลาตรวจสอบประมาณ 6-8 สัปดาห์ โดยลูกค้าต้องซื้อสินค้าเพื่อใช้ระหว่างรอผลการตรวจสอบ หากผลการตรวจสอบความบกพร่องของสินค้าเกิดจากการผลิตหรือการติดตั้งของ บี-ควิก บริษัทฯ จะรับผิดชอบโดยการคืนเงินค่าสินค้าตามเปอร์เซ็นต์การใช้งานที่เหลือ (ตามเงื่อนไขที่บริษัทฯ กำหนด)
+    </p>
+  </section>
+</body>
+</html>

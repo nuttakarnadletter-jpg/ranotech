@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <script src="preview-auth.js?v=rp-ranotech"></script>
-  <script>RanotechPreviewAuth.guardPage();</script>
+  <script>
+    RanotechPreviewAuth.guardPage();
+    document.documentElement.classList.toggle("preview-authed", RanotechPreviewAuth.isAuthenticated());
+    document.documentElement.classList.toggle("preview-locked", !RanotechPreviewAuth.isAuthenticated());
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Rano Tech ร้านขายท่อ PPR แคล้มรัดท่อ เครื่องเชื่อมท่อ PPR, HDPE และโซลูชันงานระบบท่ออุตสาหกรรม" />
   <title>Rano Tech | หน้าแรก</title>
@@ -526,19 +530,19 @@
 
     .hero h1 {
       margin: 0;
-      font-size: clamp(34px, 4.4vw, 54px);
+      font-size: clamp(32px, 4vw, 50px);
       line-height: 1.28;
       letter-spacing: 0;
       text-shadow: 0 4px 22px rgba(0, 0, 0, .42);
     }
 
     .hero:not(.is-brand-slide) h1 {
-      font-size: clamp(38px, 5.2vw, 62px);
+      font-size: clamp(36px, 4.8vw, 58px);
       line-height: 1.22;
     }
 
     .hero.is-brand-slide h1 {
-      font-size: clamp(36px, 4.8vw, 58px);
+      font-size: clamp(34px, 4.4vw, 54px);
       line-height: 1.2;
       text-shadow: 0 4px 28px rgba(0, 0, 0, .58);
     }
@@ -2520,9 +2524,9 @@
       .thai-flag { width: 22px; height: 22px; }
       .hero { min-height: 560px; }
       .hero { background-position: left top, right center; }
-      .hero h1 { font-size: 34px; }
-      .hero:not(.is-brand-slide) h1 { font-size: 36px; line-height: 1.24; }
-      .hero.is-brand-slide h1 { font-size: 38px; }
+      .hero h1 { font-size: 32px; }
+      .hero:not(.is-brand-slide) h1 { font-size: 34px; line-height: 1.24; }
+      .hero.is-brand-slide h1 { font-size: 36px; }
       .hero-inner { padding: 56px 0 24px; }
       .hero-highlights {
         display: grid;
@@ -2645,9 +2649,122 @@
       .hero-highlights-wrap { margin-top: -36px; }
       .about-section { padding-top: 28px; }
     }
+
+    body.preview-locked { overflow: hidden; }
+
+    html.preview-authed .preview-gate { display: none; }
+
+    .preview-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(7, 18, 77, .96), rgba(36, 52, 159, .88)),
+        url("assets/hero/banner-factory02.jpg") center / cover no-repeat;
+    }
+
+    .preview-gate[hidden] { display: none; }
+
+    .preview-gate__card {
+      width: min(420px, 100%);
+      padding: 36px 32px 32px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .98);
+      box-shadow: 0 24px 64px rgba(7, 18, 77, .24);
+      text-align: center;
+    }
+
+    .preview-gate__logo {
+      width: 148px;
+      margin: 0 auto 22px;
+    }
+
+    .preview-gate__card h1 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .preview-gate__card p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .preview-gate__field {
+      display: grid;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .preview-gate__field label {
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .preview-gate__field input {
+      width: 100%;
+      height: 48px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 16px;
+    }
+
+    .preview-gate__field input:focus {
+      outline: 2px solid rgba(36, 52, 159, .18);
+      border-color: var(--blue);
+    }
+
+    .preview-gate__error {
+      margin: 0;
+      color: #c0392b;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .preview-gate__error[hidden] { display: none; }
+
+    .preview-gate__submit {
+      width: 100%;
+      height: 48px;
+      margin-top: 18px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .preview-gate__submit:hover { background: #1c2880; }
   </style>
 </head>
 <body>
+  <div class="preview-gate" id="previewGate">
+    <div class="preview-gate__card">
+      <img class="preview-gate__logo" src="assets/logo.png" alt="Rano Tech">
+      <h1>Preview Access</h1>
+      <p>กรอกรหัสเพื่อเข้าดูเว็บไซต์</p>
+      <form id="previewGateForm">
+        <div class="preview-gate__field">
+          <label for="previewAccessCode">รหัสเข้าดู</label>
+          <input id="previewAccessCode" name="accessCode" type="password" autocomplete="off" placeholder="กรอกรหัส" required>
+          <p class="preview-gate__error" id="previewGateError" hidden>รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</p>
+        </div>
+        <button class="preview-gate__submit" type="submit">เข้าดูเว็บไซต์</button>
+      </form>
+    </div>
+  </div>
   <header class="topbar">
     <div class="nav">
       <a href="#" aria-label="Rano Tech home"><img class="brand-logo" src="assets/logo.png" alt="Rano Tech"></a>
@@ -3851,6 +3968,8 @@
       }, true);
       videoTrack.addEventListener("dragstart", (event) => event.preventDefault());
     }
+
+    RanotechPreviewAuth.initLoginGate();
   </script>
 </body>
 </html>

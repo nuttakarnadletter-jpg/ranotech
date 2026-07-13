@@ -61,6 +61,50 @@
         return true;
       }
       return false;
+    },
+
+    initLoginGate() {
+      const gate = document.getElementById("previewGate");
+      const form = document.getElementById("previewGateForm");
+      const input = document.getElementById("previewAccessCode");
+      const error = document.getElementById("previewGateError");
+
+      if (!gate || !form || !input) return;
+
+      if (this.isAuthenticated()) {
+        gate.hidden = true;
+        document.documentElement.classList.add("preview-authed");
+        document.documentElement.classList.remove("preview-locked");
+        document.body.classList.remove("preview-locked");
+        this.redirectAfterLogin();
+        return;
+      }
+
+      document.documentElement.classList.remove("preview-authed");
+      document.documentElement.classList.add("preview-locked");
+      document.body.classList.add("preview-locked");
+      gate.hidden = false;
+      window.setTimeout(() => input.focus(), 120);
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (this.verify(input.value)) {
+          this.grant();
+          gate.hidden = true;
+          document.documentElement.classList.add("preview-authed");
+          document.documentElement.classList.remove("preview-locked");
+          document.body.classList.remove("preview-locked");
+          if (!this.redirectAfterLogin()) input.value = "";
+          return;
+        }
+
+        if (error) {
+          error.hidden = false;
+          error.textContent = "รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง";
+        }
+        input.focus();
+        input.select();
+      });
     }
   };
 })();
