@@ -308,6 +308,17 @@
       background: #05b34c;
     }
 
+    .btn-secondary {
+      background: #fff;
+      color: var(--blue);
+      border: 1.5px solid rgba(36, 52, 159, .22);
+      box-shadow: none;
+    }
+
+    .btn-secondary:hover {
+      box-shadow: 0 12px 24px rgba(36, 52, 159, .1);
+    }
+
     .page-hero {
       display: flex;
       align-items: center;
@@ -1393,7 +1404,9 @@
 
     .contact-intro__actions {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
+      gap: 10px;
       margin-top: 24px;
     }
 
@@ -1679,6 +1692,186 @@
     .map-link svg {
       width: 17px;
       height: 17px;
+    }
+
+    .payment-section {
+      padding: 64px 0 72px;
+      background:
+        radial-gradient(circle at 12% 20%, rgba(36, 52, 159, .07), transparent 42%),
+        linear-gradient(180deg, #f7f9fd 0%, #eef2f9 100%);
+      border-top: 1px solid rgba(223, 230, 242, .95);
+    }
+
+    .payment-head {
+      max-width: 640px;
+      margin: 0 auto 28px;
+      text-align: center;
+    }
+
+    .payment-head h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(24px, 2vw, 34px);
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .payment-head p {
+      margin: 10px 0 0;
+      color: #56627d;
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 600;
+    }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .bank-card {
+      position: relative;
+      padding: 26px 24px 24px;
+      border: 1px solid rgba(223, 230, 242, .95);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 14px 34px rgba(7, 18, 77, .06);
+      overflow: hidden;
+    }
+
+    .bank-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 5px;
+    }
+
+    .bank-card--ttb::before { background: #0c6b5c; }
+    .bank-card--kbank::before { background: #138f2d; }
+
+    .bank-card__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding: 6px 14px 6px 6px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .bank-card__logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      object-fit: cover;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(7, 18, 77, .08);
+    }
+
+    .bank-card--ttb .bank-card__badge {
+      color: #002d62;
+      background: rgba(0, 89, 255, .08);
+    }
+
+    .bank-card--kbank .bank-card__badge {
+      color: #138f2d;
+      background: rgba(19, 143, 45, .1);
+    }
+
+    .bank-card__row {
+      display: grid;
+      gap: 4px;
+      margin-top: 12px;
+    }
+
+    .bank-card__meta {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: start;
+      margin-top: 12px;
+    }
+
+    .bank-card__meta .bank-card__row {
+      margin-top: 0;
+    }
+
+    .bank-card__meta .bank-card__row--type {
+      text-align: right;
+      justify-items: end;
+    }
+
+    .bank-card__label {
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    .bank-card__value {
+      color: var(--navy);
+      font-size: 16px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    .bank-card__account {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 4px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #f3f6fb;
+      border: 1px solid rgba(223, 230, 242, .9);
+    }
+
+    .bank-card__account-number {
+      color: var(--navy);
+      font-size: clamp(22px, 2vw, 28px);
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: .04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .bank-card__copy {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 36px;
+      padding: 0 12px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .bank-card__copy:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(36, 52, 159, .18);
+    }
+
+    .bank-card__copy.is-copied {
+      background: #0c6b5c;
+    }
+
+    .bank-card__copy svg {
+      width: 15px;
+      height: 15px;
     }
 
     .branch-map {
@@ -2008,6 +2201,7 @@
       .nav-menu { display: none; }
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
       .branch-section { grid-template-columns: 1fr; }
+      .payment-grid { grid-template-columns: 1fr; max-width: 520px; }
     }
 
     @media (max-width: 720px) {
@@ -2068,6 +2262,16 @@
       .contact-intro { text-align: center; }
       .contact-intro__actions { justify-content: center; }
       .branch-section { grid-template-columns: 1fr; }
+      .payment-section { padding: 48px 0 56px; }
+      .bank-card__account { flex-wrap: wrap; }
+      .bank-card__meta {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .bank-card__meta .bank-card__row--type {
+        text-align: left;
+        justify-items: start;
+      }
       .contact-form-panel { padding: 22px 18px; }
       .branch-card { padding: 20px 18px; }
       .contact-map iframe { min-height: 320px; }
@@ -2301,6 +2505,10 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
               ค้นหาสาขา
             </a>
+            <a class="btn btn-secondary" href="#payment">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
+              เลขที่บัญชี
+            </a>
           </div>
         </div>
 
@@ -2329,9 +2537,9 @@
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=647%2F3-6%20%E0%B8%96%E0%B8%99%E0%B8%99%20%E0%B8%A3%E0%B8%B2%E0%B8%A1%E0%B8%84%E0%B8%B3%E0%B9%81%E0%B8%AB%E0%B8%87%20%E0%B9%81%E0%B8%82%E0%B8%A7%E0%B8%87%20%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%81%20%E0%B9%80%E0%B8%82%E0%B8%95%E0%B8%9A%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B0%E0%B8%9B%E0%B8%B4%20%E0%B8%81%E0%B8%A3%E0%B8%B8%E0%B8%87%E0%B9%80%E0%B8%97%E0%B8%9E%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%99%E0%B8%84%E0%B8%A3%2010240" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-              โหลดแผนที่
+            <a class="map-link" href="assets/maps/map-ramkhamhaeng.jpg" download="แผนที่สาขารามคำแหง.jpg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              ดาวน์โหลดแผนที่
             </a>
           </article>
           <article class="branch-card">
@@ -2358,9 +2566,9 @@
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=38%2F11-12%20%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B9%88%203%20%E0%B8%96.%E0%B8%A5%E0%B8%B3%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%81%E0%B8%B2%20%E0%B8%95.%E0%B8%84%E0%B8%B9%E0%B8%84%E0%B8%95%20%E0%B8%AD.%E0%B8%A5%E0%B8%B3%E0%B8%A5%E0%B8%B9%E0%B8%81%E0%B8%81%E0%B8%B2%20%E0%B8%88.%E0%B8%9B%E0%B8%97%E0%B8%B8%E0%B8%A1%E0%B8%98%E0%B8%B2%E0%B8%99%E0%B8%B5%2012130" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-              โหลดแผนที่
+            <a class="map-link" href="assets/maps/map-lam-luk-ka.webp" download="แผนที่สาขาลำลูกกา.webp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              ดาวน์โหลดแผนที่
             </a>
           </article>
           <article class="branch-card">
@@ -2387,12 +2595,69 @@
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=199%2F109%20%E0%B8%AB%E0%B8%A1%E0%B8%B9%E0%B9%883%20%E0%B8%95%E0%B8%B3%E0%B8%9A%E0%B8%A5%E0%B8%99%E0%B8%B2%E0%B8%94%E0%B8%B5%20%E0%B8%AD%E0%B8%B3%E0%B9%80%E0%B8%A0%E0%B8%AD%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%AA%E0%B8%B2%E0%B8%84%E0%B8%A3%20%E0%B8%AA%E0%B8%A1%E0%B8%B8%E0%B8%97%E0%B8%A3%E0%B8%AA%E0%B8%B2%E0%B8%84%E0%B8%A3%2074000" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-              โหลดแผนที่
+            <a class="map-link" href="assets/maps/map-mahachai.webp" download="แผนที่สาขามหาชัย.webp">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              ดาวน์โหลดแผนที่
             </a>
           </article>
         </section>
+      </div>
+    </section>
+
+    <section class="payment-section" id="payment" aria-label="เลขที่บัญชีบริษัท">
+      <div class="container">
+        <div class="payment-head">
+          <h2>เลขที่บัญชีบริษัท</h2>
+          <p>สำหรับโอนชำระค่าสินค้าและบริการ กรุณาตรวจสอบชื่อบัญชีให้ตรงกับบริษัท เรโน เทค จำกัด</p>
+        </div>
+        <div class="payment-grid">
+          <article class="bank-card bank-card--ttb">
+            <span class="bank-card__badge">
+              <img class="bank-card__logo" src="assets/payment/logo-ttb.png" alt="โลโก้ ttb">
+              ธนาคารทหารไทยธนชาต
+            </span>
+            <div class="bank-card__row">
+              <span class="bank-card__label">ชื่อบัญชี</span>
+              <span class="bank-card__value">บริษัท เรโน เทค จำกัด</span>
+            </div>
+            <div class="bank-card__row">
+              <span class="bank-card__label">เลขที่บัญชี</span>
+              <div class="bank-card__account">
+                <span class="bank-card__account-number">116-1-05203-8</span>
+                <button type="button" class="bank-card__copy" data-copy="1161052038" data-label="116-1-05203-8" aria-label="คัดลอกเลขบัญชี ttb">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  <span>คัดลอก</span>
+                </button>
+              </div>
+            </div>
+          </article>
+          <article class="bank-card bank-card--kbank">
+            <span class="bank-card__badge">
+              <img class="bank-card__logo" src="assets/payment/logo-kbank.png" alt="โลโก้ KBank">
+              ธนาคารกสิกรไทย
+            </span>
+            <div class="bank-card__meta">
+              <div class="bank-card__row">
+                <span class="bank-card__label">ชื่อบัญชี</span>
+                <span class="bank-card__value">บจก. เรโน เทค</span>
+              </div>
+              <div class="bank-card__row bank-card__row--type">
+                <span class="bank-card__label">ประเภทบัญชี</span>
+                <span class="bank-card__value">บัญชีกระแสรายวัน</span>
+              </div>
+            </div>
+            <div class="bank-card__row">
+              <span class="bank-card__label">เลขที่บัญชี</span>
+              <div class="bank-card__account">
+                <span class="bank-card__account-number">024-3-91789-1</span>
+                <button type="button" class="bank-card__copy" data-copy="0243917891" data-label="024-3-91789-1" aria-label="คัดลอกเลขบัญชี KBank">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  <span>คัดลอก</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -2484,6 +2749,24 @@
   </footer>
   <script>
     RanotechPreviewAuth.initLoginGate();
+
+    document.querySelectorAll(".bank-card__copy").forEach(function (button) {
+      button.addEventListener("click", async function () {
+        var value = button.getAttribute("data-copy") || "";
+        var label = button.querySelector("span");
+        try {
+          await navigator.clipboard.writeText(value);
+          button.classList.add("is-copied");
+          if (label) label.textContent = "คัดลอกแล้ว";
+          setTimeout(function () {
+            button.classList.remove("is-copied");
+            if (label) label.textContent = "คัดลอก";
+          }, 1600);
+        } catch (err) {
+          window.prompt("คัดลอกเลขบัญชี", button.getAttribute("data-label") || value);
+        }
+      });
+    });
   </script>
 </body>
 </html>
