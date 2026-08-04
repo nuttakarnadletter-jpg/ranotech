@@ -2,7 +2,7 @@
   const AUTH_KEY = "ranotechPreviewAuth";
   const ACCESS_CODE = "rp-ranotech";
   const LOGIN_PAGE = "index.html";
-  const ALLOWED_PAGES = /^home_option_[abc]\.html$/i;
+  const ALLOWED_PAGES = /^(home_option_[abc]|index|articles|article-detail|videos|faq|news|news-detail|gallery|manuals|quote-form|product-inquiry|careers|career-detail|contact|training|about-history|clients|quality-policy|technical-consulting|certificates|privacy-policy|products-ppr|products-ppr-detail|products-clearance|solution-heat-exchange|solution-cip|solution-pasteurization|solution-solvent-recovery|solution-reactor|solution-gas-cooling)\.html$/i;
 
   function currentFile() {
     const path = window.location.pathname || "";

@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <script src="preview-auth.js?v=rp-ranotech"></script>
+  <script>
+    RanotechPreviewAuth.guardPage();
+    document.documentElement.classList.toggle("preview-authed", RanotechPreviewAuth.isAuthenticated());
+    document.documentElement.classList.toggle("preview-locked", !RanotechPreviewAuth.isAuthenticated());
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ประวัติบริษัท เรโน เทค จำกัด ก่อตั้ง พ.ศ. 2548 ผู้เชี่ยวชาญวิศวกรรมเครื่องกล พลังงาน ท่อ PPR แคล้มรัดท่อ และเครื่องแลกเปลี่ยนความร้อน" />
+  <title>ประวัติบริษัท | Rano Tech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #24349f;
+      --blue-2: #3d58f0;
+      --navy: #07124d;
+      --cyan: #4fb4cc;
+      --muted: #6f7890;
+      --line: #dfe6f2;
+      --soft: #f6f8fc;
+      --amber: #f3bd55;
+      --shadow: 0 18px 44px rgba(7, 18, 77, .08);
+      --container-width: 1240px;
+      --container-gutter: 32px;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Anuphan", sans-serif;
+      color: #202743;
+      background: #fbfcff;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input { font: inherit; }
+    .container { width: min(var(--container-width), calc(100% - var(--container-gutter))); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, .95);
+      border-bottom: 1px solid rgba(221, 229, 242, .9);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      position: relative;
+      width: 100%;
+      min-height: 76px;
+      --nav-gutter: clamp(20px, 3.5vw, 56px);
+      padding: 0 var(--nav-gutter);
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .brand-logo { width: 152px; max-height: 48px; object-fit: contain; }
+    .nav-menu {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      margin-left: 10px;
+      color: #263064;
+      font-size: 17px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .nav-item {
+      position: static;
+      min-height: 76px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .nav-link {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: inherit;
+    }
+
+    .nav-link svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 2.4;
+    }
+
+    .nav-menu a:hover,
+    .nav-item:hover .nav-link { color: var(--blue); }
+
+    .nav-dropdown {
+      position: absolute;
+      top: calc(100% - 1px);
+      left: 0;
+      right: 0;
+      width: auto;
+      overflow: visible;
+      border: 0;
+      border-top: 1px solid rgba(221, 229, 242, .9);
+      background: #fff;
+      box-shadow: 0 28px 72px rgba(7, 18, 77, .16);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+      pointer-events: none;
+      padding: 34px var(--nav-gutter) 42px;
+      box-sizing: border-box;
+    }
+
+    .nav-item:hover .nav-dropdown,
+    .nav-item:focus-within .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .dropdown-title {
+      display: block;
+      margin: 0 0 16px;
+      color: #9aa0aa;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .nav-dropdown a {
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      color: #20222b;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.35;
+      white-space: normal;
+    }
+
+    .nav-dropdown a + a { margin-top: 18px; }
+    .nav-dropdown a:hover { color: var(--blue); }
+    .nav-link.active {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .nav-actions {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      color: #263064;
+      font-size: 16px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .search-form,
+    .cart-link,
+    .account-link,
+    .lang-switch {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .line-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 0 16px 0 12px;
+      border-radius: 999px;
+      background: #06c755;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      transition: .2s ease;
+    }
+
+    .line-cta:hover {
+      background: #05b34c;
+      color: #fff;
+    }
+
+    .line-cta,
+    .line-cta:hover,
+    .line-cta .line-cta-label { color: #fff; }
+
+    .line-cta-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+    }
+    .line-cta svg { width: 22px; height: 22px; fill: currentColor; }
+
+    .search-form {
+      width: 138px;
+      height: 38px;
+      justify-content: space-between;
+      padding: 0 10px 0 16px;
+      border: 1.2px solid #20222b;
+      border-radius: 999px;
+      background: #fff;
+      color: #6f7b96;
+    }
+
+    .search-form input {
+      width: 100%;
+      min-width: 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: #20222b;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .search-form input::placeholder { color: #6f7b96; opacity: 1; }
+
+    .search-form button {
+      width: 22px;
+      height: 22px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: #1f2026;
+      cursor: pointer;
+    }
+    .search-form svg { width: 18px; height: 18px; stroke-width: 2.1; }
+
+    .cart-link svg,
+    .account-link svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2;
+    }
+
+    .cart-link:hover,
+    .account-link:hover { color: var(--blue); }
+
+    .thai-flag {
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,.08);
+      background: linear-gradient(
+        180deg,
+        #df1f2d 0 16%,
+        #fff 16% 30%,
+        #253b8f 30% 70%,
+        #fff 70% 84%,
+        #df1f2d 84% 100%
+      );
+    }
+
+    .lang-switch { gap: 4px; }
+    .lang-switch svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2.3;
+    }
+
+    .btn {
+      min-width: 150px;
+      max-width: 100%;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: var(--radius);
+      padding: 0 18px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      font-weight: 800;
+      white-space: nowrap;
+      transition: .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(29, 42, 154, .16); }
+
+    .btn-line {
+      background: #06c755;
+      color: #fff;
+    }
+
+    .btn-line:hover {
+      background: #05b34c;
+    }
+
+    .page-hero {
+      display: flex;
+      align-items: center;
+      min-height: 340px;
+      padding: 74px 0 62px;
+      color: #fff;
+      text-align: center;
+      background:
+        linear-gradient(180deg, rgba(7, 18, 77, .62), rgba(7, 18, 77, .42)),
+        url("assets/hero/banner-factory02.jpg") center / cover no-repeat;
+    }
+
+    .page-hero .eyebrow {
+      margin: 0 0 14px;
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .page-hero h1 {
+      margin: 0;
+      font-size: clamp(34px, 4.8vw, 58px);
+      line-height: 1.12;
+      font-weight: 800;
+    }
+
+    .page-hero p {
+      max-width: 760px;
+      margin: 18px auto 0;
+      color: rgba(255,255,255,.86);
+      font-size: clamp(16px, 1.7vw, 20px);
+      line-height: 1.65;
+    }
+
+    .kicker {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    .section-head .kicker,
+    .history-intro__copy .kicker {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 42px;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(28px, 3.2vw, 40px);
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .section-head p:not(.kicker) {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .history-intro {
+      padding: 72px 0 40px;
+      background: #fff;
+    }
+
+    .history-intro__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .history-intro__copy h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(28px, 3.2vw, 40px);
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .history-intro__copy p:not(.kicker) {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .history-intro__image {
+      position: relative;
+      min-height: 420px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(7, 18, 77, .05), rgba(7, 18, 77, .35)),
+        url("assets/about/about-engineer-consulting.png") center / cover no-repeat;
+      box-shadow: var(--shadow);
+    }
+
+    .history-intro__badge {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      max-width: calc(100% - 40px);
+      padding: 16px 18px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.96);
+      color: var(--navy);
+      box-shadow: 0 12px 30px rgba(7, 18, 77, .14);
+    }
+
+    .history-intro__badge strong {
+      display: block;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .history-intro__badge span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .history-stats {
+      padding: 10px 0 72px;
+      background: #fff;
+    }
+
+    .history-stats__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      align-items: start;
+    }
+
+    .history-stat {
+      padding: 8px 28px;
+      text-align: center;
+    }
+
+    .history-stat + .history-stat {
+      border-left: 1px solid var(--line);
+    }
+
+    .history-stat strong {
+      display: block;
+      color: var(--blue);
+      font-size: clamp(36px, 4.2vw, 52px);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .history-stat span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .history-products {
+      padding: 72px 0;
+      background: linear-gradient(180deg, var(--soft), #fff);
+    }
+
+    .product-scope-grid {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .product-scope {
+      display: grid;
+      grid-column: span 2;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      align-items: start;
+      min-height: 260px;
+      align-content: start;
+      padding: 20px 20px 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .product-scope:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-scope:nth-last-child(3) {
+      grid-column: 2 / span 2;
+    }
+
+    .product-scope__icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .product-scope__icon svg {
+      width: 26px;
+      height: 26px;
+      stroke-width: 1.8;
+    }
+
+    .product-scope__icon img {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+
+    .product-scope h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 19px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .product-scope p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.7;
+    }
+
+    .product-scope ul {
+      margin: 12px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .product-scope li {
+      position: relative;
+      padding-left: 16px;
+      color: #3a456c;
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .product-scope li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .history-product-benefits {
+      max-width: 1040px;
+      margin: 26px auto 0;
+      color: #303852;
+      font-size: 16px;
+      line-height: 1.85;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    .history-product-benefits p {
+      margin: 0;
+    }
+
+    .history-product-benefits p + p {
+      margin-top: 12px;
+    }
+
+    .history-stock-note {
+      max-width: 1100px;
+      margin: 28px auto 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font-size: clamp(19px, 2vw, 24px);
+      font-weight: 800;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .history-stock-note p {
+      margin: 0;
+    }
+
+    .history-stock-note p + p {
+      margin-top: 10px;
+    }
+
+    .history-stock-note__lead {
+      max-width: 1040px;
+      margin-left: auto;
+      margin-right: auto;
+      color: #303852;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.85;
+    }
+
+    .history-stock-note a {
+      width: fit-content;
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 14px auto 0;
+      padding: 0 22px;
+      border-radius: var(--radius);
+      color: #fff;
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .history-consult {
+      padding: 72px 0;
+      border-top: 1px solid #dbe5f4;
+      border-bottom: 1px solid #dbe5f4;
+      background:
+        linear-gradient(180deg, rgba(36, 52, 191, .055) 0%, rgba(77, 174, 197, .08) 48%, rgba(255, 255, 255, .9) 100%),
+        #f3f7fc;
+    }
+
+    .history-consult .section-head {
+      max-width: 1100px;
+    }
+
+    .history-consult .section-head h2 {
+      white-space: nowrap;
+    }
+
+    .consult-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .consult-grid--single {
+      grid-template-columns: minmax(0, 1240px);
+      justify-content: center;
+    }
+
+    .consult-card {
+      padding: 28px 26px 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff 0%, var(--soft) 100%);
+    }
+
+    .consult-card--media {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: stretch;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .consult-card__image {
+      min-height: 420px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: transparent url("assets/about/consulting-team-onsite.jpg") center / cover no-repeat;
+      box-shadow: var(--shadow);
+    }
+
+    .consult-card__content {
+      padding: 28px 26px 30px 0;
+    }
+
+    .consult-card h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 20px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .consult-card > p,
+    .consult-card__content > p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .consult-card ul {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .consult-grid--single .consult-card ul {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 24px;
+    }
+
+    .consult-card li.consult-list-right-top {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .consult-card li.consult-list-right-second {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .consult-card li {
+      position: relative;
+      padding-left: 18px;
+      color: #3a456c;
+      font-size: 15px;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .consult-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .6em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .history-r3 {
+      padding: 72px 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, .78) 0%, rgba(7, 18, 77, .68) 52%, rgba(36, 52, 191, .58) 100%),
+        url("assets/about/vision-mission-bg.jpeg") center / cover no-repeat;
+      color: #fff;
+    }
+
+    .history-r3 .section-head h2,
+    .history-r3 .section-head p { color: #fff; }
+    .history-r3 .section-head p:not(.kicker) { color: rgba(255,255,255,.78); }
+    .history-r3 .section-head .kicker { color: rgba(255,255,255,.92); }
+
+    .r3-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .r3-main {
+      display: flex;
+      flex-direction: column;
+      max-width: 860px;
+      margin: -14px auto 18px;
+      padding: 0;
+      text-align: center;
+    }
+
+    .r3-main h3 {
+      margin: 0;
+      font-size: clamp(20px, 2.2vw, 26px);
+      line-height: 1.3;
+      font-weight: 800;
+    }
+
+    .r3-main p {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.84);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .r3-list {
+      margin: 0 auto 30px;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      justify-content: center;
+      max-width: 820px;
+      gap: 30px;
+    }
+
+    .r3-list li {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      text-align: center;
+      padding: 0;
+    }
+
+    .r3-list strong {
+      width: 70px;
+      height: 70px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .r3-list span {
+      color: rgba(255,255,255,.9);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .r3-list span em {
+      display: block;
+      font-style: normal;
+      color: #fff;
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .r3-list span small {
+      display: block;
+      margin-top: 2px;
+      color: rgba(255,255,255,.82);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .r3-side {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      align-content: stretch;
+    }
+
+    .r3-side article {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 230px;
+      padding: 28px 22px 26px;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--navy);
+      box-shadow: 0 16px 36px rgba(7, 18, 77, .14);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .r3-side article::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 4px;
+      background: #0b9b67;
+    }
+
+    .r3-side article:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 44px rgba(7, 18, 77, .2);
+    }
+
+    .r3-card-icon {
+      position: relative;
+      z-index: 1;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      background: rgba(36, 52, 191, .09);
+      color: var(--blue);
+    }
+
+    .r3-card-icon svg {
+      width: 24px;
+      height: 24px;
+      display: block;
+      stroke-width: 2;
+    }
+
+    .r3-side h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      color: var(--blue);
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .r3-side p {
+      position: relative;
+      z-index: 1;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15.5px;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .history-activities {
+      padding: 72px 0 80px;
+      background: #fff;
+    }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .activity-card {
+      padding: 28px 24px 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff 0%, var(--soft) 100%);
+    }
+
+    .activity-card__num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      height: 42px;
+      margin-bottom: 18px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(36, 52, 191, .08);
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .activity-card h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 20px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .activity-card p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .activity-card ul {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .activity-card li {
+      position: relative;
+      padding-left: 16px;
+      color: #3a456c;
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 600;
+    }
+
+    .activity-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .contact-cta {
+      position: relative;
+      overflow: hidden;
+      padding: 54px 0;
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(7, 18, 77, .92) 0%, rgba(7, 18, 77, .82) 42%, rgba(7, 18, 77, .72) 100%),
+        url("assets/hero/banner-factory02.jpg") center / cover no-repeat;
+    }
+
+    .contact-cta__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .contact-cta__copy h2 {
+      margin: 0;
+      font-size: clamp(24px, 2.8vw, 36px);
+      line-height: 1.18;
+      font-weight: 800;
+    }
+
+    .contact-cta__copy p {
+      margin: 12px 0 0;
+      max-width: 560px;
+      color: rgba(255, 255, 255, .88);
+      font-size: clamp(15px, 1.5vw, 18px);
+      line-height: 1.5;
+    }
+
+    .contact-cta__actions {
+      display: flex;
+      align-items: stretch;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .contact-cta__card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 220px;
+      min-height: 88px;
+      padding: 16px 20px;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--navy);
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .contact-cta__card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .16);
+    }
+
+    .contact-cta__card-icon {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(36, 52, 159, .08);
+      color: var(--blue);
+    }
+
+    .contact-cta__card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2;
+    }
+
+    .contact-cta__card-icon.phone {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .contact-cta__card-icon.line {
+      background: #06c755;
+      color: #fff;
+    }
+
+    .contact-cta__card-icon.line svg {
+      width: 28px;
+      height: 28px;
+      fill: #fff;
+      stroke: none;
+    }
+
+    .contact-cta__card-label {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .contact-cta__card-value {
+      display: block;
+      margin-top: 2px;
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .contact-cta__quote {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-width: 200px;
+      min-height: 88px;
+      padding: 0 28px;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .contact-cta__quote:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .16);
+    }
+
+    .contact-cta__quote svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2.4;
+    }
+
+    .footer {
+      padding: 54px 0 26px;
+      background: var(--navy);
+      color: #fff;
+    }
+    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 34px; }
+    .footer h3 { margin: 0 0 14px; font-size: 18px; }
+    .footer a { display: block; margin-top: 8px; color: rgba(255,255,255,.76); }
+    .footer-brand .footer-logo-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 10px 14px;
+      margin: 0 0 18px;
+      background: #fff;
+    }
+    .footer-logo { width: 140px; max-height: 44px; object-fit: contain; }
+    .footer-brand p { margin: 0; line-height: 1.65; color: rgba(255,255,255,.76); }
+    .footer-bottom {
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: rgba(255,255,255,.76);
+    }
+
+    .preview-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(7, 18, 77, .96), rgba(36, 52, 159, .92));
+    }
+    html.preview-authed .preview-gate { display: none; }
+    body.preview-locked { overflow: hidden; }
+    .preview-gate__card {
+      width: min(420px, 100%);
+      padding: 32px;
+      background: #fff;
+      box-shadow: 0 24px 70px rgba(0,0,0,.2);
+      text-align: center;
+    }
+    .preview-gate__logo { width: 160px; margin: 0 auto 18px; }
+    .preview-gate__card h1 { margin: 0; color: var(--navy); font-size: 28px; }
+    .preview-gate__card p { margin: 8px 0 0; color: var(--muted); }
+    .preview-gate__field { margin-top: 20px; text-align: left; }
+    .preview-gate__field label { display: block; margin-bottom: 8px; color: var(--navy); font-weight: 800; }
+    .preview-gate__field input {
+      width: 100%;
+      height: 48px;
+      border: 1px solid var(--line);
+      padding: 0 14px;
+      outline: 0;
+    }
+    .preview-gate__error { color: #c91818 !important; font-size: 13px; }
+    .preview-gate__submit {
+      width: 100%;
+      height: 48px;
+      margin-top: 18px;
+      border: 0;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1080px) {
+      .nav-menu { display: none; }
+      .product-scope-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .product-scope {
+        grid-column: auto;
+        min-height: 0;
+      }
+      .product-scope:nth-last-child(3) { grid-column: auto; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 720px) {
+      .nav { min-height: 66px; gap: 12px; }
+      .brand-logo { width: 126px; }
+      .line-cta-label { display: none; }
+      .search-form { width: 118px; height: 36px; padding-left: 14px; }
+      .page-hero { min-height: 320px; padding: 58px 0 52px; }
+      .page-hero h1 { font-size: 34px; }
+      .history-intro { padding: 48px 0 24px; }
+      .history-intro__grid { grid-template-columns: 1fr; gap: 28px; }
+      .history-intro__image { min-height: 280px; }
+      .history-stats { padding: 0 0 48px; }
+      .history-stats__grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .history-stat {
+        padding: 0;
+      }
+      .history-stat + .history-stat {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        padding-top: 28px;
+      }
+      .product-scope-grid,
+      .activities-grid,
+      .r3-grid,
+      .consult-grid { grid-template-columns: 1fr; }
+      .history-products,
+      .history-consult,
+      .history-r3,
+      .history-activities { padding: 52px 0; }
+      .history-consult .section-head h2 { white-space: normal; }
+      .consult-card--media {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .consult-card__image {
+        min-height: 240px;
+      }
+      .consult-card__content {
+        padding: 22px 18px 24px;
+      }
+      .consult-grid--single .consult-card ul { grid-template-columns: 1fr; }
+      .consult-card li.consult-list-right-top {
+        grid-column: auto;
+        grid-row: auto;
+      }
+      .consult-card li.consult-list-right-second {
+        grid-column: auto;
+        grid-row: auto;
+      }
+      .r3-list {
+        grid-template-columns: 1fr;
+        margin: -16px 0 22px;
+      }
+      .r3-main { padding: 20px 18px; }
+      .r3-side { grid-template-columns: 1fr; gap: 10px; }
+      .r3-side article { min-height: 0; padding: 20px 18px; }
+      .r3-side h3 { font-size: 22px; }
+      .contact-cta { padding: 40px 0; }
+      .contact-cta__inner { flex-direction: column; align-items: flex-start; }
+      .contact-cta__copy {
+        width: 100%;
+        text-align: center;
+      }
+      .contact-cta__copy p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .contact-cta__actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 10px;
+      }
+      .contact-cta__card,
+      .contact-cta__quote { min-width: 0; }
+      .contact-cta__card {
+        flex: 1 1 calc(50% - 5px);
+        min-height: 62px;
+        padding: 10px 12px;
+        gap: 10px;
+      }
+      .contact-cta__quote { width: 100%; }
+      .contact-cta__card-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+      }
+      .contact-cta__card-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .contact-cta__card-icon.line svg {
+        width: 23px;
+        height: 23px;
+      }
+      .contact-cta__card-label { font-size: 12.5px; }
+      .contact-cta__card-value {
+        margin-top: 0;
+        font-size: 16px;
+      }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer, .footer-bottom { text-align: center; }
+      .footer-brand .footer-logo-link { margin-left: auto; margin-right: auto; }
+      .footer-bottom { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-gate" id="previewGate">
+    <div class="preview-gate__card">
+      <img class="preview-gate__logo" src="assets/logo.png" alt="Rano Tech">
+      <h1>Preview Access</h1>
+      <p>กรอกรหัสเพื่อเข้าดูเว็บไซต์</p>
+      <form id="previewGateForm">
+        <div class="preview-gate__field">
+          <label for="previewAccessCode">รหัสเข้าดู</label>
+          <input id="previewAccessCode" name="accessCode" type="password" autocomplete="off" placeholder="กรอกรหัส" required>
+          <p class="preview-gate__error" id="previewGateError" hidden>รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง</p>
+        </div>
+        <button class="preview-gate__submit" type="submit">เข้าดูเว็บไซต์</button>
+      </form>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="nav">
+      <a href="index.html" aria-label="Rano Tech home"><img class="brand-logo" src="assets/logo.png" alt="Rano Tech"></a>
+      <nav class="nav-menu" aria-label="เมนูหลัก">
+        <div class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></div>
+        <div class="nav-item">
+          <a class="nav-link active" href="about-history.html">เกี่ยวกับเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="nav-dropdown">
+            <span class="dropdown-title">เกี่ยวกับเรา</span>
+            <a href="about-history.html">ประวัติบริษัท</a>
+            <a href="quality-policy.html">นโยบายคุณภาพ</a>
+            <a href="technical-consulting.html">ปรึกษาทีมเทคนิค</a>
+            <a href="clients.html">ลูกค้าของเรา</a>
+            <a href="certificates.html">การรับรอง</a>
+            <a href="privacy-policy.html">นโยบายส่วนตัว</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="index.html#products">สินค้า <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="nav-dropdown">
+            <span class="dropdown-title">สินค้า</span>
+            <a href="products-ppr.html">ท่อและข้อต่อ PPR</a>
+            <a href="index.html#products">แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</a>
+            <a href="index.html#products">เครื่องเชื่อมท่อ</a>
+            <a href="index.html#products">Grooved Coupling และเครื่องมือ</a>
+            <a href="index.html#products">Pump and Accessories</a>
+            <a href="index.html#products">Heat Exchanger</a>
+            <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="index.html#solutions">solution <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="nav-dropdown">
+            <span class="dropdown-title">solution</span>
+            <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
+            <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
+            <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
+            <a href="solution-solvent-recovery.html">ระบบ Solvent Recovery</a>
+            <a href="solution-reactor.html">ระบบ Reactor</a>
+            <a href="solution-gas-cooling.html">ระบบ Gas Cooling / Heating / Dehumidification</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="articles.html">บทความ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="nav-dropdown">
+            <span class="dropdown-title">ความรู้และบทความ</span>
+            <a href="articles.html">รวมบทความ</a>
+            <a href="manuals.html">คู่มือการใช้งาน</a>
+            <a href="videos.html">วิดีโอสาธิต</a>
+            <a href="faq.html">คำถามที่พบบ่อย</a>
+            <a href="news.html">ข่าวและกิจกรรม</a>
+            <a href="training.html">การอบรม / เวิร์กชอป</a>
+            <a href="gallery.html">แกลเลอรี</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a class="nav-link" href="contact.html">ติดต่อเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="nav-dropdown">
+            <span class="dropdown-title">ติดต่อเรา</span>
+            <a href="contact.html">ติดต่อเรา</a>
+            <a href="quote-form.html">แบบฟอร์มขอใบเสนอราคา</a>
+            <a href="product-inquiry.html">แบบฟอร์มสอบถามสินค้า</a>
+            <a href="careers.html">สมัครงาน</a>
+          </div>
+        </div>
+      </nav>
+      <div class="nav-actions">
+        <a class="line-cta" href="https://page.line.me/gbc9543u" target="_blank" rel="noopener" aria-label="เพิ่มเพื่อน LINE @ranotech">
+          <span class="line-cta-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.086.766.062 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          </span>
+          <span class="line-cta-label">เพิ่มเพื่อน</span>
+        </a>
+        <form class="search-form" action="articles.html" role="search">
+          <input type="search" name="q" placeholder="ค้นหา" aria-label="ค้นหา">
+          <button type="submit" aria-label="ค้นหา">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          </button>
+        </form>
+        <a class="cart-link" href="#" aria-label="รถเข็นสินค้า">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg>
+        </a>
+        <a class="account-link" href="#" aria-label="เข้าสู่ระบบ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        </a>
+        <a class="lang-switch" href="#" aria-label="เลือกภาษา">
+          <span class="thai-flag" aria-hidden="true"></span>
+          <span>TH</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>ประวัติบริษัท</h1>
+        <p>บริษัท เรโน เทค จำกัด ให้บริการด้านวิศวกรรมเครื่องกลและวิศวกรรมพลังงาน ตั้งแต่ พ.ศ. 2548</p>
+      </div>
+    </section>
+
+    <section class="history-intro" aria-label="เกี่ยวกับ Rano Tech">
+      <div class="container">
+        <div class="history-intro__grid">
+          <div class="history-intro__copy">
+            <p class="kicker">About Us</p>
+            <h2>Rano Tech จำหน่ายท่อ PPR แคลมป์รัดท่อ เครื่องแลกเปลี่ยนความร้อน</h2>
+            <p><strong>จำหน่ายและให้คำปรึกษาเรื่อง</strong><a href="https://www.ranotech.com/ppr-price-list/" target="_blank" rel="noopener"><strong>ท่อ PPR</strong></a> <strong>เครื่องเชื่อม เครื่องแลกเปลี่ยนความร้อน</strong></p>
+            <p>บริษัท เรโน เทค จำกัด (RANO TECH CO., LTD.) เปิดให้บริการทางด้าน วิศวกรรมเครื่องกล และ วิศวกรรมพลังงาน ตั้งแต่ ปี พ.ศ. 2548 ปัจจุบัน มีสินค้าและบริการหลากหลายให้การสนับสนุน ภาคอุตสาหกรรมไทย ให้ได้ใช้สินค้าที่ดีมีคุณภาพ ตรงกับความต้องการของผู้ปฏิบัติการ เพราะเรามีวิศวกรให้ความรู้ ทำความเข้าใจกับปัญหาและความต้องการของลูกค้าผู้บริโภค ก่อนดำเนินการขาย</p>
+            <p>ทีม Thermal Engineering มีประสบการณ์มากกว่า 30 ปี ให้คำปรึกษา อบรม ซ่อมบำรุง และติดตั้งครบวงจร</p>
+          </div>
+          <div class="history-intro__image" role="img" aria-label="ทีมงานและระบบท่ออุตสาหกรรม">
+            <div class="history-intro__badge">
+              <strong>ทีมวิศวกรพร้อมดูแลหน้างาน</strong>
+              <span>จากสเปกสินค้าถึงติดตั้งและซ่อมบำรุง</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-stats" aria-label="ตัวเลขสำคัญ">
+      <div class="container">
+        <div class="history-stats__grid">
+          <div class="history-stat">
+            <strong>2548</strong>
+            <span>ปีที่ก่อตั้งบริษัท</span>
+          </div>
+          <div class="history-stat">
+            <strong>30+</strong>
+            <span>ปีประสบการณ์ทีมวิศวกร</span>
+          </div>
+          <div class="history-stat">
+            <strong>R3</strong>
+            <span>Right · Reliable · Responsible</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-products" aria-label="กลุ่มสินค้าและบริการ">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Our Scope</p>
+          <h2>กลุ่มสินค้าและบริการ</h2>
+          <p>ปัจจุบัน บริษัทฯ มีสินค้าแบ่งเป็นกลุ่มสินค้าดังต่อไปนี้</p>
+        </div>
+        <div class="product-scope-grid">
+          <article class="product-scope">
+            <div class="product-scope__icon" aria-hidden="true">
+              <img src="assets/icons/PPR.svg" alt="">
+            </div>
+            <div>
+              <h3>ท่อ PPR DISMY</h3>
+              <p>จำหน่ายท่อ PPR DISMY ซึ่งเป็นสินค้าที่ได้รับมาตรฐาน</p>
+            </div>
+          </article>
+          <article class="product-scope">
+            <div class="product-scope__icon" aria-hidden="true">
+              <img src="assets/icons/plate-heat-exchangers.svg" alt="">
+            </div>
+            <div>
+              <h3>เครื่องแลกเปลี่ยนความร้อน</h3>
+              <p>เครื่องแลกเปลี่ยนความร้อน รวมถึงการระบายความร้อน ทำความเย็น ทำความร้อน ทั้งของเหลว , อากาศ และ Gas ชนิดต่างๆ ประกอบด้วย เครื่องแลกเปลี่ยนความร้อนประเภท Plate Heat Exchanger, Shell and tube Heat Exchanger, Fin tube Heat Exchanger , Gas to Gas Heat Exchanger เป็นต้น พร้อมบริการออกแบบ ซ่อม บริการอะไหล่ <a href="https://www.ranotech.com/plate-heat-exchanger/" target="_blank" rel="noopener"><strong>Plate Heat Exchanger</strong></a></p>
+            </div>
+          </article>
+          <article class="product-scope">
+            <div class="product-scope__icon" aria-hidden="true">
+              <img src="assets/icons/cooling.svg" alt="">
+            </div>
+            <div>
+              <h3>Cooling / Heating Skids</h3>
+              <p>ระบบควบคุมการแลกเปลี่ยนความร้อน (Cooling/Heating Skids) สำหรับภาคอุตสาหกรรม ตามความต้องการของผู้ใช้งาน Thermal Design ออกแบบ โดย Software ASPEN, HTRI และ Mechanical Design ออกแบบ (COMPRESS by CODEWARE) ซึ่งเป็นซอฟต์แวร์ระดับโลก ใช้งานอย่างแพร่หลายในอุตสาหกรรมปิโตรเลียม และ ปิโตรเคมี</p>
+            </div>
+          </article>
+          <article class="product-scope">
+            <div class="product-scope__icon" aria-hidden="true">
+              <img src="assets/icons/hot.svg" alt="">
+            </div>
+            <div>
+              <h3>ปะเก็นเครื่องแลกเปลี่ยนความร้อน</h3>
+              <p>ปะเก็นเครื่องแลกเปลี่ยนความร้อน Alfa Laval, APV, GEA Ecoflex, GEA Alhborn , Schmidt , Transter, SWEP, Sondex , Mueller , Hisaka Shell and Tube Heat Exchanger Economizer Evaporator, Condenser, Heat Pump</p>
+            </div>
+          </article>
+          <article class="product-scope">
+            <div class="product-scope__icon" aria-hidden="true">
+              <img src="assets/icons/pipeline.svg" alt="">
+            </div>
+            <div>
+              <h3>ท่อพีพีอาร์</h3>
+              <p>ท่อพีพีอาร์ (สำหรับ น้ำดี น้ำเสีย compressed Air และ สารเคมีอื่นๆ) มีคุณสมบัตทนต่อการกัดกร่อน ราคาไม่แพง มี stock ครบ ตั้งแต่ 1/2.” ถึง 8”</p>
+            </div>
+          </article>
+          <article class="product-scope">
+            <div class="product-scope__icon" aria-hidden="true">
+              <img src="assets/icons/welding.svg" alt="">
+            </div>
+            <div>
+              <h3>เครื่องเชื่อมท่อ PPR / HDPE</h3>
+              <p>เครื่องเชื่อมท่อ PPR , HDPE , PB, PVDF ทั้งแบบ Manual และ Semi-Automatic , PB, PVDF แบบ กระเป๋าหิ้ว, ตั้งโต๊ะ , Hydraulic, E.F. สามารถเชื่อมท่อได้ตั้งแต่ OD 20mm – 1200mm</p>
+            </div>
+          </article>
+          <article class="product-scope">
+            <div class="product-scope__icon" aria-hidden="true">
+              <img src="assets/icons/clamp.svg" alt="">
+            </div>
+            <div>
+              <h3>RNT Smart Clamp</h3>
+              <p><strong>จำหน่าย</strong><a href="https://www.ranotech.com/rnt-smart-clamp/" target="_blank" rel="noopener"><strong>แคล้มรัดท่อ</strong></a> RNT Smart Clamp (อาร์ เอ็น ที สมาร์ท แคล้มป์) เป็นอุปกรณ์สำหรับรัดซ่อมท่อรั่ว ต่อท่อ รับแรงดันสูง ได้รับมาตรฐานโลก จาก USA, EU, Japan, Korea เป็นต้น เพื่อแก้ปัญหาท่อรั่ว หรือ ต่อท่อใหม่ โดยไม่ต้องใช้การเชื่อมหรืออุปกรณ์อื่นใดเสริม สร้างความสะดวกสบายให้ผู้ใช้งาน</p>
+            </div>
+          </article>
+        </div>
+        <div class="history-product-benefits">
+          <p>สำหรับอาคารสำนักงาน สถานที่พักอาศัย ประโยชน์ ช่วยลดเวลาการซ่อมแซม ลดความเสียหาย ลดค่าเสียโอกาสต่างๆ</p>
+          <p>สำหรับอุตสาหกรรม ลดความสูญเสียจากการรั่วของของเหลว หรือ Gas ในการผลิต และ สำคัญที่สุดคือ ลดการสูญเสียจากการหยุดการผลิต มีความปลอดภัยสูง ไม่ต้องใช้ไฟฟ้า หรือ ความร้อนในการซ่อมบำรุง (เป็นงาน Cold Works) ปลอดภัยจากอุบัติเหตุเพลิงไหม้ หรือ การระเบิดจากประกายไฟ</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-consult" aria-label="ให้คำปรึกษาจำหน่ายและให้เช่า">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Consulting &amp; Rental</p>
+          <h2>ให้คำปรึกษา จำหน่าย และให้เช่าระบบแลกเปลี่ยนความร้อน</h2>
+          <p>สำหรับงานที่ต้องการออกแบบระบบ ติดตั้ง หรือเช่าใช้งาน ไม่ใช่เพียงการจำหน่ายอุปกรณ์</p>
+        </div>
+        <div class="consult-grid consult-grid--single">
+          <div class="consult-card consult-card--media">
+            <div class="consult-card__image" role="img" aria-label="ทีมวิศวกรให้คำปรึกษาระบบแลกเปลี่ยนความร้อน"></div>
+            <div class="consult-card__content">
+              <h3>ระบบและเครื่องที่ให้บริการ</h3>
+              <p>Economizer, Condenser, คอยล์เย็น และระบบที่เกี่ยวข้อง เช่น</p>
+              <ul>
+                <li>Plate Heat Exchanger (แผ่นแลกเปลี่ยนความร้อน) ทั้งแบบ Gasketed และ Copper Brazed</li>
+                <li>เครื่องแลกเปลี่ยนความร้อนแบบเปลือกและท่อ (Shell and Tube)</li>
+                <li>ท่อครีบ (Fin Tube)</li>
+                <li>เครื่องทำความร้อนผลิตไอน้ำ</li>
+                <li>Oil Cooler</li>
+                <li>Closed Loop Cooling System</li>
+                <li class="consult-list-right-top">ระบบทำความเย็น HVAC ในอุตสาหกรรมอาหาร เคมี โรงงานแปรรูปอาหารทะเล อุตสาหกรรมเหล็ก สิ่งทอ และประมง</li>
+                <li>เครื่องทำความเย็น</li>
+                <li class="consult-list-right-second">ระบบทำน้ำร้อน Heat Recovery (ระบบนำความร้อนกลับมาใช้ใหม่)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="history-stock-note">
+          <p class="history-stock-note__lead">เรามีทีมวิศวกรผู้เชี่ยวชาญและชำนาญการทุกด้านของงาน Thermal Engineering (การแลกเปลี่ยนความร้อน)<br>ประสบการณ์มากกว่า 30 ปีที่คอยให้คำปรึกษา อบรม แนะนำ ซ่อมบำรุง ติดตั้งครบวงจร</p>
+          <p>ท่อ PPR เครื่องเชื่อม และแคล้มรัดท่อ — มีขายปลีก สต๊อกพร้อมส่ง บริการส่งด่วน</p>
+          <a href="contact.html">ติดต่อเรา</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-r3" aria-label="Vision และ Mission">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Vision &amp; Mission</p>
+          <h2>R3 — หลักในการส่งมอบสินค้าและโซลูชัน</h2>
+        </div>
+        <div class="r3-main">
+          <h3>ถูกต้อง เชื่อถือได้ และรับผิดชอบ</h3>
+        </div>
+        <ul class="r3-list">
+          <li><strong>R</strong><span><em>Right Choice</em><small>เลือกสเปกให้ถูกกับงาน</small></span></li>
+          <li><strong>R</strong><span><em>Reliable</em><small>เชื่อถือได้ทั้งคุณภาพและการสนับสนุน</small></span></li>
+          <li><strong>R</strong><span><em>Responsible</em><small>รับผิดชอบต่อผลลัพธ์การใช้งานจริง</small></span></li>
+        </ul>
+        <div class="r3-grid">
+          <div class="r3-side">
+            <article>
+              <span class="r3-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </span>
+              <h3>Vision</h3>
+              <p>ส่งมอบสินค้าและโซลูชัน R3 สำหรับกระบวนการอนุรักษ์และฟื้นฟูพลังงาน</p>
+            </article>
+            <article>
+              <span class="r3-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 21V4" />
+                  <path d="M5 4h11l-1.5 4L16 12H5" />
+                </svg>
+              </span>
+              <h3>Mission</h3>
+              <p>เป็นพาร์ทเนอร์ที่ช่วยเลือกรุ่นถูกใช้งานได้จริง และดูแลต่อเนื่องหลังการขาย</p>
+            </article>
+            <article>
+              <span class="r3-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m21 8-9-5-9 5 9 5 9-5Z" />
+                  <path d="M3 8v8l9 5 9-5V8" />
+                  <path d="M12 13v8" />
+                </svg>
+              </span>
+              <h3>Trading</h3>
+              <p>จัดหาและจำหน่ายสินค้าคุณภาพสำหรับงานระบบท่อและความร้อน-ความเย็น</p>
+            </article>
+            <article>
+              <span class="r3-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v5" />
+                  <path d="M5 13v-2h14v2" />
+                  <rect x="9" y="8" width="6" height="4" rx="1" />
+                  <rect x="2" y="13" width="6" height="5" rx="1" />
+                  <rect x="16" y="13" width="6" height="5" rx="1" />
+                </svg>
+              </span>
+              <h3>Company Structure</h3>
+              <p>ผสานทีม Trading กับทีมวิศวกร เพื่อรองรับทั้งสินค้าพร้อมส่งและงานโครงการ</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-activities" aria-label="ขอบเขตงาน">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Area of Activities</p>
+          <h2>ขอบเขตงานที่เราครอบคลุม</h2>
+          <p>ตั้งแต่การออกแบบ จัดหา ติดตั้ง ไปจนถึง Commissioning</p>
+        </div>
+        <div class="activities-grid">
+          <article class="activity-card">
+            <span class="activity-card__num">01</span>
+            <h3>Engineering Design</h3>
+            <p>ออกแบบระบบความร้อน ความเย็น Refrigeration และ Heat Recovery</p>
+            <ul>
+              <li>Heating &amp; Cooling System</li>
+              <li>Refrigeration</li>
+              <li>Heat Recovery Process</li>
+            </ul>
+          </article>
+          <article class="activity-card">
+            <span class="activity-card__num">02</span>
+            <h3>Procurement</h3>
+            <p>จัดหาอุปกรณ์หลักและอะไหล่สำหรับงานระบบท่อและแลกเปลี่ยนความร้อน</p>
+            <ul>
+              <li>Heat Exchangers / Pump &amp; Valves</li>
+              <li>Cooling Tower / Instrument &amp; Control</li>
+              <li>Pipe &amp; Fitting / Grooved Couplings</li>
+              <li>PP-R Pipe and Fittings / Spare parts</li>
+            </ul>
+          </article>
+          <article class="activity-card">
+            <span class="activity-card__num">03</span>
+            <h3>Installation &amp; Commissioning</h3>
+            <p>วางแผน ติดตั้ง ควบคุมงบประมาณ และส่งมอบโครงการตามหน้างาน</p>
+            <ul>
+              <li>Planning &amp; Project Control</li>
+              <li>Budget Estimate Engineering</li>
+              <li>Steel &amp; Structure / Piping &amp; Insulation</li>
+              <li>Erection, Commissioning / Made to Order</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="contact-cta" aria-label="ติดต่อปรึกษาวิศวกร">
+    <div class="container contact-cta__inner">
+      <div class="contact-cta__copy">
+        <h2>ปรึกษาวิศวกรของเราได้ฟรี</h2>
+        <p>เราพร้อมช่วยคุณออกแบบระบบที่เหมาะสมที่สุดสำหรับธุรกิจของคุณ</p>
+      </div>
+      <div class="contact-cta__actions">
+        <a class="contact-cta__card" href="tel:0859410072">
+          <span class="contact-cta__card-icon phone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span>
+            <span class="contact-cta__card-label">โทรหาเรา</span>
+            <span class="contact-cta__card-value">085-941-0072</span>
+          </span>
+        </a>
+        <a class="contact-cta__card" href="https://page.line.me/gbc9543u" target="_blank" rel="noopener">
+          <span class="contact-cta__card-icon line" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.086.766.062 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          </span>
+          <span>
+            <span class="contact-cta__card-label">แชทกับเรา</span>
+            <span class="contact-cta__card-value">@ranotech</span>
+          </span>
+        </a>
+        <a class="contact-cta__quote" href="index.html#contact">
+          ขอใบเสนอราคา
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo-link" href="index.html" aria-label="Rano Tech home"><img class="footer-logo" src="assets/logo.png" alt="Rano Tech"></a>
+          <h3>Rano Tech Co., Ltd.</h3>
+          <p>ผู้เชี่ยวชาญด้านระบบท่อ อุปกรณ์ซ่อมท่อ และระบบแลกเปลี่ยนความร้อนสำหรับงานอุตสาหกรรม</p>
+        </div>
+        <div class="footer-col">
+          <h3>เมนูหลัก</h3>
+          <a href="index.html">หน้าแรก</a>
+          <a href="about-history.html">เกี่ยวกับเรา</a>
+          <a href="index.html#products">สินค้า</a>
+          <a href="index.html#solutions">solution</a>
+          <a href="articles.html">บทความ</a>
+        </div>
+        <div class="footer-col">
+          <h3>สื่อและบทความ</h3>
+          <a href="articles.html">รวมบทความ</a>
+          <a href="videos.html">วิดีโอสาธิต</a>
+          <a href="news.html">ข่าวและกิจกรรม</a>
+          <a href="faq.html">คำถามที่พบบ่อย</a>
+        </div>
+        <div class="footer-col">
+          <h3>ติดต่อเรา</h3>
+          <a href="tel:0859410072">085 941 0072</a>
+          <a href="mailto:ranotech@gmail.com">ranotech@gmail.com</a>
+          <a href="https://page.line.me/gbc9543u" target="_blank" rel="noopener">LINE @ranotech</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Rano Tech Co., Ltd. All rights reserved.</span>
+        <span>Industrial Pipe &amp; Heat Exchange Solutions</span>
+      </div>
+    </div>
+  </footer>
+  <script>
+    RanotechPreviewAuth.initLoginGate();
+  </script>
+</body>
+</html>

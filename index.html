@@ -333,6 +333,8 @@
     }
 
     .btn {
+      min-width: 150px;
+      max-width: 100%;
       min-height: 46px;
       display: inline-flex;
       align-items: center;
@@ -833,6 +835,10 @@
       margin-top: 26px;
       color: #fff;
       background: var(--blue);
+    }
+
+    .about-mobile-btn {
+      display: none;
     }
 
     .about-detail {
@@ -1418,11 +1424,14 @@
 
     .news-card {
       flex: 0 0 calc((100% - 36px) / 3);
+      display: block;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: #fff;
       box-shadow: 0 8px 22px rgba(7, 18, 77, .05);
+      color: inherit;
+      text-decoration: none;
       scroll-snap-align: start;
       transition: transform .2s ease, box-shadow .2s ease;
     }
@@ -1439,7 +1448,7 @@
     .date { color: var(--cyan); font-weight: 800; font-size: 12px; }
     .news-body h3 { margin: 8px 0 0; color: var(--navy); font-size: 18px; line-height: 1.32; }
     .news-body p { display: none; }
-    .news-body a { display: inline-flex; margin-top: 12px; color: var(--blue); font-weight: 800; font-size: 14px; }
+    .news-more { display: inline-flex; margin-top: 12px; color: var(--blue); font-weight: 800; font-size: 14px; }
 
     .news-controls {
       margin-top: 10px;
@@ -1572,7 +1581,9 @@
     .featured-product-arrow.prev { left: -21px; }
     .featured-product-arrow.next { right: -21px; }
 
+    a.featured-product-card { color: inherit; text-decoration: none; }
     .featured-product-card {
+      cursor: pointer;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -2509,7 +2520,7 @@
     }
 
     @media (max-width: 720px) {
-      body { padding-bottom: 72px; }
+      body { padding-bottom: 0; }
       .brand-logo { width: 132px; }
       .member-link, .nav-divider { display: none; }
       .nav-actions { gap: 10px; font-size: 14px; }
@@ -2557,8 +2568,9 @@
       .category-grid, .form-grid { grid-template-columns: 1fr; }
       .featured-products-head {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 16px;
+        text-align: center;
       }
 
       .featured-products-section .featured-products-head {
@@ -2566,25 +2578,35 @@
         gap: 12px;
       }
 
-      .featured-products-head .btn { width: 100%; margin-bottom: 0; }
+      .featured-products-head .section-head {
+        width: 100%;
+        text-align: center;
+      }
+
+      .featured-products-head .btn { width: auto; margin-bottom: 0; }
       .portfolio-head {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 16px;
         margin-bottom: 22px;
+        text-align: center;
+      }
+      .portfolio-section .section-head {
+        width: 100%;
+        text-align: center;
       }
       .clearance-section .featured-products-head {
-        flex-direction: row;
-        align-items: flex-end;
+        flex-direction: column;
+        align-items: center;
         gap: 12px;
         margin-bottom: 14px;
+        text-align: center;
       }
 
       .clearance-section .featured-products-head .btn {
         width: auto;
         min-height: 42px;
         padding: 0 14px;
-        font-size: 13px;
       }
 
       .clearance-section .featured-products-head .section-head .kicker {
@@ -2595,6 +2617,7 @@
       .clearance-section .featured-products-head .section-head h2 {
         font-size: clamp(20px, 4.8vw, 30px);
         gap: 8px;
+        justify-content: center;
       }
 
       .clearance-title-icon img {
@@ -2608,13 +2631,64 @@
       .news-card { flex-basis: 84%; }
       .portfolio-grid { gap: 12px; }
       .portfolio-card { flex: 1 1 100%; }
-      .category-card { min-height: 270px; }
+      .category-section .section-head {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      .category-section .section-head p {
+        white-space: normal;
+      }
+      .category-card {
+        min-height: 126px;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: stretch;
+      }
+      .category-thumb,
+      .category-card:nth-child(-n + 4):not(.all-products) .category-thumb {
+        position: relative;
+        inset: auto;
+        flex: 0 0 42%;
+        min-height: 126px;
+      }
+      .category-body,
+      .category-card:nth-child(-n + 4):not(.all-products) .category-body {
+        flex: 1;
+        height: auto;
+        min-height: 126px;
+        padding: 18px 16px;
+        align-items: center;
+      }
+      .category-body h3,
+      .category-card:nth-child(-n + 4):not(.all-products) .category-body h3 {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+      }
+      .category-card.all-products {
+        min-height: 74px;
+      }
+      .category-card.all-products .category-body {
+        min-height: 74px;
+        padding: 14px 16px;
+      }
       .advantage-section { padding: 0; }
       .solution-sticky { padding: 72px 0 58px; }
       .advantage-section::before { opacity: .32; }
+      .solution-intro {
+        width: min(440px, 88vw);
+        min-height: auto;
+        margin: 0 auto;
+        padding: 0;
+        align-items: center;
+        text-align: center;
+      }
       .solution-intro h2 { font-size: 32px; }
+      .solution-intro .btn {
+        align-self: center;
+      }
       .solution-card-body { padding: 20px; }
-      .solution-intro { width: min(440px, 88vw); min-height: 420px; }
       .solution-card { width: min(86vw, 400px); min-height: 420px; }
       .video-section { padding: 58px 0 48px; }
       .video-head { gap: 16px; margin-bottom: 22px; }
@@ -2630,10 +2704,50 @@
       .video-caption { font-size: 14px; margin-top: 14px; }
       .footer-grid { grid-template-columns: 1fr; }
       .contact-cta { padding: 40px 0; }
-      .contact-cta__actions { flex-direction: column; width: 100%; }
+      .contact-cta__copy {
+        width: 100%;
+        text-align: center;
+      }
+      .contact-cta__copy p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .contact-cta__actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 10px;
+      }
       .contact-cta__card,
-      .contact-cta__quote { width: 100%; min-width: 0; }
-      .sticky-mobile { display: flex; }
+      .contact-cta__quote { min-width: 0; }
+      .contact-cta__card {
+        flex: 1 1 calc(50% - 5px);
+        min-height: 62px;
+        padding: 10px 12px;
+        gap: 10px;
+      }
+      .contact-cta__quote { width: 100%; }
+      .contact-cta__card-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+      }
+      .contact-cta__card-icon svg {
+        width: 18px;
+        height: 18px;
+      }
+      .contact-cta__card-icon.line svg {
+        width: 23px;
+        height: 23px;
+      }
+      .contact-cta__card-label {
+        font-size: 12.5px;
+      }
+      .contact-cta__card-value {
+        margin-top: 0;
+        font-size: 16px;
+      }
+      .sticky-mobile { display: none; }
       .hero-actions .btn, .form-actions .btn { width: 100%; }
       .hero-highlights { grid-template-columns: 1fr; }
       .hero-highlight::after { display: none; }
@@ -2648,6 +2762,21 @@
       }
       .hero-highlights-wrap { margin-top: -36px; }
       .about-section { padding-top: 28px; }
+      .about-layout,
+      .about-copy,
+      .about-detail {
+        text-align: center;
+      }
+      .about-copy {
+        max-width: none;
+      }
+      .about-copy .btn { display: none; }
+      .about-mobile-btn {
+        display: inline-flex;
+        justify-self: center;
+        color: #fff;
+        background: var(--blue);
+      }
     }
 
     body.preview-locked { overflow: hidden; }
@@ -2771,63 +2900,63 @@
       <nav class="nav-menu" aria-label="เมนูหลัก">
         <div class="nav-item"><a class="nav-link" href="#">หน้าแรก</a></div>
         <div class="nav-item">
-          <a class="nav-link" href="#about">เกี่ยวกับเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+          <a class="nav-link" href="about-history.html">เกี่ยวกับเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
           <div class="nav-dropdown">
             <span class="dropdown-title">เกี่ยวกับเรา</span>
-            <a href="#about">ประวัติบริษัท</a>
-            <a href="#about">นโยบายคุณภาพ</a>
-            <a href="#contact">ปรึกษาทีมเทคนิค</a>
-            <a href="#clients">ลูกค้าของเรา</a>
-            <a href="#certificates">การรับรอง</a>
-            <a href="#privacy">นโยบายส่วนตัว</a>
+            <a href="about-history.html">ประวัติบริษัท</a>
+            <a href="quality-policy.html">นโยบายคุณภาพ</a>
+            <a href="technical-consulting.html">ปรึกษาทีมเทคนิค</a>
+            <a href="clients.html">ลูกค้าของเรา</a>
+            <a href="certificates.html">การรับรอง</a>
+            <a href="privacy-policy.html">นโยบายส่วนตัว</a>
           </div>
         </div>
         <div class="nav-item">
           <a class="nav-link" href="#products">สินค้า <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
           <div class="nav-dropdown">
             <span class="dropdown-title">สินค้า</span>
-            <a href="#products">ท่อและข้อต่อ PPR</a>
+            <a href="products-ppr.html">ท่อและข้อต่อ PPR</a>
             <a href="#products">แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</a>
             <a href="#products">เครื่องเชื่อมท่อ</a>
             <a href="#products">Grooved Coupling และเครื่องมือ</a>
             <a href="#products">Pump and Accessories</a>
             <a href="#products">Heat Exchanger</a>
-            <a href="#products">สินค้าโปรโมชั่น / Clearance</a>
+            <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
           </div>
         </div>
         <div class="nav-item">
           <a class="nav-link" href="#solutions">solution <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
           <div class="nav-dropdown">
             <span class="dropdown-title">solution</span>
-            <a href="#solutions">ระบบแลกเปลี่ยนความร้อน</a>
-            <a href="#solutions">ระบบ CIP สำหรับอาหารและยา</a>
-            <a href="#solutions">ระบบ Pasteurization / UHT</a>
-            <a href="#solutions">ระบบ Solvent Recovery</a>
-            <a href="#solutions">ระบบ Reactor</a>
-            <a href="#solutions">ระบบ Gas Cooling / Heating / Dehumidification</a>
+            <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
+            <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
+            <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
+            <a href="solution-solvent-recovery.html">ระบบ Solvent Recovery</a>
+            <a href="solution-reactor.html">ระบบ Reactor</a>
+            <a href="solution-gas-cooling.html">ระบบ Gas Cooling / Heating / Dehumidification</a>
           </div>
         </div>
         <div class="nav-item">
-          <a class="nav-link" href="#news">บทความ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+          <a class="nav-link" href="articles.html">บทความ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
           <div class="nav-dropdown">
             <span class="dropdown-title">ความรู้และบทความ</span>
-            <a href="#news">รวมบทความ</a>
-            <a href="#faq">คู่มือการใช้งาน</a>
-            <a href="#video">วิดีโอสาธิต</a>
-            <a href="#faq">คำถามที่พบบ่อย</a>
-            <a href="#news">ข่าวและกิจกรรม</a>
-            <a href="#news">การอบรม / เวิร์กชอป</a>
-            <a href="#news">แกลเลอรี</a>
+            <a href="articles.html">รวมบทความ</a>
+            <a href="manuals.html">คู่มือการใช้งาน</a>
+            <a href="videos.html">วิดีโอสาธิต</a>
+            <a href="faq.html">คำถามที่พบบ่อย</a>
+            <a href="news.html">ข่าวและกิจกรรม</a>
+            <a href="training.html">การอบรม / เวิร์กชอป</a>
+            <a href="gallery.html">แกลเลอรี</a>
           </div>
         </div>
         <div class="nav-item">
-          <a class="nav-link" href="#contact">ติดต่อเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+          <a class="nav-link" href="contact.html">ติดต่อเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
           <div class="nav-dropdown">
             <span class="dropdown-title">ติดต่อเรา</span>
-            <a href="#contact">ติดต่อเรา</a>
-            <a href="#contact">แบบฟอร์มขอใบเสนอราคา</a>
-            <a href="#contact">แบบฟอร์มสอบถามสินค้า</a>
-            <a href="#contact">สมัครงาน</a>
+            <a href="contact.html">ติดต่อเรา</a>
+            <a href="quote-form.html">แบบฟอร์มขอใบเสนอราคา</a>
+            <a href="product-inquiry.html">แบบฟอร์มสอบถามสินค้า</a>
+            <a href="careers.html">สมัครงาน</a>
           </div>
         </div>
       </nav>
@@ -2947,11 +3076,12 @@
           <div class="about-copy">
             <p class="kicker">About Us</p>
             <h2>ร้านขายอุปกรณ์ระบบท่อที่เข้าใจงานหน้างานจริง</h2>
-            <a class="btn" href="#about">เกี่ยวกับเรา</a>
+            <a class="btn" href="about-history.html">เกี่ยวกับเรา</a>
           </div>
           <div class="about-detail">
             <p>Rano Tech ให้บริการสินค้าและโซลูชันสำหรับระบบท่อ งานซ่อมบำรุง และงานแลกเปลี่ยนความร้อน ครอบคลุมท่อ PPR, แคล้มรัดท่อ, เครื่องเชื่อม PPR/HDPE, Grooved และ Heat Exchanger</p>
             <p>เราช่วยลูกค้าตั้งแต่การเลือกสินค้าให้ตรงกับแรงดัน อุณหภูมิ และเงื่อนไขหน้างาน ไปจนถึงคำแนะนำสำหรับงานติดตั้งและซ่อมบำรุง เพื่อให้ทีมจัดซื้อและทีมวิศวกรตัดสินใจได้เร็วขึ้น</p>
+            <a class="btn about-mobile-btn" href="about-history.html">เกี่ยวกับเรา</a>
             <div class="about-image" role="img" aria-label="ทีมงานและระบบท่ออุตสาหกรรม"></div>
           </div>
         </div>
@@ -2966,13 +3096,13 @@
           <p>หมวดสินค้าและบริการสำหรับงานระบบท่อ ซ่อมบำรุง และติดตั้ง</p>
         </div>
         <div class="category-grid">
-          <a class="category-card" href="#contact"><div class="category-thumb ppr"></div><div class="category-body"><h3>ท่อและข้อต่อ PPR</h3><p>ท่อและข้อต่อสำหรับน้ำร้อน น้ำเย็น และงานอาคาร</p><span>(37)</span></div></a>
+          <a class="category-card" href="products-ppr.html"><div class="category-thumb ppr"></div><div class="category-body"><h3>ท่อและข้อต่อ PPR</h3><p>ท่อและข้อต่อสำหรับน้ำร้อน น้ำเย็น และงานอาคาร</p><span>(37)</span></div></a>
           <a class="category-card" href="#contact"><div class="category-thumb clamp"></div><div class="category-body"><h3>แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</h3><p>อุปกรณ์ซ่อมท่อรั่ว ลดเวลาหยุดระบบ</p><span>(18)</span></div></a>
           <a class="category-card" href="#contact"><div class="category-thumb hdpe"></div><div class="category-body"><h3>เครื่องเชื่อมท่อ</h3><p>เครื่องเชื่อมและอุปกรณ์สำหรับงานท่อภาคสนาม</p><span>(24)</span></div></a>
           <a class="category-card" href="#contact"><div class="category-thumb grooved"></div><div class="category-body"><h3>Grooved Coupling และเครื่องมือ</h3><p>อุปกรณ์งานท่อแบบ grooved สำหรับโรงงาน</p><span>(42)</span></div></a>
           <a class="category-card" href="#contact"><div class="category-thumb parts"></div><div class="category-body"><h3>Pump and Accessories</h3><p>อะไหล่สำหรับงานติดตั้ง ซ่อมบำรุง และเปลี่ยนหน้างาน</p><span>(31)</span></div></a>
           <a class="category-card" href="#contact"><div class="category-thumb heat"></div><div class="category-body"><h3>Heat Exchanger</h3><p>Plate Heat Exchanger และระบบแลกเปลี่ยนความร้อน</p><span>(15)</span></div></a>
-          <a class="category-card" href="#contact"><div class="category-thumb oem"></div><div class="category-body"><h3>สินค้าโปรโมชั่น / Clearance</h3><p>สินค้าราคาพิเศษและรายการ Clearance สำหรับงานระบบท่อ</p><span>(12)</span></div></a>
+          <a class="category-card" href="products-clearance.html"><div class="category-thumb oem"></div><div class="category-body"><h3>สินค้าโปรโมชั่น / Clearance</h3><p>สินค้าราคาพิเศษและรายการ Clearance สำหรับงานระบบท่อ</p><span>(8)</span></div></a>
           <a class="category-card all-products" href="https://www.ranotech.com/products/"><div class="category-body"><h3>ดูสินค้าทั้งหมด</h3><span>ดูสินค้า</span></div></a>
         </div>
       </div>
@@ -3017,7 +3147,7 @@
             </div>
             <div class="solution-cards-viewport">
               <div class="solution-track" id="solutionTrack">
-                <a class="solution-card" href="#contact" style="--solution-image: url('assets/solutions/solution-cooling-system.png')">
+                <a class="solution-card" href="solution-heat-exchange.html" style="--solution-image: url('assets/solutions/solution-cooling-system.png')">
                   <div class="solution-card-body">
                     <span class="solution-label">Heat Transfer</span>
                     <h3>ระบบแลกเปลี่ยนความร้อน</h3>
@@ -3025,7 +3155,7 @@
                     <span class="solution-card-btn">อ่านเพิ่มเติม</span>
                   </div>
                 </a>
-                <a class="solution-card" href="#contact" style="--solution-image: url('assets/solutions/solution-pipe-system-new.png')">
+                <a class="solution-card" href="solution-cip.html" style="--solution-image: url('assets/solutions/cip/cip-unit.png')">
                   <div class="solution-card-body">
                     <span class="solution-label">Clean Process</span>
                     <h3>ระบบ CIP สำหรับอาหารและยา</h3>
@@ -3033,7 +3163,7 @@
                     <span class="solution-card-btn">อ่านเพิ่มเติม</span>
                   </div>
                 </a>
-                <a class="solution-card" href="#contact" style="--solution-image: url('assets/solutions/solution-heat-exchanger-card.png')">
+                <a class="solution-card" href="solution-pasteurization.html" style="--solution-image: url('assets/portfolio/pasteurization-uht-processing-system.png')">
                   <div class="solution-card-body">
                     <span class="solution-label">Thermal Process</span>
                     <h3>ระบบ Pasteurization / UHT</h3>
@@ -3041,7 +3171,7 @@
                     <span class="solution-card-btn">อ่านเพิ่มเติม</span>
                   </div>
                 </a>
-                <a class="solution-card" href="https://www.ranotech.com/organic-solvent-recovery-system/" style="--solution-image: url('assets/solutions/solution-solvent-recovery.png')">
+                <a class="solution-card" href="solution-solvent-recovery.html" style="--solution-image: url('assets/solutions/solution-solvent-recovery.png')">
                   <div class="solution-card-body">
                     <span class="solution-label">Recovery System</span>
                     <h3>ระบบ Solvent Recovery</h3>
@@ -3049,7 +3179,7 @@
                     <span class="solution-card-btn">อ่านเพิ่มเติม</span>
                   </div>
                 </a>
-                <a class="solution-card" href="https://www.ranotech.com/smart-reactor-com/" style="--solution-image: url('assets/solutions/solution-smart-reactor.png')">
+                <a class="solution-card" href="solution-reactor.html" style="--solution-image: url('assets/solutions/solution-smart-reactor.png')">
                   <div class="solution-card-body">
                     <span class="solution-label">Process Solution</span>
                     <h3>ระบบ Reactor</h3>
@@ -3057,7 +3187,7 @@
                     <span class="solution-card-btn">อ่านเพิ่มเติม</span>
                   </div>
                 </a>
-                <a class="solution-card" href="#contact" style="--solution-image: url('assets/solutions/solution-bg.png')">
+                <a class="solution-card" href="solution-gas-cooling.html" style="--solution-image: url('assets/solutions/solution-bg.png')">
                   <div class="solution-card-body">
                     <span class="solution-label">Air &amp; Gas System</span>
                     <h3>ระบบ Gas Cooling / Heating / Dehumidification</h3>
@@ -3088,75 +3218,75 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 18-6-6 6-6"/></svg>
           </button>
           <div class="featured-product-grid" id="featuredProductTrack">
-          <article class="featured-product-card">
+          <a class="featured-product-card" href="products-ppr-detail.html">
             <div class="featured-product-img product-photo ppr-reducer" role="img" aria-label="PPR EF Reducer">
-              <div class="featured-product-labels"><span class="product-tag product-tag-bestseller">ขายดี</span></div>
+              <div class="featured-product-labels"><span class="product-tag product-tag-bestseller">สินค้าสั่งผลิต</span></div>
             </div>
             <div class="featured-product-body">
               <h3>PPR EF Reducer</h3>
               <div class="featured-product-footer">
                 <span class="featured-product-price">เริ่มต้น ฿680</span>
-                <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
-          </article>
-          <article class="featured-product-card">
+          </a>
+          <a class="featured-product-card" href="products-ppr-detail.html">
             <div class="featured-product-img product-photo ppr-reducing-tee" role="img" aria-label="DISMY EF Reducing TEE">
             </div>
             <div class="featured-product-body">
               <h3>DISMY EF Reducing TEE</h3>
               <div class="featured-product-footer">
                 <span class="featured-product-price">เริ่มต้น ฿850</span>
-                <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
-          </article>
-          <article class="featured-product-card">
+          </a>
+          <a class="featured-product-card" href="products-ppr-detail.html">
             <div class="featured-product-img product-photo ppr-flange" role="img" aria-label="PPR EF Flange Socket">
-              <div class="featured-product-labels"><span class="product-tag product-tag-ready">พร้อมส่ง</span></div>
+              <div class="featured-product-labels"><span class="product-tag product-tag-ready">สินค้าพร้อมสต๊อก</span></div>
             </div>
             <div class="featured-product-body">
               <h3>PPR EF Flange Socket</h3>
               <div class="featured-product-footer">
                 <span class="featured-product-price">เริ่มต้น ฿1,250</span>
-                <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
-          </article>
-          <article class="featured-product-card">
+          </a>
+          <a class="featured-product-card" href="products-ppr-detail.html">
             <div class="featured-product-img product-photo ppr-elbow-45" role="img" aria-label="PPR EF 45 ELBOW">
             </div>
             <div class="featured-product-body">
               <h3>PPR EF 45 ELBOW</h3>
               <div class="featured-product-footer">
                 <span class="featured-product-price">เริ่มต้น ฿120</span>
-                <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
-          </article>
-          <article class="featured-product-card">
+          </a>
+          <a class="featured-product-card" href="products-ppr-detail.html">
             <div class="featured-product-img product-photo ppr-stop-valve" role="img" aria-label="Stop Valve">
             </div>
             <div class="featured-product-body">
               <h3>Stop Valve</h3>
               <div class="featured-product-footer">
                 <span class="featured-product-price">เริ่มต้น ฿320</span>
-                <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
-          </article>
-          <article class="featured-product-card">
+          </a>
+          <a class="featured-product-card" href="products-ppr-detail.html">
             <div class="featured-product-img product-photo ball-valve-dn25" role="img" aria-label="Single Union &amp; Female Threaded Ball Cock">
-              <div class="featured-product-labels"><span class="product-tag product-tag-ready">พร้อมส่ง</span></div>
+              <div class="featured-product-labels"><span class="product-tag product-tag-ready">สินค้าพร้อมสต๊อก</span></div>
             </div>
             <div class="featured-product-body">
               <h3>Single Union &amp; Female Threaded Ball Cock</h3>
               <div class="featured-product-footer">
                 <span class="featured-product-price">เริ่มต้น ฿450</span>
-                <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
-          </article>
+          </a>
           </div>
           <button class="featured-product-arrow next" type="button" aria-label="สินค้าถัดไป" data-featured-product-next>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"/></svg>
@@ -3177,14 +3307,14 @@
               สินค้าลดราคา
             </h2>
           </div>
-          <a class="btn btn-primary" href="https://www.ranotech.com/products/" target="_blank" rel="noopener">ดูสินค้าลดราคาทั้งหมด</a>
+          <a class="btn btn-primary" href="products-clearance.html">ดูสินค้าลดราคาทั้งหมด</a>
         </div>
         <div class="featured-product-carousel">
           <button class="featured-product-arrow prev" type="button" aria-label="สินค้าลดราคาก่อนหน้า" data-clearance-product-prev>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 18-6-6 6-6"/></svg>
           </button>
           <div class="featured-product-grid" id="clearanceProductTrack">
-            <article class="featured-product-card">
+            <a class="featured-product-card" href="products-ppr-detail.html">
               <div class="featured-product-img product-photo ppr-elbow-45" role="img" aria-label="PPR EF 45 ELBOW">
                 <div class="featured-product-labels"><span class="product-tag product-tag-sale">ลดราคา</span></div>
               </div>
@@ -3195,11 +3325,11 @@
                     <span class="featured-product-price-old">฿120</span>
                     <span class="featured-product-price-sale">฿89</span>
                   </div>
-                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                  <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
                 </div>
               </div>
-            </article>
-            <article class="featured-product-card">
+            </a>
+            <a class="featured-product-card" href="products-ppr-detail.html">
               <div class="featured-product-img product-photo ppr-stop-valve" role="img" aria-label="Stop Valve">
                 <div class="featured-product-labels"><span class="product-tag product-tag-sale">ลด 15%</span></div>
               </div>
@@ -3210,11 +3340,11 @@
                     <span class="featured-product-price-old">฿320</span>
                     <span class="featured-product-price-sale">฿272</span>
                   </div>
-                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                  <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
                 </div>
               </div>
-            </article>
-            <article class="featured-product-card">
+            </a>
+            <a class="featured-product-card" href="products-ppr-detail.html">
               <div class="featured-product-img product-photo ppr-reducer" role="img" aria-label="PPR EF Reducer">
                 <div class="featured-product-labels"><span class="product-tag product-tag-sale">Clearance</span></div>
               </div>
@@ -3225,11 +3355,11 @@
                     <span class="featured-product-price-old">฿680</span>
                     <span class="featured-product-price-sale">฿549</span>
                   </div>
-                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                  <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
                 </div>
               </div>
-            </article>
-            <article class="featured-product-card">
+            </a>
+            <a class="featured-product-card" href="products-ppr-detail.html">
               <div class="featured-product-img product-photo ball-valve-dn25" role="img" aria-label="Single Union &amp; Female Threaded Ball Cock">
                 <div class="featured-product-labels"><span class="product-tag product-tag-sale">ลดราคา</span></div>
               </div>
@@ -3240,10 +3370,10 @@
                     <span class="featured-product-price-old">฿450</span>
                     <span class="featured-product-price-sale">฿379</span>
                   </div>
-                  <button class="featured-product-cart-btn" type="button" aria-label="เพิ่มลงตะกร้า"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></button>
+                  <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
                 </div>
               </div>
-            </article>
+            </a>
           </div>
           <button class="featured-product-arrow next" type="button" aria-label="สินค้าลดราคาถัดไป" data-clearance-product-next>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"/></svg>
@@ -3294,15 +3424,15 @@
         </div>
         <div class="news-carousel">
           <div class="news-grid" id="newsTrack">
-            <article class="news-card"><div class="news-image one"></div><div class="news-body"><span class="date">20 พฤษภาคม 2569</span><h3>เลือกท่อ PPR อย่างไรให้เหมาะกับระบบน้ำร้อน</h3><a href="#contact">อ่านเพิ่มเติม</a></div></article>
-            <article class="news-card"><div class="news-image two"></div><div class="news-body"><span class="date">18 พฤษภาคม 2569</span><h3>ท่อรั่วฉุกเฉินควรประเมินอะไรบ้างก่อนเลือก Clamp</h3><a href="#contact">อ่านเพิ่มเติม</a></div></article>
-            <article class="news-card"><div class="news-image three"></div><div class="news-body"><span class="date">15 พฤษภาคม 2569</span><h3>Heat Exchanger ช่วยลดต้นทุนพลังงานได้อย่างไร</h3><a href="#contact">อ่านเพิ่มเติม</a></div></article>
-            <article class="news-card"><div class="news-image one"></div><div class="news-body"><span class="date">12 พฤษภาคม 2569</span><h3>เตรียมข้อมูลหน้างานก่อนขอใบเสนอราคา</h3><a href="#contact">อ่านเพิ่มเติม</a></div></article>
-            <article class="news-card"><div class="news-image two"></div><div class="news-body"><span class="date">9 พฤษภาคม 2569</span><h3>การเลือกอุปกรณ์ซ่อมท่อสำหรับงานฉุกเฉิน</h3><a href="#contact">อ่านเพิ่มเติม</a></div></article>
+            <a class="news-card" href="article-detail.html"><div class="news-image one"></div><div class="news-body"><span class="date">20 พฤษภาคม 2569</span><h3>เลือกท่อ PPR อย่างไรให้เหมาะกับระบบน้ำร้อน</h3><span class="news-more">อ่านเพิ่มเติม</span></div></a>
+            <a class="news-card" href="article-detail.html"><div class="news-image two"></div><div class="news-body"><span class="date">18 พฤษภาคม 2569</span><h3>ท่อรั่วฉุกเฉินควรประเมินอะไรบ้างก่อนเลือก Clamp</h3><span class="news-more">อ่านเพิ่มเติม</span></div></a>
+            <a class="news-card" href="article-detail.html"><div class="news-image three"></div><div class="news-body"><span class="date">15 พฤษภาคม 2569</span><h3>Heat Exchanger ช่วยลดต้นทุนพลังงานได้อย่างไร</h3><span class="news-more">อ่านเพิ่มเติม</span></div></a>
+            <a class="news-card" href="article-detail.html"><div class="news-image one"></div><div class="news-body"><span class="date">12 พฤษภาคม 2569</span><h3>เตรียมข้อมูลหน้างานก่อนขอใบเสนอราคา</h3><span class="news-more">อ่านเพิ่มเติม</span></div></a>
+            <a class="news-card" href="article-detail.html"><div class="news-image two"></div><div class="news-body"><span class="date">9 พฤษภาคม 2569</span><h3>การเลือกอุปกรณ์ซ่อมท่อสำหรับงานฉุกเฉิน</h3><span class="news-more">อ่านเพิ่มเติม</span></div></a>
           </div>
         </div>
         <div class="news-controls">
-          <a class="btn btn-primary" href="#news">ดูบทความทั้งหมด</a>
+          <a class="btn btn-primary" href="articles.html">ดูบทความทั้งหมด</a>
           <div class="news-arrows" aria-label="เลื่อนดูข่าว">
             <button class="news-arrow" type="button" aria-label="ข่าวก่อนหน้า" data-news-prev>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 18-6-6 6-6"/></svg>
@@ -3342,7 +3472,7 @@
       </div>
       <div class="container">
         <div class="video-more">
-          <a class="btn btn-primary" href="https://www.youtube.com/results?search_query=Rano+Tech" target="_blank" rel="noopener">ดูวิดีโอทั้งหมด</a>
+          <a class="btn btn-primary" href="videos.html">ดูวิดีโอทั้งหมด</a>
         </div>
       </div>
     </section>
@@ -3468,21 +3598,21 @@
         <div class="footer-col">
           <h3>เมนูหลัก</h3>
           <a href="#">หน้าแรก</a>
-          <a href="#about">เกี่ยวกับเรา</a>
+          <a href="about-history.html">เกี่ยวกับเรา</a>
           <a href="#products">สินค้า</a>
           <a href="#solutions">solution</a>
-          <a href="#news">บทความ</a>
-          <a href="#contact">ติดต่อเรา</a>
+          <a href="articles.html">บทความ</a>
+          <a href="contact.html">ติดต่อเรา</a>
         </div>
         <div class="footer-col">
           <h3>สินค้า</h3>
-          <a href="#products">ท่อและข้อต่อ PPR</a>
+          <a href="products-ppr.html">ท่อและข้อต่อ PPR</a>
           <a href="#products">แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</a>
           <a href="#products">เครื่องเชื่อมท่อ</a>
           <a href="#products">Grooved Coupling และเครื่องมือ</a>
           <a href="#products">Pump and Accessories</a>
           <a href="#products">Heat Exchanger</a>
-          <a href="#products">สินค้าโปรโมชั่น / Clearance</a>
+          <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
         </div>
         <div class="footer-col">
           <h3>ติดต่อเรา</h3>
@@ -3494,8 +3624,8 @@
       <div class="footer-bottom">
         <span>© 2026 Rano Tech Co., Ltd. All rights reserved.</span>
         <div class="footer-legal">
-          <a href="https://www.ranotech.com/privacy-policy/" target="_blank" rel="noopener">นโยบายความเป็นส่วนตัว</a>
-          <a href="https://www.ranotech.com/%e0%b8%99%e0%b9%82%e0%b8%a2%e0%b8%9a%e0%b8%b2%e0%b8%a2%e0%b8%84%e0%b8%a7%e0%b8%b2%e0%b8%a1%e0%b9%80%e0%b8%9b%e0%b9%87%e0%b8%99%e0%b8%aa%e0%b9%88%e0%b8%a7%e0%b8%99%e0%b8%95%e0%b8%b1%e0%b8%a7/" target="_blank" rel="noopener">นโยบายคุณภาพ</a>
+          <a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a>
+          <a href="quality-policy.html">นโยบายคุณภาพ</a>
         </div>
       </div>
     </div>
