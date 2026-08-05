@@ -211,7 +211,7 @@
     .line-cta svg { width: 22px; height: 22px; fill: currentColor; }
 
     .search-form {
-      width: 138px;
+      width: 210px;
       height: 38px;
       justify-content: space-between;
       padding: 0 10px 0 16px;
@@ -1474,13 +1474,22 @@
     }
 
     .footer {
-      padding: 54px 0 26px;
-      background: var(--navy);
-      color: #fff;
+      padding: 42px 0;
+      color: rgba(255,255,255,.76);
+      background: #050c39;
     }
-    .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 34px; }
-    .footer h3 { margin: 0 0 14px; font-size: 18px; }
-    .footer a { display: block; margin-top: 8px; color: rgba(255,255,255,.76); }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .footer h3 { margin: 0 0 12px; color: #fff; font-size: 16px; }
+    .footer a { display: block; margin-top: 8px; color: rgba(255, 255, 255, .76); text-decoration: none; transition: color .2s ease; }
+    .footer a:hover { color: #fff; }
+    .footer-col p { margin: 8px 0 0; line-height: 1.65; }
+
     .footer-brand .footer-logo-link {
       display: inline-flex;
       align-items: center;
@@ -1488,10 +1497,19 @@
       width: fit-content;
       padding: 10px 14px;
       margin: 0 0 18px;
+      border-radius: var(--radius);
       background: #fff;
     }
-    .footer-logo { width: 140px; max-height: 44px; object-fit: contain; }
-    .footer-brand p { margin: 0; line-height: 1.65; color: rgba(255,255,255,.76); }
+
+    .footer-brand .footer-logo {
+      width: 140px;
+      max-height: 44px;
+      margin: 0;
+      object-fit: contain;
+      display: block;
+    }
+
+    .footer-brand p { margin: 0; line-height: 1.65; }
 
     .footer-contact {
       display: grid;
@@ -1520,16 +1538,70 @@
       stroke-width: 1.9;
     }
 
+
+    .footer-social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      margin: 0;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+      transition: background .2s ease, border-color .2s ease, transform .2s ease;
+    }
+
+    .footer-social a:hover {
+      background: var(--blue);
+      border-color: transparent;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
     .footer-bottom {
       margin-top: 34px;
       padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,.12);
+      border-top: 1px solid rgba(255, 255, 255, .12);
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
       font-size: 14px;
-      color: rgba(255,255,255,.76);
+    }
+
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+    }
+
+    .footer-legal a {
+      display: inline;
+      margin: 0;
+      color: rgba(255, 255, 255, .76);
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+
+    .footer-legal a:hover {
+      color: #fff;
     }
 
     .preview-gate {
@@ -1644,6 +1716,7 @@
         justify-content: space-between;
       }
       .nav-dropdown {
+        display: none;
         position: static;
         opacity: 1;
         visibility: visible;
@@ -1655,6 +1728,15 @@
         background: #f6f8fc;
         padding: 0 var(--nav-gutter) 14px calc(var(--nav-gutter) + 8px);
       }
+      .nav-item.is-submenu-open .nav-dropdown {
+        display: block;
+      }
+      .nav-item.is-submenu-open > .nav-link svg {
+        transform: rotate(180deg);
+      }
+      .nav-link svg {
+        transition: transform .2s ease;
+      }
       .nav-dropdown .dropdown-title { display: none; }
       .nav-dropdown a {
         min-height: 40px;
@@ -1662,6 +1744,9 @@
         font-weight: 600;
       }
       .nav-dropdown a + a { margin-top: 2px; }
+      body.is-nav-locked {
+        overflow: hidden;
+      }
       /* keep other 1080 rules below */
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -2275,9 +2360,9 @@
           </div>
         </div>
         <div class="nav-item">
-          <a class="nav-link active" href="index.html#solutions">solution <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+          <a class="nav-link active" href="index.html#solutions">โซลูชัน <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
           <div class="nav-dropdown">
-            <span class="dropdown-title">solution</span>
+            <span class="dropdown-title">โซลูชัน</span>
             <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
             <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
             <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
@@ -2497,14 +2582,29 @@
               <span>LINE @ranotech</span>
             </a>
           </div>
+          <div class="footer-social" aria-label="โซเชียลมีเดีย">
+            <a href="https://page.line.me/gbc9543u" target="_blank" rel="noopener" aria-label="LINE @ranotech">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .63.285.631.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.086.766.062 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            </a>
+            <a href="https://www.facebook.com/ranotech" target="_blank" rel="noopener" aria-label="Facebook Rano Tech">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/results?search_query=Rano+Tech" target="_blank" rel="noopener" aria-label="YouTube Rano Tech">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@ranotech" target="_blank" rel="noopener" aria-label="TikTok Rano Tech">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+            </a>
+          </div>
         </div>
         <div class="footer-col">
           <h3>เมนูหลัก</h3>
           <a href="index.html">หน้าแรก</a>
           <a href="about-history.html">เกี่ยวกับเรา</a>
           <a href="index.html#products">สินค้า</a>
-          <a href="index.html#solutions">solution</a>
+          <a href="index.html#solutions">โซลูชัน</a>
           <a href="articles.html">บทความ</a>
+          <a href="contact.html">ติดต่อเรา</a>
         </div>
         <div class="footer-col">
           <h3>สินค้า</h3>
@@ -2517,7 +2617,7 @@
           <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
         </div>
         <div class="footer-col">
-          <h3>solution</h3>
+          <h3>โซลูชัน</h3>
           <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
           <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
           <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
@@ -2528,7 +2628,10 @@
       </div>
       <div class="footer-bottom">
         <span>© 2026 Rano Tech Co., Ltd. All rights reserved.</span>
-        <a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a>
+        <div class="footer-legal">
+          <a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a>
+          <a href="quality-policy.html">นโยบายคุณภาพ</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -2540,19 +2643,62 @@
     (function () {
       var topbar = document.querySelector(".topbar");
       var toggle = document.querySelector(".nav-toggle");
-      if (!topbar || !toggle) return;
-      toggle.addEventListener("click", function () {
-        var open = topbar.classList.toggle("is-nav-open");
+      var nav = document.getElementById("primary-nav");
+      if (!topbar || !toggle || !nav) return;
+
+      var mobileQuery = window.matchMedia("(max-width: 1080px)");
+
+      function setOpen(open) {
+        topbar.classList.toggle("is-nav-open", open);
+        document.body.classList.toggle("is-nav-locked", open && mobileQuery.matches);
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
         toggle.setAttribute("aria-label", open ? "ปิดเมนู" : "เปิดเมนู");
+        if (!open) {
+          nav.querySelectorAll(".nav-item.is-submenu-open").forEach(function (item) {
+            item.classList.remove("is-submenu-open");
+          });
+        }
+      }
+
+      toggle.addEventListener("click", function () {
+        setOpen(!topbar.classList.contains("is-nav-open"));
       });
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" && topbar.classList.contains("is-nav-open")) {
-          topbar.classList.remove("is-nav-open");
-          toggle.setAttribute("aria-expanded", "false");
-          toggle.setAttribute("aria-label", "เปิดเมนู");
+
+      nav.addEventListener("click", function (event) {
+        if (!mobileQuery.matches) return;
+        var link = event.target.closest(".nav-link");
+        if (link && link.parentElement && link.parentElement.querySelector(":scope > .nav-dropdown")) {
+          event.preventDefault();
+          var item = link.parentElement;
+          var willOpen = !item.classList.contains("is-submenu-open");
+          nav.querySelectorAll(".nav-item.is-submenu-open").forEach(function (openItem) {
+            if (openItem !== item) openItem.classList.remove("is-submenu-open");
+          });
+          item.classList.toggle("is-submenu-open", willOpen);
+          return;
+        }
+        if (event.target.closest("a")) {
+          setOpen(false);
         }
       });
+
+      document.addEventListener("click", function (event) {
+        if (!topbar.classList.contains("is-nav-open")) return;
+        if (topbar.contains(event.target)) return;
+        setOpen(false);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && topbar.classList.contains("is-nav-open")) {
+          setOpen(false);
+        }
+      });
+
+      if (typeof mobileQuery.addEventListener === "function") {
+        mobileQuery.addEventListener("change", function () {
+          if (!mobileQuery.matches) setOpen(false);
+        });
+      }
     })();
   </script>
 </body>

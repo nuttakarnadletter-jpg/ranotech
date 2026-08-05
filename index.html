@@ -204,7 +204,7 @@
     }
 
     .search-form {
-      width: 138px;
+      width: 210px;
       height: 38px;
       justify-content: space-between;
       padding: 0 10px 0 16px;
@@ -1423,35 +1423,30 @@
     }
 
     .news-card {
-      flex: 0 0 calc((100% - 36px) / 3);
+      flex: 0 0 calc((100% - 54px) / 4);
       display: block;
       overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-      box-shadow: 0 8px 22px rgba(7, 18, 77, .05);
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
       color: inherit;
       text-decoration: none;
       scroll-snap-align: start;
-      transition: transform .2s ease, box-shadow .2s ease;
     }
 
-    .news-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(7, 18, 77, .08);
-    }
     .news-image { height: 220px; background-size: cover; background-position: center; }
     .news-image.one { background-image: url("assets/articles/news-article-1.png"); }
     .news-image.two { background-image: url("assets/articles/news-article-2.png"); }
     .news-image.three { background-image: url("assets/articles/news-article-3.png"); }
-    .news-body { padding: 16px 18px 18px; }
+    .news-body { padding: 14px 0 0; }
     .date { color: var(--cyan); font-weight: 800; font-size: 12px; }
     .news-body h3 { margin: 8px 0 0; color: var(--navy); font-size: 18px; line-height: 1.32; }
     .news-body p { display: none; }
     .news-more { display: inline-flex; margin-top: 12px; color: var(--blue); font-weight: 800; font-size: 14px; }
 
     .news-controls {
-      margin-top: 10px;
+      margin-top: 32px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1534,9 +1529,22 @@
       overflow-x: auto;
       overflow-y: visible;
       padding-bottom: 32px;
-      scroll-behavior: smooth;
+      scroll-behavior: auto;
       scroll-snap-type: x mandatory;
       scrollbar-width: none;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-x;
+    }
+
+    .featured-product-grid.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+    }
+
+    .featured-product-grid.is-dragging a.featured-product-card {
+      pointer-events: none;
     }
 
     .featured-product-grid::-webkit-scrollbar {
@@ -1544,52 +1552,17 @@
     }
 
     .featured-product-arrow {
-      position: absolute;
-      top: 50%;
-      z-index: 2;
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: #fff;
-      color: var(--navy);
-      cursor: pointer;
-      transform: translateY(-50%);
-      box-shadow: 0 12px 28px rgba(7, 18, 77, .12);
-      transition: .2s ease;
+      display: none;
     }
-
-    .featured-product-arrow:hover:not(:disabled) {
-      color: #fff;
-      background: var(--blue);
-      border-color: var(--blue);
-    }
-
-    .featured-product-arrow:disabled {
-      opacity: .35;
-      cursor: not-allowed;
-    }
-
-    .featured-product-arrow svg {
-      width: 18px;
-      height: 18px;
-      stroke-width: 2.4;
-    }
-
-    .featured-product-arrow.prev { left: -21px; }
-    .featured-product-arrow.next { right: -21px; }
 
     a.featured-product-card { color: inherit; text-decoration: none; }
     .featured-product-card {
-      cursor: pointer;
+      cursor: grab;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: #fff;
       box-shadow: 0 12px 34px rgba(10, 45, 75, .06);
-      transition: .2s ease;
       display: flex;
       flex-direction: column;
       flex: 0 0 calc((100% - (var(--product-card-gap) * 3)) / 4);
@@ -1597,9 +1570,8 @@
       scroll-snap-align: start;
     }
 
-    .featured-product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
+    .featured-product-grid.is-dragging .featured-product-card {
+      cursor: grabbing;
     }
 
     .featured-product-img {
@@ -1711,11 +1683,6 @@
       box-shadow: 0 2px 10px rgba(7, 18, 77, .04);
     }
 
-    .clearance-section .featured-product-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(7, 18, 77, .07);
-    }
-
     .clearance-section .section-head h2 {
       color: var(--navy);
     }
@@ -1739,31 +1706,8 @@
     }
 
     .clearance-section .featured-products-head .section-head h2 {
-      display: flex;
-      align-items: center;
-      gap: 10px;
       font-size: clamp(24px, 2.8vw, 40px);
       line-height: 1.2;
-    }
-
-    .clearance-title-icon {
-      display: inline-flex;
-      flex: 0 0 auto;
-      align-items: center;
-      justify-content: center;
-      animation: clearanceFireFlicker 1.6s ease-in-out infinite;
-    }
-
-    .clearance-title-icon img {
-      display: block;
-      width: clamp(26px, 2.4vw, 34px);
-      height: clamp(26px, 2.4vw, 34px);
-      filter: drop-shadow(0 0 8px rgba(244, 67, 54, .35));
-    }
-
-    @keyframes clearanceFireFlicker {
-      0%, 100% { transform: scale(1) translateY(0); }
-      50% { transform: scale(1.08) translateY(-1px); }
     }
 
     .clearance-section .featured-products-head .btn {
@@ -2548,6 +2492,7 @@
         justify-content: space-between;
       }
       .nav-dropdown {
+        display: none;
         position: static;
         opacity: 1;
         visibility: visible;
@@ -2559,6 +2504,15 @@
         background: #f6f8fc;
         padding: 0 var(--nav-gutter) 14px calc(var(--nav-gutter) + 8px);
       }
+      .nav-item.is-submenu-open .nav-dropdown {
+        display: block;
+      }
+      .nav-item.is-submenu-open > .nav-link svg {
+        transform: rotate(180deg);
+      }
+      .nav-link svg {
+        transition: transform .2s ease;
+      }
       .nav-dropdown .dropdown-title { display: none; }
       .nav-dropdown a {
         min-height: 40px;
@@ -2566,6 +2520,9 @@
         font-weight: 600;
       }
       .nav-dropdown a + a { margin-top: 2px; }
+      body.is-nav-locked {
+        overflow: hidden;
+      }
       /* keep other 1080 rules below */
       .category-section .section-head p { white-space: normal; }
       .about-layout, .contact-grid { grid-template-columns: 1fr; }
@@ -2678,7 +2635,7 @@
       .news-section { padding: 44px 0 40px; }
       .featured-products-section { padding-bottom: 36px; }
       .clearance-section { padding-bottom: 36px; }
-      .news-body { padding: 14px 16px 16px; }
+      .news-body { padding: 12px 0 0; }
       .news-body h3 { font-size: 17px; }
       .category-grid, .form-grid { grid-template-columns: 1fr; }
       .featured-products-head {
@@ -2731,14 +2688,9 @@
 
       .clearance-section .featured-products-head .section-head h2 {
         font-size: clamp(20px, 4.8vw, 30px);
-        gap: 8px;
         justify-content: center;
       }
 
-      .clearance-title-icon img {
-        width: clamp(22px, 5.2vw, 28px);
-        height: clamp(22px, 5.2vw, 28px);
-      }
       .featured-product-img { min-height: 240px; }
       .featured-product-card { flex-basis: 84%; }
       .featured-product-arrow.prev { left: 4px; }
@@ -3040,9 +2992,9 @@
           </div>
         </div>
         <div class="nav-item">
-          <a class="nav-link" href="#solutions">solution <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+          <a class="nav-link" href="#solutions">โซลูชัน <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
           <div class="nav-dropdown">
-            <span class="dropdown-title">solution</span>
+            <span class="dropdown-title">โซลูชัน</span>
             <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
             <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
             <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
@@ -3259,7 +3211,7 @@
       <div class="solution-sticky">
         <div class="solution-stage">
           <div class="solution-intro">
-              <p class="kicker">Solutions</p>
+              <p class="kicker">โซลูชัน</p>
               <h2>โซลูชันสำหรับ<br>ระบบอุตสาหกรรม</h2>
               <p>ครอบคลุมงานออกแบบ ติดตั้ง ระบบกู้คืนสาร และยูนิตกระบวนการผลิตเฉพาะทาง พร้อมทีมเทคนิคช่วยประเมินให้เหมาะกับหน้างานจริง</p>
               <a class="btn btn-primary" href="#contact">ดูโซลูชันทั้งหมด</a>
@@ -3333,9 +3285,6 @@
           <a class="btn btn-primary" href="https://www.ranotech.com/products/" target="_blank" rel="noopener">ดูสินค้าทั้งหมด</a>
         </div>
         <div class="featured-product-carousel">
-          <button class="featured-product-arrow prev" type="button" aria-label="สินค้าก่อนหน้า" data-featured-product-prev>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 18-6-6 6-6"/></svg>
-          </button>
           <div class="featured-product-grid" id="featuredProductTrack">
           <a class="featured-product-card" href="products-ppr-detail.html">
             <div class="featured-product-img product-photo ppr-reducer" role="img" aria-label="PPR EF Reducer">
@@ -3344,7 +3293,7 @@
             <div class="featured-product-body">
               <h3>PPR EF Reducer</h3>
               <div class="featured-product-footer">
-                <span class="featured-product-price">เริ่มต้น ฿680</span>
+                <span class="featured-product-price">฿680</span>
                 <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
@@ -3355,7 +3304,7 @@
             <div class="featured-product-body">
               <h3>DISMY EF Reducing TEE</h3>
               <div class="featured-product-footer">
-                <span class="featured-product-price">เริ่มต้น ฿850</span>
+                <span class="featured-product-price">฿850</span>
                 <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
@@ -3367,7 +3316,7 @@
             <div class="featured-product-body">
               <h3>PPR EF Flange Socket</h3>
               <div class="featured-product-footer">
-                <span class="featured-product-price">เริ่มต้น ฿1,250</span>
+                <span class="featured-product-price">฿1,250</span>
                 <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
@@ -3378,7 +3327,7 @@
             <div class="featured-product-body">
               <h3>PPR EF 45 ELBOW</h3>
               <div class="featured-product-footer">
-                <span class="featured-product-price">เริ่มต้น ฿120</span>
+                <span class="featured-product-price">฿120</span>
                 <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
@@ -3389,7 +3338,7 @@
             <div class="featured-product-body">
               <h3>Stop Valve</h3>
               <div class="featured-product-footer">
-                <span class="featured-product-price">เริ่มต้น ฿320</span>
+                <span class="featured-product-price">฿320</span>
                 <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
@@ -3401,15 +3350,12 @@
             <div class="featured-product-body">
               <h3>Single Union &amp; Female Threaded Ball Cock</h3>
               <div class="featured-product-footer">
-                <span class="featured-product-price">เริ่มต้น ฿450</span>
+                <span class="featured-product-price">฿450</span>
                 <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
               </div>
             </div>
           </a>
           </div>
-          <button class="featured-product-arrow next" type="button" aria-label="สินค้าถัดไป" data-featured-product-next>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"/></svg>
-          </button>
         </div>
       </div>
     </section>
@@ -3419,19 +3365,11 @@
         <div class="featured-products-head">
           <div class="section-head align-left">
             <p class="kicker">Clearance</p>
-            <h2>
-              <span class="clearance-title-icon" aria-hidden="true">
-                <img src="assets/icons/discount.svg" alt="" width="34" height="34" decoding="async">
-              </span>
-              สินค้าลดราคา
-            </h2>
+            <h2>สินค้าลดราคา</h2>
           </div>
           <a class="btn btn-primary" href="products-clearance.html">ดูสินค้าลดราคาทั้งหมด</a>
         </div>
         <div class="featured-product-carousel">
-          <button class="featured-product-arrow prev" type="button" aria-label="สินค้าลดราคาก่อนหน้า" data-clearance-product-prev>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m15 18-6-6 6-6"/></svg>
-          </button>
           <div class="featured-product-grid" id="clearanceProductTrack">
             <a class="featured-product-card" href="products-ppr-detail.html">
               <div class="featured-product-img product-photo ppr-elbow-45" role="img" aria-label="PPR EF 45 ELBOW">
@@ -3493,10 +3431,37 @@
                 </div>
               </div>
             </a>
+            <a class="featured-product-card" href="products-ppr-detail.html">
+              <div class="featured-product-img product-photo ppr-reducing-tee" role="img" aria-label="DISMY EF Reducing TEE">
+                <div class="featured-product-labels"><span class="product-tag product-tag-sale">ลด 20%</span></div>
+              </div>
+              <div class="featured-product-body">
+                <h3>DISMY EF Reducing TEE</h3>
+                <div class="featured-product-footer">
+                  <div class="featured-product-prices">
+                    <span class="featured-product-price-old">฿850</span>
+                    <span class="featured-product-price-sale">฿680</span>
+                  </div>
+                  <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
+                </div>
+              </div>
+            </a>
+            <a class="featured-product-card" href="products-ppr-detail.html">
+              <div class="featured-product-img product-photo ppr-flange" role="img" aria-label="PPR EF Flange Socket">
+                <div class="featured-product-labels"><span class="product-tag product-tag-sale">Clearance</span></div>
+              </div>
+              <div class="featured-product-body">
+                <h3>PPR EF Flange Socket</h3>
+                <div class="featured-product-footer">
+                  <div class="featured-product-prices">
+                    <span class="featured-product-price-old">฿1,250</span>
+                    <span class="featured-product-price-sale">฿999</span>
+                  </div>
+                  <span class="featured-product-cart-btn" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg></span>
+                </div>
+              </div>
+            </a>
           </div>
-          <button class="featured-product-arrow next" type="button" aria-label="สินค้าลดราคาถัดไป" data-clearance-product-next>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"/></svg>
-          </button>
         </div>
       </div>
     </section>
@@ -3733,7 +3698,7 @@
           <a href="#">หน้าแรก</a>
           <a href="about-history.html">เกี่ยวกับเรา</a>
           <a href="#products">สินค้า</a>
-          <a href="#solutions">solution</a>
+          <a href="#solutions">โซลูชัน</a>
           <a href="articles.html">บทความ</a>
           <a href="contact.html">ติดต่อเรา</a>
         </div>
@@ -3748,7 +3713,7 @@
           <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
         </div>
         <div class="footer-col">
-          <h3>solution</h3>
+          <h3>โซลูชัน</h3>
           <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
           <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
           <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
@@ -3924,42 +3889,68 @@
     newsPrev?.addEventListener("click", () => moveNews(-1));
     newsNext?.addEventListener("click", () => moveNews(1));
 
-    const featuredProductTrack = document.getElementById("featuredProductTrack");
-    const featuredProductPrev = document.querySelector("[data-featured-product-prev]");
-    const featuredProductNext = document.querySelector("[data-featured-product-next]");
+    function enableDragScroll(track) {
+      if (!track) return;
 
-    function getFeaturedProductStep() {
-      if (!featuredProductTrack) return 0;
-      const card = featuredProductTrack.querySelector(".featured-product-card");
-      if (!card) return 0;
-      const gap = parseFloat(getComputedStyle(featuredProductTrack).gap) || 12;
-      return card.getBoundingClientRect().width + gap;
-    }
+      let isPointerDown = false;
+      let hasDragged = false;
+      let startX = 0;
+      let startScrollLeft = 0;
+      const dragThreshold = 6;
 
-    function updateFeaturedProductArrows() {
-      if (!featuredProductTrack || !featuredProductPrev || !featuredProductNext) return;
-      const maxScroll = featuredProductTrack.scrollWidth - featuredProductTrack.clientWidth;
-      const atStart = featuredProductTrack.scrollLeft <= 4;
-      const atEnd = featuredProductTrack.scrollLeft >= maxScroll - 4;
-      featuredProductPrev.disabled = atStart;
-      featuredProductNext.disabled = atEnd;
-    }
+      track.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "touch") return;
+        if (event.button !== 0) return;
+        isPointerDown = true;
+        hasDragged = false;
+        startX = event.clientX;
+        startScrollLeft = track.scrollLeft;
+        track.setPointerCapture(event.pointerId);
+      });
 
-    function moveFeaturedProducts(direction) {
-      if (!featuredProductTrack) return;
-      const step = getFeaturedProductStep();
-      if (!step) return;
-      featuredProductTrack.scrollBy({
-        left: direction * step,
-        behavior: "smooth"
+      track.addEventListener("pointermove", (event) => {
+        if (!isPointerDown) return;
+        const deltaX = event.clientX - startX;
+        if (Math.abs(deltaX) > dragThreshold) {
+          hasDragged = true;
+          track.classList.add("is-dragging");
+          event.preventDefault();
+        }
+        if (hasDragged) {
+          track.scrollLeft = startScrollLeft - deltaX;
+        }
+      });
+
+      const endDrag = (event) => {
+        if (!isPointerDown) return;
+        isPointerDown = false;
+        track.classList.remove("is-dragging");
+        if (event && track.hasPointerCapture?.(event.pointerId)) {
+          track.releasePointerCapture(event.pointerId);
+        }
+      };
+
+      track.addEventListener("pointerup", endDrag);
+      track.addEventListener("pointercancel", endDrag);
+      track.addEventListener("lostpointercapture", () => {
+        isPointerDown = false;
+        track.classList.remove("is-dragging");
+      });
+
+      track.addEventListener("click", (event) => {
+        if (!hasDragged) return;
+        event.preventDefault();
+        event.stopPropagation();
+        hasDragged = false;
+      }, true);
+
+      track.addEventListener("dragstart", (event) => {
+        event.preventDefault();
       });
     }
 
-    featuredProductPrev?.addEventListener("click", () => moveFeaturedProducts(-1));
-    featuredProductNext?.addEventListener("click", () => moveFeaturedProducts(1));
-    featuredProductTrack?.addEventListener("scroll", updateFeaturedProductArrows, { passive: true });
-    window.addEventListener("resize", updateFeaturedProductArrows);
-    updateFeaturedProductArrows();
+    enableDragScroll(document.getElementById("featuredProductTrack"));
+    enableDragScroll(document.getElementById("clearanceProductTrack"));
 
     const clearanceSection = document.getElementById("clearance-products");
     const featuredProductsSection = document.getElementById("featured-products");
@@ -3970,43 +3961,6 @@
     ) {
       featuredProductsSection.parentNode.insertBefore(clearanceSection, featuredProductsSection);
     }
-
-    const clearanceProductTrack = document.getElementById("clearanceProductTrack");
-    const clearanceProductPrev = document.querySelector("[data-clearance-product-prev]");
-    const clearanceProductNext = document.querySelector("[data-clearance-product-next]");
-
-    function getClearanceProductStep() {
-      if (!clearanceProductTrack) return 0;
-      const card = clearanceProductTrack.querySelector(".featured-product-card");
-      if (!card) return 0;
-      const gap = parseFloat(getComputedStyle(clearanceProductTrack).gap) || 12;
-      return card.getBoundingClientRect().width + gap;
-    }
-
-    function updateClearanceProductArrows() {
-      if (!clearanceProductTrack || !clearanceProductPrev || !clearanceProductNext) return;
-      const maxScroll = clearanceProductTrack.scrollWidth - clearanceProductTrack.clientWidth;
-      const atStart = clearanceProductTrack.scrollLeft <= 4;
-      const atEnd = clearanceProductTrack.scrollLeft >= maxScroll - 4;
-      clearanceProductPrev.disabled = atStart;
-      clearanceProductNext.disabled = atEnd;
-    }
-
-    function moveClearanceProducts(direction) {
-      if (!clearanceProductTrack) return;
-      const step = getClearanceProductStep();
-      if (!step) return;
-      clearanceProductTrack.scrollBy({
-        left: direction * step,
-        behavior: "smooth"
-      });
-    }
-
-    clearanceProductPrev?.addEventListener("click", () => moveClearanceProducts(-1));
-    clearanceProductNext?.addEventListener("click", () => moveClearanceProducts(1));
-    clearanceProductTrack?.addEventListener("scroll", updateClearanceProductArrows, { passive: true });
-    window.addEventListener("resize", updateClearanceProductArrows);
-    updateClearanceProductArrows();
 
     const solutionSection = document.querySelector(".advantage-section");
     const solutionTrack = document.getElementById("solutionTrack");
@@ -4242,19 +4196,62 @@
     (function () {
       var topbar = document.querySelector(".topbar");
       var toggle = document.querySelector(".nav-toggle");
-      if (!topbar || !toggle) return;
-      toggle.addEventListener("click", function () {
-        var open = topbar.classList.toggle("is-nav-open");
+      var nav = document.getElementById("primary-nav");
+      if (!topbar || !toggle || !nav) return;
+
+      var mobileQuery = window.matchMedia("(max-width: 1080px)");
+
+      function setOpen(open) {
+        topbar.classList.toggle("is-nav-open", open);
+        document.body.classList.toggle("is-nav-locked", open && mobileQuery.matches);
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
         toggle.setAttribute("aria-label", open ? "ปิดเมนู" : "เปิดเมนู");
+        if (!open) {
+          nav.querySelectorAll(".nav-item.is-submenu-open").forEach(function (item) {
+            item.classList.remove("is-submenu-open");
+          });
+        }
+      }
+
+      toggle.addEventListener("click", function () {
+        setOpen(!topbar.classList.contains("is-nav-open"));
       });
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape" && topbar.classList.contains("is-nav-open")) {
-          topbar.classList.remove("is-nav-open");
-          toggle.setAttribute("aria-expanded", "false");
-          toggle.setAttribute("aria-label", "เปิดเมนู");
+
+      nav.addEventListener("click", function (event) {
+        if (!mobileQuery.matches) return;
+        var link = event.target.closest(".nav-link");
+        if (link && link.parentElement && link.parentElement.querySelector(":scope > .nav-dropdown")) {
+          event.preventDefault();
+          var item = link.parentElement;
+          var willOpen = !item.classList.contains("is-submenu-open");
+          nav.querySelectorAll(".nav-item.is-submenu-open").forEach(function (openItem) {
+            if (openItem !== item) openItem.classList.remove("is-submenu-open");
+          });
+          item.classList.toggle("is-submenu-open", willOpen);
+          return;
+        }
+        if (event.target.closest("a")) {
+          setOpen(false);
         }
       });
+
+      document.addEventListener("click", function (event) {
+        if (!topbar.classList.contains("is-nav-open")) return;
+        if (topbar.contains(event.target)) return;
+        setOpen(false);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && topbar.classList.contains("is-nav-open")) {
+          setOpen(false);
+        }
+      });
+
+      if (typeof mobileQuery.addEventListener === "function") {
+        mobileQuery.addEventListener("change", function () {
+          if (!mobileQuery.matches) setOpen(false);
+        });
+      }
     })();
   </script>
 </body>
