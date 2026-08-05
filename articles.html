@@ -349,6 +349,62 @@
       background: linear-gradient(180deg, #fff, var(--soft));
     }
 
+    .article-tabs-head {
+      margin: 0 0 22px;
+      color: var(--navy);
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .article-tabs {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: clamp(18px, 4vw, 64px);
+      margin: 0 0 34px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .article-tab {
+      position: relative;
+      padding: 0 2px 14px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      cursor: pointer;
+      transition: color .2s ease;
+    }
+
+    .article-tab::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2px;
+      background: var(--navy);
+      opacity: 0;
+      transition: opacity .2s ease;
+    }
+
+    .article-tab:hover { color: var(--navy); }
+
+    .article-tab.is-active {
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .article-tab.is-active::after { opacity: 1; }
+
+    .article-card[hidden] { display: none; }
+
     .article-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -948,9 +1004,9 @@
           <div class="nav-dropdown">
             <span class="dropdown-title">ติดต่อเรา</span>
             <a href="contact.html">ติดต่อเรา</a>
+            <a href="customer-care.html">ฝ่ายดูแลลูกค้า</a>
             <a href="quote-form.html">แบบฟอร์มขอใบเสนอราคา</a>
             <a href="product-inquiry.html">แบบฟอร์มสอบถามสินค้า</a>
-            <a href="careers.html">สมัครงาน</a>
           </div>
         </div>
       </nav>
@@ -996,8 +1052,16 @@
 
     <section class="articles-section" id="all">
       <div class="container">
+        <h2 class="article-tabs-head">บทความ</h2>
+        <div class="article-tabs" role="tablist" aria-label="หมวดหมู่บทความ">
+          <button class="article-tab is-active" type="button" role="tab" aria-selected="true" data-article-filter="all">บทความทั้งหมด</button>
+          <button class="article-tab" type="button" role="tab" aria-selected="false" data-article-filter="product">สินค้า</button>
+          <button class="article-tab" type="button" role="tab" aria-selected="false" data-article-filter="technical">เทคนิคงานท่อ</button>
+          <button class="article-tab" type="button" role="tab" aria-selected="false" data-article-filter="heat">Heat Exchanger</button>
+        </div>
+
         <div class="article-grid">
-          <a class="article-card" id="product" href="article-detail.html">
+          <a class="article-card" id="product" data-article-category="product" href="article-detail.html">
             <div class="article-image one" role="img" aria-label="หน้าแปลนและท่อ PPR"></div>
             <div class="article-body">
               <div class="article-meta"><span>30 มีนาคม 2569</span></div>
@@ -1006,7 +1070,7 @@
             </div>
           </a>
 
-          <a class="article-card" id="technical" href="article-detail.html">
+          <a class="article-card" id="technical" data-article-category="technical" href="article-detail.html">
             <div class="article-image two" role="img" aria-label="ความปลอดภัยในการติดตั้งแคล้มป์รัดท่อ"></div>
             <div class="article-body">
               <div class="article-meta"><span>30 มีนาคม 2569</span></div>
@@ -1015,7 +1079,7 @@
             </div>
           </a>
 
-          <a class="article-card" id="heat" href="article-detail.html">
+          <a class="article-card" id="heat" data-article-category="heat" href="article-detail.html">
             <div class="article-image three" role="img" aria-label="ศูนย์รวมท่อ PPR และอุปกรณ์ครบวงจร"></div>
             <div class="article-body">
               <div class="article-meta"><span>16 มิถุนายน 2568</span></div>
@@ -1024,7 +1088,7 @@
             </div>
           </a>
 
-          <a class="article-card" id="manual" href="manuals.html">
+          <a class="article-card" id="manual" data-article-category="technical" href="manuals.html">
             <div class="article-image four" role="img" aria-label="การใช้แคล้มป์รัดซ่อมท่อรั่ว"></div>
             <div class="article-body">
               <div class="article-meta"><span>16 มิถุนายน 2568</span></div>
@@ -1033,11 +1097,20 @@
             </div>
           </a>
 
-          <a class="article-card" href="article-detail.html">
+          <a class="article-card" data-article-category="product" href="article-detail.html">
             <div class="article-image five" role="img" aria-label="การใช้แคล้มป์ต่อท่อในพื้นที่ห้ามประกายไฟ"></div>
             <div class="article-body">
               <div class="article-meta"><span>16 มิถุนายน 2568</span></div>
               <h3>ใช้แคล้มป์ต่อท่อแทนการเชื่อมในพื้นที่ห้ามประกายไฟ</h3>
+              <span class="article-more">อ่านเพิ่มเติม</span>
+            </div>
+          </a>
+
+          <a class="article-card" data-article-category="heat" href="article-detail.html">
+            <div class="article-image seven" role="img" aria-label="Heat Exchanger สำหรับงานอุตสาหกรรม"></div>
+            <div class="article-body">
+              <div class="article-meta"><span>10 พฤษภาคม 2568</span></div>
+              <h3>เลือก Heat Exchanger อย่างไรให้เหมาะกับระบบทำความร้อนและทำความเย็น</h3>
               <span class="article-more">อ่านเพิ่มเติม</span>
             </div>
           </a>
@@ -1158,6 +1231,32 @@
   </footer>
 
   <script>
+    (function () {
+      var tabs = Array.prototype.slice.call(document.querySelectorAll("[data-article-filter]"));
+      var cards = Array.prototype.slice.call(document.querySelectorAll("[data-article-category]"));
+      if (!tabs.length || !cards.length) return;
+
+      function applyFilter(filter) {
+        cards.forEach(function (card) {
+          var match = filter === "all" || card.getAttribute("data-article-category") === filter;
+          card.hidden = !match;
+        });
+        tabs.forEach(function (tab) {
+          var active = tab.getAttribute("data-article-filter") === filter;
+          tab.classList.toggle("is-active", active);
+          tab.setAttribute("aria-selected", active ? "true" : "false");
+        });
+      }
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          applyFilter(tab.getAttribute("data-article-filter"));
+        });
+      });
+
+      applyFilter("all");
+    })();
+
     (function () {
       var topbar = document.querySelector(".topbar");
       var toggle = document.querySelector(".nav-toggle");
