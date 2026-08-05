@@ -1915,6 +1915,34 @@
     }
     .footer-logo { width: 140px; max-height: 44px; object-fit: contain; }
     .footer-brand p { margin: 0; line-height: 1.65; color: rgba(255,255,255,.76); }
+
+    .footer-contact {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .footer-contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 0;
+      width: fit-content;
+      color: rgba(255,255,255,.76);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .footer-contact a:hover { color: #fff; }
+    .footer-contact svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    .footer-contact svg:not([fill="currentColor"]) path,
+    .footer-contact svg[fill="none"] {
+      stroke-width: 1.9;
+    }
+
     .footer-bottom {
       margin-top: 34px;
       padding-top: 18px;
@@ -1969,8 +1997,95 @@
       cursor: pointer;
     }
 
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1.2px solid rgba(36, 52, 159, .18);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--blue);
+      cursor: pointer;
+      padding: 0;
+    }
+    .nav-toggle svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2.2;
+    }
+    .nav-toggle__close { display: none; }
+    .topbar.is-nav-open .nav-toggle__open { display: none; }
+    .topbar.is-nav-open .nav-toggle__close { display: block; }
+
     @media (max-width: 1080px) {
-      .nav-menu { display: none; }
+      .nav-toggle { display: grid; }
+      .nav-actions {
+        margin-left: auto;
+        gap: 10px;
+      }
+      .nav-actions .line-cta,
+      .nav-actions .search-form,
+      .nav-actions .lang-switch {
+        display: none;
+      }
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 60;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        max-height: min(78vh, 680px);
+        overflow: auto;
+        padding: 8px 0 18px;
+        background: #fff;
+        border-bottom: 1px solid rgba(221, 229, 242, .95);
+        box-shadow: 0 24px 48px rgba(7, 18, 77, .12);
+        white-space: normal;
+        font-size: 16px;
+      }
+      .topbar.is-nav-open .nav-menu {
+        display: flex;
+      }
+      .nav-item {
+        min-height: 0;
+        display: block;
+        width: 100%;
+        border-top: 1px solid rgba(223, 230, 242, .9);
+      }
+      .nav-link {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px var(--nav-gutter);
+        justify-content: space-between;
+      }
+      .nav-dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+        width: auto;
+        border: 0;
+        box-shadow: none;
+        background: #f6f8fc;
+        padding: 0 var(--nav-gutter) 14px calc(var(--nav-gutter) + 8px);
+      }
+      .nav-dropdown .dropdown-title { display: none; }
+      .nav-dropdown a {
+        min-height: 40px;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .nav-dropdown a + a { margin-top: 2px; }
+      /* keep other 1080 rules below */
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
       .branch-section { grid-template-columns: 1fr; }
     }
@@ -2113,6 +2228,8 @@
       }
       .footer-grid { grid-template-columns: 1fr; }
       .footer, .footer-bottom { text-align: center; }
+      .footer-contact { justify-items: center; }
+      .footer-contact a { margin-left: auto; margin-right: auto; }
       .footer-brand .footer-logo-link { margin-left: auto; margin-right: auto; }
       .footer-bottom { justify-content: center; }
     }
@@ -2143,7 +2260,7 @@
   <header class="topbar">
     <div class="nav">
       <a href="index.html" aria-label="Rano Tech home"><img class="brand-logo" src="assets/logo.png" alt="Rano Tech"></a>
-      <nav class="nav-menu" aria-label="เมนูหลัก">
+      <nav class="nav-menu" id="primary-nav" aria-label="เมนูหลัก">
         <div class="nav-item"><a class="nav-link" href="index.html">หน้าแรก</a></div>
         <div class="nav-item">
           <a class="nav-link" href="about-history.html">เกี่ยวกับเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
@@ -2231,6 +2348,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg>
         </a>
       </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="เปิดเมนู">
+        <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+        <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>
+      </button>
     </div>
   </header>
 
@@ -2299,6 +2420,20 @@
           <a class="footer-logo-link" href="index.html" aria-label="Rano Tech home"><img class="footer-logo" src="assets/logo.png" alt="Rano Tech"></a>
           <h3>Rano Tech Co., Ltd.</h3>
           <p>ผู้เชี่ยวชาญด้านระบบท่อ อุปกรณ์ซ่อมท่อ และระบบแลกเปลี่ยนความร้อนสำหรับงานอุตสาหกรรม</p>
+          <div class="footer-contact" aria-label="ข้อมูลติดต่อ">
+            <a href="tel:0859410072">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>085 941 0072</span>
+            </a>
+            <a href="mailto:ranotech@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <span>ranotech@gmail.com</span>
+            </a>
+            <a href="https://page.line.me/gbc9543u" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .63.285.631.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.086.766.062 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+              <span>LINE @ranotech</span>
+            </a>
+          </div>
         </div>
         <div class="footer-col">
           <h3>เมนูหลัก</h3>
@@ -2309,27 +2444,53 @@
           <a href="articles.html">บทความ</a>
         </div>
         <div class="footer-col">
-          <h3>สื่อและบทความ</h3>
-          <a href="articles.html">รวมบทความ</a>
-          <a href="videos.html">วิดีโอสาธิต</a>
-          <a href="news.html">ข่าวและกิจกรรม</a>
-          <a href="faq.html">คำถามที่พบบ่อย</a>
+          <h3>สินค้า</h3>
+          <a href="products-ppr.html">ท่อและข้อต่อ PPR</a>
+          <a href="index.html#products">แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</a>
+          <a href="index.html#products">เครื่องเชื่อมท่อ</a>
+          <a href="index.html#products">Grooved Coupling และเครื่องมือ</a>
+          <a href="index.html#products">Pump and Accessories</a>
+          <a href="index.html#products">Heat Exchanger</a>
+          <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
         </div>
         <div class="footer-col">
-          <h3>ติดต่อเรา</h3>
-          <a href="tel:0859410072">085 941 0072</a>
-          <a href="mailto:ranotech@gmail.com">ranotech@gmail.com</a>
-          <a href="https://page.line.me/gbc9543u" target="_blank" rel="noopener">LINE @ranotech</a>
+          <h3>solution</h3>
+          <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
+          <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
+          <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
+          <a href="solution-solvent-recovery.html">ระบบ Solvent Recovery</a>
+          <a href="solution-reactor.html">ระบบ Reactor</a>
+          <a href="solution-gas-cooling.html">ระบบ Gas Cooling / Heating / Dehumidification</a>
         </div>
       </div>
       <div class="footer-bottom">
         <span>© 2026 Rano Tech Co., Ltd. All rights reserved.</span>
-        <span>Industrial Pipe &amp; Heat Exchange Solutions</span>
+        <a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a>
       </div>
     </div>
   </footer>
   <script>
     RanotechPreviewAuth.initLoginGate();
+  </script>
+
+  <script>
+    (function () {
+      var topbar = document.querySelector(".topbar");
+      var toggle = document.querySelector(".nav-toggle");
+      if (!topbar || !toggle) return;
+      toggle.addEventListener("click", function () {
+        var open = topbar.classList.toggle("is-nav-open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", open ? "ปิดเมนู" : "เปิดเมนู");
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && topbar.classList.contains("is-nav-open")) {
+          topbar.classList.remove("is-nav-open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "เปิดเมนู");
+        }
+      });
+    })();
   </script>
 </body>
 </html>

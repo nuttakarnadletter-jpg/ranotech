@@ -2034,8 +2034,95 @@
 
     .sticky-mobile a { flex: 1; }
 
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1.2px solid rgba(36, 52, 159, .18);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--blue);
+      cursor: pointer;
+      padding: 0;
+    }
+    .nav-toggle svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2.2;
+    }
+    .nav-toggle__close { display: none; }
+    .topbar.is-nav-open .nav-toggle__open { display: none; }
+    .topbar.is-nav-open .nav-toggle__close { display: block; }
+
     @media (max-width: 1080px) {
-      .nav-menu { display: none; }
+      .nav-toggle { display: grid; }
+      .nav-actions {
+        margin-left: auto;
+        gap: 10px;
+      }
+      .nav-actions .line-cta,
+      .nav-actions .search-form,
+      .nav-actions .lang-switch {
+        display: none;
+      }
+      .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 60;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        max-height: min(78vh, 680px);
+        overflow: auto;
+        padding: 8px 0 18px;
+        background: #fff;
+        border-bottom: 1px solid rgba(221, 229, 242, .95);
+        box-shadow: 0 24px 48px rgba(7, 18, 77, .12);
+        white-space: normal;
+        font-size: 16px;
+      }
+      .topbar.is-nav-open .nav-menu {
+        display: flex;
+      }
+      .nav-item {
+        min-height: 0;
+        display: block;
+        width: 100%;
+        border-top: 1px solid rgba(223, 230, 242, .9);
+      }
+      .nav-link {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px var(--nav-gutter);
+        justify-content: space-between;
+      }
+      .nav-dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+        width: auto;
+        border: 0;
+        box-shadow: none;
+        background: #f6f8fc;
+        padding: 0 var(--nav-gutter) 14px calc(var(--nav-gutter) + 8px);
+      }
+      .nav-dropdown .dropdown-title { display: none; }
+      .nav-dropdown a {
+        min-height: 40px;
+        font-size: 15px;
+        font-weight: 600;
+      }
+      .nav-dropdown a + a { margin-top: 2px; }
+      /* keep other 1080 rules below */
       .category-section .section-head p { white-space: normal; }
       .about-layout, .contact-grid { grid-template-columns: 1fr; }
       .about-layout { gap: 34px; }
@@ -2206,7 +2293,7 @@
   <header class="topbar">
     <div class="nav">
       <a href="#" aria-label="Rano Tech home"><img class="brand-logo" src="assets/logo.png" alt="Rano Tech"></a>
-      <nav class="nav-menu" aria-label="เมนูหลัก">
+      <nav class="nav-menu" id="primary-nav" aria-label="เมนูหลัก">
         <div class="nav-item"><a class="nav-link" href="#">หน้าแรก</a></div>
         <div class="nav-item">
           <a class="nav-link" href="#about">เกี่ยวกับเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
@@ -2294,6 +2381,10 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg>
         </a>
       </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="เปิดเมนู">
+        <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+        <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>
+      </button>
     </div>
   </header>
 
@@ -3256,6 +3347,26 @@
       }, true);
       videoTrack.addEventListener("dragstart", (event) => event.preventDefault());
     }
+  </script>
+
+  <script>
+    (function () {
+      var topbar = document.querySelector(".topbar");
+      var toggle = document.querySelector(".nav-toggle");
+      if (!topbar || !toggle) return;
+      toggle.addEventListener("click", function () {
+        var open = topbar.classList.toggle("is-nav-open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", open ? "ปิดเมนู" : "เปิดเมนู");
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && topbar.classList.contains("is-nav-open")) {
+          topbar.classList.remove("is-nav-open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "เปิดเมนู");
+        }
+      });
+    })();
   </script>
 </body>
 </html>

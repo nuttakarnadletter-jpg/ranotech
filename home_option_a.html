@@ -1063,6 +1063,29 @@
 
     .sticky-mobile a { flex: 1; }
 
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      flex: 0 0 auto;
+      place-items: center;
+      border: 1.2px solid rgba(36, 52, 159, .18);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--blue);
+      cursor: pointer;
+      padding: 0;
+    }
+    .nav-toggle svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 2.2;
+    }
+    .nav-toggle__close { display: none; }
+    .topbar.is-nav-open .nav-toggle__open { display: none; }
+    .topbar.is-nav-open .nav-toggle__close { display: block; }
+
     @media (max-width: 1080px) {
       .nav-menu { gap: 12px; font-size: 13px; }
       .about-grid, .contact-grid { grid-template-columns: 1fr; }
@@ -1130,7 +1153,7 @@
         <img class="brand-logo" src="assets/logo.png" alt="Rano Tech">
       </a>
 
-      <nav class="nav-menu" aria-label="เมนูหลัก">
+      <nav class="nav-menu" id="primary-nav" aria-label="เมนูหลัก">
         <a href="#">หน้าแรก</a>
         <a href="#certificates">เกี่ยวกับเรา</a>
         <a href="#solutions">สินค้า</a>
@@ -1153,6 +1176,10 @@
           เข้าสู่ระบบ
         </a>
       </div>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="เปิดเมนู">
+        <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+        <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>
+      </button>
     </div>
   </header>
 
@@ -1554,11 +1581,14 @@
         </div>
 
         <div class="footer-col">
-          <h3>ติดต่อเรา</h3>
-          <div class="footer-contact">
-            <a href="tel:0859410072">085 941 0072</a>
-            <a href="mailto:ranotech@gmail.com">ranotech@gmail.com</a>
-            <span>647/3-6 ถนนรามคำแหง แขวงหัวหมาก เขตบางกะปิ กรุงเทพฯ 10240</span>
+          <h3>solution</h3>
+          <div class="footer-links">
+            <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
+            <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
+            <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
+            <a href="solution-solvent-recovery.html">ระบบ Solvent Recovery</a>
+            <a href="solution-reactor.html">ระบบ Reactor</a>
+            <a href="solution-gas-cooling.html">ระบบ Gas Cooling / Heating / Dehumidification</a>
           </div>
         </div>
       </div>
@@ -1629,6 +1659,26 @@
 
     productPrev?.addEventListener('click', () => scrollProducts(-1));
     productNext?.addEventListener('click', () => scrollProducts(1));
+  </script>
+
+  <script>
+    (function () {
+      var topbar = document.querySelector(".topbar");
+      var toggle = document.querySelector(".nav-toggle");
+      if (!topbar || !toggle) return;
+      toggle.addEventListener("click", function () {
+        var open = topbar.classList.toggle("is-nav-open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        toggle.setAttribute("aria-label", open ? "ปิดเมนู" : "เปิดเมนู");
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && topbar.classList.contains("is-nav-open")) {
+          topbar.classList.remove("is-nav-open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "เปิดเมนู");
+        }
+      });
+    })();
   </script>
 </body>
 </html>
