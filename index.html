@@ -712,6 +712,7 @@
       min-height: 100%;
       padding: 24px;
       align-content: end;
+      align-items: end;
     }
 
     .category-card.all-products .category-body h3 {
@@ -744,15 +745,15 @@
       background-repeat: no-repeat;
     }
 
-    .category-thumb.ppr { background-image: url("assets/products/manual/product-cate01-2.jpg"); }
+    .category-thumb.ppr { background-image: url("assets/products/manual/product-cate01.jpg"); }
     .category-thumb.clamp {
-      background-image: url("assets/products/manual/category-smart-clamp.jpg");
+      background-image: url("assets/products/manual/product-cate02.jpg");
     }
-    .category-thumb.hdpe { background-image: url("assets/products/manual/category-welding2.jpg"); }
-    .category-thumb.grooved { background-image: url("assets/products/manual/category-grooved.jpg"); }
-    .category-thumb.heat { background-image: url("assets/products/manual/category-heat-exchanger.jpg"); }
-    .category-thumb.parts { background-image: url("assets/products/manual/category-pump-accessories.jpg"); }
-    .category-thumb.oem { background-image: url("assets/products/manual/category-ppr.jpg"); }
+    .category-thumb.hdpe { background-image: url("assets/products/manual/product-cate03.jpg"); }
+    .category-thumb.grooved { background-image: url("assets/products/manual/product-cate04.jpg"); }
+    .category-thumb.heat { background-image: url("assets/products/manual/product-cate06.jpg"); }
+    .category-thumb.parts { background-image: url("assets/products/manual/product-cate05.jpg"); }
+    .category-thumb.oem { background-image: url("assets/products/manual/product-cate07.jpg"); }
     .category-body {
       position: relative;
       z-index: 1;
@@ -829,8 +830,8 @@
     .about-copy h2 {
       margin: 0;
       color: #0c1228;
-      font-size: clamp(30px, 3vw, 44px);
-      line-height: 1.2;
+      font-size: clamp(30px, 3.4vw, 48px);
+      line-height: 1.18;
       font-weight: 800;
     }
 
@@ -1060,6 +1061,7 @@
       line-height: 1.22;
       font-weight: 800;
       letter-spacing: -.015em;
+      text-wrap: balance;
       text-shadow: 0 2px 18px rgba(0, 0, 0, .32);
     }
 
@@ -1068,6 +1070,7 @@
       color: rgba(255, 255, 255, .84);
       font-size: 15px;
       line-height: 1.62;
+      text-wrap: pretty;
       text-shadow: 0 1px 10px rgba(0, 0, 0, .24);
     }
 
@@ -1709,8 +1712,8 @@
     }
 
     .clearance-section .featured-products-head .section-head h2 {
-      font-size: clamp(24px, 2.8vw, 40px);
-      line-height: 1.2;
+      font-size: clamp(30px, 3.4vw, 48px);
+      line-height: 1.18;
     }
 
     .clearance-section .featured-products-head .btn {
@@ -2055,7 +2058,7 @@
       align-items: stretch;
     }
 
-    .contact-copy h2 { margin: 0; color: var(--navy); font-size: clamp(24px, 2.8vw, 36px); line-height: 1.2; }
+    .contact-copy h2 { margin: 0; color: var(--navy); font-size: clamp(26px, 2.8vw, 40px); line-height: 1.22; }
     .contact-copy p { margin: 16px 0 0; color: var(--muted); font-size: 18px; }
     .contact-lines {
       display: grid;
@@ -2161,8 +2164,8 @@
 
     .contact-cta__copy h2 {
       margin: 0;
-      font-size: clamp(24px, 2.8vw, 36px);
-      line-height: 1.18;
+      font-size: clamp(24px, 2.2vw, 32px);
+      line-height: 1.24;
       font-weight: 800;
     }
 
@@ -2448,7 +2451,55 @@
     .topbar.is-nav-open .nav-toggle__open { display: none; }
     .topbar.is-nav-open .nav-toggle__close { display: block; }
 
+    @media (min-width: 721px) and (max-width: 1080px) {
+      :root {
+        --container-gutter: 112px;
+      }
+      .nav {
+        --nav-gutter: 56px;
+      }
+      .hero-highlight:nth-child(-n+2)::before,
+      .hero-highlight:nth-child(3)::before,
+      .hero-highlight:nth-child(4)::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: var(--line);
+      }
+      .hero-highlight:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
     @media (max-width: 1080px) {
+      .hero-highlights {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        overflow: visible;
+      }
+      .hero-highlight {
+        min-width: 0;
+        flex: unset;
+      }
+      .hero-highlight strong,
+      .hero-highlight > div > span,
+      .hero-highlight small {
+        white-space: normal;
+      }
+      .hero-highlight:not(:last-child)::after { display: none; }
+      .hero-highlight:nth-child(odd):not(:last-child)::after { display: block; }
+      .hero-highlight:nth-child(-n+2)::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background: var(--line);
+      }
       .nav-toggle { display: grid; }
       .nav-actions {
         margin-left: auto;
@@ -2551,10 +2602,24 @@
       .solution-intro {
         grid-column: 1;
         grid-row: 1;
-        width: min(440px, 88vw);
+        width: min(620px, 100%);
         min-height: auto;
+        margin-left: auto;
+        margin-right: auto;
         padding: 0 clamp(20px, 5vw, 28px);
+        text-align: center;
         pointer-events: auto;
+      }
+      .solution-intro .kicker {
+        justify-self: center;
+      }
+      .solution-intro p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .solution-intro .btn {
+        margin-left: auto;
+        margin-right: auto;
       }
       .solution-intro .btn { margin-top: 28px; }
       .solution-cards-viewport {
@@ -2592,6 +2657,31 @@
       .contact-cta__actions { width: 100%; flex-wrap: wrap; }
       .contact-cta__card { flex: 1 1 220px; }
       .about-section { background-position: center; }
+      .contact-copy {
+        text-align: center;
+      }
+      .contact-copy p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .contact-lines {
+        justify-items: center;
+      }
+      .contact-lines a {
+        justify-content: center;
+      }
+      .contact-line-btn {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .quote-form {
+        width: min(100%, 720px);
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .form-actions {
+        justify-content: center;
+      }
     }
 
     @media (max-width: 720px) {
@@ -2608,12 +2698,36 @@
       .line-cta-label { display: none; }
       .account-link span { display: none; }
       .thai-flag { width: 22px; height: 22px; }
-      .hero { min-height: 560px; }
+      .hero {
+        min-height: 560px;
+        --hero-overlay-vertical: linear-gradient(180deg, rgba(7, 18, 77, .18) 0%, rgba(7, 18, 77, .24) 34%, rgba(7, 18, 77, .42) 70%, rgba(7, 18, 77, .62) 100%);
+        --hero-overlay-horizontal: linear-gradient(90deg, rgba(7, 18, 77, .5) 0%, rgba(7, 18, 77, .46) 36%, rgba(7, 18, 77, .4) 68%, rgba(7, 18, 77, .34) 100%);
+      }
       .hero { background-position: left top, right center; }
       .hero h1 { font-size: 32px; }
       .hero:not(.is-brand-slide) h1 { font-size: 34px; line-height: 1.24; }
       .hero.is-brand-slide h1 { font-size: 36px; }
-      .hero-inner { padding: 56px 0 24px; }
+      .hero-inner {
+        padding: 56px 0 24px;
+        justify-content: center;
+      }
+      .hero-copy {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .hero .kicker {
+        justify-self: center;
+      }
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-actions {
+        justify-content: center;
+        align-items: center;
+      }
       .hero-highlights {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2690,7 +2804,7 @@
       }
 
       .clearance-section .featured-products-head .section-head h2 {
-        font-size: clamp(20px, 4.8vw, 30px);
+        font-size: clamp(30px, 3.4vw, 48px);
         justify-content: center;
       }
 
@@ -2699,8 +2813,17 @@
       .featured-product-arrow.prev { left: 4px; }
       .featured-product-arrow.next { right: 4px; }
       .news-card { flex-basis: 84%; }
-      .portfolio-grid { gap: 12px; }
-      .portfolio-card { flex: 1 1 100%; }
+      .portfolio-grid { gap: 22px; }
+      .portfolio-card {
+        flex: 1 1 100%;
+        padding-bottom: 4px;
+      }
+      .portfolio-title {
+        margin-top: 16px;
+      }
+      .portfolio-more {
+        margin-top: 14px;
+      }
       .category-section .section-head {
         margin-left: auto;
         margin-right: auto;
@@ -2755,11 +2878,37 @@
         text-align: center;
       }
       .solution-intro h2 { font-size: 32px; }
+      .solution-intro p {
+        font-size: 16px;
+        line-height: 1.55;
+      }
       .solution-intro .btn {
         align-self: center;
+        width: auto;
+        max-width: 100%;
       }
-      .solution-card-body { padding: 20px; }
-      .solution-card { width: min(86vw, 400px); min-height: 420px; }
+      .solution-card-body { padding: 20px 18px 78px; }
+      .solution-card {
+        width: min(88vw, 360px);
+        min-height: 440px;
+      }
+      .solution-card h3 {
+        font-size: clamp(21px, 6vw, 28px);
+        line-height: 1.18;
+      }
+      .solution-card-desc {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+      .solution-card-btn {
+        left: 18px;
+        right: 18px;
+        bottom: 22px;
+        width: calc(100% - 36px);
+        min-height: 42px;
+        padding: 0 14px;
+      }
       .video-section { padding: 58px 0 48px; }
       .video-head { gap: 16px; margin-bottom: 22px; }
       .video-track { --video-card-width: min(78vw, 440px); gap: 16px; padding-bottom: 44px; }
@@ -2816,6 +2965,9 @@
       .contact-cta__card-value {
         margin-top: 0;
         font-size: 16px;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
       .sticky-mobile { display: none; }
       .hero-actions .btn, .form-actions .btn { width: 100%; }
@@ -2964,103 +3116,106 @@
       </form>
     </div>
   </div>
-  <header class="topbar">
-    <div class="nav">
-      <a href="#" aria-label="Rano Tech home"><img class="brand-logo" src="assets/logo.png" alt="Rano Tech"></a>
-      <nav class="nav-menu" id="primary-nav" aria-label="เมนูหลัก">
-        <div class="nav-item"><a class="nav-link" href="#">หน้าแรก</a></div>
-        <div class="nav-item">
-          <a class="nav-link" href="about-history.html">เกี่ยวกับเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
-          <div class="nav-dropdown">
-            <span class="dropdown-title">เกี่ยวกับเรา</span>
-            <a href="about-history.html">ประวัติบริษัท</a>
-            <a href="quality-policy.html">นโยบายคุณภาพ</a>
-            <a href="technical-consulting.html">ปรึกษาทีมเทคนิค</a>
-            <a href="clients.html">ลูกค้าของเรา</a>
-            <a href="certificates.html">การรับรอง</a>
-            <a href="privacy-policy.html">นโยบายส่วนตัว</a>
+  <div id="siteHeader"></div>
+  <template id="siteHeaderFallback">
+    <header class="topbar">
+      <div class="nav">
+        <a href="#" aria-label="Rano Tech home"><img class="brand-logo" src="assets/logo.png" alt="Rano Tech"></a>
+        <nav class="nav-menu" id="primary-nav" aria-label="เมนูหลัก">
+          <div class="nav-item"><a class="nav-link" href="#">หน้าแรก</a></div>
+          <div class="nav-item">
+            <a class="nav-link" href="about-history.html">เกี่ยวกับเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+            <div class="nav-dropdown">
+              <span class="dropdown-title">เกี่ยวกับเรา</span>
+              <a href="about-history.html">ประวัติบริษัท</a>
+              <a href="quality-policy.html">นโยบายคุณภาพ</a>
+              <a href="technical-consulting.html">ปรึกษาทีมเทคนิค</a>
+              <a href="clients.html">ลูกค้าของเรา</a>
+              <a href="certificates.html">การรับรอง</a>
+              <a href="privacy-policy.html">นโยบายส่วนตัว</a>
+            </div>
           </div>
-        </div>
-        <div class="nav-item">
-          <a class="nav-link" href="#products">สินค้า <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
-          <div class="nav-dropdown">
-            <span class="dropdown-title">สินค้า</span>
-            <a href="products-ppr.html">ท่อและข้อต่อ PPR</a>
-            <a href="#products">แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</a>
-            <a href="#products">เครื่องเชื่อมท่อ</a>
-            <a href="#products">Grooved Coupling และเครื่องมือ</a>
-            <a href="#products">Pump and Accessories</a>
-            <a href="#products">Heat Exchanger</a>
-            <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
+          <div class="nav-item">
+            <a class="nav-link" href="#products">สินค้า <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+            <div class="nav-dropdown">
+              <span class="dropdown-title">สินค้า</span>
+              <a href="products-ppr.html">ท่อและข้อต่อ PPR</a>
+              <a href="#products">แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</a>
+              <a href="#products">เครื่องเชื่อมท่อ</a>
+              <a href="#products">Grooved Coupling และเครื่องมือ</a>
+              <a href="#products">Pump and Accessories</a>
+              <a href="#products">Heat Exchanger</a>
+              <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
+            </div>
           </div>
-        </div>
-        <div class="nav-item">
-          <a class="nav-link" href="#solutions">สินค้าโซลูชัน <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
-          <div class="nav-dropdown">
-            <span class="dropdown-title">สินค้าโซลูชัน</span>
-            <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
-            <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
-            <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
-            <a href="solution-solvent-recovery.html">ระบบ Solvent Recovery</a>
-            <a href="solution-reactor.html">ระบบ Reactor</a>
-            <a href="solution-gas-cooling.html">ระบบ Gas Cooling / Heating / Dehumidification</a>
-            <a href="index.html#solutions">Thermal Application อื่นๆ</a>
+          <div class="nav-item">
+            <a class="nav-link" href="#solutions">สินค้าโซลูชัน <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+            <div class="nav-dropdown">
+              <span class="dropdown-title">สินค้าโซลูชัน</span>
+              <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
+              <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
+              <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
+              <a href="solution-solvent-recovery.html">ระบบ Solvent Recovery</a>
+              <a href="solution-reactor.html">ระบบ Reactor</a>
+              <a href="solution-gas-cooling.html">ระบบ Gas Cooling / Heating / Dehumidification</a>
+              <a href="solution-thermal-application.html">Thermal Application อื่นๆ</a>
+            </div>
           </div>
-        </div>
-        <div class="nav-item">
-          <a class="nav-link" href="articles.html">บทความ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
-          <div class="nav-dropdown">
-            <span class="dropdown-title">ความรู้และบทความ</span>
-            <a href="articles.html">รวมบทความ</a>
-            <a href="manuals.html">คู่มือการใช้งาน</a>
-            <a href="videos.html">วิดีโอสาธิต</a>
-            <a href="faq.html">คำถามที่พบบ่อย</a>
-            <a href="news.html">ข่าวและกิจกรรม</a>
-            <a href="training.html">การอบรม / เวิร์กชอป</a>
-            <a href="gallery.html">แกลเลอรี</a>
+          <div class="nav-item">
+            <a class="nav-link" href="articles.html">บทความ <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+            <div class="nav-dropdown">
+              <span class="dropdown-title">ความรู้และบทความ</span>
+              <a href="articles.html">รวมบทความ</a>
+              <a href="manuals.html">คู่มือการใช้งาน</a>
+              <a href="videos.html">วิดีโอสาธิต</a>
+              <a href="faq.html">คำถามที่พบบ่อย</a>
+              <a href="news.html">ข่าวและกิจกรรม</a>
+              <a href="training.html">การอบรม / เวิร์กชอป</a>
+              <a href="gallery.html">แกลเลอรี</a>
+            </div>
           </div>
-        </div>
-        <div class="nav-item">
-          <a class="nav-link" href="contact.html">ติดต่อเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
-          <div class="nav-dropdown">
-            <span class="dropdown-title">ติดต่อเรา</span>
-            <a href="contact.html">ติดต่อเรา</a>
-            <a href="customer-care.html">ฝ่ายดูแลลูกค้า</a>
-            <a href="product-inquiry.html">แบบฟอร์มสอบถามสินค้า</a>
+          <div class="nav-item">
+            <a class="nav-link" href="contact.html">ติดต่อเรา <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg></a>
+            <div class="nav-dropdown">
+              <span class="dropdown-title">ติดต่อเรา</span>
+              <a href="contact.html">ติดต่อเรา</a>
+              <a href="customer-care.html">ฝ่ายดูแลลูกค้า</a>
+              <a href="product-inquiry.html">แบบฟอร์มสอบถามสินค้า</a>
+            </div>
           </div>
+        </nav>
+        <div class="nav-actions">
+          <a class="line-cta" href="https://page.line.me/gbc9543u" target="_blank" rel="noopener" aria-label="เพิ่มเพื่อน LINE @ranotech">
+            <span class="line-cta-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.086.766.062 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+            </span>
+            <span class="line-cta-label">@ranotech</span>
+          </a>
+          <form class="search-form" action="#products" role="search">
+            <input type="search" name="q" placeholder="ค้นหา" aria-label="ค้นหา">
+            <button type="submit" aria-label="ค้นหา">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            </button>
+          </form>
+          <a class="cart-link" href="#" aria-label="รถเข็นสินค้า">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg>
+          </a>
+          <a class="account-link" href="#" aria-label="เข้าสู่ระบบ">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          </a>
+          <a class="lang-switch" href="#" aria-label="เลือกภาษา">
+            <span class="thai-flag" aria-hidden="true"></span>
+            <span>TH</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
         </div>
-      </nav>
-      <div class="nav-actions">
-        <a class="line-cta" href="https://page.line.me/gbc9543u" target="_blank" rel="noopener" aria-label="เพิ่มเพื่อน LINE @ranotech">
-          <span class="line-cta-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.086.766.062 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-          </span>
-          <span class="line-cta-label">@ranotech</span>
-        </a>
-        <form class="search-form" action="#products" role="search">
-          <input type="search" name="q" placeholder="ค้นหา" aria-label="ค้นหา">
-          <button type="submit" aria-label="ค้นหา">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          </button>
-        </form>
-        <a class="cart-link" href="#" aria-label="รถเข็นสินค้า">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="8" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2.5 3h2.2l2.6 12.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 7H6"/></svg>
-        </a>
-        <a class="account-link" href="#" aria-label="เข้าสู่ระบบ">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
-        </a>
-        <a class="lang-switch" href="#" aria-label="เลือกภาษา">
-          <span class="thai-flag" aria-hidden="true"></span>
-          <span>TH</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m6 9 6 6 6-6"/></svg>
-        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="เปิดเมนู">
+          <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
+          <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>
+        </button>
       </div>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="เปิดเมนู">
-        <svg class="nav-toggle__open" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
-        <svg class="nav-toggle__close" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>
-      </button>
-    </div>
-  </header>
+    </header>
+  </template>
 
   <main>
     <div class="hero-stack">
@@ -3221,7 +3376,7 @@
             </div>
             <div class="solution-cards-viewport">
               <div class="solution-track" id="solutionTrack">
-                <a class="solution-card" href="solution-heat-exchange.html" style="--solution-image: url('assets/solutions/solution-cooling-system.png')">
+                <a class="solution-card" href="solution-heat-exchange.html" style="--solution-image: url('assets/solutions/solution-cooling-system.jpg')">
                   <div class="solution-card-body">
                     <span class="solution-label">Heat Transfer</span>
                     <h3>ระบบแลกเปลี่ยนความร้อน</h3>
@@ -3229,7 +3384,7 @@
                     <span class="solution-card-btn">อ่านเพิ่มเติม</span>
                   </div>
                 </a>
-                <a class="solution-card" href="solution-cip.html" style="--solution-image: url('assets/solutions/cip/cip-unit.png')">
+                <a class="solution-card" href="solution-cip.html" style="--solution-image: url('assets/solutions/solution-cip-unit.jpg')">
                   <div class="solution-card-body">
                     <span class="solution-label">Clean Process</span>
                     <h3>ระบบ CIP สำหรับอาหารและยา</h3>
@@ -3237,7 +3392,7 @@
                     <span class="solution-card-btn">อ่านเพิ่มเติม</span>
                   </div>
                 </a>
-                <a class="solution-card" href="solution-pasteurization.html" style="--solution-image: url('assets/portfolio/pasteurization-uht-processing-system.png')">
+                <a class="solution-card" href="solution-pasteurization.html" style="--solution-image: url('assets/solutions/solution-pasteurization.jpg')">
                   <div class="solution-card-body">
                     <span class="solution-label">Thermal Process</span>
                     <h3>ระบบ Pasteurization / UHT</h3>
@@ -3245,7 +3400,7 @@
                     <span class="solution-card-btn">อ่านเพิ่มเติม</span>
                   </div>
                 </a>
-                <a class="solution-card" href="solution-solvent-recovery.html" style="--solution-image: url('assets/solutions/solution-solvent-recovery2.jpg')">
+                <a class="solution-card" href="solution-solvent-recovery.html" style="--solution-image: url('assets/solutions/solution-solvent-recovery.jpg')">
                   <div class="solution-card-body">
                     <span class="solution-label">Recovery System</span>
                     <h3>ระบบ Solvent Recovery</h3>
@@ -3266,6 +3421,14 @@
                     <span class="solution-label">Air &amp; Gas System</span>
                     <h3>ระบบ Gas Cooling / Heating / Dehumidification</h3>
                     <p class="solution-card-desc">ระบบควบคุมอุณหภูมิและความชื้นของก๊าซสำหรับงานอุตสาหกรรมเฉพาะทาง</p>
+                    <span class="solution-card-btn">อ่านเพิ่มเติม</span>
+                  </div>
+                </a>
+                <a class="solution-card" href="solution-thermal-application.html" style="--solution-image: url('assets/solutions/solution-thermal.jpg')">
+                  <div class="solution-card-body">
+                    <span class="solution-label">Thermal Application</span>
+                    <h3>Thermal Application อื่นๆ</h3>
+                    <p class="solution-card-desc">งานออกแบบและประยุกต์ใช้ระบบความร้อนเพิ่มเติมสำหรับกระบวนการผลิตและระบบอุตสาหกรรมเฉพาะทาง</p>
                     <span class="solution-card-btn">อ่านเพิ่มเติม</span>
                   </div>
                 </a>
@@ -3660,98 +3823,129 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="footer-logo-link" href="#" aria-label="Rano Tech home"><img class="footer-logo" src="assets/logo.png" alt="Rano Tech"></a>
-          <h3>Rano Tech Co., Ltd.</h3>
-          <p>ผู้เชี่ยวชาญด้านระบบท่อ อุปกรณ์ซ่อมท่อ และระบบแลกเปลี่ยนความร้อนสำหรับงานอุตสาหกรรม</p>
-          <div class="footer-contact" aria-label="ข้อมูลติดต่อ">
-            <a href="tel:0859410072">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              <span>085 941 0072</span>
-            </a>
-            <a href="mailto:ranotech@gmail.com">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              <span>ranotech@gmail.com</span>
-            </a>
-            <a href="https://page.line.me/gbc9543u" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .63.285.631.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.086.766.062 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-              <span>LINE @ranotech</span>
-            </a>
+  <div id="siteFooter"></div>
+  <template id="siteFooterFallback">
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="footer-logo-link" href="#" aria-label="Rano Tech home"><img class="footer-logo" src="assets/logo.png" alt="Rano Tech"></a>
+            <h3>Rano Tech Co., Ltd.</h3>
+            <p>ผู้เชี่ยวชาญด้านระบบท่อ อุปกรณ์ซ่อมท่อ และระบบแลกเปลี่ยนความร้อนสำหรับงานอุตสาหกรรม</p>
+            <div class="footer-contact" aria-label="ข้อมูลติดต่อ">
+              <a href="tel:0859410072">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>085 941 0072</span>
+              </a>
+              <a href="mailto:ranotech@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                <span>ranotech@gmail.com</span>
+              </a>
+              <a href="https://page.line.me/gbc9543u" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .63.285.631.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.086.766.062 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                <span>LINE @ranotech</span>
+              </a>
+            </div>
+            <div class="footer-social" aria-label="โซเชียลมีเดีย">
+              <a href="https://page.line.me/gbc9543u" target="_blank" rel="noopener" aria-label="LINE @ranotech"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .63.285.631.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.086.766.062 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg></a>
+              <a href="https://www.facebook.com/ranotech" target="_blank" rel="noopener" aria-label="Facebook Rano Tech"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
+              <a href="https://www.youtube.com/results?search_query=Rano+Tech" target="_blank" rel="noopener" aria-label="YouTube Rano Tech"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+              <a href="https://www.linkedin.com/organization-guest/company/rano-tech?challengeId=AQGjZtNj0RI8LwAAAXM4mZXAwooz56UhiEyIfVaU_m3yXZKjubufHM9Pk2pQoMOZo-yhxBNG_qFeW0c19_yTFnukMu4ga0fpng&#038;submissionId=b2adc17c-6562-2016-d717-bc81486de739" target="_blank" rel="noopener" aria-label="LinkedIn Rano Tech"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.942v5.664H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.063 2.063 0 1 1 0-4.126 2.063 2.063 0 0 1 0 4.126zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+              <a href="https://www.tiktok.com/@ranotechth" target="_blank" rel="noopener" aria-label="TikTok Rano Tech"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            </div>
           </div>
-          <div class="footer-social" aria-label="โซเชียลมีเดีย">
-            <a href="https://page.line.me/gbc9543u" target="_blank" rel="noopener" aria-label="LINE @ranotech">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .63.285.631.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.086.766.062 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-            </a>
-            <a href="https://www.facebook.com/ranotech" target="_blank" rel="noopener" aria-label="Facebook Rano Tech">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-            </a>
-            <a href="https://www.youtube.com/results?search_query=Rano+Tech" target="_blank" rel="noopener" aria-label="YouTube Rano Tech">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/organization-guest/company/rano-tech?challengeId=AQGjZtNj0RI8LwAAAXM4mZXAwooz56UhiEyIfVaU_m3yXZKjubufHM9Pk2pQoMOZo-yhxBNG_qFeW0c19_yTFnukMu4ga0fpng&#038;submissionId=b2adc17c-6562-2016-d717-bc81486de739" target="_blank" rel="noopener" aria-label="LinkedIn Rano Tech">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.942v5.664H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.063 2.063 0 1 1 0-4.126 2.063 2.063 0 0 1 0 4.126zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.226.792 24 1.771 24h20.451C23.2 24 24 23.226 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
-            </a>
-            <a href="https://www.tiktok.com/@ranotechth" target="_blank" rel="noopener" aria-label="TikTok Rano Tech">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
-            </a>
+          <div class="footer-col">
+            <h3>เมนูหลัก</h3>
+            <a href="#">หน้าแรก</a>
+            <a href="about-history.html">เกี่ยวกับเรา</a>
+            <a href="#products">สินค้า</a>
+            <a href="#solutions">สินค้าโซลูชัน</a>
+            <a href="articles.html">บทความ</a>
+            <a href="contact.html">ติดต่อเรา</a>
+          </div>
+          <div class="footer-col">
+            <h3>สินค้า</h3>
+            <a href="products-ppr.html">ท่อและข้อต่อ PPR</a>
+            <a href="#products">แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</a>
+            <a href="#products">เครื่องเชื่อมท่อ</a>
+            <a href="#products">Grooved Coupling และเครื่องมือ</a>
+            <a href="#products">Pump and Accessories</a>
+            <a href="#products">Heat Exchanger</a>
+            <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
+          </div>
+          <div class="footer-col">
+            <h3>สินค้าโซลูชัน</h3>
+            <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
+            <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
+            <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
+            <a href="solution-solvent-recovery.html">ระบบ Solvent Recovery</a>
+            <a href="solution-reactor.html">ระบบ Reactor</a>
+            <a href="solution-gas-cooling.html">ระบบ Gas Cooling / Heating / Dehumidification</a>
+            <a href="solution-thermal-application.html">Thermal Application อื่นๆ</a>
           </div>
         </div>
-        <div class="footer-col">
-          <h3>เมนูหลัก</h3>
-          <a href="#">หน้าแรก</a>
-          <a href="about-history.html">เกี่ยวกับเรา</a>
-          <a href="#products">สินค้า</a>
-          <a href="#solutions">สินค้าโซลูชัน</a>
-          <a href="articles.html">บทความ</a>
-          <a href="contact.html">ติดต่อเรา</a>
-        </div>
-        <div class="footer-col">
-          <h3>สินค้า</h3>
-          <a href="products-ppr.html">ท่อและข้อต่อ PPR</a>
-          <a href="#products">แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</a>
-          <a href="#products">เครื่องเชื่อมท่อ</a>
-          <a href="#products">Grooved Coupling และเครื่องมือ</a>
-          <a href="#products">Pump and Accessories</a>
-          <a href="#products">Heat Exchanger</a>
-          <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
-        </div>
-        <div class="footer-col">
-          <h3>สินค้าโซลูชัน</h3>
-          <a href="solution-heat-exchange.html">ระบบแลกเปลี่ยนความร้อน</a>
-          <a href="solution-cip.html">ระบบ CIP สำหรับอาหารและยา</a>
-          <a href="solution-pasteurization.html">ระบบ Pasteurization / UHT</a>
-          <a href="solution-solvent-recovery.html">ระบบ Solvent Recovery</a>
-          <a href="solution-reactor.html">ระบบ Reactor</a>
-          <a href="solution-gas-cooling.html">ระบบ Gas Cooling / Heating / Dehumidification</a>
-            <a href="index.html#solutions">Thermal Application อื่นๆ</a>
+        <div class="footer-bottom">
+          <span>© 2026 Rano Tech Co., Ltd. All rights reserved.</span>
+          <div class="footer-legal">
+            <a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a>
+            <a href="quality-policy.html">นโยบายคุณภาพ</a>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <span>© 2026 Rano Tech Co., Ltd. All rights reserved.</span>
-        <div class="footer-legal">
-          <a href="privacy-policy.html">นโยบายความเป็นส่วนตัว</a>
-          <a href="quality-policy.html">นโยบายคุณภาพ</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
+  </template>
 
   <div class="sticky-mobile">
     <a class="btn btn-primary" href="tel:0859410072">โทร</a>
     <a class="btn btn-amber" href="https://page.line.me/gbc9543u" target="_blank" rel="noopener">LINE</a>
   </div>
   <script>
+    window.homeLayoutReady = (async function () {
+      function applyFallback(targetId, templateId) {
+        const target = document.getElementById(targetId);
+        const template = document.getElementById(templateId);
+        if (!target || !template) return;
+        target.innerHTML = template.innerHTML;
+      }
+
+      async function loadFragment(targetId, filePath) {
+        const target = document.getElementById(targetId);
+        if (!target) return;
+        const response = await fetch(filePath, { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error("Unable to load fragment: " + filePath);
+        }
+        target.innerHTML = await response.text();
+      }
+
+      try {
+        if (window.location.protocol === "file:") {
+          throw new Error("Fetch is unavailable for file protocol");
+        }
+        await Promise.all([
+          loadFragment("siteHeader", "partials/home-header.html"),
+          loadFragment("siteFooter", "partials/home-footer.html")
+        ]);
+      } catch (error) {
+        applyFallback("siteHeader", "siteHeaderFallback");
+        applyFallback("siteFooter", "siteFooterFallback");
+      }
+    })();
+  </script>
+
+  <script>
     const heroOverlayPresets = {
       brand: {
         vertical: "linear-gradient(180deg, rgba(7, 18, 77, 0) 0%, rgba(7, 18, 77, 0) 50%, rgba(7, 18, 77, .48) 80%, rgba(7, 18, 77, .75) 100%)",
-        horizontal: "linear-gradient(90deg, rgba(7, 18, 77, .97) 0%, rgba(7, 18, 77, .9) 26%, rgba(7, 18, 77, .72) 40%, rgba(7, 18, 77, .34) 48%, rgba(7, 18, 77, .08) 54%, rgba(7, 18, 77, 0) 58%)"
+        horizontal: "linear-gradient(90deg, rgba(7, 18, 77, .97) 0%, rgba(7, 18, 77, .9) 26%, rgba(7, 18, 77, .72) 40%, rgba(7, 18, 77, .34) 48%, rgba(7, 18, 77, .08) 54%, rgba(7, 18, 77, 0) 58%)",
+        mobileVertical: "linear-gradient(180deg, rgba(7, 18, 77, .18) 0%, rgba(7, 18, 77, .24) 34%, rgba(7, 18, 77, .42) 70%, rgba(7, 18, 77, .62) 100%)",
+        mobileHorizontal: "linear-gradient(90deg, rgba(7, 18, 77, .52) 0%, rgba(7, 18, 77, .48) 36%, rgba(7, 18, 77, .42) 68%, rgba(7, 18, 77, .36) 100%)"
       },
       product: {
         vertical: "linear-gradient(180deg, rgba(7, 18, 77, 0) 0%, rgba(7, 18, 77, 0) 52%, rgba(7, 18, 77, .42) 84%, rgba(7, 18, 77, .62) 100%)",
-        horizontal: "linear-gradient(90deg, rgba(7, 18, 77, .84) 0%, rgba(7, 18, 77, .62) 30%, rgba(7, 18, 77, .2) 48%, rgba(7, 18, 77, 0) 58%)"
+        horizontal: "linear-gradient(90deg, rgba(7, 18, 77, .84) 0%, rgba(7, 18, 77, .62) 30%, rgba(7, 18, 77, .2) 48%, rgba(7, 18, 77, 0) 58%)",
+        mobileVertical: "linear-gradient(180deg, rgba(7, 18, 77, .18) 0%, rgba(7, 18, 77, .24) 34%, rgba(7, 18, 77, .42) 70%, rgba(7, 18, 77, .62) 100%)",
+        mobileHorizontal: "linear-gradient(90deg, rgba(7, 18, 77, .5) 0%, rgba(7, 18, 77, .46) 36%, rgba(7, 18, 77, .4) 68%, rgba(7, 18, 77, .34) 100%)"
       }
     };
 
@@ -3804,14 +3998,20 @@
     const heroDots = document.getElementById("heroDots");
     const heroPrev = document.querySelector("[data-hero-prev]");
     const heroNext = document.querySelector("[data-hero-next]");
+    const heroMobileOverlayQuery = window.matchMedia("(max-width: 720px)");
     let heroIndex = 0;
     let heroTimer;
     const heroAutoplayEnabled = true;
 
     function applyHeroOverlay(slide) {
       const preset = heroOverlayPresets[slide.overlay] || heroOverlayPresets.product;
-      const overlayVertical = slide.overlayVertical || preset.vertical;
-      const overlayHorizontal = slide.overlayHorizontal || preset.horizontal;
+      const isMobileHero = heroMobileOverlayQuery.matches;
+      const overlayVertical = isMobileHero
+        ? (slide.mobileOverlayVertical || preset.mobileVertical || slide.overlayVertical || preset.vertical)
+        : (slide.overlayVertical || preset.vertical);
+      const overlayHorizontal = isMobileHero
+        ? (slide.mobileOverlayHorizontal || preset.mobileHorizontal || slide.overlayHorizontal || preset.horizontal)
+        : (slide.overlayHorizontal || preset.horizontal);
       heroSection.style.setProperty("--hero-overlay-vertical", overlayVertical);
       heroSection.style.setProperty("--hero-overlay-horizontal", overlayHorizontal);
     }
@@ -3876,6 +4076,11 @@
       }
       heroPrev?.addEventListener("click", () => moveHero(-1));
       heroNext?.addEventListener("click", () => moveHero(1));
+      if (heroMobileOverlayQuery.addEventListener) {
+        heroMobileOverlayQuery.addEventListener("change", () => renderHero(heroIndex));
+      } else if (heroMobileOverlayQuery.addListener) {
+        heroMobileOverlayQuery.addListener(() => renderHero(heroIndex));
+      }
     }
 
     const newsTrack = document.getElementById("newsTrack");
@@ -4200,7 +4405,8 @@
   </script>
 
   <script>
-    (function () {
+    (async function () {
+      await (window.homeLayoutReady || Promise.resolve());
       var topbar = document.querySelector(".topbar");
       var toggle = document.querySelector(".nav-toggle");
       var nav = document.getElementById("primary-nav");
