@@ -9,8 +9,8 @@
     document.documentElement.classList.toggle("preview-locked", !RanotechPreviewAuth.isAuthenticated());
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rano Tech ระบบ SMART-REACTOR โมดูลาร์ยูนิตสำหรับการผสม เจือจาง และปฏิกิริยา (Endothermic/Exothermic) ควบคุมด้วย PLC" />
-  <title>ระบบ Reactor (SMART-REACTOR) | Modular Mixing / Dilution | Rano Tech</title>
+  <meta name="description" content="Rano Tech ให้บริการ Thermal Application อื่นๆ สำหรับงานออกแบบระบบความร้อน ระบบแลกเปลี่ยนพลังงาน และยูนิตกระบวนการเฉพาะทางในโรงงานอุตสาหกรรม" />
+  <title>Thermal Application อื่นๆ | Rano Tech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -318,7 +318,7 @@
       text-align: center;
       background:
         linear-gradient(180deg, rgba(7, 18, 77, .62), rgba(7, 18, 77, .42)),
-        url("assets/solutions/reactor/reactor-unit-1.jpg") center / cover no-repeat;
+        url("assets/solutions/solution-heat-exchanger-card.jpg") center / cover no-repeat;
     }
 
     .page-hero .eyebrow {
@@ -1344,7 +1344,7 @@
       color: #fff;
       background:
         linear-gradient(90deg, rgba(7, 18, 77, .92) 0%, rgba(7, 18, 77, .82) 42%, rgba(7, 18, 77, .72) 100%),
-        url("assets/solutions/reactor/reactor-unit-1.jpg") center / cover no-repeat;
+        url("assets/solutions/solution-heat-exchanger-card.png") center / cover no-repeat;
     }
 
     .contact-cta__inner {
@@ -1971,7 +1971,7 @@
       gap: 0;
     }
     .hx-card {
-      padding: 32px 24px;
+      padding: 26px 24px;
       background: transparent;
       border: none;
       border-radius: 0;
@@ -1986,14 +1986,14 @@
       margin: 0 0 14px;
     }
     .hx-card__icon img {
-      width: 44px;
-      height: 44px;
+      width: 62px;
+      height: 62px;
       object-fit: contain;
       filter: brightness(0) saturate(100%) invert(17%) sepia(72%) saturate(2484%) hue-rotate(222deg) brightness(88%) contrast(98%);
     }
     .hx-card__icon img.hx-card__icon-img--shell {
-      width: 48px;
-      height: 48px;
+      width: 66px;
+      height: 66px;
       filter: brightness(0) saturate(100%) invert(17%) sepia(72%) saturate(2484%) hue-rotate(222deg) brightness(88%) contrast(98%);
     }
     .hx-card__icon img.hx-card__icon-img--blue {
@@ -2023,24 +2023,15 @@
       gap: 40px;
     }
     .hx-process__layout {
-      display: grid;
-      grid-template-columns: minmax(280px, .95fr) minmax(0, 1.05fr);
-      gap: 40px;
-      align-items: start;
-    }
-    .hx-process__media {
-      overflow: hidden;
-      border-radius: var(--radius);
-    }
-    .hx-process__media img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: var(--radius);
-      box-shadow: 0 10px 28px rgba(7, 18, 77, .08);
+      display: flex;
+      justify-content: center;
     }
     .hx-process__copy .hx-kicker {
       margin-bottom: 18px;
+    }
+    .hx-process__copy {
+      max-width: 760px;
+      text-align: center;
     }
     .hx-process h2 {
       margin: 0 0 14px;
@@ -2098,41 +2089,6 @@
       max-width: 88%;
       max-height: 90px;
     }
-    .hx-gallery {
-      padding: 56px 0;
-      background: linear-gradient(180deg, #f3f6fc 0%, #eef2fa 48%, #f7f9fd 100%);
-    }
-    .hx-gallery h2 {
-      margin: 0 0 12px;
-      color: var(--navy);
-      font-size: clamp(22px, 2.4vw, 32px);
-      font-weight: 800;
-      text-align: center;
-    }
-    .hx-gallery__sub {
-      margin: 0 0 32px;
-      color: var(--muted);
-      font-size: 15px;
-      font-weight: 600;
-      text-align: center;
-    }
-    .hx-gallery__grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-    .hx-gallery__grid figure {
-      margin: 0;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: #fff;
-    }
-    .hx-gallery__grid img {
-      display: block;
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-    }
     .hx-projects { padding: 56px 0; background: #fff; }
     .hx-projects h2 {
       margin: 0 0 12px;
@@ -2185,14 +2141,16 @@
       color: #fff;
       background:
         linear-gradient(90deg, rgba(7, 18, 77, .92), rgba(7, 18, 77, .75)),
-        url("assets/solutions/reactor/reactor-unit-1.jpg") center / cover no-repeat;
+        url("assets/solutions/solution-heat-exchanger-card.png") center / cover no-repeat;
     }
     .hx-cta__inner {
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
-      justify-content: space-between;
       gap: 24px;
-      flex-wrap: wrap;
+    }
+    .hx-cta__inner > div {
+      max-width: 780px;
     }
     .hx-cta h2 {
       margin: 0;
@@ -2207,6 +2165,9 @@
       font-size: 15px;
       line-height: 1.65;
     }
+    .hx-cta p.hx-cta__lead--single {
+      max-width: 780px;
+    }
     .hx-cta .btn {
       display: inline-flex;
       align-items: center;
@@ -2217,17 +2178,16 @@
       background: #fff;
       color: var(--navy);
       font-weight: 800;
+      justify-self: end;
     }
     @media (max-width: 980px) {
       .hx-lead { padding: 40px 0 32px; }
       .hx-section,
       .hx-process,
-      .hx-gallery,
       .hx-projects { padding: 48px 0; }
       .hx-cta { padding: 48px 0 56px; }
       .hx-intro { margin-bottom: 32px; gap: 32px; }
       .hx-process__grid { gap: 32px; }
-      .hx-gallery__sub,
       .hx-projects__lead { margin-bottom: 28px; }
       .hx-intro,
       .hx-process__layout,
@@ -2239,8 +2199,6 @@
       }
       .hx-process__tools { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .hx-process ul.hx-list { grid-template-columns: 1fr; }
-      .hx-gallery__grid { grid-template-columns: 1fr; }
-      .hx-gallery__grid.hx-gallery__grid--two { grid-template-columns: 1fr; }
       .hx-benefits__grid { grid-template-columns: 1fr; }
     }
 
@@ -2283,8 +2241,9 @@
       display: flex;
       flex-direction: column;
       gap: 28px;
-      max-width: 920px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: none;
+      margin: 0;
     }
     .hx-benefits__copy p {
       margin: 0;
@@ -2311,8 +2270,195 @@
       background: #fff;
       padding: 10px 14px;
     }
-    .hx-gallery__grid.hx-gallery__grid--two {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .thermal-domain-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .thermal-domain-card,
+    .process-card,
+    .equipment-card {
+      padding: 20px 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 14px 34px rgba(7, 18, 77, .06);
+    }
+    .thermal-domain-card h3,
+    .process-card h3,
+    .equipment-card h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 21px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+    .thermal-domain-card p,
+    .process-card p,
+    .equipment-card p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+    .thermal-domain-card__media {
+      margin: -24px -22px 18px;
+      overflow: hidden;
+      border-radius: var(--radius) var(--radius) 0 0;
+      aspect-ratio: 16 / 7;
+      background: var(--soft);
+    }
+    .thermal-domain-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .thermal-chip-list,
+    .equipment-list {
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .thermal-chip-list li,
+    .equipment-list li {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(36, 52, 159, .08);
+      color: #31406f;
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+    .process-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+    .process-card {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      min-height: 100%;
+      padding: 38px 24px 24px;
+      background: linear-gradient(180deg, #fff 0%, var(--soft) 100%);
+    }
+    .process-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 8px;
+      background: var(--blue);
+    }
+    .process-card--flow::before {
+      background: #4da3ff;
+    }
+    .process-card--temperature::before {
+      background: #2f80ed;
+    }
+    .process-card--pressure::before {
+      background: #2155cd;
+    }
+    .process-card--automation::before {
+      background: #0b9b67;
+    }
+    .process-card--measurement::before {
+      background: #0b7a53;
+    }
+    .process-card h3 {
+      font-size: 22px;
+      line-height: 1.2;
+    }
+    .process-list {
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+    .process-list li {
+      position: relative;
+      padding-left: 16px;
+      color: #415074;
+      font-size: 14.5px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    .process-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .55em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .equipment-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+    }
+    .equipment-card__media {
+      margin: -24px -22px 18px;
+      overflow: hidden;
+      border-radius: var(--radius) var(--radius) 0 0;
+      aspect-ratio: 16 / 7;
+      background: var(--soft);
+    }
+    .equipment-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .equipment-card__label {
+      margin: 16px 0 0;
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .equipment-card__footer {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+    @media (max-width: 1180px) {
+      .thermal-domain-grid,
+      .equipment-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 980px) {
+      .hx-cta__inner {
+        grid-template-columns: 1fr;
+      }
+      .thermal-domain-grid,
+      .process-grid,
+      .equipment-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -2437,138 +2583,272 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <h1>ระบบ Reactor (SMART-REACTOR)</h1>
-        <p>SMART-REACTOR MODULAR UNIT FOR MIXING / DILUTION / REACTION</p>
+        <h1>Thermal Application อื่นๆ</h1>
+        <p>THERMAL PROCESS • ENERGY UTILIZATION • SPECIAL APPLICATION</p>
       </div>
     </section>
 
-    <section class="hx-lead" aria-label="ภาพรวมระบบ Reactor (SMART-REACTOR)">
+    <section class="hx-lead" aria-label="ภาพรวม Thermal Application อื่นๆ">
       <div class="container">
-        <p class="hx-lead__title">ผสม เจือจาง และทำปฏิกิริยาอย่างแม่นยำ</p>
-        <p class="hx-lead__en">Smart Reactor System</p>
-        <p class="hx-lead__th">โมดูลาร์ยูนิตสำหรับงานผสมและเจือจาง ทั้งปฏิกิริยาแบบดูดความร้อนและคายความร้อน</p>
+        <p class="hx-lead__title">รองรับงานประยุกต์ด้านความร้อน<br>สำหรับกระบวนการผลิตเฉพาะทาง</p>
+        <p class="hx-lead__en">Thermal Application for Industrial Process</p>
+        <p class="hx-lead__th">บริการออกแบบและพัฒนาระบบถ่ายเทความร้อน งานควบคุมอุณหภูมิ และยูนิตเฉพาะทางให้เหมาะกับเงื่อนไขการใช้งานจริง</p>
       </div>
     </section>
 
-    <section class="hx-section" aria-label="บริการระบบ Reactor (SMART-REACTOR)">
+    <section class="hx-section" aria-label="บริการ Thermal Application อื่นๆ">
       <div class="container">
-        <div class="hx-intro">
-          <div>
-            <p class="hx-kicker">Reactor Solution</p>
-            <h2>Rano Tech Co., Ltd.</h2>
-            <p class="hx-intro__en">Modular Mixing / Dilution / Reaction</p>
-            <p>We supply modular unit for mixing, dilution, reaction both Endothermic and Exothermic Reactions. Our key materials are Thermoplastic Materials which provide best corrosive resistance and durable withstand for pressure and vacuum conditions.</p>
-            <p>Sample Reactors: Acid / Alkali Dilution System และ General mixing process (with / without Vacuum)</p>
-          </div>
-          <div class="hx-intro__media">
-            <img src="assets/solutions/reactor/reactor-unit-1.jpg" alt="SMART-REACTOR โมดูลาร์ยูนิตสำหรับการผสมและเจือจาง">
-          </div>
-        </div>
-
         <div class="hx-highlights">
           <article class="hx-card">
             <div class="hx-card__icon" aria-hidden="true">
-              <img src="assets/icons/mixing-dilution.png" class="hx-card__icon-img--blue" alt="">
+              <img src="assets/icons/thermal.svg" class="hx-card__icon-img--blue" alt="">
             </div>
-            <h3>Mixing &amp; Dilution</h3>
-            <p>ผสมและเจือจางได้ทั้งแบบมี/ไม่มี Vacuum เพื่อให้คุมสภาวะปฏิกิริยาได้แม่นยำ</p>
+            <h3>Thermal Applications</h3>
+            <p>ครอบคลุมงาน Heating, Cooling, Condensing, Evaporating / Vaporizing, Heat Recovery และ Energy Optimization</p>
           </article>
           <article class="hx-card">
             <div class="hx-card__icon" aria-hidden="true">
-              <img src="assets/icons/heat-wave.png" class="hx-card__icon-img--blue" alt="">
+              <img src="assets/icons/process-control.svg" class="hx-card__icon-img--blue" alt="">
             </div>
-            <h3>Endothermic / Exothermic</h3>
-            <p>รองรับทั้งปฏิกิริยาดูดความร้อนและคายความร้อนตามความเหมาะสมของกระบวนการ</p>
+            <h3>Fluid &amp; Process Management</h3>
+            <p>รองรับงานด้าน Flow, Temperature, Pressure, Automation และ Measurement เพื่อให้ระบบทำงานเสถียรและควบคุมได้</p>
           </article>
           <article class="hx-card">
             <div class="hx-card__icon" aria-hidden="true">
-              <img src="assets/icons/vapor-recovery.png?v=2" class="hx-card__icon-img--blue" alt="">
+              <img src="assets/icons/control-system.svg" class="hx-card__icon-img--blue" alt="">
             </div>
-            <h3>PLC Control &amp; Vapor Recovery</h3>
-            <p>ควบคุมด้วย PLC เพื่อความแม่นยำ พร้อมระบบกู้คืน fume/vapor นำกลับมาใช้ในรอบถัดไป</p>
+            <h3>Equipment Matching</h3>
+            <p>ช่วยเลือก Plate Heat Exchanger, Shell &amp; Tube และ Fin Tube ให้เหมาะกับลักษณะของ fluid, pressure และการใช้งานจริง</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="hx-process" aria-label="จุดเด่นระบบ SMART-REACTOR">
+    <section class="hx-process" aria-label="จุดเด่น Thermal Application อื่นๆ">
       <div class="container">
         <div class="hx-process__grid">
           <div class="hx-process__layout">
-            <div class="hx-process__media">
-              <img src="assets/solutions/reactor/reactor-unit-2.jpg" alt="SMART-REACTOR โมดูลาร์ยูนิตสำหรับการผสมและเจือจาง">
-            </div>
             <div class="hx-process__copy">
-              <p class="hx-kicker">SMART-REACTOR</p>
-              <h2>โมดูลาร์เพื่อการผสมและปฏิกิริยาอย่างปลอดภัย</h2>
-              <p>SMART-REACTOR ถูกออกแบบให้รองรับการผสม เจือจาง และทำปฏิกิริยา ทั้งแบบ Endothermic และ Exothermic โดยช่วยลดการปล่อย fume/vapor</p>
-              <p>ควบคุมด้วย PLC เพื่อความแม่นยำ พร้อมระบบกู้คืนไอ/ไอระเหย นำกลับเป็นวัตถุดิบรอบถัดไป</p>
-              <ul class="hx-list">
-                <li>Acid / Alkali Dilution System</li>
-                <li>General mixing process (with / without Vacuum)</li>
-                <li>Fast semi continuous reaction</li>
-                <li>Precision yield by PLC control</li>
-                <li>Safe operation and fume &amp; vapor recovery</li>
-                <li>Vacuum ejector with oxidation unit</li>
-                <li>Modular design</li>
-                <li>Low operation cost &amp; affordable budget</li>
-              </ul>
+              <p class="hx-kicker">Process-Fit Solution</p>
+              <h2>ออกแบบระบบตามหน้าที่ของความร้อนและของไหล</h2>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="hx-benefits" aria-label="ระบบ RANO TECH SMART-REACTOR">
-      <div class="container">
-        <h2>ระบบ RANO TECH SMART-REACTOR</h2>
-        <p class="hx-benefits__lead">ปลอดภัย ประหยัด และแม่นยำตามเงื่อนไขปฏิกิริยา</p>
-        <div class="hx-benefits__grid">
-          <ul class="hx-list">
-            <li>โมดูลาร์เพื่อรองรับการผสม/เจือจาง/ปฏิกิริยา</li>
-            <li>ลดการสูญเสียวัตถุดิบด้วยการกู้คืน fume/vapor</li>
-            <li>Precision yield ด้วยการควบคุมผ่าน PLC</li>
-            <li>Vacuum ejector พร้อม oxidation unit ลดความเสี่ยงการปล่อยมลพิษ</li>
-            <li>ออกแบบแบบ modular ช่วยลดต้นทุนการเดินระบบ</li>
-          </ul>
-          <div class="hx-benefits__copy">
-            <p>SMART-REACTOR รองรับการทำปฏิกิริยาได้ทั้งแบบ Endothermic และ Exothermic ด้วย Thermoplastic Materials ที่ทนการกัดกร่อนและเหมาะกับแรงดัน/สุญญากาศ</p>
-            <p>ทีมงานพร้อมให้คำปรึกษา ออกแบบ และจัดหาระบบให้เหมาะกับไลน์ผลิตของคุณ เพื่อลดเวลาและใช้งบประมาณอย่างคุ้มค่า</p>
-            <p>บริษัท เรโน เทค จำกัด สามารถร่วมออกแบบระบบให้เหมาะสมกับรูปแบบการผลิตของแต่ละโรงงาน</p>
+          <div class="thermal-domain-grid">
+            <article class="thermal-domain-card">
+              <div class="thermal-domain-card__media">
+                <img src="assets/solutions/solution-heat-exchanger-card.jpg" alt="Heating systems">
+              </div>
+              <h3>HEATING</h3>
+              <p>รองรับงานเพิ่มอุณหภูมิให้เหมาะกับ utility และ process</p>
+              <ul class="thermal-chip-list">
+                <li>Water Heating</li>
+                <li>Process Fluid Heating</li>
+                <li>Oil Heating</li>
+                <li>Steam Heating</li>
+                <li>Hot Water Generation</li>
+              </ul>
+            </article>
+            <article class="thermal-domain-card">
+              <div class="thermal-domain-card__media">
+                <img src="assets/solutions/solution-cooling-system.jpg" alt="Cooling systems">
+              </div>
+              <h3>COOLING</h3>
+              <p>ออกแบบระบบระบายความร้อนทั้งระดับอุปกรณ์และทั้งระบบ</p>
+              <ul class="thermal-chip-list">
+                <li>Process Cooling</li>
+                <li>Oil Cooling</li>
+                <li>Machine Cooling</li>
+                <li>Cooling Water Systems</li>
+                <li>Closed Loop Cooling</li>
+              </ul>
+            </article>
+            <article class="thermal-domain-card">
+              <div class="thermal-domain-card__media">
+                <img src="assets/solutions/thermal-condensing.jpg" alt="Condensing systems">
+              </div>
+              <h3>CONDENSING</h3>
+              <p>จัดการการควบแน่นของไอ สารทำความเย็น และ process vapor</p>
+              <ul class="thermal-chip-list">
+                <li>Steam Condensation</li>
+                <li>Refrigerant Condensation</li>
+                <li>Process Vapor Condensation</li>
+                <li>Solvent Condensation</li>
+              </ul>
+            </article>
+            <article class="thermal-domain-card">
+              <div class="thermal-domain-card__media">
+                <img src="assets/solutions/thermal-evaporating.jpg" alt="Evaporating and vaporizing systems">
+              </div>
+              <h3>EVAPORATING / VAPORIZING</h3>
+              <p>รองรับงานเปลี่ยนสถานะของเหลวเป็นไอและงานระเหยเชิงกระบวนการ</p>
+              <ul class="thermal-chip-list">
+                <li>Refrigerant Evaporation</li>
+                <li>Liquid Vaporization</li>
+                <li>Chemical Vaporizer</li>
+                <li>Waste Heat Evaporation</li>
+              </ul>
+            </article>
+            <article class="thermal-domain-card">
+              <div class="thermal-domain-card__media">
+                <img src="assets/solutions/thermal-heat-recovery.jpg" alt="Heat recovery systems">
+              </div>
+              <h3>HEAT RECOVERY</h3>
+              <p>นำความร้อนที่สูญเสียกลับมาใช้ให้เกิดประโยชน์มากขึ้น</p>
+              <ul class="thermal-chip-list">
+                <li>Waste Heat Recovery</li>
+                <li>Hot Process-to-Cold Process</li>
+                <li>Condensate Heat Recovery</li>
+                <li>Exhaust Gas Heat Recovery</li>
+                <li>Boiler Feed Water Preheating</li>
+              </ul>
+            </article>
+            <article class="thermal-domain-card">
+              <div class="thermal-domain-card__media">
+                <img src="assets/solutions/thermal-energy-optimization.jpg" alt="Energy optimization systems">
+              </div>
+              <h3>ENERGY OPTIMIZATION</h3>
+              <p>วิเคราะห์และปรับระบบเพื่อเพิ่มประสิทธิภาพการใช้พลังงาน</p>
+              <ul class="thermal-chip-list">
+                <li>Heat Integration</li>
+                <li>Pinch / Thermal Analysis</li>
+                <li>&#916;T Optimization</li>
+                <li>Pump/VFD Optimization</li>
+                <li>Cooling System Optimization</li>
+              </ul>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="hx-gallery" aria-label="ภาพระบบ SMART-REACTOR">
+    <section class="hx-benefits" aria-label="Fluid and Process Management">
       <div class="container">
-        <h2>ระบบ SMART-REACTOR จาก Rano Tech</h2>
-        <p class="hx-gallery__sub">ตัวอย่างโมดูลาร์สำหรับการผสม เจือจาง และปฏิกิริยา</p>
-        <div class="hx-gallery__grid">
-          <figure>
-            <img src="assets/solutions/reactor/reactor-unit-1.jpg" alt="ระบบ Reactor SMART-REACTOR">
-          </figure>
-          <figure>
-            <img src="assets/solutions/reactor/reactor-unit-2.jpg" alt="SMART-REACTOR สำหรับการผสมและเจือจาง">
-          </figure>
-          <figure>
-            <img src="assets/solutions/reactor/reactor-unit-3.jpg" alt="SMART-REACTOR แบบโมดูลาร์">
-          </figure>
-          <figure>
-            <img src="assets/solutions/reactor/reactor-unit-4.jpg" alt="SMART-REACTOR ตัวอย่างระบบ">
-          </figure>
+        <h2>FLUID &amp; PROCESS MANAGEMENT</h2>
+        <p class="hx-benefits__lead">นอกจากงานถ่ายเทความร้อนแล้ว เรายังรองรับงานควบคุม flow, temperature, pressure, automation และ measurement เพื่อให้ process ทำงานเสถียรทั้งระบบ</p>
+        <div class="hx-benefits__grid">
+          <div class="process-grid">
+            <article class="process-card process-card--flow">
+              <h3>FLOW</h3>
+              <ul class="process-list">
+                <li>Pumping</li>
+                <li>Flow Regulation</li>
+                <li>Flow Balancing</li>
+                <li>Distribution</li>
+                <li>Bypass Control</li>
+              </ul>
+            </article>
+            <article class="process-card process-card--temperature">
+              <h3>TEMPERATURE</h3>
+              <ul class="process-list">
+                <li>Heating/Cooling Control</li>
+                <li>Mixing</li>
+                <li>Temperature Regulation</li>
+                <li>Cascade Temperature Control</li>
+              </ul>
+            </article>
+            <article class="process-card process-card--pressure">
+              <h3>PRESSURE</h3>
+              <ul class="process-list">
+                <li>Pressure Reduction</li>
+                <li>Pressure Regulation</li>
+                <li>Differential Pressure Control</li>
+                <li>Overpressure Protection</li>
+              </ul>
+            </article>
+            <article class="process-card process-card--automation">
+              <h3>AUTOMATION</h3>
+              <ul class="process-list">
+                <li>PLC</li>
+                <li>PID Control</li>
+                <li>VFD</li>
+                <li>Automatic Valves</li>
+                <li>Remote Monitoring</li>
+                <li>Alarm / Interlock</li>
+              </ul>
+            </article>
+            <article class="process-card process-card--measurement">
+              <h3>MEASUREMENT</h3>
+              <ul class="process-list">
+                <li>Temperature</li>
+                <li>Pressure</li>
+                <li>Flow</li>
+                <li>Energy</li>
+                <li>Level</li>
+                <li>&#916;P / &#916;T</li>
+                <li>Heat Exchanger Selection</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="hx-cta" aria-label="ติดต่อสอบถามระบบ Reactor (SMART-REACTOR)">
+    <section class="hx-projects" aria-label="Heat Exchanger Selection">
+      <div class="container">
+        <h2>Heat Exchanger Selection</h2>
+        <p class="hx-projects__lead">แนวทางเลือกชนิดอุปกรณ์ให้เหมาะกับ fluid, pressure, utility และลักษณะการใช้งานของแต่ละ process</p>
+        <div class="equipment-grid">
+          <article class="equipment-card">
+            <div class="equipment-card__media">
+              <img src="assets/solutions/solution-heat-exchanger-card.jpg" alt="Plate Heat Exchanger">
+            </div>
+            <h3>Plate Heat Exchanger - PHE</h3>
+            <p>เหมาะกับงานแลกเปลี่ยนความร้อนที่ต้องการ compact footprint, efficiency สูง และรองรับงานที่ต้องล้างทำความสะอาดได้</p>
+            <p class="equipment-card__label">เหมาะกับ</p>
+            <ul class="equipment-list">
+              <li>Water / Water</li>
+              <li>Water / Glycol</li>
+              <li>Hot Water</li>
+              <li>Chilled Water</li>
+              <li>Process Cooling</li>
+              <li>Heat Recovery</li>
+              <li>CIP-able Applications</li>
+            </ul>
+          </article>
+          <article class="equipment-card">
+            <div class="equipment-card__media">
+              <img src="assets/solutions/thermal-shell-tube.jpg" alt="Shell and Tube Heat Exchanger">
+            </div>
+            <h3>Shell &amp; Tube Heat Exchanger</h3>
+            <p>เหมาะกับงานที่มีความดันสูง อุณหภูมิสูง หรือของไหลที่มีเงื่อนไขการใช้งานหนักและต้องการโครงสร้างที่ทนทาน</p>
+            <p class="equipment-card__label">เหมาะกับ</p>
+            <ul class="equipment-list">
+              <li>Steam</li>
+              <li>Thermal Oil</li>
+              <li>High Pressure</li>
+              <li>Hydrocarbon</li>
+              <li>Chemical Process</li>
+              <li>Condensing / Vaporizing</li>
+            </ul>
+          </article>
+          <article class="equipment-card">
+            <div class="equipment-card__media">
+              <img src="assets/solutions/thermal-fin-tube.jpg" alt="Fin Tube Heat Exchanger">
+            </div>
+            <h3>Fin Tube Heat Exchanger</h3>
+            <p>เหมาะกับงานถ่ายเทความร้อนระหว่างอากาศหรือก๊าซกับของไหล และงานที่ต้องการ surface area สูงในพื้นที่ติดตั้งจำกัด</p>
+            <p class="equipment-card__label">เหมาะกับ</p>
+            <ul class="equipment-list">
+              <li>Air Heating</li>
+              <li>Air Cooling</li>
+              <li>Gas Heating/Cooling</li>
+              <li>Exhaust Gas</li>
+              <li>Drying</li>
+              <li>Heat Recovery</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="hx-cta" aria-label="ติดต่อสอบถาม Thermal Application อื่นๆ">
       <div class="container">
         <div class="hx-cta__inner">
           <div>
-            <h2>สนใจและสอบถามระบบ Reactor?</h2>
-            <p>ทีมผู้เชี่ยวชาญพร้อมให้คำปรึกษา ออกแบบ และจัดหาระบบ SMART-REACTOR ให้เหมาะกับไลน์ผลิตของคุณ</p>
+            <h2>RNT Thermal Solutions<br>พร้อมออกแบบให้เหมาะกับ process ของคุณ</h2>
+            <p class="hx-cta__lead--single">ส่งรายละเอียดหน้างาน, fluid, temperature range หรือ utility ที่มีอยู่มาได้เลย เพื่อให้ทีมงานช่วยประเมินแนวทางเบื้องต้นทั้งด้าน Thermal Applications และ Fluid Management</p>
           </div>
-          <a class="btn" href="index.html#contact">สนใจติดต่อเรา</a>
+          <a class="btn" href="product-inquiry.html">สนใจสอบถามบริการ</a>
         </div>
       </div>
     </section>
