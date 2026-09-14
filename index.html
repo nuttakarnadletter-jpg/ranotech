@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <script src="preview-auth.js?v=rp-ranotech"></script>
+  <script src="preview-auth.js?v=no-login-20260907"></script>
   <script>
     RanotechPreviewAuth.guardPage();
     document.documentElement.classList.toggle("preview-authed", RanotechPreviewAuth.isAuthenticated());
@@ -501,6 +501,161 @@
       white-space: nowrap;
     }
 
+    .quote-howto {
+      position: relative;
+      z-index: 3;
+      margin: 0;
+      padding: 60px 0;
+      background: #f5f8fc;
+    }
+
+    .quote-howto-head {
+      max-width: none;
+      margin: 0 auto 18px;
+      text-align: center;
+    }
+
+    .quote-howto-head .kicker {
+      width: fit-content;
+      margin: 0 auto 8px;
+      padding: 0;
+      border-radius: 0;
+      background: none;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+    }
+
+    .quote-howto-head h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(26px, 3.2vw, 40px);
+      font-weight: 800;
+      line-height: 1.22;
+      letter-spacing: -.018em;
+    }
+
+    .quote-howto-head > p {
+      margin: 8px auto 0;
+      max-width: none;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+
+    .quote-howto-cards {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      position: relative;
+    }
+
+    .quote-howto-card {
+      position: relative;
+      z-index: 1;
+      min-height: 100%;
+      padding: 18px 20px 18px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(221, 229, 242, .9);
+      box-shadow: 0 12px 32px -20px rgba(7, 18, 77, .18);
+    }
+
+    .quote-howto-card:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      left: calc(100% + 3px);
+      width: 16px;
+      height: 2px;
+      background: #c5d4f0;
+      pointer-events: none;
+    }
+
+    .quote-howto-card--cta {
+      background: linear-gradient(180deg, #eef3ff 0%, #f4f7ff 100%);
+      border-color: rgba(36, 52, 159, .16);
+      box-shadow: 0 16px 36px -22px rgba(36, 52, 159, .28);
+    }
+
+    .quote-howto-card__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .quote-howto-num {
+      color: var(--blue);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      line-height: 1;
+    }
+
+    .quote-howto-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .quote-howto-card--cta .quote-howto-icon {
+      background: var(--blue);
+    }
+
+    .quote-howto-icon img {
+      width: 28px;
+      height: 28px;
+      display: block;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .quote-howto-card h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .quote-howto-card p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .quote-howto-card__link {
+      display: block;
+      color: inherit;
+      height: 100%;
+    }
+
+    .quote-howto-card:has(.quote-howto-card__link) {
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .quote-howto-card:has(.quote-howto-card__link):hover {
+      transform: translateY(-2px);
+      border-color: rgba(36, 52, 159, .28);
+      box-shadow: 0 16px 36px -18px rgba(7, 18, 77, .22);
+    }
+
     .hero-inner {
       position: relative;
       flex: 1;
@@ -661,7 +816,8 @@
 
     .category-section {
       background: #fff;
-      padding-top: 36px;
+      padding-top: 68px;
+      scroll-margin-top: 88px;
     }
 
     .category-section .section-head {
@@ -815,7 +971,7 @@
     .about-section {
       background: #fff;
       padding-top: 44px;
-      padding-bottom: 28px;
+      padding-bottom: 60px;
     }
 
     .about-layout {
@@ -1498,6 +1654,7 @@
       background: var(--products-section-bg);
       overflow: visible;
       padding-bottom: 48px;
+      scroll-margin-top: 88px;
     }
 
     .featured-products-head {
@@ -2472,6 +2629,10 @@
       .hero-highlight:last-child {
         grid-column: 1 / -1;
       }
+      .quote-howto { margin: 0; padding: 60px 0; }
+      .quote-howto-cards { gap: 14px; }
+      .quote-howto-card:not(:last-child)::after { width: 10px; }
+      .quote-howto-head > p { white-space: normal; }
     }
 
     @media (max-width: 1080px) {
@@ -2745,6 +2906,18 @@
         background: var(--line);
       }
       .hero-highlights-wrap { margin-top: -48px; }
+      .quote-howto { margin: 0; padding: 60px 0; }
+      .quote-howto-head { margin-bottom: 16px; }
+      .quote-howto-head > p {
+        font-size: 16px;
+        white-space: normal;
+      }
+      .quote-howto-cards {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .quote-howto-card:not(:last-child)::after { display: none; }
+      .quote-howto-card { padding: 16px 16px; }
       .hero-stack { margin-bottom: 32px; }
       .hero-arrow { display: none; }
       .hero-dots { display: none; }
@@ -2983,6 +3156,15 @@
         background: var(--line);
       }
       .hero-highlights-wrap { margin-top: -36px; }
+      .quote-howto-head h2 {
+        font-size: 24px;
+      }
+      .quote-howto-head > p {
+        font-size: 15px;
+      }
+      .quote-howto-card h3 {
+        font-size: 18px;
+      }
       .about-section { padding-top: 28px; }
       .about-layout,
       .about-copy,
@@ -3143,8 +3325,8 @@
               <a href="#products">แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</a>
               <a href="#products">เครื่องเชื่อมท่อ</a>
               <a href="#products">Grooved Coupling และเครื่องมือ</a>
-              <a href="#products">Pump and Accessories</a>
-              <a href="#products">Heat Exchanger</a>
+              <a href="products-pump.html">Pump and Accessories</a>
+              <a href="products-heat-exchanger.html">Heat Exchanger</a>
               <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
             </div>
           </div>
@@ -3231,7 +3413,7 @@
           <h1 id="heroTitle">ENGINEERING<br>BETTER FLOW<br>FOR <span class="hero-title-accent">A BETTER FUTURE</span></h1>
           <p id="heroSubtitle">โซลูชันระบบท่ออุตสาหกรรมและเครื่องแลกเปลี่ยนความร้อน<br>ครบวงจร จำหน่าย ออกแบบ ติดตั้ง และบริการโดยทีมวิศวกรผู้เชี่ยวชาญ</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#products">ดูสินค้าทั้งหมด</a>
+            <a class="btn btn-primary" href="#products">เลือกสินค้าเพื่อขอใบเสนอราคา</a>
           </div>
         </div>
         <div class="hero-dots" id="heroDots" aria-label="เลือกภาพ Hero"></div>
@@ -3317,6 +3499,52 @@
       </div>
     </section>
 
+    <section class="quote-howto" id="how-to-order" aria-labelledby="quoteHowtoTitle">
+      <div class="container">
+        <div class="quote-howto-head">
+          <p class="kicker">How to Order</p>
+          <h2 id="quoteHowtoTitle">ขอใบเสนอราคาได้ง่ายใน 3 ขั้นตอน</h2>
+          <p>เลือกสินค้าที่ต้องการ เพิ่มลงตะกร้า แล้วส่งรายการให้ทีมงานประเมินราคา โดยยังไม่ต้องชำระเงิน</p>
+        </div>
+        <ol class="quote-howto-cards">
+          <li class="quote-howto-card">
+            <a class="quote-howto-card__link" href="#products">
+              <div class="quote-howto-card__top">
+                <span class="quote-howto-num">01</span>
+                <span class="quote-howto-icon" aria-hidden="true">
+                  <img src="assets/icons/quote-step-product.png?v=3" alt="">
+                </span>
+              </div>
+              <h3>เลือกสินค้า</h3>
+              <p>ค้นหาและเลือกสินค้าที่ต้องการ</p>
+            </a>
+          </li>
+          <li class="quote-howto-card">
+            <a class="quote-howto-card__link" href="#featured-products">
+              <div class="quote-howto-card__top">
+                <span class="quote-howto-num">02</span>
+                <span class="quote-howto-icon" aria-hidden="true">
+                  <img src="assets/icons/quote-step-cart.png" alt="">
+                </span>
+              </div>
+              <h3>เพิ่มลงตะกร้า</h3>
+              <p>ระบุจำนวนและรวบรวมรายการสินค้า</p>
+            </a>
+          </li>
+          <li class="quote-howto-card quote-howto-card--cta">
+            <div class="quote-howto-card__top">
+              <span class="quote-howto-num">03</span>
+              <span class="quote-howto-icon" aria-hidden="true">
+                <img src="assets/icons/quote-step-quote.png" alt="">
+              </span>
+            </div>
+            <h3>ส่งขอใบเสนอราคา</h3>
+            <p>กรอกข้อมูลติดต่อ แล้วรอทีมงานตอบกลับ</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
     <section class="category-section" id="products">
       <div class="container">
         <div class="section-head">
@@ -3329,8 +3557,8 @@
           <a class="category-card" href="#contact"><div class="category-thumb clamp"></div><div class="category-body"><h3>แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</h3><p>อุปกรณ์ซ่อมท่อรั่ว ลดเวลาหยุดระบบ</p><span>(18)</span></div></a>
           <a class="category-card" href="#contact"><div class="category-thumb hdpe"></div><div class="category-body"><h3>เครื่องเชื่อมท่อ</h3><p>เครื่องเชื่อมและอุปกรณ์สำหรับงานท่อภาคสนาม</p><span>(24)</span></div></a>
           <a class="category-card" href="#contact"><div class="category-thumb grooved"></div><div class="category-body"><h3>Grooved Coupling และเครื่องมือ</h3><p>อุปกรณ์งานท่อแบบ grooved สำหรับโรงงาน</p><span>(42)</span></div></a>
-          <a class="category-card" href="#contact"><div class="category-thumb parts"></div><div class="category-body"><h3>Pump and Accessories</h3><p>อะไหล่สำหรับงานติดตั้ง ซ่อมบำรุง และเปลี่ยนหน้างาน</p><span>(31)</span></div></a>
-          <a class="category-card" href="#contact"><div class="category-thumb heat"></div><div class="category-body"><h3>Heat Exchanger</h3><p>Plate Heat Exchanger และระบบแลกเปลี่ยนความร้อน</p><span>(15)</span></div></a>
+          <a class="category-card" href="products-pump.html"><div class="category-thumb parts"></div><div class="category-body"><h3>Pump and Accessories</h3><p>ปั๊มกรุนด์ฟอส อะไหล่ และเครื่องทดสอบแรงดัน พร้อมวิศวกรแนะนำรุ่น</p></div></a>
+          <a class="category-card" href="products-heat-exchanger.html"><div class="category-thumb heat"></div><div class="category-body"><h3>Heat Exchanger</h3><p>Plate Heat Exchanger และระบบแลกเปลี่ยนความร้อน</p></div></a>
           <a class="category-card" href="products-clearance.html"><div class="category-thumb oem"></div><div class="category-body"><h3>สินค้าโปรโมชั่น / Clearance</h3><p>สินค้าราคาพิเศษและรายการ Clearance สำหรับงานระบบท่อ</p><span>(8)</span></div></a>
           <a class="category-card all-products" href="https://www.ranotech.com/products/"><div class="category-body"><h3>ดูสินค้าทั้งหมด</h3><span>ดูสินค้า</span></div></a>
         </div>
@@ -3869,8 +4097,8 @@
             <a href="#products">แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</a>
             <a href="#products">เครื่องเชื่อมท่อ</a>
             <a href="#products">Grooved Coupling และเครื่องมือ</a>
-            <a href="#products">Pump and Accessories</a>
-            <a href="#products">Heat Exchanger</a>
+            <a href="products-pump.html">Pump and Accessories</a>
+            <a href="products-heat-exchanger.html">Heat Exchanger</a>
             <a href="products-clearance.html">สินค้าโปรโมชั่น / Clearance</a>
           </div>
           <div class="footer-col">
