@@ -1,0 +1,8 @@
+.DS_Store
+**/.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Duplicate/legacy site copy (not needed for deploy)
+ranotech/

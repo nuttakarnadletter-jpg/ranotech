@@ -2,7 +2,7 @@
   const AUTH_KEY = "ranotechPreviewAuth";
   const ACCESS_CODE = "rp-ranotech";
   const LOGIN_PAGE = "index.html";
-  const ALLOWED_PAGES = /^(home_option_[abc]|index|articles|article-detail|videos|faq|news|news-detail|gallery|manuals|quote-form|product-inquiry|careers|career-detail|contact|customer-care|training|about-history|clients|quality-policy|technical-consulting|certificates|privacy-policy|products-ppr|products-ppr-detail|products-clearance|solution-heat-exchange|solution-cip|solution-pasteurization|solution-solvent-recovery|solution-reactor|solution-gas-cooling)\.html$/i;
+  const ALLOWED_PAGES = /^(home_option_[abc]|index|articles|article-detail|videos|faq|news|news-detail|gallery|manuals|quote-form|product-inquiry|careers|career-detail|contact|customer-care|training|about-history|clients|quality-policy|technical-consulting|certificates|privacy-policy|products-ppr|products-ppr-detail|products-clearance|products-pump|products-heat-exchanger|solution-heat-exchange|solution-cip|solution-pasteurization|solution-solvent-recovery|solution-reactor|solution-gas-cooling)\.html$/i;
 
   function currentFile() {
     const path = window.location.pathname || "";
@@ -34,7 +34,7 @@
 
   window.RanotechPreviewAuth = {
     isAuthenticated() {
-      return sessionStorage.getItem(AUTH_KEY) === "granted";
+      return true;
     },
 
     grant() {
@@ -50,8 +50,7 @@
     },
 
     guardPage() {
-      if (this.isAuthenticated() || isLoginPage()) return;
-      window.location.replace(loginUrl(buildReturnPath()));
+      return;
     },
 
     redirectAfterLogin() {
@@ -65,46 +64,12 @@
 
     initLoginGate() {
       const gate = document.getElementById("previewGate");
-      const form = document.getElementById("previewGateForm");
-      const input = document.getElementById("previewAccessCode");
-      const error = document.getElementById("previewGateError");
-
-      if (!gate || !form || !input) return;
-
-      if (this.isAuthenticated()) {
+      document.documentElement.classList.add("preview-authed");
+      document.documentElement.classList.remove("preview-locked");
+      document.body.classList.remove("preview-locked");
+      if (gate) {
         gate.hidden = true;
-        document.documentElement.classList.add("preview-authed");
-        document.documentElement.classList.remove("preview-locked");
-        document.body.classList.remove("preview-locked");
-        this.redirectAfterLogin();
-        return;
       }
-
-      document.documentElement.classList.remove("preview-authed");
-      document.documentElement.classList.add("preview-locked");
-      document.body.classList.add("preview-locked");
-      gate.hidden = false;
-      window.setTimeout(() => input.focus(), 120);
-
-      form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        if (this.verify(input.value)) {
-          this.grant();
-          gate.hidden = true;
-          document.documentElement.classList.add("preview-authed");
-          document.documentElement.classList.remove("preview-locked");
-          document.body.classList.remove("preview-locked");
-          if (!this.redirectAfterLogin()) input.value = "";
-          return;
-        }
-
-        if (error) {
-          error.hidden = false;
-          error.textContent = "รหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง";
-        }
-        input.focus();
-        input.select();
-      });
     }
   };
 })();
