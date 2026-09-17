@@ -852,12 +852,47 @@
 
     .category-card:hover {
       transform: translateY(-4px);
-      background: var(--blue);
       border-color: transparent;
       box-shadow: 0 14px 34px rgba(7, 18, 77, .12);
     }
 
-    .category-card:hover .category-body h3 { color: #fff; }
+    .category-card:hover .category-thumb {
+      inset: 0;
+    }
+
+    .category-card:hover .category-body {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      max-height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: stretch;
+      gap: 0;
+      padding: 44px 20px 20px;
+      background: transparent;
+    }
+
+    .category-card:hover .category-body h3 {
+      color: #fff;
+      min-width: 0;
+      max-width: 100%;
+      display: block;
+      white-space: normal;
+      overflow: visible;
+      text-overflow: unset;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.28;
+      word-break: break-word;
+    }
+
     .category-card.all-products {
       background: var(--blue);
       color: #fff;
@@ -881,6 +916,25 @@
     .category-card.all-products .category-body span {
       background-image: url("assets/icons/up-right-arrow-white.svg");
       opacity: 1;
+    }
+
+    .category-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(180deg, rgba(36, 52, 159, .78) 0%, rgba(7, 18, 77, .92) 100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .28s ease;
+    }
+
+    .category-card:hover::before {
+      opacity: 1;
+    }
+
+    .category-card.all-products::before {
+      display: none;
     }
 
     .category-card::after {
@@ -917,7 +971,8 @@
       min-height: 52px;
       padding: 0 18px;
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-rows: 1fr;
       gap: 10px;
       align-items: center;
       background: inherit;
@@ -925,6 +980,7 @@
 
     .category-body h3 {
       margin: 0;
+      min-width: 0;
       color: #222638;
       font-size: 16px;
       line-height: 1.25;
@@ -935,25 +991,86 @@
     }
 
     .category-card:nth-child(-n + 4):not(.all-products) .category-thumb {
-      inset: 0 0 76px;
+      inset: 0 0 64px;
     }
 
     .category-card:nth-child(-n + 4):not(.all-products) .category-body {
-      height: auto;
-      min-height: 76px;
-      padding: 14px 18px;
-      align-items: end;
+      height: 64px;
+      min-height: 64px;
+      padding: 10px 18px;
+      align-items: center;
     }
 
     .category-card:nth-child(-n + 4):not(.all-products) .category-body h3 {
-      white-space: normal;
-      overflow: visible;
-      text-overflow: unset;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .category-body p { display: none; }
+    .category-card:hover .category-body,
+    .category-card:nth-child(-n + 4):not(.all-products):hover .category-body {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      max-height: 100%;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: stretch;
+      gap: 0;
+      padding: 44px 20px 20px;
+      background: transparent;
+    }
+
+    .category-body p {
+      display: none;
+      grid-column: 1 / -1;
+      min-width: 0;
+      margin: 0;
+      color: rgba(255, 255, 255, .92);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    .category-card:hover .category-body p {
+      display: block;
+      overflow: visible;
+      min-width: 0;
+      max-width: 100%;
+      margin-top: 10px;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .category-card.all-products:hover .category-body {
+      position: relative;
+      inset: auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      justify-content: unset;
+      padding: 24px;
+      background: inherit;
+    }
+
+    .category-card.all-products:hover .category-body h3 {
+      font-size: 16px;
+      font-weight: 600;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .category-body span {
       display: block;
+      grid-column: 2;
+      grid-row: 1;
       flex: 0 0 auto;
       width: 13px;
       height: 13px;
@@ -965,7 +1082,14 @@
     }
 
     .category-card:hover .category-body span {
+      position: absolute;
+      top: 18px;
+      right: 18px;
       background-image: url("assets/icons/up-right-arrow-white.svg");
+    }
+
+    .category-card.all-products:hover .category-body span {
+      position: static;
     }
 
     .about-section {
@@ -1415,6 +1539,81 @@
         animation: none;
         transform: none;
       }
+    }
+
+    .expertise-section {
+      background: #fff;
+      padding: 72px 0;
+    }
+
+    .expertise-section .section-head {
+      max-width: none;
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+
+    .expertise-section .section-head .kicker {
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .expertise-section .section-head h2 {
+      white-space: nowrap;
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 36px 48px;
+    }
+
+    .expertise-card {
+      min-height: 100%;
+      padding: 8px 12px 8px 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .expertise-card__icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin: 0 0 18px;
+      border-radius: 12px;
+      background: var(--blue);
+      color: #fff;
+    }
+
+    .expertise-card__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 1.8;
+    }
+
+    .expertise-card__icon img {
+      width: 26px;
+      height: 26px;
+      display: block;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .expertise-card h3 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .expertise-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.65;
     }
 
     .portfolio-section {
@@ -2633,6 +2832,7 @@
       .quote-howto-cards { gap: 14px; }
       .quote-howto-card:not(:last-child)::after { width: 10px; }
       .quote-howto-head > p { white-space: normal; }
+      .expertise-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 1080px) {
@@ -2743,6 +2943,8 @@
       .about-layout, .contact-grid { grid-template-columns: 1fr; }
       .about-layout { gap: 34px; }
       .category-grid { grid-template-columns: repeat(2, 1fr); }
+      .expertise-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .expertise-section .section-head h2 { white-space: normal; }
       .featured-product-img { min-height: 260px; }
       .featured-product-card { flex-basis: calc((100% - var(--product-card-gap)) / 2); }
       .news-card { flex-basis: calc((100% - 18px) / 2); }
@@ -2918,6 +3120,9 @@
       }
       .quote-howto-card:not(:last-child)::after { display: none; }
       .quote-howto-card { padding: 16px 16px; }
+      .expertise-section { padding: 56px 0; }
+      .expertise-grid { grid-template-columns: 1fr; }
+      .expertise-section .section-head h2 { white-space: normal; }
       .hero-stack { margin-bottom: 32px; }
       .hero-arrow { display: none; }
       .hero-dots { display: none; }
@@ -3031,6 +3236,18 @@
         white-space: normal;
         overflow: visible;
         text-overflow: unset;
+      }
+      .category-card:hover .category-body,
+      .category-card:nth-child(-n + 4):not(.all-products):hover .category-body {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        max-height: 100%;
+        overflow: hidden;
+        padding: 36px 16px 16px;
       }
       .category-card.all-products {
         min-height: 74px;
@@ -3553,13 +3770,13 @@
           <p>หมวดสินค้าและบริการสำหรับงานระบบท่อ ซ่อมบำรุง และติดตั้ง</p>
         </div>
         <div class="category-grid">
-          <a class="category-card" href="products-ppr.html"><div class="category-thumb ppr"></div><div class="category-body"><h3>ท่อและข้อต่อ PPR</h3><p>ท่อและข้อต่อสำหรับน้ำร้อน น้ำเย็น และงานอาคาร</p><span>(37)</span></div></a>
-          <a class="category-card" href="#contact"><div class="category-thumb clamp"></div><div class="category-body"><h3>แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</h3><p>อุปกรณ์ซ่อมท่อรั่ว ลดเวลาหยุดระบบ</p><span>(18)</span></div></a>
-          <a class="category-card" href="#contact"><div class="category-thumb hdpe"></div><div class="category-body"><h3>เครื่องเชื่อมท่อ</h3><p>เครื่องเชื่อมและอุปกรณ์สำหรับงานท่อภาคสนาม</p><span>(24)</span></div></a>
-          <a class="category-card" href="#contact"><div class="category-thumb grooved"></div><div class="category-body"><h3>Grooved Coupling และเครื่องมือ</h3><p>อุปกรณ์งานท่อแบบ grooved สำหรับโรงงาน</p><span>(42)</span></div></a>
-          <a class="category-card" href="products-pump.html"><div class="category-thumb parts"></div><div class="category-body"><h3>Pump and Accessories</h3><p>ปั๊มกรุนด์ฟอส อะไหล่ และเครื่องทดสอบแรงดัน พร้อมวิศวกรแนะนำรุ่น</p></div></a>
-          <a class="category-card" href="products-heat-exchanger.html"><div class="category-thumb heat"></div><div class="category-body"><h3>Heat Exchanger</h3><p>Plate Heat Exchanger และระบบแลกเปลี่ยนความร้อน</p></div></a>
-          <a class="category-card" href="products-clearance.html"><div class="category-thumb oem"></div><div class="category-body"><h3>สินค้าโปรโมชั่น / Clearance</h3><p>สินค้าราคาพิเศษและรายการ Clearance สำหรับงานระบบท่อ</p><span>(8)</span></div></a>
+          <a class="category-card" href="products-ppr.html"><div class="category-thumb ppr"></div><div class="category-body"><h3>ท่อและข้อต่อ PPR</h3><p>ท่อและข้อต่อ PPR สำหรับระบบน้ำและระบบลมอัด แข็งแรง น้ำหนักเบา ไม่เป็นสนิม พร้อมระบบเชื่อมต่อที่ติดตั้งง่าย</p><span>(37)</span></div></a>
+          <a class="category-card" href="#contact"><div class="category-thumb clamp"></div><div class="category-body"><h3>แคล้มป์ซ่อมท่อรั่ว RNT Smart Clamp</h3><p>แคล้มป์ซ่อมท่อรั่วสำหรับงานฉุกเฉิน ลดเวลาหยุดระบบ ติดตั้งเร็วโดยไม่ต้องตัดท่อ</p><span>(18)</span></div></a>
+          <a class="category-card" href="#contact"><div class="category-thumb hdpe"></div><div class="category-body"><h3>เครื่องเชื่อมท่อ</h3><p>เครื่องเชื่อมท่อ PPR และ HDPE สำหรับงานภาคสนาม เชื่อมแน่น ใช้งานง่าย รองรับหลายขนาดท่อ</p><span>(24)</span></div></a>
+          <a class="category-card" href="#contact"><div class="category-thumb grooved"></div><div class="category-body"><h3>Grooved Coupling และเครื่องมือ</h3><p>อุปกรณ์ grooved สำหรับท่อโรงงาน ติดตั้งเร็ว ถอดประกอบง่าย เหมาะกับงานซ่อมบำรุง</p><span>(42)</span></div></a>
+          <a class="category-card" href="products-pump.html"><div class="category-thumb parts"></div><div class="category-body"><h3>Pump and Accessories</h3><p>ปั๊มกรุนด์ฟอส อะไหล่ และเครื่องทดสอบแรงดัน พร้อมวิศวกรแนะนำรุ่นให้ตรงกับหน้างาน</p></div></a>
+          <a class="category-card" href="products-heat-exchanger.html"><div class="category-thumb heat"></div><div class="category-body"><h3>Heat Exchanger</h3><p>Plate Heat Exchanger และระบบแลกเปลี่ยนความร้อน ออกแบบให้เหมาะกับกระบวนการผลิตและการประหยัดพลังงาน</p></div></a>
+          <a class="category-card" href="products-clearance.html"><div class="category-thumb oem"></div><div class="category-body"><h3>สินค้าโปรโมชั่น / Clearance</h3><p>สินค้าราคาพิเศษและรายการ Clearance สำหรับงานระบบท่อ สต๊อกพร้อมส่งในราคาที่คุ้มค่า</p><span>(8)</span></div></a>
           <a class="category-card all-products" href="https://www.ranotech.com/products/"><div class="category-body"><h3>ดูสินค้าทั้งหมด</h3><span>ดูสินค้า</span></div></a>
         </div>
       </div>
@@ -3856,6 +4073,47 @@
               </div>
             </a>
           </div>
+        </div>
+      </div>
+    </section>
+
+    </section>
+
+    <section class="expertise-section" id="expertise" aria-labelledby="expertiseTitle">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Engineering Expertise</p>
+          <h2 id="expertiseTitle">ทำไมโรงงานและวิศวกรเลือก Rano Tech</h2>
+        </div>
+        <div class="expertise-grid">
+          <article class="expertise-card">
+            <span class="expertise-card__icon" aria-hidden="true">
+              <img src="assets/icons/expertise-system.png?v=2" alt="">
+            </span>
+            <h3>เชี่ยวชาญงานวิศวกรรมระบบ</h3>
+            <p>ให้คำปรึกษาด้านระบบท่อ ระบบทำความร้อน ทำความเย็น และเครื่องแลกเปลี่ยนความร้อน รวมถึงการเลือกอุปกรณ์ให้เหมาะกับกระบวนการและสภาพการใช้งานจริง</p>
+          </article>
+          <article class="expertise-card">
+            <span class="expertise-card__icon" aria-hidden="true">
+              <img src="assets/icons/expertise-software.png?v=3" alt="">
+            </span>
+            <h3>ออกแบบด้วยซอฟต์แวร์เฉพาะทาง</h3>
+            <p>งาน Thermal Design ใช้ ASPEN และ HTRI และงาน Mechanical Design ใช้ COMPRESS by CODEWARE เพื่อช่วยในการคำนวณและออกแบบระบบทางวิศวกรรม</p>
+          </article>
+          <article class="expertise-card">
+            <span class="expertise-card__icon" aria-hidden="true">
+              <img src="assets/icons/expertise-industry.png?v=2" alt="">
+            </span>
+            <h3>เข้าใจงานหลากหลายอุตสาหกรรม</h3>
+            <p>มีประสบการณ์กับงานในอุตสาหกรรมอาหารและเครื่องดื่ม เคมี แปรรูปอาหารทะเล เหล็ก สิ่งทอ ระบบทำความเย็น และ HVAC จึงสามารถพิจารณาโซลูชันตามลักษณะของแต่ละกระบวนการได้</p>
+          </article>
+          <article class="expertise-card">
+            <span class="expertise-card__icon" aria-hidden="true">
+              <img src="assets/icons/expertise-service.png?v=2" alt="">
+            </span>
+            <h3>ดูแลตั้งแต่เริ่มต้นถึงหลังการขาย</h3>
+            <p>ครอบคลุมตั้งแต่ให้คำปรึกษา เลือกสินค้า ออกแบบระบบ ติดตั้ง ซ่อมบำรุง ไปจนถึงบริการอะไหล่และบริการหลังการขาย เพื่อช่วยให้การดูแลระบบทำได้ต่อเนื่อง</p>
+          </article>
         </div>
       </div>
     </section>
