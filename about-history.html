@@ -490,6 +490,92 @@
       line-height: 1.45;
     }
 
+    .history-facts {
+      position: relative;
+      padding: 0;
+      background: #e8f3fa url("assets/about/bg-aboutinfo.png") left center / 100% auto no-repeat;
+    }
+
+    .facts-card {
+      display: grid;
+      grid-template-columns: minmax(240px, 36%) minmax(0, 1fr);
+      width: 100%;
+      min-height: 500px;
+      overflow: hidden;
+      background: transparent;
+      align-items: stretch;
+    }
+
+    .facts-card__media {
+      min-height: 0;
+    }
+
+    .facts-card__body {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: none;
+      padding: 56px max(32px, calc((100vw - var(--container-width)) / 2)) 56px 24px;
+    }
+
+    .facts-card__body .kicker {
+      margin: 0 0 12px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      line-height: 1.6;
+    }
+
+    .facts-card__body h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(28px, 3.2vw, 40px);
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .facts-card__lead {
+      margin: 12px 0 22px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .facts-list {
+      margin: 0;
+    }
+
+    .facts-list > div {
+      display: grid;
+      grid-template-columns: 200px minmax(0, 1fr);
+      gap: 10px 28px;
+      align-items: center;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .facts-list > div:last-child {
+      padding-bottom: 2px;
+    }
+
+    .facts-list dt {
+      margin: 0;
+      color: var(--navy);
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .facts-list dd {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.65;
+    }
+
     .history-products {
       padding: 72px 0;
       background: linear-gradient(180deg, var(--soft), #fff);
@@ -1441,6 +1527,27 @@
       .footer-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
+    @media (max-width: 980px) {
+      .history-facts {
+        background-size: 100% auto;
+        background-position: left top;
+      }
+      .facts-card {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+      .facts-card__media {
+        min-height: 150px;
+      }
+      .facts-card__body {
+        width: min(var(--container-width), calc(100% - var(--container-gutter)));
+        margin: 0 auto;
+        padding: 24px 20px 40px;
+        border-radius: var(--radius);
+        background: rgba(247, 251, 255, .9);
+      }
+    }
+
     @media (max-width: 720px) {
       .nav { min-height: 66px; gap: 12px; }
       .brand-logo { width: 126px; }
@@ -1468,6 +1575,21 @@
       .activities-grid,
       .r3-grid,
       .consult-grid { grid-template-columns: 1fr; }
+      .history-facts { padding: 0; }
+      .facts-card {
+        grid-template-columns: 1fr;
+      }
+      .facts-card__media {
+        min-height: 130px;
+      }
+      .facts-card__body {
+        width: min(var(--container-width), calc(100% - var(--container-gutter)));
+        padding: 20px 18px 36px;
+      }
+      .facts-list > div {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
       .history-products,
       .history-consult,
       .history-r3,
@@ -1717,6 +1839,156 @@
       </div>
     </section>
 
+    <section class="history-facts" aria-label="ข้อมูลสำคัญของบริษัท">
+      <article class="facts-card">
+        <div class="facts-card__media" aria-hidden="true"></div>
+        <div class="facts-card__body">
+            <p class="kicker">Company Facts</p>
+            <h2>Rano Tech ทำอะไร?</h2>
+            <p class="facts-card__lead">ข้อมูลสำคัญของ Rano Tech ที่ช่วยให้คุณรู้จักเราได้มากขึ้น</p>
+            <dl class="facts-list">
+              <div>
+                <dt>บริษัท</dt>
+                <dd>บริษัท เรโน เทค จำกัด (RANO TECH CO., LTD.)</dd>
+              </div>
+              <div>
+                <dt>เริ่มดำเนินธุรกิจ</dt>
+                <dd>พ.ศ. 2548</dd>
+              </div>
+              <div>
+                <dt>ความเชี่ยวชาญ</dt>
+                <dd>Mechanical Engineering, Energy Engineering และ Thermal Engineering</dd>
+              </div>
+              <div>
+                <dt>ระบบท่อ</dt>
+                <dd>PPR, HDPE, Grooved Coupling อุปกรณ์ต่อท่อ และอุปกรณ์ซ่อมท่อ</dd>
+              </div>
+              <div>
+                <dt>Thermal Solutions</dt>
+                <dd>Heat Exchanger, Cooling / Heating System และ Heat Recovery</dd>
+              </div>
+              <div>
+                <dt>บริการวิศวกรรม</dt>
+                <dd>ให้คำปรึกษา ออกแบบ จัดหา ติดตั้ง Commissioning และซ่อมบำรุง</dd>
+              </div>
+              <div>
+                <dt>ประสบการณ์ทีม<br>Thermal Engineering</dt>
+                <dd>มากกว่า 30 ปี</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+    </section>
+
+    <section class="history-activities" aria-label="ขอบเขตงาน">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Area of Activities</p>
+          <h2>ขอบเขตงานที่เราครอบคลุม</h2>
+          <p>ตั้งแต่การออกแบบ จัดหา ติดตั้ง ไปจนถึง Commissioning</p>
+        </div>
+        <div class="activities-grid">
+          <article class="activity-card">
+            <span class="activity-card__num">01</span>
+            <h3>Engineering Design</h3>
+            <p>ออกแบบระบบความร้อน ความเย็น Refrigeration และ Heat Recovery</p>
+            <ul>
+              <li>Heating &amp; Cooling System</li>
+              <li>Refrigeration</li>
+              <li>Heat Recovery Process</li>
+            </ul>
+          </article>
+          <article class="activity-card">
+            <span class="activity-card__num">02</span>
+            <h3>Procurement</h3>
+            <p>จัดหาอุปกรณ์หลักและอะไหล่สำหรับงานระบบท่อและแลกเปลี่ยนความร้อน</p>
+            <ul>
+              <li>Heat Exchangers / Pump &amp; Valves</li>
+              <li>Cooling Tower / Instrument &amp; Control</li>
+              <li>Pipe &amp; Fitting / Grooved Couplings</li>
+              <li>PP-R Pipe and Fittings / Spare parts</li>
+            </ul>
+          </article>
+          <article class="activity-card">
+            <span class="activity-card__num">03</span>
+            <h3>Installation &amp; Commissioning</h3>
+            <p>วางแผน ติดตั้ง ควบคุมงบประมาณ และส่งมอบโครงการตามหน้างาน</p>
+            <ul>
+              <li>Planning &amp; Project Control</li>
+              <li>Budget Estimate Engineering</li>
+              <li>Steel &amp; Structure / Piping &amp; Insulation</li>
+              <li>Erection, Commissioning / Made to Order</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-r3" aria-label="Vision และ Mission">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Vision &amp; Mission</p>
+          <h2>R3 — หลักในการส่งมอบสินค้าและโซลูชัน</h2>
+        </div>
+        <div class="r3-main">
+          <h3>ถูกต้อง เชื่อถือได้ และรับผิดชอบ</h3>
+        </div>
+        <ul class="r3-list">
+          <li><strong>R</strong><span><em>Right Choice</em><small>เลือกสเปกให้ถูกกับงาน</small></span></li>
+          <li><strong>R</strong><span><em>Reliable</em><small>เชื่อถือได้ทั้งคุณภาพและการสนับสนุน</small></span></li>
+          <li><strong>R</strong><span><em>Responsible</em><small>รับผิดชอบต่อผลลัพธ์การใช้งานจริง</small></span></li>
+        </ul>
+        <div class="r3-grid">
+          <div class="r3-side">
+            <article>
+              <span class="r3-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </span>
+              <h3>Vision</h3>
+              <p>ส่งมอบสินค้าและโซลูชัน R3 สำหรับกระบวนการอนุรักษ์และฟื้นฟูพลังงาน</p>
+            </article>
+            <article>
+              <span class="r3-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 21V4" />
+                  <path d="M5 4h11l-1.5 4L16 12H5" />
+                </svg>
+              </span>
+              <h3>Mission</h3>
+              <p>เป็นพาร์ทเนอร์ที่ช่วยเลือกรุ่นถูกใช้งานได้จริง และดูแลต่อเนื่องหลังการขาย</p>
+            </article>
+            <article>
+              <span class="r3-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="m21 8-9-5-9 5 9 5 9-5Z" />
+                  <path d="M3 8v8l9 5 9-5V8" />
+                  <path d="M12 13v8" />
+                </svg>
+              </span>
+              <h3>Trading</h3>
+              <p>จัดหาและจำหน่ายสินค้าคุณภาพสำหรับงานระบบท่อและความร้อน-ความเย็น</p>
+            </article>
+            <article>
+              <span class="r3-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v5" />
+                  <path d="M5 13v-2h14v2" />
+                  <rect x="9" y="8" width="6" height="4" rx="1" />
+                  <rect x="2" y="13" width="6" height="5" rx="1" />
+                  <rect x="16" y="13" width="6" height="5" rx="1" />
+                </svg>
+              </span>
+              <h3>Company Structure</h3>
+              <p>ผสานทีม Trading กับทีมวิศวกร เพื่อรองรับทั้งสินค้าพร้อมส่งและงานโครงการ</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="history-products" aria-label="กลุ่มสินค้าและบริการ">
       <div class="container">
         <div class="section-head">
@@ -1832,115 +2104,6 @@
         <div class="history-stock-note">
           <p class="history-stock-note__lead">เรามีทีมวิศวกรผู้เชี่ยวชาญและชำนาญการทุกด้านของงาน Thermal Engineering (การแลกเปลี่ยนความร้อน)<br>ประสบการณ์มากกว่า 30 ปีที่คอยให้คำปรึกษา อบรม แนะนำ ซ่อมบำรุง ติดตั้งครบวงจร</p>
           <a href="contact.html">ติดต่อเรา</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="history-r3" aria-label="Vision และ Mission">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Vision &amp; Mission</p>
-          <h2>R3 — หลักในการส่งมอบสินค้าและโซลูชัน</h2>
-        </div>
-        <div class="r3-main">
-          <h3>ถูกต้อง เชื่อถือได้ และรับผิดชอบ</h3>
-        </div>
-        <ul class="r3-list">
-          <li><strong>R</strong><span><em>Right Choice</em><small>เลือกสเปกให้ถูกกับงาน</small></span></li>
-          <li><strong>R</strong><span><em>Reliable</em><small>เชื่อถือได้ทั้งคุณภาพและการสนับสนุน</small></span></li>
-          <li><strong>R</strong><span><em>Responsible</em><small>รับผิดชอบต่อผลลัพธ์การใช้งานจริง</small></span></li>
-        </ul>
-        <div class="r3-grid">
-          <div class="r3-side">
-            <article>
-              <span class="r3-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-              </span>
-              <h3>Vision</h3>
-              <p>ส่งมอบสินค้าและโซลูชัน R3 สำหรับกระบวนการอนุรักษ์และฟื้นฟูพลังงาน</p>
-            </article>
-            <article>
-              <span class="r3-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 21V4" />
-                  <path d="M5 4h11l-1.5 4L16 12H5" />
-                </svg>
-              </span>
-              <h3>Mission</h3>
-              <p>เป็นพาร์ทเนอร์ที่ช่วยเลือกรุ่นถูกใช้งานได้จริง และดูแลต่อเนื่องหลังการขาย</p>
-            </article>
-            <article>
-              <span class="r3-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="m21 8-9-5-9 5 9 5 9-5Z" />
-                  <path d="M3 8v8l9 5 9-5V8" />
-                  <path d="M12 13v8" />
-                </svg>
-              </span>
-              <h3>Trading</h3>
-              <p>จัดหาและจำหน่ายสินค้าคุณภาพสำหรับงานระบบท่อและความร้อน-ความเย็น</p>
-            </article>
-            <article>
-              <span class="r3-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 3v5" />
-                  <path d="M5 13v-2h14v2" />
-                  <rect x="9" y="8" width="6" height="4" rx="1" />
-                  <rect x="2" y="13" width="6" height="5" rx="1" />
-                  <rect x="16" y="13" width="6" height="5" rx="1" />
-                </svg>
-              </span>
-              <h3>Company Structure</h3>
-              <p>ผสานทีม Trading กับทีมวิศวกร เพื่อรองรับทั้งสินค้าพร้อมส่งและงานโครงการ</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="history-activities" aria-label="ขอบเขตงาน">
-      <div class="container">
-        <div class="section-head">
-          <p class="kicker">Area of Activities</p>
-          <h2>ขอบเขตงานที่เราครอบคลุม</h2>
-          <p>ตั้งแต่การออกแบบ จัดหา ติดตั้ง ไปจนถึง Commissioning</p>
-        </div>
-        <div class="activities-grid">
-          <article class="activity-card">
-            <span class="activity-card__num">01</span>
-            <h3>Engineering Design</h3>
-            <p>ออกแบบระบบความร้อน ความเย็น Refrigeration และ Heat Recovery</p>
-            <ul>
-              <li>Heating &amp; Cooling System</li>
-              <li>Refrigeration</li>
-              <li>Heat Recovery Process</li>
-            </ul>
-          </article>
-          <article class="activity-card">
-            <span class="activity-card__num">02</span>
-            <h3>Procurement</h3>
-            <p>จัดหาอุปกรณ์หลักและอะไหล่สำหรับงานระบบท่อและแลกเปลี่ยนความร้อน</p>
-            <ul>
-              <li>Heat Exchangers / Pump &amp; Valves</li>
-              <li>Cooling Tower / Instrument &amp; Control</li>
-              <li>Pipe &amp; Fitting / Grooved Couplings</li>
-              <li>PP-R Pipe and Fittings / Spare parts</li>
-            </ul>
-          </article>
-          <article class="activity-card">
-            <span class="activity-card__num">03</span>
-            <h3>Installation &amp; Commissioning</h3>
-            <p>วางแผน ติดตั้ง ควบคุมงบประมาณ และส่งมอบโครงการตามหน้างาน</p>
-            <ul>
-              <li>Planning &amp; Project Control</li>
-              <li>Budget Estimate Engineering</li>
-              <li>Steel &amp; Structure / Piping &amp; Insulation</li>
-              <li>Erection, Commissioning / Made to Order</li>
-            </ul>
-          </article>
         </div>
       </div>
     </section>
