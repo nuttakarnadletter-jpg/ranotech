@@ -10,7 +10,7 @@
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Rano Tech ได้รับการรับรองมาตรฐาน ISO 9001:2015 ครอบคลุมการออกแบบ การผลิต การขาย และการตลาดเครื่องแลกเปลี่ยนความร้อน ท่อ ข้อต่อ และอุปกรณ์อื่น ๆ" />
-  <title>การรับรอง | Rano Tech — ISO 9001:2015</title>
+  <title>การรับรองและมาตรฐานคุณภาพ Rano Tech | Rano Tech — ISO 9001:2015</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -310,7 +310,9 @@
 
     .page-hero {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
       min-height: 340px;
       padding: 74px 0 62px;
       color: #fff;
@@ -329,11 +331,15 @@
       text-transform: uppercase;
     }
 
+    .page-hero .container {
+      min-width: 0;
+    }
+
     .page-hero h1 {
       margin: 0;
       color: #fff;
-      font-size: clamp(34px, 4.8vw, 58px);
-      line-height: 1.12;
+      font-size: clamp(28px, 4.2vw, 52px);
+      line-height: 1.2;
       font-weight: 800;
     }
 
@@ -1260,12 +1266,12 @@
     }
 
     .certificates-section {
-      padding: 76px 0 90px;
+      padding: 76px 0 80px;
       background: #fff;
     }
 
     .certificates-intro {
-      max-width: 920px;
+      max-width: 1040px;
       margin: 0 auto 48px;
       text-align: center;
     }
@@ -1280,20 +1286,27 @@
       line-height: 1.6;
     }
 
-    .certificates-intro h2 {
+    .certificates-intro .certificates-lead {
       margin: 0;
+      max-width: none;
+      color: #3d4764;
+      font-size: clamp(15px, 1.55vw, 20px);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .certificates-intro .certificates-lead strong {
       color: var(--blue);
-      font-size: clamp(22px, 2.4vw, 36px);
-      line-height: 1.25;
       font-weight: 800;
     }
 
     .certificates-intro .certificates-sub {
-      margin: 14px 0 0;
+      margin: 16px 0 0;
+      max-width: none;
       color: #56627d;
-      font-size: clamp(16px, 1.3vw, 20px);
-      line-height: 1.55;
-      font-weight: 700;
+      font-size: clamp(15px, 1.15vw, 17px);
+      line-height: 1.75;
+      font-weight: 500;
     }
 
     .certificates-intro .certificates-body {
@@ -1312,14 +1325,15 @@
 
     .certificates-featured {
       display: grid;
-      place-items: center;
+      justify-items: center;
       margin: 0 auto;
-      max-width: 560px;
-      padding: 28px 24px;
+      max-width: 460px;
+      padding: 14px 14px 0;
+      overflow: hidden;
       border: 1px solid rgba(223, 230, 242, .95);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, .98);
-      box-shadow: 0 18px 44px rgba(7, 18, 77, .08);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(7, 18, 77, .06);
     }
 
     .certificates-featured img {
@@ -1330,11 +1344,116 @@
     }
 
     .certificates-featured figcaption {
-      margin-top: 16px;
-      color: #56627d;
-      font-size: 15px;
+      justify-self: stretch;
+      box-sizing: border-box;
+      margin: 12px -14px 0;
+      padding: 10px 16px;
+      width: calc(100% + 28px);
+      color: var(--navy);
+      background: var(--soft);
+      border: 0;
+      border-top: 1px solid var(--line);
+      border-radius: 0;
+      font-size: 14px;
       font-weight: 700;
       text-align: center;
+      letter-spacing: .01em;
+    }
+
+    .cert-standards {
+      margin: 0 auto;
+    }
+
+    .certificates-docs {
+      padding: 88px 0 100px;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(79, 180, 204, .16), transparent 34%),
+        linear-gradient(180deg, var(--soft), #fff 72%);
+    }
+
+    .cert-standards h2,
+    .certificates-docs h2 {
+      margin: 0 0 36px;
+      color: var(--blue);
+      font-size: clamp(24px, 2.8vw, 36px);
+      line-height: 1.3;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .cert-standards__grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+    }
+
+    .cert-standard {
+      min-width: 0;
+      padding: 28px 32px;
+      text-align: center;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .cert-standard:not(:last-child) {
+      border-right: 1px solid var(--line);
+    }
+
+    .cert-standard__icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      background: none;
+      border: 0;
+      color: var(--blue);
+    }
+
+    .cert-standard__icon svg,
+    .cert-standard__icon img {
+      width: 56px;
+      height: 56px;
+      display: block;
+    }
+
+    .cert-standard__icon svg {
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .cert-standard__icon img {
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(17%) sepia(72%) saturate(2484%) hue-rotate(222deg) brightness(88%) contrast(98%);
+    }
+
+    .cert-standard h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(18px, 1.6vw, 22px);
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .cert-standard h4 {
+      margin: 12px 0 0;
+      color: var(--navy);
+      font-size: 18px;
+      line-height: 1.4;
+      font-weight: 800;
+    }
+
+    .cert-standard p {
+      margin: 12px 0 0;
+      color: #56627d;
+      font-size: 15px;
+      line-height: 1.7;
+      font-weight: 500;
     }
 
     .contact-cta {
@@ -1757,7 +1876,8 @@
       .line-cta-label { display: none; }
       .search-form { width: 118px; height: 36px; padding-left: 14px; }
       .page-hero { min-height: 320px; padding: 58px 0 52px; }
-      .page-hero h1 { font-size: 34px; }
+      .page-hero h1 { font-size: clamp(24px, 7vw, 32px); }
+      .page-hero h1 .hero-break { display: block; }
       .history-intro { padding: 48px 0 24px; }
       .history-intro__grid { grid-template-columns: 1fr; gap: 28px; }
       .history-intro__image { min-height: 280px; }
@@ -1797,10 +1917,25 @@
         margin-top: 42px;
       }
       .quality-checklist li { text-align: center; }
-      .certificates-section { padding: 52px 0 62px; }
+      .certificates-section { padding: 52px 0 48px; }
+      .certificates-docs { padding: 52px 0 62px; }
       .certificates-intro { margin-bottom: 34px; }
-      .certificates-featured { padding: 18px 14px; }
-      .certificates-featured img { max-width: 300px; }
+      .cert-standards h2,
+      .certificates-docs h2 { margin-bottom: 24px; }
+      .cert-standards__grid { grid-template-columns: 1fr; }
+      .cert-standard {
+        padding: 28px 0;
+      }
+      .cert-standard:not(:last-child) {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .certificates-featured { padding: 10px 10px 0; }
+      .certificates-featured figcaption {
+        margin: 10px -10px 0;
+        width: calc(100% + 20px);
+      }
+      .certificates-featured img { max-width: 280px; }
       .quality-pillar { grid-template-columns: 44px minmax(0, 1fr); padding: 18px; }
       .quality-pillar__icon { width: 44px; height: 44px; }
       .quality-card { min-height: 0; padding: 22px 18px; }
@@ -2009,22 +2144,55 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <h1>การรับรอง</h1>
+        <h1>การรับรองและมาตรฐานคุณภาพ <span class="hero-break">Rano Tech</span></h1>
       </div>
     </section>
 
-    <section class="certificates-section" id="certificates" aria-label="มาตรฐานและใบรับรอง">
+    <section class="certificates-section" aria-label="มาตรฐานและใบรับรอง">
       <div class="container">
         <div class="certificates-intro">
-          <p class="certificates-kicker">Certificate</p>
-          <h2>จำหน่ายเครื่องเชื่อมท่อ PPR<br>เครื่องแลกเปลี่ยนความร้อน รองรับมาตรฐาน</h2>
-          <p class="certificates-sub">รอบรู้เรื่องเครื่องเชื่อมท่อ PPR ปรึกษา แนะนำ อบรม ติดตั้ง บริการอะไหล่และซ่อม</p>
-          <p class="certificates-body"><strong>Rano Tech</strong> ได้รับการรับรองมาตรฐาน ISO 9001:2015 ครอบคลุมการออกแบบ การผลิต การขาย และการตลาดเครื่องแลกเปลี่ยนความร้อน ท่อ (โลหะและอโลหะ) ข้อต่อ และอุปกรณ์อื่น ๆ เพื่อให้ลูกค้ามั่นใจว่าได้สินค้าและบริการที่ได้มาตรฐานระดับสากล</p>
+          <p class="certificates-lead"><strong>Rano Tech</strong> ให้ความสำคัญกับคุณภาพของสินค้า กระบวนการทำงาน และบริการด้านวิศวกรรม โดยเลือกใช้มาตรฐานและแนวทางการทำงานที่ช่วยสร้างความมั่นใจให้กับลูกค้าในทุกโครงการ</p>
+          <p class="certificates-sub">บริษัทมุ่งมั่นในการคัดเลือกสินค้า การให้คำปรึกษาด้านเทคนิค และการสนับสนุนหลังการขาย เพื่อส่งมอบโซลูชันที่เหมาะสมกับการใช้งานจริง</p>
         </div>
 
+        <div class="cert-standards">
+          <h2>มาตรฐานที่สะท้อนความมุ่งมั่นด้านคุณภาพ</h2>
+          <div class="cert-standards__grid">
+            <article class="cert-standard">
+              <span class="cert-standard__icon" aria-hidden="true">
+                <img src="assets/icons/icon-quality-assurance.png" alt="">
+              </span>
+              <h3>Quality Assurance</h3>
+              <h4>ควบคุมคุณภาพสินค้า<br>และบริการ</h4>
+              <p>ตรวจสอบข้อมูลสินค้า คุณสมบัติทางเทคนิค และความเหมาะสมกับลักษณะงานก่อนนำเสนอให้ลูกค้า</p>
+            </article>
+            <article class="cert-standard">
+              <span class="cert-standard__icon" aria-hidden="true">
+                <img src="assets/icons/icon-engineering-standard.png?v=2" alt="">
+              </span>
+              <h3>Engineering Standard</h3>
+              <h4>ทำงานบนพื้นฐานข้อมูล<br>ทางวิศวกรรม</h4>
+              <p>ใช้ข้อมูลด้านระบบ เงื่อนไขการใช้งาน และประสบการณ์ของทีมวิศวกรในการให้คำแนะนำ</p>
+            </article>
+            <article class="cert-standard">
+              <span class="cert-standard__icon" aria-hidden="true">
+                <img src="assets/icons/icon-customer-confidence.png" alt="">
+              </span>
+              <h3>Customer Confidence</h3>
+              <h4>สร้างความมั่นใจตลอด<br>โครงการ</h4>
+              <p>สนับสนุนลูกค้าตั้งแต่การเลือกสินค้า การติดตั้ง ไปจนถึงบริการหลังการขาย</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="certificates-docs" id="certificates" aria-label="Certificates & Certifications">
+      <div class="container">
+        <h2>Certificates &amp; Certifications</h2>
         <figure class="certificates-featured">
-          <img src="assets/certificates/ranotech-iso-9001.png" alt="ใบรับรอง ISO 9001:2015 ของบริษัท เรโน เทค จำกัด ด้านการออกแบบ ผลิต ขายและตลาดเครื่องแลกเปลี่ยนความร้อน ท่อ ข้อต่อ และอุปกรณ์">
-          <figcaption>ISO 9001:2015 — RANO TECH CO., LTD.</figcaption>
+            <img src="assets/certificates/ranotech-iso-9001.png" alt="ใบรับรอง ISO 9001:2015 ของบริษัท เรโน เทค จำกัด ด้านการออกแบบ ผลิต ขายและตลาดเครื่องแลกเปลี่ยนความร้อน ท่อ ข้อต่อ และอุปกรณ์">
+            <figcaption>ISO 9001:2015 — RANO TECH CO., LTD.</figcaption>
         </figure>
       </div>
     </section>

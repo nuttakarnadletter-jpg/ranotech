@@ -9,8 +9,8 @@
     document.documentElement.classList.toggle("preview-locked", !RanotechPreviewAuth.isAuthenticated());
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ส่วนหนึ่งของผู้ใช้บริการ Rano Tech ผู้จัดจำหน่ายท่อ PPR บริการด้านท่อ PPR แคล้มป์รัดท่อ CIP คุณภาพมาตรฐานสากล" />
-  <title>ลูกค้าของเรา | Rano Tech</title>
+  <meta name="description" content="Rano Tech ให้บริการด้านระบบท่อ เครื่องแลกเปลี่ยนความร้อน และโซลูชันวิศวกรรมสำหรับลูกค้าในหลากหลายอุตสาหกรรม ด้วยทีมวิศวกรที่พร้อมให้คำปรึกษา ตั้งแต่การเลือกอุปกรณ์ การออกแบบระบบ ไปจนถึงการติดตั้งและดูแลหลังการขาย" />
+  <title>ลูกค้าที่ไว้วางใจ Rano Tech | Rano Tech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -310,7 +310,9 @@
 
     .page-hero {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
       min-height: 340px;
       padding: 74px 0 62px;
       color: #fff;
@@ -327,6 +329,10 @@
       font-weight: 700;
       letter-spacing: .12em;
       text-transform: uppercase;
+    }
+
+    .page-hero .container {
+      min-width: 0;
     }
 
     .page-hero h1 {
@@ -1259,34 +1265,159 @@
       object-fit: contain;
     }
 
+    .clients-intro {
+      padding: 88px 0 80px;
+      background: #fff;
+    }
+
     .clients-section {
-      padding: 76px 0 90px;
+      padding: 88px 0 100px;
       background:
         radial-gradient(circle at 12% 0%, rgba(79, 180, 204, .16), transparent 34%),
         linear-gradient(180deg, var(--soft), #fff 72%);
     }
 
     .clients-head {
-      max-width: 940px;
-      margin: 0 auto 42px;
+      max-width: 1120px;
+      margin: 0 auto 72px;
       text-align: center;
     }
 
-    .clients-head h2 {
+    .clients-head p {
       margin: 0;
-      color: var(--blue);
-      font-size: clamp(22px, 2.4vw, 36px);
-      line-height: 1.2;
-      font-weight: 800;
-      letter-spacing: 0;
+      color: #3d4764;
+      font-size: clamp(15px, 1.55vw, 20px);
+      line-height: 1.65;
+      font-weight: 500;
     }
 
-    .clients-head p {
-      margin: 14px 0 0;
+    .clients-head p strong {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .clients-industries {
+      margin: 0 auto;
+    }
+
+    .clients-industries h2 {
+      margin: 0 0 40px;
+      color: var(--blue);
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: 1.25;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .clients-industries__grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0;
+    }
+
+    .clients-industry {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr);
+      gap: 18px;
+      align-items: flex-start;
+      min-width: 0;
+      padding: 36px 40px;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .clients-industry:nth-child(odd) {
+      border-right: 1px solid var(--line);
+      padding-left: 8px;
+      padding-right: 36px;
+    }
+
+    .clients-industry:nth-child(even) {
+      padding-left: 36px;
+      padding-right: 8px;
+    }
+
+    .clients-industry:nth-child(-n+2) {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .clients-industry__icon {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      background: none;
+      color: var(--blue);
+    }
+
+    .clients-industry__icon svg,
+    .clients-industry__icon img {
+      width: 56px;
+      height: 56px;
+      display: block;
+    }
+
+    .clients-industry__icon svg {
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .clients-industry__icon img {
+      object-fit: contain;
+      filter: brightness(0) saturate(100%) invert(17%) sepia(72%) saturate(2484%) hue-rotate(222deg) brightness(88%) contrast(98%);
+    }
+
+    .clients-industry h3 {
+      margin: 0;
+      color: var(--blue);
+      font-size: 20px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .clients-industry p {
+      margin: 12px 0 0;
       color: #56627d;
-      font-size: clamp(18px, 1.45vw, 24px);
-      line-height: 1.55;
-      font-weight: 700;
+      font-size: 15.5px;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    @media (max-width: 1080px) {
+      .clients-industries__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .clients-logos-head {
+      max-width: none;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .clients-logos-head h2 {
+      margin: 0;
+      color: var(--blue);
+      font-size: clamp(26px, 3vw, 40px);
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .clients-logos-head p {
+      margin: 16px 0 0;
+      color: #56627d;
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 1240px) {
+      .clients-logos-head p { white-space: normal; }
     }
 
     .clients-grid {
@@ -1318,6 +1449,33 @@
       max-width: 110px;
       max-height: 52px;
       object-fit: contain;
+    }
+
+    .clients-closing {
+      max-width: 920px;
+      margin: 72px auto 0;
+      text-align: center;
+    }
+
+    .clients-closing h2 {
+      margin: 0;
+      color: var(--blue);
+      font-size: clamp(22px, 2.6vw, 32px);
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .clients-closing p {
+      margin: 16px 0 0;
+      color: #56627d;
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .clients-closing p strong {
+      color: var(--blue);
+      font-weight: 800;
     }
 
     .contact-cta {
@@ -1740,7 +1898,8 @@
       .line-cta-label { display: none; }
       .search-form { width: 118px; height: 36px; padding-left: 14px; }
       .page-hero { min-height: 320px; padding: 58px 0 52px; }
-      .page-hero h1 { font-size: 34px; }
+      .page-hero h1 { font-size: clamp(26px, 8vw, 34px); }
+      .page-hero h1 .hero-break { display: block; }
       .history-intro { padding: 48px 0 24px; }
       .history-intro__grid { grid-template-columns: 1fr; gap: 28px; }
       .history-intro__image { min-height: 280px; }
@@ -1780,8 +1939,22 @@
         margin-top: 42px;
       }
       .quality-checklist li { text-align: center; }
-      .clients-section { padding: 52px 0 62px; }
-      .clients-head { margin-bottom: 30px; }
+      .clients-intro { padding: 56px 0 48px; }
+      .clients-section { padding: 56px 0 72px; }
+      .clients-head { margin-bottom: 48px; }
+      .clients-industries h2 { font-size: 24px; margin-bottom: 28px; }
+      .clients-industries__grid { grid-template-columns: minmax(0, 1fr); }
+      .clients-industry,
+      .clients-industry:nth-child(odd),
+      .clients-industry:nth-child(even) {
+        min-width: 0;
+        padding: 22px 0;
+        border-right: 0;
+      }
+      .clients-industry:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .clients-industry:not(:last-child) { border-bottom: 1px solid var(--line); }
+      .clients-logos-head { margin-bottom: 32px; }
+      .clients-closing { margin-top: 48px; }
       .clients-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
       .client-logo { min-height: 96px; padding: 18px 12px; }
       .client-logo img { max-width: 120px; max-height: 60px; }
@@ -1995,15 +2168,64 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <h1>ลูกค้าของเรา</h1>
+        <h1>ลูกค้าที่ไว้วางใจ <span class="hero-break">Rano Tech</span></h1>
       </div>
     </section>
 
-    <section class="clients-section" aria-label="ส่วนหนึ่งของผู้ใช้บริการ Rano Tech">
+    <section class="clients-intro" aria-label="ประสบการณ์ของเราในหลากหลายอุตสาหกรรม">
       <div class="container">
         <div class="clients-head">
-          <h2>ส่วนหนึ่งของผู้ใช้บริการ Rano Tech ผู้จัดจำหน่ายท่อ PPR</h2>
-          <p>บริการด้านท่อ PPR แคล้มป์รัดท่อ CIP คุณภาพมาตรฐานสากล</p>
+          <p><strong>Rano Tech</strong> ให้บริการด้านระบบท่อ เครื่องแลกเปลี่ยนความร้อน และโซลูชันวิศวกรรมสำหรับลูกค้าในหลากหลายอุตสาหกรรม<br>ด้วยทีมวิศวกรที่พร้อมให้คำปรึกษา ตั้งแต่การเลือกอุปกรณ์ การออกแบบระบบ ไปจนถึงการติดตั้งและดูแลหลังการขาย</p>
+        </div>
+        <div class="clients-industries">
+          <h2>ประสบการณ์ของเราในหลากหลายอุตสาหกรรม</h2>
+          <div class="clients-industries__grid">
+            <article class="clients-industry">
+              <span class="clients-industry__icon" aria-hidden="true">
+                <img src="assets/icons/icon-food-beverage.png" alt="">
+              </span>
+              <div>
+                <h3>อุตสาหกรรมอาหารและเครื่องดื่ม</h3>
+                <p>สนับสนุนระบบที่เกี่ยวข้องกับกระบวนการผลิต ระบบท่อ ระบบทำความสะอาด และระบบควบคุมความร้อน-ความเย็น</p>
+              </div>
+            </article>
+            <article class="clients-industry">
+              <span class="clients-industry__icon" aria-hidden="true">
+                <img src="assets/icons/icon-chemical-process.png" alt="">
+              </span>
+              <div>
+                <h3>อุตสาหกรรมเคมีและกระบวนการผลิต</h3>
+                <p>ให้บริการด้านระบบท่อ Heat Exchanger และ Thermal Solution สำหรับกระบวนการที่ต้องการความแม่นยำด้านอุณหภูมิและแรงดัน</p>
+              </div>
+            </article>
+            <article class="clients-industry">
+              <span class="clients-industry__icon" aria-hidden="true">
+                <img src="assets/icons/icon-factory.png" alt="">
+              </span>
+              <div>
+                <h3>โรงงานอุตสาหกรรม</h3>
+                <p>รองรับงานปรับปรุงระบบ ติดตั้งอุปกรณ์ และแก้ไขปัญหาหน้างานเพื่อเพิ่มประสิทธิภาพการทำงานของระบบ</p>
+              </div>
+            </article>
+            <article class="clients-industry">
+              <span class="clients-industry__icon" aria-hidden="true">
+                <img src="assets/icons/icon-engineering-contractor.png" alt="">
+              </span>
+              <div>
+                <h3>งานระบบและผู้รับเหมาวิศวกรรม</h3>
+                <p>สนับสนุนอุปกรณ์และข้อมูลด้านเทคนิคสำหรับโครงการติดตั้งระบบท่อและเครื่องจักร</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="clients-section" aria-label="องค์กรและโครงการที่ไว้วางใจ Rano Tech">
+      <div class="container">
+        <div class="clients-logos-head">
+          <h2>องค์กรและโครงการที่ไว้วางใจ Rano Tech</h2>
+          <p>เรามุ่งมั่นส่งมอบสินค้าและบริการด้านวิศวกรรมที่เหมาะสมกับความต้องการของแต่ละโครงการ โดยได้รับความไว้วางใจจากลูกค้าหลากหลายกลุ่มอุตสาหกรรม</p>
         </div>
         <div class="clients-grid">
           <article class="client-logo"><img src="assets/clients/i-001.jpg" alt="ลูกค้า Rano Tech"></article>
@@ -2070,6 +2292,10 @@
           <article class="client-logo"><img src="assets/clients/i-2020-052.jpg" alt="ลูกค้า Rano Tech"></article>
           <article class="client-logo"><img src="assets/clients/i-2020-053.jpg" alt="ลูกค้า Rano Tech"></article>
           <article class="client-logo"><img src="assets/clients/i-2020-054.jpg" alt="ลูกค้า Rano Tech"></article>
+        </div>
+        <div class="clients-closing">
+          <h2>เพราะทุกโครงการต้องการโซลูชันที่เหมาะกับการใช้งานจริง</h2>
+          <p><strong>Rano Tech</strong> ไม่ได้เป็นเพียงผู้จำหน่ายอุปกรณ์ แต่มีทีมวิศวกรช่วยวิเคราะห์ความต้องการ เลือกอุปกรณ์ และสนับสนุนการติดตั้ง เพื่อให้ระบบสามารถทำงานได้อย่างเหมาะสมกับหน้างาน</p>
         </div>
       </div>
     </section>
