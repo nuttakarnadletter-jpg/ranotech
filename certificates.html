@@ -1266,13 +1266,13 @@
     }
 
     .certificates-section {
-      padding: 76px 0 80px;
+      padding: 84px 0 92px;
       background: #fff;
     }
 
     .certificates-intro {
       max-width: 1040px;
-      margin: 0 auto 48px;
+      margin: 0 auto 64px;
       text-align: center;
     }
 
@@ -1301,7 +1301,7 @@
     }
 
     .certificates-intro .certificates-sub {
-      margin: 16px 0 0;
+      margin: 22px 0 0;
       max-width: none;
       color: #56627d;
       font-size: clamp(15px, 1.15vw, 17px);
@@ -1327,7 +1327,7 @@
       display: grid;
       justify-items: center;
       margin: 0 auto;
-      max-width: 460px;
+      max-width: 400px;
       padding: 14px 14px 0;
       overflow: hidden;
       border: 1px solid rgba(223, 230, 242, .95);
@@ -1338,7 +1338,7 @@
 
     .certificates-featured img {
       width: 100%;
-      max-width: 420px;
+      max-width: 360px;
       height: auto;
       object-fit: contain;
     }
@@ -1365,7 +1365,7 @@
     }
 
     .certificates-docs {
-      padding: 88px 0 100px;
+      padding: 96px 0 112px;
       background:
         radial-gradient(circle at 12% 0%, rgba(79, 180, 204, .16), transparent 34%),
         linear-gradient(180deg, var(--soft), #fff 72%);
@@ -1373,12 +1373,51 @@
 
     .cert-standards h2,
     .certificates-docs h2 {
-      margin: 0 0 36px;
+      margin: 0 0 44px;
       color: var(--blue);
       font-size: clamp(24px, 2.8vw, 36px);
       line-height: 1.3;
       font-weight: 800;
       text-align: center;
+    }
+
+    .certificates-docs h2 {
+      margin-bottom: 20px;
+    }
+
+    .cert-why {
+      max-width: 860px;
+      margin: 80px auto 0;
+      text-align: center;
+    }
+
+    .cert-why + .cert-why {
+      margin-top: 72px;
+    }
+
+    .cert-why h3 {
+      margin: 0;
+      color: var(--blue);
+      font-size: clamp(22px, 2.4vw, 32px);
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .cert-why > p {
+      margin: 22px auto 0;
+      color: #56627d;
+      font-size: clamp(15px, 1.2vw, 17px);
+      line-height: 1.75;
+      font-weight: 500;
+    }
+
+    .cert-why > p strong {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .cert-why .quality-checklist {
+      margin-top: 36px;
     }
 
     .cert-standards__grid {
@@ -1917,11 +1956,13 @@
         margin-top: 42px;
       }
       .quality-checklist li { text-align: center; }
-      .certificates-section { padding: 52px 0 48px; }
-      .certificates-docs { padding: 52px 0 62px; }
-      .certificates-intro { margin-bottom: 34px; }
-      .cert-standards h2,
-      .certificates-docs h2 { margin-bottom: 24px; }
+      .certificates-section { padding: 56px 0 60px; }
+      .certificates-docs { padding: 56px 0 72px; }
+      .cert-why { margin-top: 56px; }
+      .cert-why + .cert-why { margin-top: 52px; }
+      .certificates-intro { margin-bottom: 44px; }
+      .cert-standards h2 { margin-bottom: 32px; }
+      .certificates-docs h2 { margin-bottom: 16px; }
       .cert-standards__grid { grid-template-columns: 1fr; }
       .cert-standard {
         padding: 28px 0;
@@ -1935,7 +1976,7 @@
         margin: 10px -10px 0;
         width: calc(100% + 20px);
       }
-      .certificates-featured img { max-width: 280px; }
+      .certificates-featured img { max-width: 250px; }
       .quality-pillar { grid-template-columns: 44px minmax(0, 1fr); padding: 18px; }
       .quality-pillar__icon { width: 44px; height: 44px; }
       .quality-card { min-height: 0; padding: 22px 18px; }
@@ -2194,9 +2235,56 @@
             <img src="assets/certificates/ranotech-iso-9001.png" alt="ใบรับรอง ISO 9001:2015 ของบริษัท เรโน เทค จำกัด ด้านการออกแบบ ผลิต ขายและตลาดเครื่องแลกเปลี่ยนความร้อน ท่อ ข้อต่อ และอุปกรณ์">
             <figcaption>ISO 9001:2015 — RANO TECH CO., LTD.</figcaption>
         </figure>
+        <div class="cert-why">
+          <h3>ทำไมมาตรฐานและการรับรองจึงสำคัญ?</h3>
+          <p>การเลือกสินค้าและอุปกรณ์สำหรับงานอุตสาหกรรมจำเป็นต้องพิจารณามากกว่าราคา แต่ต้องคำนึงถึงคุณภาพ ความเหมาะสมของระบบ และความน่าเชื่อถือของผู้ให้บริการ</p>
+          <ul class="quality-checklist">
+            <li>คุณภาพของสินค้าและอุปกรณ์</li>
+            <li>ความถูกต้องด้านข้อมูลทางเทคนิค</li>
+            <li>การเลือกโซลูชันให้เหมาะกับหน้างาน</li>
+            <li>การสนับสนุนหลังการขาย</li>
+          </ul>
+        </div>
+        <div class="cert-why">
+          <h3>มาตรฐานที่มาพร้อมประสบการณ์ด้านวิศวกรรม</h3>
+          <p>นอกจากการจัดจำหน่ายสินค้า <strong>Rano Tech</strong> มีทีมวิศวกรให้คำปรึกษาด้านระบบท่อ เครื่องแลกเปลี่ยนความร้อน และ Thermal Engineering เพื่อช่วยให้ลูกค้าเลือกอุปกรณ์และแนวทางที่เหมาะสมกับการใช้งานจริง</p>
+        </div>
       </div>
     </section>
   </main>
+
+  <section class="contact-cta" aria-label="ติดต่อปรึกษาวิศวกร">
+    <div class="container contact-cta__inner">
+      <div class="contact-cta__copy">
+        <h2>จากความต้องการ สู่โซลูชันที่เหมาะกับงานจริง</h2>
+        <p>Rano Tech พร้อมสนับสนุนตั้งแต่การเลือกสินค้า การให้คำปรึกษาด้านวิศวกรรม ไปจนถึงการติดตั้งและบริการหลังการขาย</p>
+      </div>
+      <div class="contact-cta__actions">
+        <a class="contact-cta__card" href="tel:0859410072">
+          <span class="contact-cta__card-icon phone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <span>
+            <span class="contact-cta__card-label">โทรหาเรา</span>
+            <span class="contact-cta__card-value">085-941-0072</span>
+          </span>
+        </a>
+        <a class="contact-cta__card" href="https://page.line.me/gbc9543u" target="_blank" rel="noopener">
+          <span class="contact-cta__card-icon line" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .63.285.631.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.086.766.062 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          </span>
+          <span>
+            <span class="contact-cta__card-label">แชทกับเรา</span>
+            <span class="contact-cta__card-value">@ranotech</span>
+          </span>
+        </a>
+        <a class="contact-cta__quote" href="product-inquiry.html">
+          สนใจสอบถามสินค้า
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <div id="siteFooter"></div>
   <template id="siteFooterFallback">
