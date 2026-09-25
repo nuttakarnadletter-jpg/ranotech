@@ -349,7 +349,7 @@
       color: #fff;
       background:
         linear-gradient(90deg, rgba(7, 18, 77, .68) 0%, rgba(7, 18, 77, .52) 48%, rgba(7, 18, 77, .22) 100%),
-        url("assets/hero/banner-factory02.jpg") center / cover no-repeat;
+        url("assets/banners/gallery-hero-v3.png") center / cover no-repeat;
     }
 
     .article-hero__inner {
@@ -385,6 +385,28 @@
     .gallery-section {
       padding: 56px 0 72px;
       background: linear-gradient(180deg, #fff, var(--soft));
+    }
+
+    .gallery-intro {
+      max-width: 1040px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .gallery-intro__lead {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(18px, 1.8vw, 23px);
+      font-weight: 800;
+      line-height: 1.65;
+    }
+
+    .gallery-intro__detail {
+      max-width: 940px;
+      margin: 14px auto 0;
+      color: #4f5c78;
+      font-size: clamp(15px, 1.4vw, 18px);
+      line-height: 1.8;
     }
 
     .gallery-grid {
@@ -494,6 +516,102 @@
       color: rgba(255,255,255,.92);
       font-size: 15px;
       font-weight: 600;
+      text-align: center;
+    }
+
+    /* GEO content section added below the gallery */
+    .gallery-geo-section {
+      padding: 72px 0 78px;
+      background: linear-gradient(180deg, #fff 0%, #f7f9fd 55%, #fff 100%);
+    }
+
+    .gallery-geo {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .gallery-geo__block + .gallery-geo__block {
+      margin-top: 64px;
+      padding-top: 58px;
+      border-top: 1px solid var(--line);
+    }
+
+    .gallery-geo h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(25px, 2.5vw, 36px);
+      font-weight: 800;
+      line-height: 1.3;
+      text-align: center;
+    }
+
+    .gallery-systems {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 1160px;
+      margin: 30px auto 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: gallery-system;
+    }
+
+    .gallery-systems li {
+      position: relative;
+      min-height: 104px;
+      padding: 20px 20px 20px 74px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      color: #4f5c78;
+      font-size: 15px;
+      line-height: 1.55;
+      box-shadow: 0 10px 26px rgba(7, 18, 77, .06);
+      counter-increment: gallery-system;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .gallery-systems li::before {
+      content: counter(gallery-system, decimal-leading-zero);
+      position: absolute;
+      top: 50%;
+      left: 18px;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(36, 52, 191, .1);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 800;
+      transform: translateY(-50%);
+    }
+
+    .gallery-systems li:hover {
+      transform: translateY(-3px);
+      border-color: rgba(36, 52, 191, .28);
+      box-shadow: 0 16px 34px rgba(7, 18, 77, .1);
+    }
+
+    .gallery-systems strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #202743;
+      font-size: clamp(16px, 1.3vw, 19px);
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .gallery-geo__lead {
+      max-width: 900px;
+      margin: 16px auto 0;
+      color: #4f5c78;
+      font-size: clamp(16px, 1.5vw, 18px);
+      line-height: 1.85;
       text-align: center;
     }
 
@@ -815,15 +933,20 @@
         text-align: center;
         background:
           linear-gradient(180deg, rgba(7, 18, 77, .62), rgba(7, 18, 77, .42)),
-          url("assets/hero/banner-factory02.jpg") center / cover no-repeat;
+          url("assets/banners/gallery-hero-v3.png") center / cover no-repeat;
       }
       .article-hero h1 { font-size: 34px; }
       .article-hero p { margin-left: auto; margin-right: auto; }
       .gallery-section { padding: 40px 0 52px; }
+      .gallery-intro { margin-bottom: 30px; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       .gallery-lightbox { padding: 16px; }
       .gallery-lightbox__prev { left: 8px; }
       .gallery-lightbox__next { right: 8px; }
+      .gallery-geo-section { padding: 52px 0 58px; }
+      .gallery-geo__block + .gallery-geo__block { margin-top: 48px; padding-top: 44px; }
+      .gallery-systems { grid-template-columns: 1fr; gap: 12px; }
+      .gallery-systems li { min-height: 96px; padding: 18px 18px 18px 70px; }
       .newsletter-inner {
         display: block;
         text-align: center;
@@ -963,13 +1086,16 @@
   <main>
     <section class="article-hero">
       <div class="container article-hero__inner">
-        <h1>แกลเลอรี</h1>
-        <p>ประมวลภาพงานติดตั้ง อบรม กิจกรรม และระบบจากทีม Rano Tech</p>
+        <h1>แกลเลอรีผลงานและกิจกรรมจาก Rano Tech</h1>
       </div>
     </section>
 
     <section class="gallery-section" aria-label="ประมวลภาพ">
       <div class="container">
+        <div class="gallery-intro">
+          <p class="gallery-intro__lead">รวมภาพงานติดตั้ง ระบบอุตสาหกรรม การอบรม และกิจกรรมจากทีม Rano Tech ครอบคลุมงานระบบท่อ Heat Exchanger, Thermal Engineering, CIP, UHT, Smart Clamp และโซลูชันสำหรับงานอุตสาหกรรม</p>
+          <p class="gallery-intro__detail">ภาพในแกลเลอรีสะท้อนประสบการณ์จากงานจริง ทั้งการติดตั้งระบบ การให้คำปรึกษาหน้างาน การอบรม และการสนับสนุนด้านวิศวกรรมสำหรับลูกค้าในหลากหลายอุตสาหกรรม</p>
+        </div>
         <div class="gallery-grid" id="galleryGrid">
           <button class="gallery-item" type="button" data-full="assets/about/about-industrial-team.png" aria-label="ทีมงานหน้างาน">
             <img src="assets/about/about-industrial-team.png" alt="ทีมงานหน้างาน" loading="lazy">
@@ -1082,6 +1208,32 @@
       </button>
       <p class="gallery-lightbox__caption" id="galleryCaption"></p>
     </div>
+
+    <!-- GEO content section: systems and engineering experience -->
+    <section class="gallery-geo-section" aria-label="ตัวอย่างระบบและประสบการณ์ด้านวิศวกรรม">
+      <div class="container">
+        <div class="gallery-geo">
+          <section class="gallery-geo__block" aria-labelledby="gallery-systems-title">
+            <h2 id="gallery-systems-title">ตัวอย่างระบบและงานที่ Rano Tech ให้บริการ</h2>
+            <ul class="gallery-systems">
+              <li><strong>ระบบ CIP และ UHT</strong>สำหรับกระบวนการผลิตที่ต้องควบคุมความสะอาดและอุณหภูมิ</li>
+              <li><strong>Solvent Recovery</strong>ระบบสำหรับการนำสารกลับมาใช้ใหม่ในกระบวนการผลิต</li>
+              <li><strong>Reactor System</strong>ระบบสำหรับกระบวนการผลิตที่ต้องควบคุมเงื่อนไขการทำงาน</li>
+              <li><strong>Gas Cooling / Heating</strong>ระบบควบคุมอุณหภูมิของก๊าซ</li>
+              <li><strong>Evaporative Condenser</strong>ระบบระบายความร้อนสำหรับงานอุตสาหกรรม</li>
+              <li><strong>Heat Exchanger</strong>ระบบแลกเปลี่ยนความร้อนสำหรับ Heating / Cooling</li>
+              <li><strong>RNT Smart Clamp</strong>งานต่อและซ่อมระบบท่อ</li>
+              <li><strong>PPR Pipe System</strong>งานติดตั้งระบบท่อและข้อต่อ</li>
+            </ul>
+          </section>
+
+          <section class="gallery-geo__block" aria-labelledby="gallery-experience-title">
+            <h2 id="gallery-experience-title">จากภาพหน้างาน สู่ประสบการณ์ด้านวิศวกรรม</h2>
+            <p class="gallery-geo__lead">Rano Tech สนับสนุนลูกค้าตั้งแต่การให้คำปรึกษา เลือกอุปกรณ์ ออกแบบระบบ ติดตั้ง ไปจนถึง Commissioning และบริการหลังการขาย โดยทีมวิศวกรและทีมเทคนิคที่มีประสบการณ์ในงานระบบอุตสาหกรรม</p>
+          </section>
+        </div>
+      </div>
+    </section>
 
     <section class="newsletter">
       <div class="container newsletter-inner">

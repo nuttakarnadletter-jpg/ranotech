@@ -349,7 +349,7 @@
       color: #fff;
       background:
         linear-gradient(90deg, rgba(7, 18, 77, .68) 0%, rgba(7, 18, 77, .52) 48%, rgba(7, 18, 77, .22) 100%),
-        url("assets/banners/training-banner.jpg?v=1") center / cover no-repeat;
+        url("assets/banners/training-banner-v2.png") center / cover no-repeat;
     }
 
     .article-hero__inner {
@@ -378,7 +378,7 @@
       max-width: none;
       margin: 22px auto 0;
       color: rgba(255,255,255,.88);
-      font-size: clamp(16px, 1.7vw, 20px);
+      font-size: clamp(15px, 1.35vw, 18px);
       line-height: 1.65;
       white-space: nowrap;
     }
@@ -386,6 +386,31 @@
     .articles-section {
       padding: 64px 0 76px;
       background: linear-gradient(180deg, #fff, var(--soft));
+    }
+
+    .training-intro {
+      max-width: 1040px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .training-intro p {
+      margin: 0;
+      color: #4f5c78;
+      font-size: clamp(16px, 1.5vw, 18px);
+      line-height: 1.85;
+    }
+
+    .training-intro .training-intro__lead {
+      color: var(--navy);
+      font-size: clamp(18px, 1.8vw, 23px);
+      font-weight: 800;
+      line-height: 1.65;
+    }
+
+    .training-intro__detail {
+      max-width: 940px;
+      margin: 14px auto 0 !important;
     }
 
     .article-grid {
@@ -551,12 +576,45 @@
       flex: 0 0 15px;
     }
 
+    /* GEO content section added above the training contact banner */
+    .training-geo-section {
+      padding: 72px 0 78px;
+      background: linear-gradient(180deg, #fff 0%, #f7f9fd 55%, #fff 100%);
+    }
+
+    .training-geo {
+      max-width: 1040px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .training-geo h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(25px, 2.5vw, 36px);
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .training-geo p {
+      margin: 16px auto 0;
+      color: #4f5c78;
+      font-size: clamp(16px, 1.5vw, 18px);
+      line-height: 1.85;
+    }
+
+    .training-geo strong {
+      color: #202743;
+      font-weight: 800;
+    }
+
     .newsletter {
-      padding: 54px 0;
+      padding: 46px 0;
       color: #fff;
       background:
-        linear-gradient(90deg, rgba(7, 18, 77, .92), rgba(36, 52, 159, .86)),
-        url("assets/hero/bg-herobanner-07-1.jpg") center / cover no-repeat;
+        linear-gradient(100deg, rgba(7, 18, 77, .94) 0%, rgba(18, 36, 120, .82) 52%, rgba(36, 52, 191, .7) 100%),
+        url("assets/banners/product-inquiry-banner.jpg") center / cover no-repeat;
+      box-shadow: 0 18px 40px rgba(7, 18, 77, .16);
     }
 
     .newsletter-inner {
@@ -568,15 +626,17 @@
 
     .newsletter h2 {
       margin: 0;
-      font-size: clamp(26px, 3vw, 42px);
-      line-height: 1.18;
+      font-size: clamp(22px, 2.1vw, 30px);
+      font-weight: 800;
+      line-height: 1.3;
     }
 
     .newsletter p {
       margin: 10px 0 0;
-      max-width: 880px;
+      max-width: 760px;
       color: rgba(255,255,255,.84);
-      white-space: nowrap;
+      line-height: 1.75;
+      white-space: normal;
     }
 
     .footer {
@@ -873,7 +933,7 @@
         text-align: center;
         background:
           linear-gradient(180deg, rgba(7, 18, 77, .62), rgba(7, 18, 77, .42)),
-          url("assets/banners/training-banner.jpg?v=1") center / cover no-repeat;
+          url("assets/banners/training-banner-v2.png") center / cover no-repeat;
       }
       .article-hero h1 { font-size: 34px; }
       .article-hero p {
@@ -883,7 +943,9 @@
         white-space: normal;
       }
       .articles-section { padding: 52px 0 58px; }
+      .training-intro { margin-bottom: 30px; }
       .article-grid { grid-template-columns: 1fr; gap: 14px; }
+      .training-geo-section { padding: 52px 0 58px; }
       .article-image { min-height: 210px; }
       .article-body { padding: 12px 0 0; text-align: left; }
       .article-meta { justify-content: center; }
@@ -1032,13 +1094,16 @@
   <main>
     <section class="article-hero">
       <div class="container article-hero__inner">
-        <h1>การอบรม / เวิร์กชอป</h1>
-        <p>รวมกิจกรรมอบรมและเวิร์กชอปจากทีม Rano Tech สำหรับทีมช่าง วิศวกร และฝ่ายซ่อมบำรุง</p>
+        <h1>การอบรมและเวิร์กชอป<br>ด้านระบบท่อจาก Rano Tech</h1>
       </div>
     </section>
 
     <section class="articles-section" id="all">
       <div class="container">
+        <div class="training-intro">
+          <p class="training-intro__lead">รวมกิจกรรมอบรมด้านการเชื่อมท่อ PPR และ HDPE การใช้งานเครื่องเชื่อม และเทคนิคงานระบบ<br>สำหรับทีมช่าง วิศวกร และฝ่ายซ่อมบำรุง</p>
+          <p class="training-intro__detail">Rano Tech จัดอบรมทั้งภาคทฤษฎีและการสาธิตการใช้งาน เพื่อช่วยให้ผู้ปฏิบัติงานเข้าใจขั้นตอนการทำงาน เลือกอุปกรณ์ได้เหมาะสม และลดข้อผิดพลาดที่อาจเกิดขึ้นระหว่างติดตั้ง</p>
+        </div>
         <div class="article-grid">
           <a class="article-card" id="t1" href="contact.html">
             <div class="article-image" style="background-image:url('assets/training/training-01.jpg')" role="img" aria-label="ฝึกอบรมยกระดับฝีมือการเชื่อมท่อ HDPE และ ท่อ PP-R"></div>
@@ -1100,12 +1165,22 @@
       </div>
     </section>
 
-    <section class="newsletter">
+    <!-- GEO content section: training topics and formats -->
+    <section class="training-geo-section" aria-labelledby="training-coverage-title">
+      <div class="container">
+        <div class="training-geo">
+          <h2 id="training-coverage-title">การอบรม Rano Tech ครอบคลุมเรื่องอะไร?</h2>
+          <p>Rano Tech ให้บริการอบรมและเวิร์กชอปเกี่ยวกับ <strong>ระบบท่อ PPR และ HDPE การใช้งานเครื่องเชื่อม เทคนิคการเชื่อม และแนวทางตรวจสอบอุปกรณ์ก่อนเข้าหน้างาน</strong> โดยสามารถจัดรูปแบบหัวข้อให้เหมาะกับทีมและลักษณะงานของแต่ละองค์กร</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-width training contact banner -->
+    <section class="newsletter" aria-labelledby="training-booking-title">
       <div class="container newsletter-inner">
         <div>
-          <p class="kicker">Book Training</p>
-          <h2>ต้องการจัดอบรมให้ทีมของคุณ?</h2>
-          <p>ส่งหัวข้อที่สนใจ จำนวนผู้เข้าอบรม และรูปแบบที่ต้องการ ทีม Rano Tech จะช่วยแนะนำรอบหรือออกแบบเวิร์กชอปให้เหมาะกับหน้างาน</p>
+          <h2 id="training-booking-title">ต้องการจัดอบรมให้ทีมของคุณ?</h2>
+          <p>แจ้งหัวข้อ จำนวนผู้เข้าอบรม และลักษณะงาน ทีม Rano Tech พร้อมช่วยวางรูปแบบ Training หรือ Workshop ให้เหมาะกับการใช้งานจริง</p>
         </div>
         <a class="btn" href="contact.html">ติดต่อจองอบรม</a>
       </div>
